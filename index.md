@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Welcome to My Portofolio
 
-You can use the [editor on GitHub](https://github.com/dhnugroho/dhnugroho.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+“It’s never been easy to learn something new, but there are no hard things to do when you think you can do then you do with your best”
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Passion
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+My Passion in Art and Technology i will combine be awesome work
 
 ```markdown
-Syntax highlighted code block
+Skill Set
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# HTML
+## CSS
+### JAVASCRIPT
+#### SQL
+##### ILUSTRATOR (Design)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dhnugroho/dhnugroho.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+For more details see [My Linkedin](https://www.linkedin.com/in/dhani-nugroho-a6475664/).
