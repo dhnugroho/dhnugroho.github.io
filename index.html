@@ -1,465 +1,403 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dhani Nugroho — Fullstack Engineer, Digital Nomad, and Explorer. Based in Jakarta, Indonesia. Portfolio showcasing web development, design, and engineering projects.">
+  <meta name="author" content="Dhani Nugroho">
+  <meta name="theme-color" content="#0a0e17">
 
-  <title>CreativePreneur</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dhani Nugroho — Fullstack Engineer & Digital Nomad">
+  <meta property="og:description" content="Portfolio of Dhani Nugroho — Fullstack Engineer exploring the world through code.">
+  <meta property="og:type" content="website">
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <title>Dhani Nugroho — Fullstack Engineer & Digital Nomad</title>
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-    type="text/css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-
-  <!-- Custom styles for this template -->
-  <link href="css/freelancer.min.css" rel="stylesheet">
-
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="page-top">
+<body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">DHANI NUGROHO</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button"
-        data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
-        Menu
-        <i class="fa fa-bars"></i>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav id="mainNav">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand">dhani<span>.</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Header -->
-  <header class="masthead bg-primary text-white text-center">
-    <div class="container">
-      <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-      <h1 class="text-uppercase mb-0">Hi, I'm Digital Nomad</h1>
-      <hr class="star-light">
-      <h2 class="font-weight-light mb-0">Fullstack Engineer</h2>
+
+  <!-- ======================== HERO ======================== -->
+  <header id="hero">
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-content">
+      <img class="hero-avatar" src="img/profile.png" alt="Dhani Nugroho — Profile Photo" width="140" height="140">
+
+      <p class="hero-greeting">// hello, world</p>
+
+      <h1 class="hero-name">
+        I'm <span class="accent">Dhani Nugroho</span>
+      </h1>
+
+      <p class="hero-tagline">
+        <span id="typedText"></span><span class="typed-cursor"></span>
+      </p>
+
+      <a href="#portfolio" class="hero-cta" id="heroCtaBtn">
+        Explore My Work
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </header>
 
-  <!-- Portfolio Grid Section -->
-  <section class="portfolio" id="portfolio">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-      <hr class="star-dark mb-5">
-      <div class="row">
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fa fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/siluet_new.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fa fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/travel.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fa fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/portofolio.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-7">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fa fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/crm.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-8">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fa fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/hotel.jpg" alt="">
-          </a>
-        </div>
+
+  <main>
+    <!-- ======================== TECH STRIP ======================== -->
+    <div class="tech-strip">
+      <div class="tech-strip-inner">
+        <span>HTML & CSS</span>
+        <span>JavaScript</span>
+        <span>ASP.NET</span>
+        <span>React</span>
+        <span>Node.js</span>
+        <span>jQuery</span>
+        <span>Bootstrap</span>
+        <span>Corel Draw</span>
+        <span>Fullstack</span>
+        <span>REST APIs</span>
+        <span>SQL</span>
+        <span>Git</span>
       </div>
     </div>
-  </section>
 
-  <!-- About Section -->
-  <section class="bg-primary text-white mb-0" id="about">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-white">About</h2>
-      <hr class="star-light mb-5">
-      <div class="row">
-          <div class="col-lg-12 ml-auto">
-              <p class="lead">
-                  “a lifelong learner - It’s never been easy to learn something new, but there are no hard things to do when you
-                  think you can do then you do with your best :)”
-              </p>
-              <p class="lead">
-                  “Move around, be nomadic, make each day a new horizon.” ― Alexander Supertramp Chris McCandless
-              </p>
+
+    <!-- ======================== PORTFOLIO ======================== -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="portfolio-header reveal">
+          <span class="section-label">Selected Work</span>
+          <h2 class="section-title">Portfolio</h2>
+          <p class="section-subtitle">A curated collection of projects across web development, design, and engineering.</p>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <!-- Card 1: Vector -->
+          <div class="portfolio-card reveal reveal-delay-1"
+               id="portfolio-card-1"
+               data-image="img/portfolio/siluet_new.png"
+               data-title="Vector Illustration"
+               data-description="A collection of vector illustrations and silhouette designs built with Corel Draw. This project explores visual storytelling through clean geometric forms and bold silhouettes, demonstrating design capability beyond code."
+               data-tags="Corel Draw, Vector, Illustration, Design">
+            <div class="portfolio-card-image">
+              <img src="img/portfolio/siluet_new.png" alt="Vector illustration project" loading="lazy">
+              <div class="portfolio-card-overlay">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  View Details
+                </span>
+              </div>
+            </div>
+            <div class="portfolio-card-body">
+              <h3>Vector Illustration</h3>
+              <p>Silhouette and vector art designed in Corel Draw for various creative projects.</p>
+              <div class="portfolio-card-tags">
+                <span>Corel Draw</span>
+                <span>Vector</span>
+                <span>Design</span>
+              </div>
+            </div>
           </div>
-      </div>
 
-    </div>
-  </section>
+          <!-- Card 2: Travel -->
+          <div class="portfolio-card reveal reveal-delay-2"
+               id="portfolio-card-2"
+               data-image="img/portfolio/travel.png"
+               data-title="Travel Web Application"
+               data-description="A public-facing travel request web application. Implemented mockup designs into fully functional web pages using HTML, CSS, and JavaScript on the front end, with ASP.NET powering the backend. The platform enables users to submit and manage travel requests seamlessly."
+               data-tags="HTML, CSS, JavaScript, ASP.NET, Frontend">
+            <div class="portfolio-card-image">
+              <img src="img/portfolio/travel.png" alt="Travel web application" loading="lazy">
+              <div class="portfolio-card-overlay">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  View Details
+                </span>
+              </div>
+            </div>
+            <div class="portfolio-card-body">
+              <h3>Travel Web Application</h3>
+              <p>Mockup-to-code implementation with HTML, CSS & JS frontend and ASP.NET backend.</p>
+              <div class="portfolio-card-tags">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>ASP.NET</span>
+              </div>
+            </div>
+          </div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-      <hr class="star-dark mb-5">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-          <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-          <form name="sentMessage" id="contactForm" novalidate="novalidate">
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Name</label>
-                <input class="form-control" id="name" type="text" placeholder="Name" required="required"
-                  data-validation-required-message="Please enter your name.">
-                <p class="help-block text-danger"></p>
+          <!-- Card 3: Portfolio Digital -->
+          <div class="portfolio-card reveal reveal-delay-3"
+               id="portfolio-card-3"
+               data-image="img/portfolio/portofolio.png"
+               data-title="Digital Portfolio"
+               data-description="A personal digital portfolio website built with a customized Bootstrap template. The project involved extensive HTML and CSS modifications to create a unique, branded online presence that showcases professional work and skills."
+               data-tags="Bootstrap, HTML, CSS, Portfolio, Web Design">
+            <div class="portfolio-card-image">
+              <img src="img/portfolio/portofolio.png" alt="Digital portfolio project" loading="lazy">
+              <div class="portfolio-card-overlay">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  View Details
+                </span>
               </div>
             </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Email Address</label>
-                <input class="form-control" id="email" type="email" placeholder="Email Address" required="required"
-                  data-validation-required-message="Please enter your email address.">
-                <p class="help-block text-danger"></p>
+            <div class="portfolio-card-body">
+              <h3>Digital Portfolio</h3>
+              <p>Custom Bootstrap-based portfolio with tailored HTML & CSS design work.</p>
+              <div class="portfolio-card-tags">
+                <span>Bootstrap</span>
+                <span>HTML</span>
+                <span>CSS</span>
               </div>
             </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Phone Number</label>
-                <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required"
-                  data-validation-required-message="Please enter your phone number.">
-                <p class="help-block text-danger"></p>
+          </div>
+
+          <!-- Card 4: CRM Mobile -->
+          <div class="portfolio-card reveal reveal-delay-4"
+               id="portfolio-card-4"
+               data-image="img/portfolio/crm.jpg"
+               data-title="CRM Mobile"
+               data-description="A mobile-optimized web version of a Customer Relationship Management application. Built using jQuery for interactive functionality, with custom HTML and CSS ensuring a smooth, responsive experience across mobile devices."
+               data-tags="jQuery, HTML, CSS, Mobile, CRM">
+            <div class="portfolio-card-image">
+              <img src="img/portfolio/crm.jpg" alt="CRM Mobile application" loading="lazy">
+              <div class="portfolio-card-overlay">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  View Details
+                </span>
               </div>
             </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Message</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required"
-                  data-validation-required-message="Please enter a message."></textarea>
-                <p class="help-block text-danger"></p>
+            <div class="portfolio-card-body">
+              <h3>CRM Mobile</h3>
+              <p>Mobile web CRM application built with jQuery, HTML & CSS for responsive workflows.</p>
+              <div class="portfolio-card-tags">
+                <span>jQuery</span>
+                <span>Mobile</span>
+                <span>CRM</span>
               </div>
             </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+          </div>
+
+          <!-- Card 5: Hotel -->
+          <div class="portfolio-card reveal reveal-delay-5"
+               id="portfolio-card-5"
+               data-image="img/portfolio/hotel.jpg"
+               data-title="Hotel Reservation System"
+               data-description="A hotel reservation page designed and developed from scratch using CSS and HTML. The project focused on creating an intuitive booking interface with clean visual hierarchy and responsive layout for hospitality clients."
+               data-tags="HTML, CSS, Web Design, Hospitality">
+            <div class="portfolio-card-image">
+              <img src="img/portfolio/hotel.jpg" alt="Hotel reservation system" loading="lazy">
+              <div class="portfolio-card-overlay">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  View Details
+                </span>
+              </div>
             </div>
-          </form>
+            <div class="portfolio-card-body">
+              <h3>Hotel Reservation</h3>
+              <p>Intuitive hotel booking page built from scratch with HTML & CSS.</p>
+              <div class="portfolio-card-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Web Design</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer text-center">
+
+    <!-- ======================== PORTFOLIO MODAL ======================== -->
+    <div class="modal-backdrop" id="portfolioModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+        <img class="modal-image" id="modalImage" src="" alt="">
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="portfolio-card-tags" id="modalTags"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================== ABOUT ======================== -->
+    <section id="about">
+      <div class="container">
+        <div class="about-layout">
+
+          <div class="about-text">
+            <span class="section-label reveal">About Me</span>
+            <h2 class="section-title reveal">A lifelong learner,<br><span class="gradient-text">always exploring.</span></h2>
+
+            <p class="reveal">
+              It's never been easy to learn something new, but there are no hard things to do when you think you can — then you do it with your best. I build for the web, design with intention, and constantly push into unfamiliar territory.
+            </p>
+
+            <div class="about-quote reveal">
+              <p>"Move around, be nomadic, make each day a new horizon."</p>
+              <cite>— Alexander Supertramp (Chris McCandless)</cite>
+            </div>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat-card reveal reveal-delay-1">
+              <div class="stat-icon">🚀</div>
+              <div class="stat-value">5+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-2">
+              <div class="stat-icon">⚡</div>
+              <div class="stat-value">Full</div>
+              <div class="stat-label">Stack</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+              <div class="stat-icon">🌏</div>
+              <div class="stat-value">JKT</div>
+              <div class="stat-label">Based</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-4">
+              <div class="stat-icon">🧭</div>
+              <div class="stat-value">∞</div>
+              <div class="stat-label">Curiosity</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================== CONTACT ======================== -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="contact-info">
+            <span class="section-label reveal">Get in Touch</span>
+            <h2 class="section-title reveal">Let's build<br><span class="gradient-text">something together.</span></h2>
+            <p class="reveal">Have a project in mind or just want to connect? I'm always open to new opportunities and collaborations.</p>
+
+            <div class="reveal">
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-detail-text">
+                  <small>Location</small>
+                  <span>Jakarta, Indonesia</span>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div class="contact-detail-text">
+                  <small>LinkedIn</small>
+                  <a href="https://www.linkedin.com/in/dhnugroho/" target="_blank" rel="noopener noreferrer">linkedin.com/in/dhnugroho</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card reveal">
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" placeholder="Tell me about your project..." rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message →</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">Jakarta, Indonesia</p>
+      <div class="footer-inner">
+        <div class="footer-brand">dhani<span>.</span></div>
+
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/dhnugroho/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" id="footerLinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
         </div>
-        <div class="col-md-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Around the Web</h4>
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle"
-                href="https://www.linkedin.com/in/dhnugroho/" target="_blank">
-                <i class="fa fa-fw fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">Already for Freelance, please contact me by social media</p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Dhani Nugroho. All rights reserved.</p>
+        <div class="footer-location">
+          <div class="pulse-dot"></div>
+          Jakarta, Indonesia
         </div>
       </div>
     </div>
   </footer>
 
-  <div class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; My Portofolio 2018</small>
-    </div>
-  </div>
 
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-  <div class="scroll-to-top d-lg-none position-fixed ">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-  </div>
-
-  <!-- Portfolio Modals -->
-
-  <!-- Portfolio Modal 1 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/cabin.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
-              nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit
-              soluta, eos quod consequuntur itaque. Nam.</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/cake.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
-              nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit
-              soluta, eos quod consequuntur itaque. Nam.</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/circus.png" alt="">
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
-              nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit
-              soluta, eos quod consequuntur itaque. Nam.</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Vector</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/siluet_new.png" alt="">
-            <p class="mb-5">This Project Design is build with Corel Draw , and other project vector ilustration in my
-              Disk</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-5">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Front End Development</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/travel.png" alt="">
-            <p class="mb-5">Implement mockup design into web pages build with HTML, CSS & Javascript on backend with
-              ASP.Net , this web application running on public Web for user request travel </p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-6">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Portofolio Digital</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/portofolio.png" alt="">
-            <p class="mb-5">Build With Bootstrap Template with custom HTML & CSS</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 7 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-7">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">CRM Mobile</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/crm.jpg" alt="">
-            <p class="mb-5">Build mobile web version for CRM apps with JQuery, HTML & CSS</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 8 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-8">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Hotel</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/hotel.jpg" alt="">
-            <p class="mb-5">Build Hotel Reservation Page with CSS & HTML</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Modal 8 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-8">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Hotel</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/hotel.jpg" alt="">
-            <p class="mb-5">Build Hotel Reservation Page with CSS & HTML</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Contact Form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/freelancer.min.js"></script>
+  <!-- Scripts -->
+  <script src="main.js"></script>
 
 </body>
 
