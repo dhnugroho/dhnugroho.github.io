@@ -175,6 +175,7 @@
       typedElement.setAttribute('aria-atomic', 'true');
 
       const phrases = [
+        'Pragmatic Programmer',
         'Fullstack Engineer',
         'Digital Nomad',
         'Lifelong Learner',
@@ -366,11 +367,11 @@
     //    Accessibility: role=dialog, aria-modal, focus trap, keyboard dismiss
     // =========================================
     const modalBackdrop = document.getElementById('portfolioModal');
-    const modalImage    = document.getElementById('modalImage');
-    const modalTitle    = document.getElementById('modalTitle');
-    const modalDesc     = document.getElementById('modalDesc');
-    const modalTags     = document.getElementById('modalTags');
-    const modalClose    = document.getElementById('modalClose');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalTags = document.getElementById('modalTags');
+    const modalClose = document.getElementById('modalClose');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
 
     // Elements that can receive focus, for focus-trap
@@ -399,17 +400,17 @@
       if (!modalBackdrop) return;
 
       // Read data — will be set as textContent only
-      const img  = card.dataset.image  || '';
+      const img = card.dataset.image || '';
       const title = card.dataset.title || '';
-      const desc  = card.dataset.description || '';
-      const tags  = card.dataset.tags  || '';
+      const desc = card.dataset.description || '';
+      const tags = card.dataset.tags || '';
 
       if (modalImage) {
         modalImage.src = img;
         modalImage.alt = title; // descriptive alt for accessibility
       }
       if (modalTitle) modalTitle.textContent = title;
-      if (modalDesc)  modalDesc.textContent  = desc;
+      if (modalDesc) modalDesc.textContent = desc;
       renderTags(tags);
 
       // Trap focus inside modal
@@ -442,7 +443,7 @@
         const focusable = Array.from(modalBackdrop.querySelectorAll(FOCUSABLE));
         if (focusable.length === 0) return;
         const first = focusable[0];
-        const last  = focusable[focusable.length - 1];
+        const last = focusable[focusable.length - 1];
 
         if (e.shiftKey) {
           if (document.activeElement === first) {
@@ -512,8 +513,8 @@
       contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const nameEl    = document.getElementById('contactName');
-        const emailEl   = document.getElementById('contactEmail');
+        const nameEl = document.getElementById('contactName');
+        const emailEl = document.getElementById('contactEmail');
         const messageEl = document.getElementById('contactMessage');
         let valid = true;
 
@@ -551,7 +552,7 @@
         if (valid) {
           // Static hosting: use mailto as fallback
           const subject = encodeURIComponent('Portfolio Contact from ' + nameEl.value.trim());
-          const body    = encodeURIComponent(
+          const body = encodeURIComponent(
             'Name: ' + nameEl.value.trim() +
             '\nEmail: ' + emailEl.value.trim() +
             '\n\nMessage:\n' + messageEl.value.trim()

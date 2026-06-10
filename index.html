@@ -4,21 +4,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dhani Nugroho — Fullstack Engineer, Digital Nomad, and Explorer. Based in Jakarta, Indonesia. Portfolio showcasing web development, design, and engineering projects.">
+  <meta name="description"
+    content="Dhani Nugroho — Fullstack Engineer, Digital Nomad, and Explorer. Based in Jakarta, Indonesia. Portfolio showcasing web development, design, and engineering projects.">
   <meta name="author" content="Dhani Nugroho">
   <meta name="theme-color" content="#0a0e17">
 
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'none'; object-src 'none'; frame-ancestors 'none';">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Dhani Nugroho — Fullstack Engineer & Digital Nomad">
-  <meta property="og:description" content="Portfolio of Dhani Nugroho — Fullstack Engineer exploring the world through code.">
+  <meta property="og:description"
+    content="Portfolio of Dhani Nugroho — Fullstack Engineer exploring the world through code.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="img/profile.png">
 
   <title>Dhani Nugroho — Fullstack Engineer & Digital Nomad</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -35,7 +44,8 @@
     <div class="container nav-inner">
       <a href="#hero" class="nav-brand">dhani<span>.</span></a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">
         <span></span>
         <span></span>
         <span></span>
@@ -43,6 +53,7 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -69,7 +80,8 @@
 
       <a href="#portfolio" class="hero-cta" id="heroCtaBtn">
         Explore My Work
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="12" y1="5" x2="12" y2="19"></line>
           <polyline points="19 12 12 19 5 12"></polyline>
         </svg>
@@ -109,23 +121,29 @@
         <div class="portfolio-header reveal">
           <span class="section-label">Selected Work</span>
           <h2 class="section-title">Portfolio</h2>
-          <p class="section-subtitle">A curated collection of projects across web development, design, and engineering.</p>
+          <p class="section-subtitle">A curated collection of projects across manual design vector, web development, and
+            engineering.
+          </p>
         </div>
 
         <div class="portfolio-grid">
 
           <!-- Card 1: Vector -->
-          <div class="portfolio-card reveal reveal-delay-1"
-               id="portfolio-card-1"
-               data-image="img/portfolio/siluet_new.png"
-               data-title="Vector Illustration"
-               data-description="A collection of vector illustrations and silhouette designs built with Corel Draw. This project explores visual storytelling through clean geometric forms and bold silhouettes, demonstrating design capability beyond code."
-               data-tags="Corel Draw, Vector, Illustration, Design">
+          <div class="portfolio-card reveal reveal-delay-1" id="portfolio-card-1" role="button" tabindex="0"
+            aria-label="Open Vector Illustration project details" data-image="img/portfolio/siluet_new.png"
+            data-title="Vector Illustration"
+            data-description="A collection of vector illustrations and silhouette designs built with Corel Draw. This project explores visual storytelling through clean geometric forms and bold silhouettes, demonstrating design capability beyond code."
+            data-tags="Corel Draw, Vector, Illustration, Design">
             <div class="portfolio-card-image">
               <img src="img/portfolio/siluet_new.png" alt="Vector illustration project" loading="lazy">
               <div class="portfolio-card-overlay">
                 <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
                   View Details
                 </span>
               </div>
@@ -142,17 +160,21 @@
           </div>
 
           <!-- Card 2: Travel -->
-          <div class="portfolio-card reveal reveal-delay-2"
-               id="portfolio-card-2"
-               data-image="img/portfolio/travel.png"
-               data-title="Travel Web Application"
-               data-description="A public-facing travel request web application. Implemented mockup designs into fully functional web pages using HTML, CSS, and JavaScript on the front end, with ASP.NET powering the backend. The platform enables users to submit and manage travel requests seamlessly."
-               data-tags="HTML, CSS, JavaScript, ASP.NET, Frontend">
+          <div class="portfolio-card reveal reveal-delay-2" id="portfolio-card-2" role="button" tabindex="0"
+            aria-label="Open Travel Web Application project details" data-image="img/portfolio/travel.png"
+            data-title="Travel Web Application"
+            data-description="A public-facing travel request web application. Implemented mockup designs into fully functional web pages using HTML, CSS, and JavaScript on the front end, with ASP.NET powering the backend. The platform enables users to submit and manage travel requests seamlessly."
+            data-tags="HTML, CSS, JavaScript, ASP.NET, Frontend">
             <div class="portfolio-card-image">
               <img src="img/portfolio/travel.png" alt="Travel web application" loading="lazy">
               <div class="portfolio-card-overlay">
                 <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
                   View Details
                 </span>
               </div>
@@ -169,17 +191,21 @@
           </div>
 
           <!-- Card 3: Portfolio Digital -->
-          <div class="portfolio-card reveal reveal-delay-3"
-               id="portfolio-card-3"
-               data-image="img/portfolio/portofolio.png"
-               data-title="Digital Portfolio"
-               data-description="A personal digital portfolio website built with a customized Bootstrap template. The project involved extensive HTML and CSS modifications to create a unique, branded online presence that showcases professional work and skills."
-               data-tags="Bootstrap, HTML, CSS, Portfolio, Web Design">
+          <div class="portfolio-card reveal reveal-delay-3" id="portfolio-card-3" role="button" tabindex="0"
+            aria-label="Open Digital Portfolio project details" data-image="img/portfolio/portofolio.png"
+            data-title="Digital Portfolio"
+            data-description="A personal digital portfolio website built with a customized Bootstrap template. The project involved extensive HTML, JavaScript and CSS modifications to create a unique, branded online presence that showcases professional work and skills."
+            data-tags="Bootstrap, HTML, CSS, Portfolio, Web Design">
             <div class="portfolio-card-image">
               <img src="img/portfolio/portofolio.png" alt="Digital portfolio project" loading="lazy">
               <div class="portfolio-card-overlay">
                 <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
                   View Details
                 </span>
               </div>
@@ -196,17 +222,20 @@
           </div>
 
           <!-- Card 4: CRM Mobile -->
-          <div class="portfolio-card reveal reveal-delay-4"
-               id="portfolio-card-4"
-               data-image="img/portfolio/crm.jpg"
-               data-title="CRM Mobile"
-               data-description="A mobile-optimized web version of a Customer Relationship Management application. Built using jQuery for interactive functionality, with custom HTML and CSS ensuring a smooth, responsive experience across mobile devices."
-               data-tags="jQuery, HTML, CSS, Mobile, CRM">
+          <div class="portfolio-card reveal reveal-delay-4" id="portfolio-card-4" role="button" tabindex="0"
+            aria-label="Open CRM Mobile project details" data-image="img/portfolio/crm.jpg" data-title="CRM Mobile"
+            data-description="A mobile-optimized web version of a Customer Relationship Management application. Built using jQuery for interactive functionality, with custom HTML and CSS ensuring a smooth, responsive experience across mobile devices."
+            data-tags="jQuery, HTML, CSS, Mobile, CRM">
             <div class="portfolio-card-image">
               <img src="img/portfolio/crm.jpg" alt="CRM Mobile application" loading="lazy">
               <div class="portfolio-card-overlay">
                 <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
                   View Details
                 </span>
               </div>
@@ -223,17 +252,21 @@
           </div>
 
           <!-- Card 5: Hotel -->
-          <div class="portfolio-card reveal reveal-delay-5"
-               id="portfolio-card-5"
-               data-image="img/portfolio/hotel.jpg"
-               data-title="Hotel Reservation System"
-               data-description="A hotel reservation page designed and developed from scratch using CSS and HTML. The project focused on creating an intuitive booking interface with clean visual hierarchy and responsive layout for hospitality clients."
-               data-tags="HTML, CSS, Web Design, Hospitality">
+          <div class="portfolio-card reveal reveal-delay-5" id="portfolio-card-5" role="button" tabindex="0"
+            aria-label="Open Hotel Reservation System project details" data-image="img/portfolio/hotel.jpg"
+            data-title="Hotel Reservation System"
+            data-description="A hotel reservation page designed and developed from scratch using CSS and HTML. The project focused on creating an intuitive booking interface with clean visual hierarchy and responsive layout for hospitality clients."
+            data-tags="HTML, CSS, Web Design, Hospitality">
             <div class="portfolio-card-image">
               <img src="img/portfolio/hotel.jpg" alt="Hotel reservation system" loading="lazy">
               <div class="portfolio-card-overlay">
                 <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
                   View Details
                 </span>
               </div>
@@ -249,13 +282,45 @@
             </div>
           </div>
 
+          <!-- Card 6: Custom CRM -->
+          <div class="portfolio-card reveal reveal-delay-6" id="portfolio-card-6" role="button" tabindex="0"
+            aria-label="Open Custom CRM project details" data-image="img/portfolio/custom-crm.png"
+            data-title="Custom CRM & CMS"
+            data-description="A tailored Customer Relationship Management solution designed for the Philippine market. Focused on high-stakes user engagement, this project involved a complete UI/UX revamp of the CMS and backend logic enhancement to power a successful door-prize system, resulting in increased operational efficiency and user retention."
+            data-tags="UI/UX, CMS Revamp, Backend Logic, CRM">
+            <div class="portfolio-card-image">
+              <img src="img/portfolio/custom-crm.png" alt="Custom CRM platform" loading="lazy">
+              <div class="portfolio-card-overlay">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  </svg>
+                  View Details
+                </span>
+              </div>
+            </div>
+            <div class="portfolio-card-body">
+              <h3>Custom CRM & CMS</h3>
+              <p>Revamped UI with modernized CMS and optimized backend logic for localized market growth.</p>
+              <div class="portfolio-card-tags">
+                <span>UI/UX</span>
+                <span>CMS</span>
+                <span>Backend</span>
+                <span>CRM</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
 
     <!-- ======================== PORTFOLIO MODAL ======================== -->
-    <div class="modal-backdrop" id="portfolioModal">
+    <div class="modal-backdrop" id="portfolioModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-content">
         <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
         <img class="modal-image" id="modalImage" src="" alt="">
@@ -268,6 +333,619 @@
     </div>
 
 
+    <!-- ======================== PROJECTS SHOWCASE ======================== -->
+    <section id="projects">
+      <div class="container">
+        <div class="portfolio-header reveal">
+          <span class="section-label">Deep Dive</span>
+          <h2 class="section-title">Project Showcase</h2>
+          <p class="section-subtitle">End-to-end projects from architecture to delivery — each with a live UI mockup
+            re-build from the actual screens.</p>
+        </div>
+
+        <!-- PROJECT 1: CSR Web App -->
+        <div class="pj-item reveal">
+          <div class="pj-info">
+            <div class="pj-index">02</div>
+            <div class="pj-role-tag">Individual Contributor — Full-Stack Engineer</div>
+            <h3 class="pj-title">CSR Web Application</h3>
+            <p class="pj-desc">End-to-end CSR &amp; Budget Management System with interactive geospatial mapping of
+              program areas across Indonesia, dynamic priority scoring, and multi-level approval workflows for top
+              management.</p>
+            <ul class="pj-features">
+              <li>Social Mapping Data Collection with interactive map</li>
+              <li>Dynamic CSR Assessment Priority Allocation Dashboard</li>
+              <li>Annual Planning &amp; Implementation workflow</li>
+              <li>Budget Management &amp; Actualization</li>
+              <li>Approval Workflow for Top Management</li>
+              <li>Efficient Fund Allocation to Achieve CSR Targets</li>
+            </ul>
+            <div class="portfolio-card-tags" style="margin-top:1.25rem;">
+              <span>Full-Stack</span><span>Budget Management</span><span>OpenStreetMap</span><span>Approval
+                Flow</span><span>Dashboard</span>
+            </div>
+          </div>
+          <div class="pj-screens">
+            <div class="pj-browser">
+              <div class="pj-browser-bar">
+                <div class="pj-dot" style="background:#ff5f57"></div>
+                <div class="pj-dot" style="background:#febc2e"></div>
+                <div class="pj-dot" style="background:#28c840"></div>
+                <div class="pj-url">csr-system.internal / beranda</div>
+              </div>
+              <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
+                <rect width="560" height="340" fill="#f5f7fa" />
+                <!-- Sidebar -->
+                <rect width="138" height="340" fill="#1a2236" />
+                <rect x="0" y="0" width="138" height="46" fill="#243044" />
+                <text x="69" y="28" fill="#00e5ff" font-size="9" font-weight="bold" text-anchor="middle"
+                  font-family="monospace">CSR SYSTEM</text>
+                <rect x="10" y="56" width="118" height="22" rx="4" fill="#00e5ff" opacity="0.12" />
+                <rect x="18" y="62" width="6" height="6" rx="1" fill="#00e5ff" />
+                <text x="30" y="69" fill="#00e5ff" font-size="7" font-family="sans-serif">Beranda</text>
+                <rect x="18" y="86" width="6" height="6" rx="1" fill="#8892a4" />
+                <text x="30" y="93" fill="#8892a4" font-size="7" font-family="sans-serif">Pemetaan Sosial</text>
+                <rect x="18" y="106" width="6" height="6" rx="1" fill="#8892a4" />
+                <text x="30" y="113" fill="#8892a4" font-size="7" font-family="sans-serif">Perencanaan</text>
+                <rect x="18" y="126" width="6" height="6" rx="1" fill="#8892a4" />
+                <text x="30" y="133" fill="#8892a4" font-size="7" font-family="sans-serif">Budget</text>
+                <rect x="18" y="146" width="6" height="6" rx="1" fill="#8892a4" />
+                <text x="30" y="153" fill="#8892a4" font-size="7" font-family="sans-serif">Approval</text>
+                <!-- Header -->
+                <rect x="138" y="0" width="422" height="38" fill="#fff" stroke="#e8eaf0" stroke-width="0.5" />
+                <text x="152" y="23" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Beranda — CSR
+                  Priority Allocation</text>
+                <rect x="462" y="11" width="42" height="16" rx="3" fill="#f0f2f5" stroke="#dde1e8" stroke-width="0.5" />
+                <text x="483" y="22" fill="#555" font-size="6.5" text-anchor="middle" font-family="sans-serif">Area
+                  ▾</text>
+                <rect x="508" y="11" width="44" height="16" rx="3" fill="#f0f2f5" stroke="#dde1e8" stroke-width="0.5" />
+                <text x="530" y="22" fill="#555" font-size="6.5" text-anchor="middle" font-family="sans-serif">Tahun
+                  ▾</text>
+                <!-- Map area -->
+                <rect x="138" y="38" width="422" height="185" fill="#c9e8f5" />
+                <text x="152" y="60" fill="#334" font-size="8.5" font-weight="bold" font-family="sans-serif">Hover over
+                  CSR Priority Allocation areas</text>
+                <!-- Indonesia land masses -->
+                <ellipse cx="210" cy="148" rx="52" ry="30" fill="#a8c895" opacity="0.72"
+                  transform="rotate(-20,210,148)" />
+                <ellipse cx="330" cy="178" rx="60" ry="17" fill="#a8c895" opacity="0.72"
+                  transform="rotate(-5,330,178)" />
+                <ellipse cx="375" cy="135" rx="40" ry="40" fill="#a8c895" opacity="0.68" />
+                <ellipse cx="450" cy="134" rx="19" ry="32" fill="#a8c895" opacity="0.65"
+                  transform="rotate(15,450,134)" />
+                <ellipse cx="522" cy="148" rx="32" ry="24" fill="#a8c895" opacity="0.6" />
+                <!-- Bubble markers -->
+                <circle cx="278" cy="182" r="20" fill="#4466cc" opacity="0.68" />
+                <circle cx="298" cy="177" r="13" fill="#5577dd" opacity="0.60" />
+                <circle cx="345" cy="186" r="10" fill="#9966bb" opacity="0.65" />
+                <circle cx="368" cy="182" r="7" fill="#00e5ff" opacity="0.7" />
+                <circle cx="232" cy="148" r="9" fill="#cc4444" opacity="0.6" />
+                <!-- Map tooltip -->
+                <rect x="290" y="148" width="76" height="28" rx="3" fill="#fff" stroke="#dde" stroke-width="0.5" />
+                <text x="328" y="160" fill="#333" font-size="6" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Bontang</text>
+                <text x="328" y="170" fill="#00e5ff" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Score: 89 — Sangat Baik</text>
+                <text x="144" y="221" fill="#778" font-size="4.5" font-family="sans-serif">© OpenStreetMap
+                  contributors</text>
+                <!-- Score row -->
+                <rect x="138" y="223" width="422" height="117" fill="#fff" />
+                <!-- Score cards -->
+                <rect x="146" y="230" width="88" height="54" rx="4" fill="#f8fafc" stroke="#e8eaf0"
+                  stroke-width="0.5" />
+                <text x="157" y="243" fill="#4466cc" font-size="6" font-family="sans-serif">🎓 Pendidikan</text>
+                <text x="190" y="262" fill="#4466cc" font-size="17" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">68</text>
+                <text x="190" y="273" fill="#8899aa" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Baik</text>
+                <rect x="240" y="230" width="88" height="54" rx="4" fill="#f8fafc" stroke="#e8eaf0"
+                  stroke-width="0.5" />
+                <text x="251" y="243" fill="#cc4466" font-size="6" font-family="sans-serif">❤ Kesehatan</text>
+                <text x="284" y="262" fill="#cc4466" font-size="17" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">74</text>
+                <text x="284" y="273" fill="#8899aa" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Baik</text>
+                <rect x="334" y="230" width="88" height="54" rx="4" fill="#f8fafc" stroke="#e8eaf0"
+                  stroke-width="0.5" />
+                <text x="345" y="243" fill="#00b8a0" font-size="6" font-family="sans-serif">💼 Ekonomi</text>
+                <text x="378" y="262" fill="#00b8a0" font-size="17" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">77</text>
+                <text x="378" y="273" fill="#8899aa" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Baik</text>
+                <rect x="428" y="230" width="88" height="54" rx="4" fill="#e6fbf7" stroke="#00e5c8"
+                  stroke-width="0.8" />
+                <text x="439" y="243" fill="#009966" font-size="6" font-family="sans-serif">⭐ Total Skor</text>
+                <text x="472" y="262" fill="#009966" font-size="17" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">89</text>
+                <text x="472" y="273" fill="#009966" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Sangat Baik</text>
+                <!-- Table header -->
+                <rect x="138" y="292" width="422" height="17" fill="#f0f2f5" />
+                <text x="148" y="303" fill="#00e5ff" font-size="6" font-family="monospace">PERUSAHAAN</text>
+                <text x="240" y="303" fill="#00e5ff" font-size="6" font-family="monospace">LOKASI</text>
+                <text x="306" y="303" fill="#00e5ff" font-size="6" font-family="monospace">PENDIDIKAN</text>
+                <text x="382" y="303" fill="#00e5ff" font-size="6" font-family="monospace">TOTAL</text>
+                <text x="434" y="303" fill="#00e5ff" font-size="6" font-family="monospace">STATUS</text>
+                <rect x="138" y="309" width="422" height="14" fill="#fff" />
+                <text x="148" y="320" fill="#334" font-size="6" font-family="sans-serif">Corp Name — BTG</text>
+                <text x="240" y="320" fill="#556" font-size="6" font-family="sans-serif">Bontang</text>
+                <text x="318" y="320" fill="#556" font-size="6" font-family="sans-serif">68</text>
+                <text x="387" y="320" fill="#556" font-size="6" font-family="sans-serif">89</text>
+                <rect x="428" y="312" width="58" height="11" rx="3" fill="#009966" />
+                <text x="457" y="320" fill="#fff" font-size="5.5" text-anchor="middle" font-family="sans-serif">Sangat
+                  Baik</text>
+              </svg>
+            </div>
+            <!-- Budget overlay -->
+            <div class="pj-overlay-card">
+              <div class="pj-browser-bar" style="padding:0.35rem 0.75rem;">
+                <div class="pj-dot" style="background:#ff5f57;width:7px;height:7px;"></div>
+                <div class="pj-dot" style="background:#febc2e;width:7px;height:7px;"></div>
+                <div class="pj-url" style="font-size:0.52rem;">Budget Actualization</div>
+              </div>
+              <svg viewBox="0 0 270 168" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                <rect width="270" height="168" fill="#fff" />
+                <rect width="270" height="28" fill="#f0f2f5" />
+                <rect x="10" y="9" width="62" height="12" rx="3" fill="#4466cc" />
+                <text x="41" y="17" fill="#fff" font-size="6" text-anchor="middle" font-family="sans-serif">A.
+                  Planning</text>
+                <text x="82" y="17" fill="#8899cc" font-size="9">→</text>
+                <rect x="95" y="9" width="62" height="12" rx="3" fill="#7788cc" opacity="0.7" />
+                <text x="126" y="17" fill="#fff" font-size="6" text-anchor="middle" font-family="sans-serif">B.
+                  Implement</text>
+                <text x="167" y="17" fill="#8899cc" font-size="9">→</text>
+                <rect x="180" y="9" width="78" height="12" rx="3" fill="#4466cc" opacity="0.5" />
+                <text x="219" y="17" fill="#fff" font-size="6" text-anchor="middle" font-family="sans-serif">C. Budget
+                  Act.</text>
+                <text x="12" y="48" fill="#00e5ff" font-size="7.5" font-weight="bold" font-family="sans-serif">Detail
+                  Anggaran</text>
+                <rect x="10" y="54" width="116" height="32" rx="3" fill="#f8fafc" stroke="#e0e4f0" stroke-width="0.5" />
+                <text x="16" y="66" fill="#cc9933" font-size="6" font-family="sans-serif">Pra-Implementasi</text>
+                <text x="16" y="78" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Rp
+                  10.000.000</text>
+                <rect x="133" y="54" width="62" height="32" rx="3" fill="#f8fafc" stroke="#e0e4f0" stroke-width="0.5" />
+                <text x="139" y="66" fill="#8899aa" font-size="6" font-family="sans-serif">Implementasi</text>
+                <text x="139" y="78" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Rp 0</text>
+                <rect x="202" y="54" width="58" height="32" rx="3" fill="#fff0f0" stroke="#ffaaaa" stroke-width="0.5" />
+                <text x="208" y="66" fill="#cc4444" font-size="6" font-family="sans-serif">Selisih</text>
+                <text x="208" y="78" fill="#cc4444" font-size="8" font-weight="bold"
+                  font-family="sans-serif">10.000.000</text>
+                <rect x="10" y="96" width="250" height="14" fill="#f0f2f5" />
+                <text x="14" y="106" fill="#00e5ff" font-size="5.5" font-family="monospace">NAMA PENGELUARAN</text>
+                <text x="128" y="106" fill="#00e5ff" font-size="5.5" font-family="monospace">QTY</text>
+                <text x="162" y="106" fill="#00e5ff" font-size="5.5" font-family="monospace">JUMLAH (IDR)</text>
+                <rect x="10" y="110" width="250" height="13" fill="#fff" />
+                <text x="14" y="120" fill="#334" font-size="5.5" font-family="sans-serif">SA 1</text>
+                <text x="128" y="120" fill="#556" font-size="5.5" font-family="sans-serif">1000</text>
+                <text x="162" y="120" fill="#556" font-size="5.5" font-family="sans-serif">10.000.000</text>
+                <rect x="10" y="138" width="250" height="22" rx="3" fill="#fff8e8" stroke="#ffd566"
+                  stroke-width="0.5" />
+                <text x="16" y="152" fill="#cc8800" font-size="6" font-family="sans-serif">Status Dokumen: </text>
+                <text x="92" y="152" fill="#cc4444" font-size="6" font-weight="bold" font-family="sans-serif">Dokumen
+                  Tidak Lengkap</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Big Data Platform -->
+        <div class="pj-item pj-reverse reveal">
+          <div class="pj-info">
+            <div class="pj-index">03</div>
+            <div class="pj-role-tag">Project Manager &amp; Technical Lead</div>
+            <h3 class="pj-title">Big Data Platform</h3>
+            <p class="pj-desc">Centralized data platform enabling enterprise-wide data virtualization. Integrated
+              Salesforce via background API sync plus a multi-dataset web uploader (.NET) feeding Business Intelligence
+              dashboards.</p>
+            <ul class="pj-features">
+              <li>API Integration &amp; Background Sync (Salesforce)</li>
+              <li>Web Multiple Dataset Upload — .NET Framework</li>
+              <li>Insert Data Only &amp; Delete-Insert Periodic methods</li>
+              <li>Multiple data validation on Excel before upload</li>
+              <li>Data Virtualization via Denodo</li>
+              <li>BI output — Power BI / Tableau / MicroStrategy</li>
+            </ul>
+            <div class="portfolio-card-tags" style="margin-top:1.25rem;">
+              <span>Big Data</span><span>Salesforce API</span><span>.NET</span><span>Denodo</span><span>Power
+                BI</span><span>ETL</span>
+            </div>
+          </div>
+          <div class="pj-screens">
+            <div class="pj-browser">
+              <div class="pj-browser-bar">
+                <div class="pj-dot" style="background:#ff5f57"></div>
+                <div class="pj-dot" style="background:#febc2e"></div>
+                <div class="pj-dot" style="background:#28c840"></div>
+                <div class="pj-url">big-data-uploader.internal</div>
+              </div>
+              <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
+                <rect width="560" height="340" fill="#1a0808" />
+                <polygon points="280,0 560,0 560,130 450,0" fill="#cc2222" opacity="0.75" />
+                <polygon points="320,0 560,0 560,85" fill="#aa1111" opacity="0.45" />
+                <!-- Card -->
+                <rect x="65" y="38" width="430" height="268" rx="10" fill="#fff" />
+                <rect x="65" y="38" width="430" height="34" rx="10" fill="#f8f8f8" />
+                <rect x="65" y="60" width="430" height="12" fill="#f8f8f8" />
+                <text x="86" y="60" fill="#333" font-size="8.5" font-weight="bold" font-family="sans-serif">UI Big Data
+                  Uploader</text>
+                <rect x="441" y="47" width="44" height="16" rx="3" fill="#cc2222" />
+                <text x="463" y="58" fill="#fff" font-size="6.5" text-anchor="middle" font-family="sans-serif">Log
+                  Out</text>
+                <text x="280" y="112" fill="#222" font-size="17" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Big Data UI Uploader</text>
+                <text x="280" y="128" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Select
+                  Dataset</text>
+                <rect x="178" y="136" width="204" height="25" rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="1" />
+                <text x="194" y="151" fill="#333" font-size="8.5" font-family="sans-serif">TSIN</text>
+                <text x="366" y="151" fill="#888" font-size="9" font-family="sans-serif">▾</text>
+                <rect x="218" y="170" width="124" height="22" rx="4" fill="#00e5ff" />
+                <text x="280" y="184" fill="#0a0e17" font-size="8" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Submit File</text>
+                <!-- Method area -->
+                <rect x="85" y="204" width="390" height="90" rx="6" fill="#fafafa" stroke="#eee" stroke-width="1" />
+                <text x="102" y="220" fill="#555" font-size="7" font-family="sans-serif">Select Method</text>
+                <circle cx="102" cy="233" r="4.5" fill="none" stroke="#00e5ff" stroke-width="1.5" />
+                <circle cx="102" cy="233" r="2.5" fill="#00e5ff" />
+                <text x="112" y="237" fill="#333" font-size="7" font-family="sans-serif">Insert Data Only *</text>
+                <circle cx="210" cy="233" r="4.5" fill="none" stroke="#aaa" stroke-width="1.5" />
+                <text x="220" y="237" fill="#888" font-size="7" font-family="sans-serif">Delete - Insert Data **</text>
+                <text x="102" y="253" fill="#666" font-size="6.5" font-family="sans-serif">Date interval the uploaded
+                  file will be replaced</text>
+                <rect x="102" y="258" width="66" height="15" rx="3" fill="#fff" stroke="#ccc" stroke-width="0.8" />
+                <text x="114" y="268" fill="#444" font-size="6" font-family="sans-serif">01/03/2021</text>
+                <text x="174" y="268" fill="#666" font-size="6.5" font-family="sans-serif">to</text>
+                <rect x="186" y="258" width="66" height="15" rx="3" fill="#fff" stroke="#ccc" stroke-width="0.8" />
+                <text x="198" y="268" fill="#444" font-size="6" font-family="sans-serif">01/07/2021</text>
+                <rect x="102" y="278" width="78" height="12" rx="3" fill="#e8e8e8" stroke="#ccc" stroke-width="0.5" />
+                <text x="114" y="287" fill="#333" font-size="5.5" font-family="sans-serif">Choose Files</text>
+                <text x="186" y="287" fill="#999" font-size="5.5" font-family="sans-serif">No file chosen</text>
+                <!-- Download & action buttons -->
+                <rect x="102" y="295" width="62" height="12" rx="3" fill="#00e5ff" />
+                <text x="133" y="304" fill="#0a0e17" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Download Here</text>
+                <rect x="390" y="295" width="42" height="12" rx="3" fill="#00e5ff" />
+                <text x="411" y="304" fill="#0a0e17" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Upload File</text>
+                <rect x="344" y="295" width="40" height="12" rx="3" fill="#eee" />
+                <text x="364" y="304" fill="#666" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Cancel</text>
+              </svg>
+            </div>
+            <!-- Validation error overlay -->
+            <div class="pj-overlay-card">
+              <div class="pj-browser-bar" style="padding:0.35rem 0.75rem;">
+                <div class="pj-dot" style="background:#ff5f57;width:7px;height:7px;"></div>
+                <div class="pj-dot" style="background:#febc2e;width:7px;height:7px;"></div>
+                <div class="pj-url" style="font-size:0.52rem;">Data Validation Result</div>
+              </div>
+              <svg viewBox="0 0 270 138" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                <rect width="270" height="138" fill="#1a0808" />
+                <polygon points="135,0 270,0 270,65 215,0" fill="#cc2222" opacity="0.7" />
+                <rect x="20" y="14" width="230" height="108" rx="7" fill="#fff" />
+                <text x="135" y="38" fill="#222" font-size="9" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Big Data UI Uploader</text>
+                <rect x="32" y="46" width="96" height="16" rx="3" fill="#f5f5f5" stroke="#ddd" stroke-width="0.7" />
+                <text x="44" y="57" fill="#333" font-size="6.5" font-family="sans-serif">TSIN ▾</text>
+                <rect x="155" y="46" width="56" height="16" rx="3" fill="#00e5ff" />
+                <text x="183" y="57" fill="#0a0e17" font-size="6.5" text-anchor="middle" font-family="sans-serif">Submit
+                  File</text>
+                <rect x="32" y="70" width="206" height="42" rx="4" fill="#fff5f5" stroke="#ff4444" stroke-width="1" />
+                <text x="135" y="83" fill="#cc2222" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Upload Failed, at 1st sheet "TSIN FTR"</text>
+                <text x="135" y="97" fill="#555" font-size="5.5" text-anchor="middle" font-family="sans-serif">On Row :
+                  2; Column : 4; Input string was not</text>
+                <text x="135" y="107" fill="#555" font-size="5.5" text-anchor="middle" font-family="sans-serif">in a
+                  correct format.</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: Travel Management -->
+        <div class="pj-item reveal">
+          <div class="pj-info">
+            <div class="pj-index">04</div>
+            <div class="pj-role-tag">Team — Full-Stack Developer</div>
+            <h3 class="pj-title">Travel Management System</h3>
+            <p class="pj-desc">Enterprise travel management covering the complete trip lifecycle — from request and
+              multi-level approval to self-reservation of flights, hotels &amp; trains, plus settlement and SAP vendor
+              payment integration.</p>
+            <ul class="pj-features">
+              <li>Travel Request by Employee (Plan &amp; Unplan)</li>
+              <li>Approval Workflow — Top Level Management (DPH)</li>
+              <li>Self Reservation — Flight, Hotel &amp; Train</li>
+              <li>Settlement Input — Employee &amp; Finance Officer</li>
+              <li>SAP Integration (Vendor Payment)</li>
+              <li>HR System Integration (Leave Request)</li>
+              <li>Upload &amp; Download Reports for multi-division</li>
+            </ul>
+            <div class="portfolio-card-tags" style="margin-top:1.25rem;">
+              <span>Full-Stack</span><span>SAP</span><span>HR
+                System</span><span>Self-Reservation</span><span>Settlement</span>
+            </div>
+          </div>
+          <div class="pj-screens">
+            <div class="pj-browser">
+              <div class="pj-browser-bar">
+                <div class="pj-dot" style="background:#ff5f57"></div>
+                <div class="pj-dot" style="background:#febc2e"></div>
+                <div class="pj-dot" style="background:#28c840"></div>
+                <div class="pj-url">travel.enterprise.internal / dashboard</div>
+              </div>
+              <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
+                <rect width="560" height="340" fill="#eef2ff" />
+                <!-- Banner -->
+                <rect width="560" height="72" fill="url(#tvBanner)" />
+                <text x="280" y="28" fill="#fff" font-size="11.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Hello, Dhani Nugroho</text>
+                <text x="280" y="47" fill="rgba(255,255,255,0.72)" font-size="8.5" text-anchor="middle"
+                  font-family="sans-serif">Welcome to Travel Management System</text>
+                <rect x="528" y="10" width="22" height="18" rx="3" fill="rgba(255,255,255,0.2)" />
+                <text x="539" y="22" fill="#fff" font-size="8" text-anchor="middle" font-family="sans-serif">→</text>
+                <!-- Menu grid — 4 per row -->
+                <!-- Row 1 -->
+                <rect x="8" y="80" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="72" y="114" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">UPLOAD PLAN TRAVEL</text>
+                <rect x="142" y="80" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="206" y="107" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">TRAVEL PLAN</text>
+                <text x="206" y="116" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">ASSIGNMENT</text>
+                <rect x="276" y="80" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="340" y="107" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">TRAVEL UNPLAN</text>
+                <text x="340" y="116" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">ASSIGNMENT</text>
+                <rect x="410" y="80" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="481" y="111" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">TRAVEL STATUS</text>
+                <!-- Row 2 -->
+                <rect x="8" y="142" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="72" y="172" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">APPROVAL DPH</text>
+                <rect x="142" y="142" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="206" y="169" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">TRAVEL</text>
+                <text x="206" y="179" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">RESERVATION</text>
+                <rect x="276" y="142" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="340" y="172" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">VERIFY ALLOWANCE</text>
+                <rect x="410" y="142" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="481" y="172" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">REBATE / REFUND</text>
+                <!-- Row 3 -->
+                <rect x="8" y="204" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="72" y="231" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">INPUT BOOKING</text>
+                <text x="72" y="241" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">CODE</text>
+                <rect x="142" y="204" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="206" y="234" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">TRAVEL SETTLEMENT</text>
+                <rect x="276" y="204" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="340" y="231" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">VERIFY</text>
+                <text x="340" y="241" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">SETTLEMENT</text>
+                <rect x="410" y="204" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="481" y="234" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">UPLOAD MASTER</text>
+                <!-- Row 4 -->
+                <rect x="8" y="266" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="72" y="296" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">REVERSE BTA</text>
+                <rect x="142" y="266" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="206" y="290" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">VERIFY COUNTER</text>
+                <text x="206" y="300" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">RECEIPT</text>
+                <rect x="276" y="266" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="340" y="296" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">GENERATE FILE</text>
+                <rect x="410" y="266" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff" stroke-width="1" />
+                <text x="481" y="290" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">SETTLEMENT</text>
+                <text x="481" y="300" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">REPORT</text>
+                <defs>
+                  <linearGradient id="tvBanner" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0099b8" />
+                    <stop offset="100%" stop-color="#00c8e0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <!-- Flight reservation overlay -->
+            <div class="pj-overlay-card">
+              <div class="pj-browser-bar" style="padding:0.35rem 0.75rem;">
+                <div class="pj-dot" style="background:#ff5f57;width:7px;height:7px;"></div>
+                <div class="pj-dot" style="background:#febc2e;width:7px;height:7px;"></div>
+                <div class="pj-url" style="font-size:0.52rem;">Travel Reservation — Flight</div>
+              </div>
+              <svg viewBox="0 0 270 162" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                <rect width="270" height="162" fill="#f5f7ff" />
+                <rect width="270" height="22" fill="#00b8d4" />
+                <text x="10" y="14" fill="#fff" font-size="7.5" font-weight="bold" font-family="sans-serif">Travel
+                  Reservation — Flight</text>
+                <text x="224" y="14" fill="rgba(255,255,255,0.7)" font-size="6" font-family="sans-serif">10 Nov
+                  2021</text>
+                <!-- Route header -->
+                <rect x="8" y="28" width="254" height="38" rx="4" fill="#fff" stroke="#e0e4f8" stroke-width="0.5" />
+                <text x="14" y="42" fill="#555" font-size="6.5" font-family="sans-serif">Jakarta (All Airports) →
+                  Balikpapan</text>
+                <text x="14" y="53" fill="#aaa" font-size="5.5" font-family="sans-serif">Thursday, Nov 11, 2021 |
+                  Economy Class | Travel Plan</text>
+                <!-- Selected flight -->
+                <rect x="8" y="70" width="254" height="36" rx="4" fill="#f0fff8" stroke="#00e5ff" stroke-width="0.8" />
+                <text x="42" y="84" fill="#333" font-size="7.5" font-weight="bold" font-family="sans-serif">13:30</text>
+                <text x="78" y="84" fill="#aaa" font-size="9" font-family="sans-serif">→</text>
+                <text x="94" y="84" fill="#333" font-size="7.5" font-weight="bold" font-family="sans-serif">16:50</text>
+                <text x="134" y="84" fill="#888" font-size="5.5" font-family="sans-serif">2h 20m · direct</text>
+                <text x="196" y="82" fill="#cc2222" font-size="6.5" font-weight="bold" font-family="sans-serif">Rp
+                  1.895.400</text>
+                <rect x="222" y="86" width="32" height="13" rx="3" fill="#00e5ff" />
+                <text x="238" y="95" fill="#0a0e17" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Choose</text>
+                <text x="14" y="100" fill="#555" font-size="5" font-family="sans-serif">Garuda Indonesia · CGK
+                  (CGK)</text>
+                <!-- Second flight row -->
+                <rect x="8" y="110" width="254" height="28" rx="4" fill="#fff" stroke="#e0e4f8" stroke-width="0.5" />
+                <text x="42" y="122" fill="#333" font-size="7" font-family="sans-serif">08:20</text>
+                <text x="78" y="122" fill="#aaa" font-size="9" font-family="sans-serif">→</text>
+                <text x="94" y="122" fill="#333" font-size="7" font-family="sans-serif">10:45</text>
+                <text x="134" y="122" fill="#888" font-size="5.5" font-family="sans-serif">2h 25m · direct</text>
+                <text x="196" y="120" fill="#555" font-size="6" font-family="sans-serif">Rp 535.000</text>
+                <rect x="222" y="124" width="32" height="12" rx="3" fill="#eee" />
+                <text x="238" y="132" fill="#555" font-size="5.5" text-anchor="middle"
+                  font-family="sans-serif">Choose</text>
+                <!-- Travel plan sidebar info -->
+                <rect x="8" y="146" width="112" height="14" rx="3" fill="#e8f4ff" />
+                <text x="14" y="156" fill="#00b8d4" font-size="5.5" font-family="sans-serif">Jakarta → Balikpapan</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: Frontend Clients -->
+        <div class="pj-item pj-reverse reveal">
+          <div class="pj-info">
+            <div class="pj-index">05</div>
+            <div class="pj-role-tag">Front-End Developer — 3 Clients</div>
+            <h3 class="pj-title">Front End Development</h3>
+            <p class="pj-desc">Frontend development across three enterprise clients: a CRM door-prize golden ticket
+              system (Fortune brand, Philippines), a mobile-responsive employee rewards portal, and a hotel reservation
+              web app.</p>
+            <ul class="pj-features">
+              <li>Fortune: Golden Ticket CRM with serial code validation</li>
+              <li>Spin Wheel, UGC Contest &amp; Pack Code entry features</li>
+              <li>Employee Rewards CRM — responsive mobile web</li>
+              <li>E-Reward: payslip, compensation &amp; benefits portal</li>
+              <li>Hotel Reservation — listing, detail &amp; booking flow</li>
+              <li>All projects: Responsive Design + .NET backend</li>
+            </ul>
+            <div class="portfolio-card-tags" style="margin-top:1.25rem;">
+              <span>CRM</span><span>Responsive</span><span>.NET Backend</span><span>Hotel Booking</span><span>Golden
+                Ticket</span>
+            </div>
+          </div>
+          <div class="pj-screens">
+            <div class="pj-browser">
+              <div class="pj-browser-bar">
+                <div class="pj-dot" style="background:#ff5f57"></div>
+                <div class="pj-dot" style="background:#febc2e"></div>
+                <div class="pj-dot" style="background:#28c840"></div>
+                <div class="pj-url">fortune.crm-app.com / golden-ticket</div>
+              </div>
+              <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
+                <rect width="560" height="340" fill="#1a3a1a" />
+                <!-- Top nav bar -->
+                <rect width="560" height="46" fill="#1e4a1e" />
+                <text x="18" y="29" fill="#c8f135" font-size="12" font-weight="bold" font-family="sans-serif">🍀
+                  FORTUNE</text>
+                <text x="130" y="29" fill="#fff" font-size="9.5" font-family="sans-serif">1205 🟡</text>
+                <rect x="380" y="15" width="22" height="17" rx="3" fill="rgba(255,255,255,0.14)" />
+                <rect x="408" y="15" width="22" height="17" rx="3" fill="rgba(255,255,255,0.14)" />
+                <rect x="436" y="15" width="22" height="17" rx="3" fill="rgba(255,255,255,0.14)" />
+                <text x="391" y="27" fill="#fff" font-size="9" text-anchor="middle" font-family="sans-serif">≡</text>
+                <!-- Tab bar -->
+                <rect x="0" y="46" width="560" height="33" fill="#1e4a1e" />
+                <text x="62" y="67" fill="#ccc" font-size="7.5" text-anchor="middle" font-family="sans-serif">Spin
+                  Wheel</text>
+                <rect x="108" y="48" width="96" height="29" fill="rgba(200,241,53,0.13)" />
+                <text x="156" y="67" fill="#c8f135" font-size="7.5" text-anchor="middle" font-weight="bold"
+                  font-family="sans-serif">Golden Ticket</text>
+                <text x="260" y="67" fill="#aaa" font-size="7.5" text-anchor="middle" font-family="sans-serif">UGC
+                  Contest</text>
+                <text x="360" y="67" fill="#aaa" font-size="7.5" text-anchor="middle" font-family="sans-serif">Enter
+                  Pack Code</text>
+                <!-- Golden ticket card -->
+                <rect x="34" y="92" width="492" height="210" rx="14" fill="#2d5a1e" />
+                <rect x="34" y="92" width="492" height="210" rx="14" fill="url(#gtGold)" opacity="0.28" />
+                <!-- Decorative stars -->
+                <text x="86" y="128" fill="#c8f135" font-size="22" opacity="0.25" font-family="sans-serif">★</text>
+                <text x="450" y="135" fill="#c8f135" font-size="17" opacity="0.2" font-family="sans-serif">★</text>
+                <text x="280" y="122" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">I-enter na ang code ng iyong</text>
+                <text x="280" y="142" fill="#c8f135" font-size="20" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Golden Ticket!</text>
+                <!-- Serial code label -->
+                <text x="78" y="163" fill="rgba(255,255,255,0.6)" font-size="7.5" font-family="sans-serif">Golden Ticket
+                  Serial Code</text>
+                <text x="478" y="163" fill="rgba(255,255,255,0.4)" font-size="7.5" text-anchor="end"
+                  font-family="sans-serif">0/3</text>
+                <!-- Input field -->
+                <rect x="56" y="167" width="344" height="30" rx="7" fill="#fff" opacity="0.96" />
+                <text x="76" y="185" fill="#333" font-size="9.5" font-family="monospace"
+                  letter-spacing="2">3XW7D2JJVR</text>
+                <circle cx="376" cy="182" r="9" fill="#c8f135" />
+                <text x="376" y="186" fill="#1a3a1a" font-size="8.5" text-anchor="middle"
+                  font-family="sans-serif">✓</text>
+                <!-- Enter button -->
+                <rect x="408" y="167" width="72" height="30" rx="7" fill="#c8f135" />
+                <text x="444" y="185" fill="#1a3a1a" font-size="9" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">ENTER</text>
+                <!-- Bottom text -->
+                <rect x="56" y="208" width="408" height="82" rx="9" fill="rgba(0,0,0,0.3)" />
+                <text x="280" y="227" fill="#c8f135" font-size="9.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">Konti na lang, Katropa!</text>
+                <text x="280" y="242" fill="rgba(255,255,255,0.7)" font-size="7" text-anchor="middle"
+                  font-family="sans-serif">Bago ma-submit ang iyong Golden Ticket code,</text>
+                <text x="280" y="253" fill="rgba(255,255,255,0.7)" font-size="7" text-anchor="middle"
+                  font-family="sans-serif">nais lang namin humingi ng kaunting datos:</text>
+                <circle cx="70" cy="265" r="4.5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" />
+                <text x="80" y="269" fill="rgba(255,255,255,0.6)" font-size="6" font-family="sans-serif">Ako ay isang
+                  smoker na 18 anyos pataas</text>
+                <circle cx="70" cy="278" r="4.5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" />
+                <text x="80" y="282" fill="rgba(255,255,255,0.6)" font-size="6" font-family="sans-serif">May-ari ako ng
+                  tindahan na binibisita ng PMFTC agent</text>
+                <!-- Warning footer -->
+                <rect x="0" y="313" width="560" height="27" fill="#111" />
+                <text x="280" y="324" fill="rgba(255,255,255,0.45)" font-size="6" text-anchor="middle"
+                  font-family="sans-serif">GOVERNMENT WARNING: CIGARETTE SMOKING IS DANGEROUS TO YOUR HEALTH</text>
+                <defs>
+                  <linearGradient id="gtGold" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#c8a832" />
+                    <stop offset="100%" stop-color="#4a8a1a" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <!-- Winning screen overlay -->
+            <div class="pj-overlay-card">
+              <div class="pj-browser-bar" style="padding:0.35rem 0.75rem;">
+                <div class="pj-dot" style="background:#ff5f57;width:7px;height:7px;"></div>
+                <div class="pj-dot" style="background:#febc2e;width:7px;height:7px;"></div>
+                <div class="pj-url" style="font-size:0.52rem;">You Won! — Fortune CRM</div>
+              </div>
+              <svg viewBox="0 0 270 168" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                <rect width="270" height="168" fill="#1a3a1a" />
+                <rect width="270" height="30" fill="#1e4a1e" />
+                <text x="14" y="20" fill="#c8f135" font-size="8.5" font-weight="bold" font-family="sans-serif">🍀
+                  FORTUNE</text>
+                <text x="212" y="20" fill="#fff" font-size="7.5" font-family="sans-serif">1705 🟡</text>
+                <rect x="10" y="38" width="250" height="122" rx="10" fill="#2d5a1e" />
+                <text x="135" y="64" fill="#c8f135" font-size="15" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">PANALO KA,</text>
+                <text x="135" y="80" fill="#fff" font-size="9.5" text-anchor="middle"
+                  font-family="sans-serif">KATROPAI</text>
+                <text x="135" y="100" fill="rgba(255,255,255,0.7)" font-size="8.5" text-anchor="middle"
+                  font-family="sans-serif">You won</text>
+                <text x="135" y="124" fill="#c8f135" font-size="24" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">500 Coins!</text>
+                <rect x="30" y="144" width="210" height="11" rx="4" fill="#c8f135" />
+                <text x="135" y="152" fill="#1a3a1a" font-size="6.5" font-weight="bold" text-anchor="middle"
+                  font-family="sans-serif">BACK TO HOME</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
     <!-- ======================== ABOUT ======================== -->
     <section id="about">
       <div class="container">
@@ -275,10 +953,12 @@
 
           <div class="about-text">
             <span class="section-label reveal">About Me</span>
-            <h2 class="section-title reveal">A lifelong learner,<br><span class="gradient-text">always exploring.</span></h2>
+            <h2 class="section-title reveal">A lifelong learner,<br><span class="gradient-text">always exploring.</span>
+            </h2>
 
             <p class="reveal">
-              It's never been easy to learn something new, but there are no hard things to do when you think you can — then you do it with your best. I build for the web, design with intention, and constantly push into unfamiliar territory.
+              Code is my craft, the outdoors is my reset. I engineer the web with the same curiosity I bring to every
+              new terrain.
             </p>
 
             <div class="about-quote reveal">
@@ -291,7 +971,7 @@
             <div class="stat-card reveal reveal-delay-1">
               <div class="stat-icon">🚀</div>
               <div class="stat-value">5+</div>
-              <div class="stat-label">Projects</div>
+              <div class="stat-label">Large Corporate Projects</div>
             </div>
             <div class="stat-card reveal reveal-delay-2">
               <div class="stat-icon">⚡</div>
@@ -318,17 +998,22 @@
     <!-- ======================== CONTACT ======================== -->
     <section id="contact">
       <div class="container">
-        <div class="contact-layout">
+        <div class="contact-layout contact-centered">
 
           <div class="contact-info">
             <span class="section-label reveal">Get in Touch</span>
             <h2 class="section-title reveal">Let's build<br><span class="gradient-text">something together.</span></h2>
-            <p class="reveal">Have a project in mind or just want to connect? I'm always open to new opportunities and collaborations.</p>
+            <p class="reveal">Have a project in mind or just want to connect? I'm always open to new opportunities and
+              collaborations.</p>
 
-            <div class="reveal">
+            <div class="contact-details-row reveal">
               <div class="contact-detail">
                 <div class="contact-detail-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
                 </div>
                 <div class="contact-detail-text">
                   <small>Location</small>
@@ -338,32 +1023,30 @@
 
               <div class="contact-detail">
                 <div class="contact-detail-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
                 </div>
                 <div class="contact-detail-text">
                   <small>LinkedIn</small>
-                  <a href="https://www.linkedin.com/in/dhnugroho/" target="_blank" rel="noopener noreferrer">linkedin.com/in/dhnugroho</a>
+                  <a href="https://www.linkedin.com/in/dhnugroho/" target="_blank"
+                    rel="noopener noreferrer">linkedin.com/in/dhnugroho</a>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="contact-form-card reveal">
-            <form id="contactForm" novalidate>
-              <div class="form-group">
-                <label for="contactName">Your Name</label>
-                <input type="text" id="contactName" placeholder="John Doe" required>
-              </div>
-              <div class="form-group">
-                <label for="contactEmail">Email Address</label>
-                <input type="email" id="contactEmail" placeholder="john@example.com" required>
-              </div>
-              <div class="form-group">
-                <label for="contactMessage">Message</label>
-                <textarea id="contactMessage" placeholder="Tell me about your project..." rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message →</button>
-            </form>
+            <a href="mailto:dhnugroho.dev@gmail.com" class="hero-cta reveal"
+              style="margin-top:2rem;display:inline-flex;">
+              Say Hello
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2 11 13" />
+                <path d="m22 2-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </a>
           </div>
 
         </div>
@@ -379,14 +1062,20 @@
         <div class="footer-brand">dhani<span>.</span></div>
 
         <div class="footer-social">
-          <a href="https://www.linkedin.com/in/dhnugroho/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" id="footerLinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://www.linkedin.com/in/dhnugroho/" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn" id="footerLinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
           </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Dhani Nugroho. All rights reserved.</p>
+        <p>&copy; 2026. All rights reserved.</p>
         <div class="footer-location">
           <div class="pulse-dot"></div>
           Jakarta, Indonesia
@@ -397,7 +1086,7 @@
 
 
   <!-- Scripts -->
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 
 </body>
 
