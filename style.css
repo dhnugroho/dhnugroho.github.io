@@ -9,14 +9,12 @@
   --bg-surface: rgba(15, 23, 42, 0.7);
   --bg-surface-solid: #0f172a;
   --bg-card: rgba(15, 23, 42, 0.55);
-  --bg-card-hover: rgba(15, 23, 42, 0.8);
 
   /* Accents */
   --accent-primary: #00e5ff;
   --accent-warm: #ff6b35;
   --accent-glow: #7c3aed;
   --accent-primary-dim: rgba(0, 229, 255, 0.15);
-  --accent-warm-dim: rgba(255, 107, 53, 0.15);
 
   /* Text */
   --text-primary: #e2e8f0;
@@ -214,8 +212,9 @@ section {
               border-color 0.3s, opacity 0.3s;
 }
 
-body:hover .cursor-dot,
-body:hover .cursor-ring {
+/* Cursor visible only after JS detects pointer device (class added by main.js) */
+body.has-cursor .cursor-dot,
+body.has-cursor .cursor-ring {
   opacity: 1;
 }
 
@@ -236,8 +235,8 @@ body:hover .cursor-ring {
   right: 0;
   z-index: 1000;
   padding: 1.25rem 0;
-  transition: background 0.4s var(--ease-out), padding 0.4s var(--ease-out),
-              backdrop-filter 0.4s var(--ease-out);
+  /* backdrop-filter cannot be transitioned — omitted intentionally */
+  transition: background 0.4s var(--ease-out), padding 0.4s var(--ease-out);
 }
 
 #mainNav.scrolled {
@@ -1158,11 +1157,7 @@ body:hover .cursor-ring {
   color: var(--text-muted);
 }
 
-.footer-location svg {
-  width: 14px;
-  height: 14px;
-  color: var(--accent-warm);
-}
+/* .footer-location uses .pulse-dot, not an SVG — rule removed */
 
 /* Pulsing dot for location */
 .pulse-dot {
@@ -1229,8 +1224,16 @@ body:hover .cursor-ring {
   }
 }
 
-@media (max-width: 360px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
+/* 360px rule removed — already covered by the 480px breakpoint above */
+
+/* ============================================
+   FORM ERRORS
+   ============================================ */
+.form-error {
+  display: block;
+  color: var(--accent-warm);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  margin-top: 0.35rem;
+  animation: fadeInUp 0.2s var(--ease-out) forwards;
 }
