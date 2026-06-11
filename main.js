@@ -346,6 +346,10 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            // Animate skill bars if any exist inside this element
+            entry.target.querySelectorAll('.skill-bar[data-w]').forEach(function (bar) {
+              bar.style.width = bar.getAttribute('data-w') + '%';
+            });
             revealObserver.unobserve(entry.target);
           }
         });
