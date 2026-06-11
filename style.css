@@ -1281,6 +1281,359 @@ body.has-cursor .cursor-ring {
   font-weight: 500;
 }
 
+/* ============================================
+   CAREER EVOLUTION NOTE (Note 2)
+   ============================================ */
+.ce-root {
+  background: #0D0F14;
+  color: #E8E6DF;
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ─── Header ─── */
+.hdr { text-align: center; margin-bottom: 2.75rem; }
+.hdr-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #5A5A6A;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.hdr-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F0EDE6;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.hdr-title span { color: #A78BFA; }
+.hdr-sub {
+  font-size: 12px;
+  color: #5A5A6A;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ─── Top quote strip ─── */
+.quote-strip {
+  background: linear-gradient(90deg, #1A1630 0%, #12141C 100%);
+  border: 1px solid #2A2640;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.qs-bar {
+  width: 3px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #A78BFA, #38BDF8);
+  border-radius: 2px;
+  align-self: stretch;
+}
+.qs-text {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #B8B4CC;
+  font-style: italic;
+}
+.qs-text strong { color: #E8E6DF; font-style: normal; font-weight: 600; }
+
+/* ─── Horizontal spine ─── */
+.spine-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+.spine-line {
+  position: absolute;
+  top: 18px;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #2A2640 10%, #2A2640 90%, transparent);
+  z-index: 0;
+}
+
+/* ─── Era column ─── */
+.era-col {
+  flex: 1;
+  min-width: 140px;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.era-dot-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.era-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid #2A2640;
+  background: #1A1C24;
+  transition: all .2s;
+}
+.era-col:hover .era-dot { transform: scale(1.25); }
+.dot-1 { border-color: #6EE7B7; background: #6EE7B7; box-shadow: 0 0 10px #6EE7B720; }
+.dot-2 { border-color: #38BDF8; background: #38BDF8; box-shadow: 0 0 10px #38BDF820; }
+.dot-3 { border-color: #FBBF24; background: #FBBF24; box-shadow: 0 0 10px #FBBF2420; }
+.dot-4 { border-color: #A78BFA; background: #A78BFA; box-shadow: 0 0 10px #A78BFA20; }
+.dot-5 {
+  border-color: #F472B6;
+  background: radial-gradient(circle, #F472B6, #A78BFA);
+  box-shadow: 0 0 14px #F472B640;
+  width: 18px; height: 18px;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 10px #F472B640; }
+  50% { box-shadow: 0 0 22px #F472B680; }
+}
+
+.era-year {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #5A5A6A;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ─── Cards ─── */
+.era-card {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #1E2030;
+  padding: 0.85rem 0.8rem 1rem;
+  background: #12141C;
+  transition: border-color .2s, transform .2s;
+  cursor: default;
+}
+.era-card:hover { border-color: #2A2640; transform: translateY(-3px); }
+
+.card-1 { border-top: 2px solid #6EE7B7; }
+.card-2 { border-top: 2px solid #38BDF8; }
+.card-3 { border-top: 2px solid #FBBF24; }
+.card-4 { border-top: 2px solid #A78BFA; }
+.card-5 {
+  border-top: 2px solid #F472B6;
+  background: #13111E;
+  position: relative;
+  overflow: hidden;
+}
+.card-5::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, #F472B608, transparent 70%);
+  pointer-events: none;
+}
+
+.card-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.role-1 { color: #6EE7B7; }
+.role-2 { color: #38BDF8; }
+.role-3 { color: #FBBF24; }
+.role-4 { color: #A78BFA; }
+.role-5 { background: linear-gradient(90deg, #F472B6, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Tags */
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.75rem; }
+.tag {
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid;
+}
+.tag-1 { color: #6EE7B7; border-color: #6EE7B730; background: #6EE7B708; }
+.tag-2 { color: #38BDF8; border-color: #38BDF830; background: #38BDF808; }
+.tag-3 { color: #FBBF24; border-color: #FBBF2430; background: #FBBF2408; }
+.tag-4 { color: #A78BFA; border-color: #A78BFA30; background: #A78BFA08; }
+.tag-5 { color: #F472B6; border-color: #F472B630; background: #F472B608; }
+
+/* Ethics note */
+.card-ethics {
+  font-size: 10px;
+  line-height: 1.65;
+  color: #5A5A6A;
+  font-style: italic;
+  border-top: 1px solid #1E2030;
+  padding-top: 0.6rem;
+  margin-top: 0.1rem;
+}
+.card-ethics strong { color: #7A7A8A; font-style: normal; }
+
+/* ─── Era 5 special additions ─── */
+.now-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid #F472B650;
+  background: #F472B610;
+  color: #F472B6;
+  margin-bottom: 0.5rem;
+}
+.now-dot { width: 5px; height: 5px; border-radius: 50%; background: #F472B6; animation: blink 1.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.principle-list {
+  list-style: none;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.principle-list li {
+  font-size: 9.5px;
+  color: #8A8A9A;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.principle-list li::before {
+  content: '→';
+  color: #A78BFA;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 9px;
+}
+
+/* ─── Bottom insight band ─── */
+.insight-band {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.insight-card {
+  background: #12141C;
+  border: 1px solid #1E2030;
+  border-radius: 10px;
+  padding: 0.85rem 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.ic-green::before { background: linear-gradient(90deg, #6EE7B7, transparent); }
+.ic-amber::before { background: linear-gradient(90deg, #FBBF24, transparent); }
+.ic-pink::before  { background: linear-gradient(90deg, #F472B6, transparent); }
+
+.insight-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.ic-green .insight-num { color: #6EE7B7; }
+.ic-amber .insight-num { color: #FBBF24; }
+.ic-pink  .insight-num { color: #F472B6; }
+.insight-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8A8A9A;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.insight-desc { font-size: 10px; color: #5A5A6A; line-height: 1.6; }
+
+/* ─── Signature quote ─── */
+.sig-quote {
+  margin-top: 2rem;
+  border: 1px solid #2A2050;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #13111E, #0D0F14);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sig-quote::before {
+  content: '"';
+  position: absolute;
+  top: -10px; left: 12px;
+  font-size: 80px;
+  color: #A78BFA18;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.sig-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(12px, 2.2vw, 15px);
+  font-weight: 500;
+  line-height: 1.7;
+  color: #C8C4DC;
+  margin-bottom: 0.75rem;
+}
+.sig-text em {
+  font-style: normal;
+  background: linear-gradient(90deg, #A78BFA, #F472B6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+.sig-footer {
+  font-size: 10px;
+  color: #3A3A5A;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sig-footer span { color: #5A5A7A; }
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  .spine-wrap { flex-direction: column; align-items: stretch; }
+  .spine-line { display: none; }
+  .era-col { max-width: 100%; flex-direction: row; gap: 12px; }
+  .era-dot-wrap { flex-direction: row; align-items: center; margin-bottom: 0; }
+  .era-year { margin-bottom: 0; }
+  .insight-band { grid-template-columns: 1fr; }
+}
+
 
 /* ============================================
    FOOTER
