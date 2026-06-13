@@ -11,7 +11,7 @@
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'none'; object-src 'none'; frame-ancestors 'none';">
+    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com https://www.gstatic.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.gstatic.com https://fonts.gstatic.com https://www.google.com https://translate.googleapis.com https://translate.google.com http://translate.google.com; script-src 'self' 'unsafe-inline' https://*.googleapis.com https://translate.google.com; frame-src 'self' https://translate.google.com https://translate.googleapis.com; connect-src 'self' https://*.googleapis.com; object-src 'none';">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Dhani Nugroho — Fullstack Engineer & Digital Nomad">
@@ -969,7 +969,7 @@
               <div class="tl-line"></div>
             </div>
             <div class="tl-body">
-              <div class="tl-period">2023 — Present &nbsp;·&nbsp; 3 Years</div>
+              <div class="tl-period">2023 — Present</div>
               <div class="tl-role">Full-stack Engineer</div>
               <div class="tl-specialisms">
                 <span>Data Architect</span>
@@ -1151,14 +1151,14 @@
           <div class="skill-group reveal reveal-delay-3">
             <div class="skill-group-label">Analytics &amp; BI</div>
             <div class="skill-row">
-              <span class="skill-name">Power BI</span>
+              <span class="skill-name">Tableau</span>
               <div class="skill-bar-wrap">
                 <div class="skill-bar" data-w="82"></div>
               </div>
               <span class="skill-pct">82%</span>
             </div>
             <div class="skill-row">
-              <span class="skill-name">Tableau</span>
+              <span class="skill-name">Power BI</span>
               <div class="skill-bar-wrap">
                 <div class="skill-bar" data-w="78"></div>
               </div>
@@ -1290,10 +1290,19 @@
     <!-- ======================== NOTES ======================== -->
     <section id="notes">
       <div class="container">
-        <div class="portfolio-header reveal">
+        <div class="portfolio-header reveal" style="position: relative;">
           <span class="section-label">Journal</span>
           <h2 class="section-title">Personal Notes</h2>
           <p class="section-subtitle">Thoughts, concerns, and personal reflections over time.</p>
+          
+          <!-- Translate Toggle -->
+          <div class="notes-lang-toggle">
+            <span class="lang-text">Translate Notes:</span>
+            <div class="lang-switch">
+              <button class="lang-btn active" id="langBtnId" data-lang="id">ID</button>
+              <button class="lang-btn" id="langBtnEn" data-lang="en">EN</button>
+            </div>
+          </div>
         </div>
 
         <div>
@@ -1663,6 +1672,24 @@
 
   <!-- Scripts -->
   <script src="main.js" defer></script>
+
+  <!-- Google Translate Integration -->
+  <div class="gtranslate-wrapper">
+    <div id="google_translate_element"></div>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'id',
+        includedLanguages: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+
 
 </body>
 
