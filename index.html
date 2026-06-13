@@ -1692,8 +1692,43 @@
     </svg>
   </button>
 
+  <!-- ======================== CHATBOT ======================== -->
+  <!-- Chat FAB -->
+  <button id="chatbotFab" class="chatbot-fab" aria-label="Open chat assistant" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
+    </svg>
+    <span class="chatbot-fab-badge"></span>
+  </button>
+
+  <!-- Chat Panel -->
+  <div id="chatbotPanel" class="chatbot-panel" role="dialog" aria-modal="false" aria-label="Chat Assistant">
+    <div class="chatbot-header">
+      <div class="chatbot-avatar">🤖</div>
+      <div class="chatbot-header-info">
+        <div class="chatbot-header-name">Dhani's Assistant</div>
+        <div class="chatbot-header-status">
+          <span class="chatbot-status-dot"></span>
+          Online — ask me anything
+        </div>
+      </div>
+      <button id="chatbotClose" class="chatbot-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div id="chatbotMessages" class="chatbot-messages"></div>
+    <div class="chatbot-input-bar">
+      <input id="chatbotInput" class="chatbot-input" type="text" placeholder="Ask about skills, projects..." autocomplete="off">
+      <button id="chatbotSend" class="chatbot-send" aria-label="Send message">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m22 2-7 20-4-9-9-4z"></path>
+          <path d="M22 2 11 13"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="main.js" defer></script>
+  <script src="chatbot.js" defer></script>
 
   <!-- Google Translate Integration -->
   <div class="gtranslate-wrapper">
