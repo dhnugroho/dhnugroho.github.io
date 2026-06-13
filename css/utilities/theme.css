@@ -1,0 +1,49 @@
+/* ============================================
+   THEME TOGGLE FAB
+   ============================================ */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--bg-surface-solid);
+  border: 1px solid var(--border-glow);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--accent-primary-dim);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s, background 0.3s, color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 229, 255, 0.4);
+  background: var(--accent-primary);
+  color: var(--bg-surface-solid);
+}
+
+.theme-toggle-btn svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+

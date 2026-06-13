@@ -1,0 +1,185 @@
+/* ============================================
+   CAREER TIMELINE SECTION
+   ============================================ */
+#experience {
+  background: var(--bg-surface-solid);
+  position: relative;
+}
+
+#experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+}
+
+.tl-wrap {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+/* Vertical spine line */
+.tl-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 0.5rem;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom,
+      var(--accent-primary) 0%,
+      rgba(0, 229, 255, 0.3) 40%,
+      rgba(0, 229, 255, 0.05) 100%);
+}
+
+.tl-card {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr;
+  gap: 0 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.tl-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Dot + vertical connector within each card */
+.tl-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.15rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tl-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 229, 255, 0.4);
+  background: var(--bg-surface-solid);
+  flex-shrink: 0;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.tl-dot-active {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.15), 0 0 16px rgba(0, 229, 255, 0.3);
+}
+
+.tl-line {
+  width: 1px;
+  flex: 1;
+  min-height: 2rem;
+  background: rgba(0, 229, 255, 0.08);
+  margin-top: 0.35rem;
+}
+
+/* Card body */
+.tl-body {
+  padding: 0.1rem 0 2.5rem;
+}
+
+.tl-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.tl-role {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.15;
+  margin-bottom: 0.55rem;
+}
+
+/* Specialisms row — for current role */
+.tl-specialisms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.tl-specialisms span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  color: var(--accent-primary);
+}
+
+.tl-desc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 58ch;
+  margin-bottom: 1rem;
+}
+
+.tl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tl-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  padding: 0.22rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tl-tag:hover {
+  color: var(--accent-primary);
+  border-color: var(--border-glow);
+}
+
+/* Active card highlight */
+.tl-active .tl-body {
+  position: relative;
+}
+
+.tl-active .tl-body::before {
+  content: '';
+  position: absolute;
+  left: -1.2rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-primary), transparent);
+  border-radius: 1px;
+}
+
+@media (max-width: 600px) {
+  .tl-wrap {
+    padding-left: 1.5rem;
+  }
+
+  .tl-card {
+    grid-template-columns: 1.4rem 1fr;
+    gap: 0 1rem;
+  }
+}
+
+

@@ -1,0 +1,64 @@
+/* ============================================
+   DESIGN SYSTEM — Adventurous Tech Portfolio
+   ============================================ */
+
+/* --- Custom Properties --- */
+:root {
+  /* Backgrounds */
+  --bg-deep: #0a0e17;
+  --bg-surface: rgba(15, 23, 42, 0.7);
+  --bg-surface-solid: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.55);
+
+  /* Accents */
+  --accent-primary: #00e5ff;
+  --accent-warm: #ff6b35;
+  --accent-glow: #7c3aed;
+  --accent-primary-dim: rgba(0, 229, 255, 0.15);
+
+  /* Text */
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-bright: #f8fafc;
+
+  /* Borders */
+  --border-subtle: rgba(148, 163, 184, 0.12);
+  --border-glow: rgba(0, 229, 255, 0.3);
+
+  /* Spacing */
+  --section-pad: 7rem;
+  --container-max: 1140px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body.light-mode {
+  /* Backgrounds */
+  --bg-deep: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-solid: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.7);
+
+  /* Accents */
+  --accent-primary: #0284c7;
+  --accent-warm: #ea580c;
+  --accent-glow: #7e22ce;
+  --accent-primary-dim: rgba(2, 132, 199, 0.15);
+
+  /* Text */
+  --text-primary: #334155;
+  --text-muted: #64748b;
+  --text-bright: #0f172a;
+
+  /* Borders */
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --border-glow: rgba(2, 132, 199, 0.3);
+}
+

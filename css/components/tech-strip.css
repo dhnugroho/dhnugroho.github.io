@@ -1,0 +1,45 @@
+/* ============================================
+   SKILLS / TECH STRIP
+   ============================================ */
+.tech-strip {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-strip-inner {
+  display: flex;
+  gap: 3rem;
+  animation: scroll-strip 30s linear infinite;
+  width: max-content;
+}
+
+.tech-strip-inner span {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.tech-strip-inner span:hover {
+  opacity: 1;
+  color: var(--accent-primary);
+}
+
+@keyframes scroll-strip {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+

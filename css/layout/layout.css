@@ -1,0 +1,26 @@
+/* --- Layout --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: var(--section-pad) 0;
+  position: relative;
+}
+
+
+/* ============================================
+   FORM ERRORS
+   ============================================ */
+.form-error {
+  display: block;
+  color: var(--accent-warm);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  margin-top: 0.35rem;
+  animation: fadeInUp 0.2s var(--ease-out) forwards;
+}
+
