@@ -39,16 +39,30 @@ export function initNavbar() {
       navToggle.classList.toggle('open', isOpen);
       navToggle.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
+      // Toggle backdrop overlay class on nav
+      if (navbar) navbar.classList.toggle('nav-open', isOpen);
     });
 
+    function closeNav() {
+      navToggle.classList.remove('open');
+      navLinksContainer.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      if (navbar) navbar.classList.remove('nav-open');
+    }
+
     navLinksContainer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navToggle.classList.remove('open');
-        navLinksContainer.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeNav);
     });
+
+    // Close nav when tapping the backdrop overlay
+    if (navbar) {
+      navbar.addEventListener('click', function (e) {
+        if (e.target === navbar && navLinksContainer.classList.contains('open')) {
+          closeNav();
+        }
+      });
+    }
   }
 
   // SMOOTH SCROLL FOR ANCHOR LINKS

@@ -215,4 +215,45 @@
   }
 }
 
+/* ---- Mobile hero refinements ---- */
+@media (max-width: 768px) {
+  #hero {
+    min-height: 100svh;
+    padding-top: 4rem;
+  }
+
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-greeting {
+    font-size: 0.78rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.88rem, 3vw, 1.1rem);
+    margin-bottom: 2rem;
+    min-height: 1.5rem;
+  }
+
+  .hero-cta {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.78rem;
+    min-height: 44px;
+    border-radius: 10px;
+  }
+
+  .hero-scroll-hint {
+    display: none;
+  }
+}
+
 

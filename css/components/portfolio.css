@@ -212,3 +212,95 @@
 }
 
 
+/* ============================================
+   MOBILE RESPONSIVE — Portfolio + Modal
+   ============================================ */
+@media (max-width: 768px) {
+  .portfolio-header {
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .portfolio-header .section-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .portfolio-card-body {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .portfolio-card-body h3 {
+    font-size: 1rem;
+  }
+
+  .portfolio-card-body p {
+    font-size: 0.82rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .portfolio-card-tags span {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* --- Bottom sheet modal --- */
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 24px 24px 0 0;
+    transform: translateY(100%);
+    transition: transform 0.45s var(--ease-out);
+  }
+
+  .modal-backdrop.active .modal-content {
+    transform: translateY(0);
+  }
+
+  /* Drag handle indicator */
+  .modal-content::before {
+    content: '';
+    position: sticky;
+    top: 0;
+    display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 100px;
+    background: rgba(148, 163, 184, 0.4);
+    margin: 10px auto 0;
+    z-index: 20;
+    flex-shrink: 0;
+  }
+
+  .modal-image {
+    border-radius: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .modal-body {
+    padding: 1.5rem 1.25rem 2rem;
+    padding-bottom: calc(2rem + var(--safe-area-bottom));
+  }
+
+  .modal-body h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-body p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}

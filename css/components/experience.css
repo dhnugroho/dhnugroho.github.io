@@ -171,7 +171,7 @@
   border-radius: 1px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .tl-wrap {
     padding-left: 1.5rem;
   }
@@ -179,6 +179,39 @@
   .tl-card {
     grid-template-columns: 1.4rem 1fr;
     gap: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tl-dot {
+    width: 11px;
+    height: 11px;
+  }
+
+  .tl-role {
+    font-size: clamp(1.15rem, 4vw, 1.4rem);
+  }
+
+  .tl-body {
+    padding: 0 0 1.5rem;
+  }
+
+  .tl-desc {
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+
+  .tl-specialisms span {
+    font-size: 0.62rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .tl-tag {
+    font-size: 0.58rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .tl-active .tl-body::before {
+    left: -0.8rem;
   }
 }
 

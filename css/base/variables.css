@@ -27,7 +27,9 @@
 
   /* Spacing */
   --section-pad: 7rem;
+  --section-pad-mobile: 4rem;
   --container-max: 1140px;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 
   /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

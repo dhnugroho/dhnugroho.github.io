@@ -199,7 +199,7 @@
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
 
   .di-table,
   .di-table tbody,
@@ -258,8 +258,50 @@
     overflow-x: visible;
   }
 
+  /* Skills Carousel (Mobile Viewport) */
   .skills-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    scrollbar-width: none; /* Firefox */
+    scroll-behavior: smooth;
+  }
+
+  .skills-grid::-webkit-scrollbar {
+    display: none; /* Chrome / Safari */
+  }
+
+  .skill-group {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    margin: 0 0.5rem;
+    transition: transform 0.3s var(--ease-out), border-color 0.3s;
+  }
+
+  .skill-group:first-child {
+    margin-left: 1.25rem;
+  }
+
+  .skill-group:last-child {
+    margin-right: 1.25rem;
+  }
+
+  /* Disable hover effects on mobile */
+  .skill-group:hover {
+    transform: none;
+    border-color: var(--border-subtle);
+  }
+
+  /* Touch active feedback */
+  .skill-group:active {
+    transform: scale(0.98);
+    transition-duration: 0.1s;
   }
 }
 

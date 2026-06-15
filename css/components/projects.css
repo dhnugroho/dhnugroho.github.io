@@ -197,4 +197,56 @@
   }
 }
 
+@media (max-width: 768px) {
+  #projects .portfolio-header {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .pj-item {
+    gap: 1.75rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .pj-index {
+    font-size: 3.5rem;
+    margin-bottom: -0.8rem;
+  }
+
+  .pj-role-tag {
+    font-size: 0.62rem;
+  }
+
+  .pj-title {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+  }
+
+  .pj-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .pj-features li {
+    font-size: 0.78rem;
+  }
+
+  .pj-browser {
+    border-radius: 8px;
+  }
+
+  .pj-browser-bar {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .pj-url {
+    font-size: 0.5rem;
+  }
+
+  .portfolio-card-tags span {
+    font-size: 0.58rem;
+    padding: 0.18rem 0.5rem;
+  }
+}
+
 

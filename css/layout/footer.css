@@ -115,43 +115,31 @@
 /* ============================================
    RESPONSIVE REFINEMENTS
    ============================================ */
-@media (max-width: 480px) {
-  :root {
-    --section-pad: 4.5rem;
-  }
-
-  .hero-avatar {
-    width: 110px;
-    height: 110px;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-  }
-
-  .stat-card {
-    padding: 1.25rem 1rem;
-  }
-
-  .contact-form-card {
-    padding: 1.5rem;
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 3rem 0 1.5rem;
   }
 
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .footer-social a {
+    width: 44px;
+    height: 44px;
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.75rem;
   }
 }
-
-/* 360px rule removed — already covered by the 480px breakpoint above */
 

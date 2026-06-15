@@ -7,6 +7,7 @@ import { initModal } from './modules/modal.js';
 import { initForm } from './modules/form.js';
 import { initLang } from './modules/lang.js';
 import { initTheme } from './modules/theme.js';
+import { initCarousel } from './modules/carousel.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
@@ -18,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initLang();
   initTheme();
+  initCarousel();
 });
