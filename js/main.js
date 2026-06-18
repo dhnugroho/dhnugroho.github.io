@@ -8,6 +8,8 @@ import { initForm } from './modules/form.js';
 import { initLang } from './modules/lang.js';
 import { initTheme } from './modules/theme.js';
 import { initCarousel } from './modules/carousel.js';
+import { initCeTimeline } from './modules/ceTimeline.js';
+import { initAccordion } from './modules/accordion.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
@@ -20,4 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initLang();
   initTheme();
   initCarousel();
+  initCeTimeline();
+  initAccordion();
 });

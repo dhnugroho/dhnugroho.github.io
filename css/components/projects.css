@@ -1,5 +1,5 @@
 /* ============================================
-   PROJECT SHOWCASE SECTION
+   PROJECT SHOWCASE — Modern Accordion UI
    — Design system: Space Grotesk + Inter + JetBrains Mono
    — Colors: --accent-primary cyan, --accent-warm orange
    ============================================ */
@@ -8,64 +8,203 @@
 }
 
 #projects .portfolio-header {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
-/* Each project block: info left, screens right (alternates) */
-.pj-item {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: 4rem;
-  align-items: center;
-  margin-bottom: 6rem;
-  padding-bottom: 6rem;
+/* ---- Accordion container ---- */
+.pj-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---- Individual accordion item ---- */
+.pj-accordion-item {
   border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
 }
 
-.pj-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+.pj-accordion-item:first-child {
+  border-top: 1px solid var(--border-subtle);
 }
 
-/* Reverse layout: screens left, info right */
-.pj-reverse {
-  grid-template-columns: 1.35fr 1fr;
+/* Glow line on left when active */
+.pj-accordion-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent-primary);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s var(--ease-out);
+  z-index: 2;
 }
 
-.pj-reverse .pj-screens {
-  order: -1;
+.pj-accordion-item.pj-active::before {
+  transform: scaleY(1);
 }
 
-/* ---- Info column ---- */
-.pj-index {
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.04);
-  line-height: 1;
-  margin-bottom: -1.2rem;
+/* ---- Accordion header (clickable trigger) ---- */
+.pj-accordion-header {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.4s ease, padding 0.4s var(--ease-out);
   user-select: none;
 }
 
-.pj-role-tag {
+.pj-accordion-header:hover {
+  background: rgba(0, 229, 255, 0.03);
+}
+
+.pj-accordion-item.pj-active .pj-accordion-header {
+  background: rgba(0, 229, 255, 0.04);
+  padding-bottom: 1.25rem;
+}
+
+/* Index number */
+.pj-accordion-header .pj-index {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+  user-select: none;
+  transition: color 0.4s ease;
+}
+
+.pj-accordion-item.pj-active .pj-accordion-header .pj-index {
+  color: rgba(0, 229, 255, 0.12);
+}
+
+.pj-accordion-item:hover .pj-accordion-header .pj-index {
+  color: rgba(0, 229, 255, 0.1);
+}
+
+/* Header center content */
+.pj-header-content {
+  min-width: 0;
+}
+
+.pj-header-content .pj-role-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-warm);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
-.pj-title {
+.pj-accordion-item.pj-active .pj-header-content .pj-role-tag,
+.pj-accordion-item:hover .pj-header-content .pj-role-tag {
+  opacity: 1;
+}
+
+.pj-header-content .pj-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
   font-weight: 700;
   color: var(--text-bright);
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
 }
 
+.pj-accordion-item.pj-active .pj-header-content .pj-title {
+  color: var(--accent-primary);
+}
+
+.pj-header-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pj-header-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  background: var(--accent-primary-dim);
+  color: var(--accent-primary);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.pj-accordion-item.pj-active .pj-header-tags span {
+  opacity: 1;
+}
+
+/* Toggle icon */
+.pj-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.4s var(--ease-out);
+  background: transparent;
+}
+
+.pj-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-muted);
+  transition: transform 0.5s var(--ease-out), stroke 0.3s ease;
+}
+
+.pj-accordion-item.pj-active .pj-toggle {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary-dim);
+}
+
+.pj-accordion-item.pj-active .pj-toggle svg {
+  transform: rotate(180deg);
+  stroke: var(--accent-primary);
+}
+
+.pj-accordion-header:hover .pj-toggle {
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(0, 229, 255, 0.06);
+}
+
+/* ---- Accordion body (expandable content) ---- */
+.pj-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s var(--ease-out), opacity 0.4s ease;
+  opacity: 0;
+}
+
+.pj-accordion-item.pj-active .pj-accordion-body {
+  opacity: 1;
+}
+
+/* Inner content wrapper */
+.pj-accordion-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 3rem;
+  padding: 0.5rem 2rem 2.5rem 2rem;
+  align-items: start;
+}
+
+/* ---- Info column inside accordion ---- */
 .pj-desc {
   font-size: 0.92rem;
   line-height: 1.8;
@@ -76,7 +215,7 @@
 
 .pj-features {
   list-style: none;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 0.38rem;
@@ -102,6 +241,7 @@
 /* ---- Screens column ---- */
 .pj-screens {
   position: relative;
+  padding-bottom: 28px;
 }
 
 /* Main browser mockup */
@@ -165,22 +305,31 @@
   background: #1e1e2e;
 }
 
-/* Extra bottom padding so overlay isn't cropped */
-.pj-screens {
-  padding-bottom: 28px;
+/* ---- Counter badge in header ---- */
+.pj-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  margin-top: 0.75rem;
+}
+
+.pj-count-badge .pj-count-num {
+  color: var(--accent-primary);
+  font-weight: 600;
 }
 
 /* ---- Responsive ---- */
 @media (max-width: 960px) {
-
-  .pj-item,
-  .pj-reverse {
+  .pj-accordion-inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .pj-reverse .pj-screens {
-    order: 0;
+    gap: 2rem;
   }
 
   .pj-overlay-card {
@@ -191,35 +340,59 @@
     padding-bottom: 0;
   }
 
-  .pj-item {
-    margin-bottom: 4rem;
-    padding-bottom: 4rem;
+  .pj-accordion-header {
+    grid-template-columns: 3.5rem 1fr auto;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .pj-accordion-inner {
+    padding: 0 1.25rem 2rem;
   }
 }
 
 @media (max-width: 768px) {
   #projects .portfolio-header {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     text-align: left;
   }
 
-  .pj-item {
-    gap: 1.75rem;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
+  .pj-accordion-header {
+    grid-template-columns: 2.5rem 1fr 36px;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
   }
 
-  .pj-index {
-    font-size: 3.5rem;
-    margin-bottom: -0.8rem;
+  .pj-accordion-header .pj-index {
+    font-size: 1.8rem;
   }
 
-  .pj-role-tag {
-    font-size: 0.62rem;
+  .pj-header-content .pj-title {
+    font-size: clamp(1rem, 4.5vw, 1.3rem);
+    margin-bottom: 0.3rem;
   }
 
-  .pj-title {
-    font-size: clamp(1.3rem, 5vw, 1.6rem);
+  .pj-header-content .pj-role-tag {
+    font-size: 0.55rem;
+  }
+
+  .pj-header-tags {
+    display: none;
+  }
+
+  .pj-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pj-toggle svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .pj-accordion-inner {
+    padding: 0 1rem 1.75rem;
+    gap: 1.5rem;
   }
 
   .pj-desc {
@@ -247,6 +420,24 @@
     font-size: 0.58rem;
     padding: 0.18rem 0.5rem;
   }
+
+  .pj-count-badge {
+    font-size: 0.62rem;
+    margin-top: 0.5rem;
+  }
 }
 
+@media (max-width: 480px) {
+  .pj-accordion-header {
+    grid-template-columns: 1fr 32px;
+    padding: 1rem 0.75rem;
+  }
 
+  .pj-accordion-header .pj-index {
+    display: none;
+  }
+
+  .pj-accordion-inner {
+    padding: 0 0.75rem 1.5rem;
+  }
+}

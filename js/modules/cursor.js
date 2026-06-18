@@ -26,7 +26,7 @@ export function initCursor() {
 
     animateCursor();
 
-    const hoverTargets = document.querySelectorAll('a, button, .portfolio-card, input, textarea');
+    const hoverTargets = document.querySelectorAll('a, button, .portfolio-card, .pj-accordion-header, input, textarea');
     hoverTargets.forEach(function (el) {
       el.addEventListener('mouseenter', function () { cursorRing.classList.add('hover'); });
       el.addEventListener('mouseleave', function () { cursorRing.classList.remove('hover'); });
