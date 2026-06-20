@@ -19,18 +19,28 @@ async function optimizePortfolio() {
   for (const img of portfolioImages) {
     const inputPath = path.join(portfolioDir, img);
     const baseName = path.basename(img, path.extname(img));
+    
     const outputPath = path.join(portfolioDir, `${baseName}.webp`);
+    const thumbPath = path.join(portfolioDir, `${baseName}_thumb.webp`);
 
-    console.log(`Processing: ${img} -> ${baseName}.webp`);
+    console.log(`Processing: ${img}`);
     try {
+      // 1. Detailed Modal Image (1000px max width)
       await sharp(inputPath)
         .resize({ width: 1000, withoutEnlargement: true })
         .webp({ quality: 80 })
         .toFile(outputPath);
       
+      // 2. Grid Thumbnail Image (550px max width)
+      await sharp(inputPath)
+        .resize({ width: 550, withoutEnlargement: true })
+        .webp({ quality: 75 })
+        .toFile(thumbPath);
+
       const origSize = fs.statSync(inputPath).size;
       const newSize = fs.statSync(outputPath).size;
-      console.log(`  Done! Size reduced: ${(origSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${((1 - newSize / origSize) * 100).toFixed(1)}% savings)`);
+      const thumbSize = fs.statSync(thumbPath).size;
+      console.log(`  Done! Modal: ${(newSize / 1024).toFixed(1)} KB, Thumbnail: ${(thumbSize / 1024).toFixed(1)} KB`);
     } catch (err) {
       console.error(`  Error processing ${img}:`, err);
     }
@@ -43,10 +53,10 @@ async function optimizeProfile() {
   const tempPath = path.join(imgDir, 'profile_temp.png');
   const webpPath = path.join(imgDir, 'profile.webp');
 
-  console.log(`Processing profile.png -> profile.webp (280x280 WebP)`);
+  console.log(`Processing profile.png -> profile.webp (200x200 WebP)`);
   try {
     await sharp(inputPath)
-      .resize(280, 280)
+      .resize(200, 200)
       .webp({ quality: 85 })
       .toFile(webpPath);
     const webpSize = fs.statSync(webpPath).size;

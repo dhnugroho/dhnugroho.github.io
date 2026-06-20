@@ -8,7 +8,6 @@ export function initReveal() {
           entry.target.classList.add('visible');
           entry.target.querySelectorAll('.skill-bar[data-w]').forEach(function (bar) {
             bar.style.width = bar.getAttribute('data-w') + '%';
-            void bar.offsetHeight; // Force reflow
             bar.style.transform = 'scaleX(1)';
           });
           revealObserver.unobserve(entry.target);
