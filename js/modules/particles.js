@@ -80,7 +80,7 @@ export function initParticles() {
     }
 
     function init() {
-      const count = Math.min(Math.floor((canvas.width * canvas.height) / 6000), 200);
+      const count = Math.min(Math.floor((canvas.width * canvas.height) / 10000), 100);
       particles = [];
       for (let i = 0; i < count; i++) {
         particles.push(new Particle());
@@ -88,13 +88,16 @@ export function initParticles() {
     }
 
     function drawConnections() {
+      const maxDist = 80;
+      const maxDistSq = maxDist * maxDist;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            const opacity = (1 - dist / 100) * 0.08;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < maxDistSq) {
+            const dist = Math.sqrt(distSq);
+            const opacity = (1 - dist / maxDist) * 0.08;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
