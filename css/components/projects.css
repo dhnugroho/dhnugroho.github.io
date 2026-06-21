@@ -325,6 +325,39 @@
   font-weight: 600;
 }
 
+/* ---- Live Project Button ---- */
+.pj-live-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--accent-primary);
+  color: var(--bg-deep) !important;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15);
+  border: 1px solid var(--accent-primary);
+}
+
+.pj-live-btn:hover {
+  background: transparent;
+  color: var(--accent-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.pj-live-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.pj-live-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 960px) {
   .pj-accordion-inner {

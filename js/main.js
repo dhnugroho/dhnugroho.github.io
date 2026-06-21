@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTyping();
   initCursor();
   initNavbar();
+  initAccordion();
   initReveal();
   initModal();
   initForm();
@@ -23,5 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initCarousel();
   initCeTimeline();
-  initAccordion();
 });

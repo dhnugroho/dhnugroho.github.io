@@ -141,7 +141,7 @@
           <div class="portfolio-card reveal reveal-delay-1" id="portfolio-card-1" role="button" tabindex="0"
             aria-label="Open Vector Illustration project details" data-image="img/portfolio/siluet_new.webp"
             data-title="Vector Illustration"
-            data-description="A collection of vector illustrations and silhouette designs built with Corel Draw. This project explores visual storytelling through clean geometric forms and bold silhouettes, demonstrating design capability beyond code."
+            data-description="A collection of vector illustrations (WPAP and silhouette designs) built with Corel Draw. This project explores visual storytelling through clean geometric forms and bold silhouettes, demonstrating design capability beyond code."
             data-tags="Corel Draw, Vector, Illustration, Design">
             <div class="portfolio-card-image">
               <img src="img/portfolio/siluet_new_thumb.webp" alt="Vector illustration project" loading="lazy">
@@ -360,13 +360,245 @@
           <h2 class="section-title">Project Showcase</h2>
           <p class="section-subtitle">End-to-end projects from architecture to delivery — each with a live UI mockup
             re-build from the actual screens.</p>
-          <div class="pj-count-badge"><span class="pj-count-num">5</span> projects</div>
+          <div class="pj-count-badge"><span class="pj-count-num">6</span> projects</div>
         </div>
 
         <div class="pj-accordion">
 
+          <!-- ═══ PROJECT: IELTS Tracker ═══ -->
+          <div class="pj-accordion-item reveal" id="pj-accordion-ielts" data-date="2026-06-21">
+            <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="pj-body-ielts">
+              <div class="pj-index">00</div>
+              <div class="pj-header-content">
+                <div class="pj-role-tag">Creator &amp; Frontend Developer</div>
+                <h3 class="pj-title">IELTS Tracker</h3>
+                <div class="pj-header-tags">
+                  <span>IELTS Prep</span>
+                  <span>Dashboard</span>
+                  <span>6 Mock Tests</span>
+                  <span>57 Resources</span>
+                  <span>Progress Log</span>
+                </div>
+              </div>
+              <div class="pj-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="pj-accordion-body" id="pj-body-ielts">
+              <div class="pj-accordion-inner">
+                <div class="pj-info">
+                  <p class="pj-desc">A specialized study planning and progress tracking dashboard tailored for IELTS preparation. Engineered to monitor study hours, test benchmarks across 6 milestone phases, vocabulary acquisition, daily schedules, and resource management to achieve a target overall band score of 7.5.</p>
+                  <ul class="pj-features">
+                    <li><strong>Tab Dashboard:</strong> Overall band, score per skill, total study hours, Month 1 &amp; 2 day progress, 7-day streak, and settings for start/exam dates.</li>
+                    <li><strong>Tab Months:</strong> 30-day tracking for Listening &amp; Reading focus, and 30-day tracking for Writing &amp; Speaking. Log hours, focus materials, speaking/writing maintenance, and vocabulary.</li>
+                    <li><strong>Tab Mock Test:</strong> 6 progress slots (Baseline, Week 2, Month 1, Week 6, Month 2, Before Test) with auto-calculated overall band compared to a 7.5 target.</li>
+                    <li><strong>Tab Vocab:</strong> Interactive notebook logging word definitions, sentence examples, source origin, and usage status.</li>
+                    <li><strong>Tab Jadwal &amp; Resources:</strong> Daily scheduling plus a directory of 57 resources (Listening: 11, Reading: 12, Writing: 14, Speaking: 12, Vocab: 8, Mock Tests: 8).</li>
+                  </ul>
+                  <a href="https://capable-scone-6e6f59.netlify.app/" target="_blank" rel="noopener noreferrer" class="pj-live-btn">
+                    Visit Live Project
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;margin-left:6px;">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+                <div class="pj-screens">
+                  <div class="pj-browser">
+                    <div class="pj-browser-bar">
+                      <div class="pj-dot" style="background:#ff5f57"></div>
+                      <div class="pj-dot" style="background:#febc2e"></div>
+                      <div class="pj-dot" style="background:#28c840"></div>
+                      <div class="pj-url">ielts-tracker.netlify.app / dashboard</div>
+                    </div>
+                    <!-- Main Dashboard SVG Mockup -->
+                    <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
+                      <!-- Base background -->
+                      <rect width="560" height="340" fill="#0b0f19" />
+                      
+                      <!-- Header -->
+                      <rect width="560" height="42" fill="#111625" />
+                      <text x="18" y="26" fill="#00e5ff" font-size="10.5" font-weight="bold" font-family="sans-serif">🎯 IELTS Tracker</text>
+                      
+                      <!-- Tabs -->
+                      <rect x="140" y="12" width="404" height="20" rx="4" fill="#080b13" />
+                      <rect x="142" y="14" width="70" height="16" rx="3" fill="#00e5ff" />
+                      <text x="177" y="25" fill="#0b0f19" font-size="7.5" font-weight="bold" text-anchor="middle" font-family="sans-serif">Dashboard</text>
+                      
+                      <text x="245" y="25" fill="#8892a4" font-size="7" text-anchor="middle" font-family="sans-serif">Months</text>
+                      <text x="310" y="25" fill="#8892a4" font-size="7" text-anchor="middle" font-family="sans-serif">Mock Test</text>
+                      <text x="375" y="25" fill="#8892a4" font-size="7" text-anchor="middle" font-family="sans-serif">Vocab</text>
+                      <text x="465" y="25" fill="#8892a4" font-size="7" text-anchor="middle" font-family="sans-serif">Jadwal &amp; Resources</text>
+
+                      <!-- Card 1: Target vs Current -->
+                      <rect x="14" y="56" width="168" height="114" rx="6" fill="#121829" stroke="#1d263b" stroke-width="1" />
+                      <text x="24" y="74" fill="#8892a4" font-size="7.5" font-family="sans-serif">Target vs Mock Terakhir</text>
+                      <text x="24" y="98" fill="#8892a4" font-size="7" font-family="sans-serif">Target Band</text>
+                      <text x="24" y="128" fill="#fff" font-size="26" font-weight="bold" font-family="sans-serif">7.5</text>
+                      <text x="108" y="98" fill="#8892a4" font-size="7" font-family="sans-serif">Current Band</text>
+                      <text x="108" y="128" fill="#00e5ff" font-size="26" font-weight="bold" font-family="sans-serif">7.0</text>
+                      <rect x="24" y="146" width="148" height="6" rx="3" fill="#080b13" />
+                      <rect x="24" y="146" width="138" height="6" rx="3" fill="#00e5ff" />
+                      <text x="24" y="162" fill="#00e5ff" font-size="6.5" font-family="sans-serif">93.3% dari target tercapai</text>
+
+                      <!-- Card 2: Skills -->
+                      <rect x="196" y="56" width="180" height="114" rx="6" fill="#121829" stroke="#1d263b" stroke-width="1" />
+                      <text x="208" y="74" fill="#8892a4" font-size="7.5" font-family="sans-serif">Skor per Skill (Terakhir)</text>
+                      
+                      <text x="208" y="94" fill="#fff" font-size="7.5" font-family="sans-serif">Listening</text>
+                      <rect x="260" y="88" width="80" height="6" rx="3" fill="#080b13" />
+                      <rect x="260" y="88" width="66" height="6" rx="3" fill="#00e5ff" />
+                      <text x="348" y="94" fill="#00e5ff" font-size="7.5" font-weight="bold" font-family="sans-serif">7.5</text>
+                      
+                      <text x="208" y="112" fill="#fff" font-size="7.5" font-family="sans-serif">Reading</text>
+                      <rect x="260" y="106" width="80" height="6" rx="3" fill="#080b13" />
+                      <rect x="260" y="106" width="66" height="6" rx="3" fill="#00e5ff" />
+                      <text x="348" y="112" fill="#00e5ff" font-size="7.5" font-weight="bold" font-family="sans-serif">7.5</text>
+                      
+                      <text x="208" y="130" fill="#fff" font-size="7.5" font-family="sans-serif">Writing</text>
+                      <rect x="260" y="124" width="80" height="6" rx="3" fill="#080b13" />
+                      <rect x="260" y="124" width="54" height="6" rx="3" fill="#ffb74d" />
+                      <text x="348" y="130" fill="#ffb74d" font-size="7.5" font-weight="bold" font-family="sans-serif">6.5</text>
+                      
+                      <text x="208" y="148" fill="#fff" font-size="7.5" font-family="sans-serif">Speaking</text>
+                      <rect x="260" y="142" width="80" height="6" rx="3" fill="#080b13" />
+                      <rect x="260" y="142" width="54" height="6" rx="3" fill="#ffb74d" />
+                      <text x="348" y="148" fill="#ffb74d" font-size="7.5" font-weight="bold" font-family="sans-serif">6.5</text>
+
+                      <!-- Card 3: Study Stats -->
+                      <rect x="390" y="56" width="156" height="114" rx="6" fill="#121829" stroke="#1d263b" stroke-width="1" />
+                      <text x="402" y="74" fill="#8892a4" font-size="7.5" font-family="sans-serif">Total Jam Belajar</text>
+                      <text x="402" y="98" fill="#fff" font-size="19" font-weight="bold" font-family="sans-serif">142.5 Jam</text>
+                      
+                      <text x="402" y="118" fill="#8892a4" font-size="7.5" font-family="sans-serif">Streak 7 Hari Terakhir</text>
+                      <circle cx="408" cy="136" r="4.5" fill="#00e5ff" />
+                      <text x="408" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">S</text>
+                      <circle cx="422" cy="136" r="4.5" fill="#00e5ff" />
+                      <text x="422" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">M</text>
+                      <circle cx="436" cy="136" r="4.5" fill="#00e5ff" />
+                      <text x="436" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">T</text>
+                      <circle cx="450" cy="136" r="4.5" fill="#080b13" stroke="#1d263b" stroke-width="0.8" />
+                      <text x="450" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">W</text>
+                      <circle cx="464" cy="136" r="4.5" fill="#00e5ff" />
+                      <text x="464" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">T</text>
+                      <circle cx="478" cy="136" r="4.5" fill="#00e5ff" />
+                      <text x="478" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">F</text>
+                      <circle cx="492" cy="136" r="4.5" fill="#00e5ff" />
+                      <text x="492" y="149" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">S</text>
+                      <text x="512" y="139" fill="#00e5ff" font-size="7.5" font-weight="bold" font-family="sans-serif">🔥 6d</text>
+
+                      <!-- Card 4: Month Progress & Dates -->
+                      <rect x="14" y="184" width="532" height="142" rx="6" fill="#121829" stroke="#1d263b" stroke-width="1" />
+                      <text x="28" y="204" fill="#8892a4" font-size="8" font-weight="bold" font-family="sans-serif">HARI PROGRESS &amp; JADWAL</text>
+                      
+                      <!-- Month 1 -->
+                      <text x="28" y="224" fill="#fff" font-size="7.5" font-family="sans-serif">Bulan 1 (Listening &amp; Reading Focus)</text>
+                      <rect x="28" y="230" width="220" height="8" rx="4" fill="#080b13" />
+                      <rect x="28" y="230" width="220" height="8" rx="4" fill="#00e5ff" />
+                      <text x="256" y="237" fill="#00e5ff" font-size="7.5" font-weight="bold" font-family="sans-serif">30/30 Hari (100%)</text>
+
+                      <!-- Month 2 -->
+                      <text x="28" y="258" fill="#fff" font-size="7.5" font-family="sans-serif">Bulan 2 (Writing &amp; Speaking Focus)</text>
+                      <rect x="28" y="264" width="220" height="8" rx="4" fill="#080b13" />
+                      <rect x="28" y="264" width="102" height="8" rx="4" fill="#00e5ff" />
+                      <text x="256" y="271" fill="#8892a4" font-size="7.5" font-weight="bold" font-family="sans-serif">14/30 Hari (46%)</text>
+                      
+                      <!-- Date settings -->
+                      <rect x="372" y="196" width="160" height="118" rx="4" fill="#0b0f19" stroke="#1d263b" stroke-width="1" />
+                      <text x="382" y="212" fill="#8892a4" font-size="7" font-weight="bold" font-family="sans-serif">Tanggal Mulai &amp; Tes</text>
+                      
+                      <text x="382" y="231" fill="#8892a4" font-size="6" font-family="sans-serif">Tanggal Mulai</text>
+                      <rect x="382" y="236" width="140" height="18" rx="3" fill="#121829" stroke="#1d263b" stroke-width="0.5" />
+                      <text x="388" y="248" fill="#fff" font-size="7" font-family="monospace">01 May 2026</text>
+                      
+                      <text x="382" y="270" fill="#8892a4" font-size="6" font-family="sans-serif">Tanggal Tes</text>
+                      <rect x="382" y="275" width="140" height="18" rx="3" fill="#121829" stroke="#1d263b" stroke-width="0.5" />
+                      <text x="388" y="287" fill="#00e5ff" font-size="7" font-family="monospace" font-weight="bold">30 June 2026</text>
+                      
+                      <text x="382" y="306" fill="#ffb74d" font-size="6.5" font-family="sans-serif">⏳ H-9 Hari Terbuka</text>
+                    </svg>
+                  </div>
+                  <!-- Floating Mock Test Overlay -->
+                  <div class="pj-overlay-card">
+                    <div class="pj-browser-bar" style="padding:0.4rem 0.8rem;">
+                      <div class="pj-dot" style="background:#ff5f57;width:7px;height:7px;"></div>
+                      <div class="pj-dot" style="background:#febc2e;width:7px;height:7px;"></div>
+                      <div class="pj-url" style="font-size:0.55rem;">Mock Test Performance</div>
+                    </div>
+                    <svg viewBox="0 0 270 168" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                      <rect width="270" height="168" fill="#0b0f19" />
+                      <rect width="270" height="22" fill="#111625" />
+                      <text x="10" y="14" fill="#00e5ff" font-size="6.5" font-weight="bold" font-family="monospace">MOCK TEST (Target: 7.5)</text>
+                      
+                      <!-- Table -->
+                      <rect x="8" y="28" width="254" height="10" fill="#121829" />
+                      <text x="12" y="35" fill="#8892a4" font-size="5" font-weight="bold" font-family="sans-serif">TAHAP TEST</text>
+                      <text x="96" y="35" fill="#8892a4" font-size="5" font-weight="bold" font-family="sans-serif">L/R/W/S</text>
+                      <text x="176" y="35" fill="#8892a4" font-size="5" font-weight="bold" font-family="sans-serif">OVERALL</text>
+                      <text x="226" y="35" fill="#8892a4" font-size="5" font-weight="bold" font-family="sans-serif">STATUS</text>
+
+                      <!-- Baseline -->
+                      <rect x="8" y="40" width="254" height="13" fill="#080b13" opacity="0.3"/>
+                      <text x="12" y="48" fill="#fff" font-size="5" font-family="sans-serif">Baseline</text>
+                      <text x="96" y="48" fill="#8892a4" font-size="5" font-family="monospace">5.5/6.0/5.5/5.5</text>
+                      <text x="176" y="48" fill="#fff" font-size="5" font-family="monospace">5.5</text>
+                      <rect x="224" y="42" width="34" height="9" rx="1.5" fill="#3a0c0c" />
+                      <text x="241" y="48" fill="#ff6b6b" font-size="4.5" text-anchor="middle" font-family="sans-serif">-2.0 Band</text>
+
+                      <!-- Minggu 2 -->
+                      <rect x="8" y="55" width="254" height="13" fill="#080b13" opacity="0.3"/>
+                      <text x="12" y="63" fill="#fff" font-size="5" font-family="sans-serif">Minggu 2</text>
+                      <text x="96" y="63" fill="#8892a4" font-size="5" font-family="monospace">6.0/6.5/6.0/5.5</text>
+                      <text x="176" y="63" fill="#fff" font-size="5" font-family="monospace">6.0</text>
+                      <rect x="224" y="57" width="34" height="9" rx="1.5" fill="#3a0c0c" />
+                      <text x="241" y="63" fill="#ff6b6b" font-size="4.5" text-anchor="middle" font-family="sans-serif">-1.5 Band</text>
+
+                      <!-- Bulan 1 -->
+                      <rect x="8" y="70" width="254" height="13" fill="#080b13" opacity="0.3"/>
+                      <text x="12" y="78" fill="#fff" font-size="5" font-family="sans-serif">Bulan 1</text>
+                      <text x="96" y="78" fill="#8892a4" font-size="5" font-family="monospace">7.0/7.0/6.0/6.0</text>
+                      <text x="176" y="78" fill="#fff" font-size="5" font-family="monospace">6.5</text>
+                      <rect x="224" y="72" width="34" height="9" rx="1.5" fill="#3a0c0c" />
+                      <text x="241" y="78" fill="#ff6b6b" font-size="4.5" text-anchor="middle" font-family="sans-serif">-1.0 Band</text>
+
+                      <!-- Minggu 6 -->
+                      <rect x="8" y="85" width="254" height="13" fill="#080b13" opacity="0.3"/>
+                      <text x="12" y="93" fill="#fff" font-size="5" font-family="sans-serif">Minggu 6</text>
+                      <text x="96" y="93" fill="#8892a4" font-size="5" font-family="monospace">7.5/7.0/6.5/6.5</text>
+                      <text x="176" y="93" fill="#fff" font-size="5" font-family="monospace">7.0</text>
+                      <rect x="224" y="87" width="34" height="9" rx="1.5" fill="#332200" />
+                      <text x="241" y="93" fill="#ffb74d" font-size="4.5" text-anchor="middle" font-family="sans-serif">-0.5 Band</text>
+
+                      <!-- Bulan 2 -->
+                      <rect x="8" y="100" width="254" height="13" fill="#122425" />
+                      <text x="12" y="108" fill="#00e5ff" font-size="5" font-weight="bold" font-family="sans-serif">Bulan 2</text>
+                      <text x="96" y="108" fill="#00e5ff" font-size="5" font-family="monospace">8.0/8.0/6.5/7.0</text>
+                      <text x="176" y="108" fill="#00e5ff" font-size="5" font-weight="bold" font-family="monospace">7.5</text>
+                      <rect x="224" y="102" width="34" height="9" rx="1.5" fill="#0f4a2a" />
+                      <text x="241" y="108" fill="#00e5ff" font-size="4.5" text-anchor="middle" font-family="sans-serif">Lulus 7.5</text>
+
+                      <!-- Sebelum Tes -->
+                      <rect x="8" y="115" width="254" height="13" fill="#080b13" opacity="0.3"/>
+                      <text x="12" y="123" fill="#8892a4" font-size="5" font-family="sans-serif">Sebelum Tes</text>
+                      <text x="96" y="123" fill="#555" font-size="5" font-family="monospace">-/-/-/-</text>
+                      <text x="176" y="123" fill="#555" font-size="5" font-family="monospace">-</text>
+                      <rect x="224" y="117" width="34" height="9" rx="1.5" fill="#1d263b" />
+                      <text x="241" y="123" fill="#8892a4" font-size="4.5" text-anchor="middle" font-family="sans-serif">Belum Isi</text>
+                      
+                      <text x="135" y="152" fill="#8892a4" font-size="5" text-anchor="middle" font-family="sans-serif">Tap baris untuk mengupdate skor detail</text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- ═══ PROJECT 01: Smart Laundry System ═══ -->
-          <div class="pj-accordion-item pj-active reveal" id="pj-accordion-1">
+          <div class="pj-accordion-item reveal" id="pj-accordion-1" data-date="2024-12-01">
             <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="true" aria-controls="pj-body-1">
               <div class="pj-index">01</div>
               <div class="pj-header-content">
@@ -762,7 +994,7 @@
           </div>
 
           <!-- ═══ PROJECT 02: CSR Web Application ═══ -->
-          <div class="pj-accordion-item reveal" id="pj-accordion-2">
+          <div class="pj-accordion-item reveal" id="pj-accordion-2" data-date="2022-06-01">
             <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="pj-body-2">
               <div class="pj-index">02</div>
               <div class="pj-header-content">
@@ -981,7 +1213,7 @@
           </div>
 
           <!-- ═══ PROJECT 03: Big Data Platform ═══ -->
-          <div class="pj-accordion-item reveal" id="pj-accordion-3">
+          <div class="pj-accordion-item reveal" id="pj-accordion-3" data-date="2021-08-01">
             <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="pj-body-3">
               <div class="pj-index">03</div>
               <div class="pj-header-content">
@@ -1126,7 +1358,7 @@
           </div>
 
           <!-- ═══ PROJECT 04: Travel Management System ═══ -->
-          <div class="pj-accordion-item reveal" id="pj-accordion-4">
+          <div class="pj-accordion-item reveal" id="pj-accordion-4" data-date="2021-11-01">
             <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="pj-body-4">
               <div class="pj-index">04</div>
               <div class="pj-header-content">
@@ -1333,7 +1565,7 @@
           </div>
 
           <!-- ═══ PROJECT 05: Front End Development ═══ -->
-          <div class="pj-accordion-item reveal" id="pj-accordion-5">
+          <div class="pj-accordion-item reveal" id="pj-accordion-5" data-date="2023-03-01">
             <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="pj-body-5">
               <div class="pj-index">05</div>
               <div class="pj-header-content">
@@ -2329,8 +2561,8 @@
       }, 'google_translate_element');
     }
   </script>
-  <script type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    defer></script>
 
 
 
