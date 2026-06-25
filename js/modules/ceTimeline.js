@@ -10,55 +10,57 @@
  */
 
 export function initCeTimeline() {
-  const timeline = document.getElementById('ceTimeline');
-  if (!timeline) return;
+  const timelines = document.querySelectorAll('.spine-wrap');
+  if (!timelines.length) return;
 
-  const eraCols = timeline.querySelectorAll('.era-col');
+  timelines.forEach(function (timeline) {
+    const eraCols = timeline.querySelectorAll('.era-col');
 
-  // ─── Scroll-triggered entrance animation ───
-  if ('IntersectionObserver' in window) {
-    const timelineObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          timeline.classList.add('spine-animated');
-          timelineObserver.unobserve(entry.target);
+    // ─── Scroll-triggered entrance animation ───
+    if ('IntersectionObserver' in window) {
+      const timelineObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            timeline.classList.add('spine-animated');
+            timelineObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      timelineObserver.observe(timeline);
+    } else {
+      // Fallback: show immediately
+      timeline.classList.add('spine-animated');
+    }
+
+    // ─── Click/tap to expand cards ───
+    eraCols.forEach(function (col) {
+      col.addEventListener('click', function (e) {
+        handleExpand(col, eraCols);
+      });
+
+      // Keyboard support
+      col.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleExpand(col, eraCols);
         }
       });
-    }, {
-      threshold: 0.2,
-      rootMargin: '0px 0px -40px 0px'
     });
 
-    timelineObserver.observe(timeline);
-  } else {
-    // Fallback: show immediately
-    timeline.classList.add('spine-animated');
-  }
+    // ─── Touch feedback ───
+    eraCols.forEach(function (col) {
+      col.addEventListener('touchstart', function () {
+        col.style.willChange = 'transform';
+      }, { passive: true });
 
-  // ─── Click/tap to expand cards ───
-  eraCols.forEach(function (col) {
-    col.addEventListener('click', function (e) {
-      handleExpand(col, eraCols);
+      col.addEventListener('touchend', function () {
+        col.style.willChange = 'auto';
+      }, { passive: true });
     });
-
-    // Keyboard support
-    col.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handleExpand(col, eraCols);
-      }
-    });
-  });
-
-  // ─── Touch feedback ───
-  eraCols.forEach(function (col) {
-    col.addEventListener('touchstart', function () {
-      col.style.willChange = 'transform';
-    }, { passive: true });
-
-    col.addEventListener('touchend', function () {
-      col.style.willChange = 'auto';
-    }, { passive: true });
   });
 }
 

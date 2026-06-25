@@ -259,6 +259,10 @@
 .spine-wrap.spine-animated .era-col[data-era="3"] { transition-delay: 0.4s; }
 .spine-wrap.spine-animated .era-col[data-era="4"] { transition-delay: 0.55s; }
 .spine-wrap.spine-animated .era-col[data-era="5"] { transition-delay: 0.7s; }
+.spine-wrap.spine-animated .era-col[data-era="6"] { transition-delay: 0.1s; }
+.spine-wrap.spine-animated .era-col[data-era="7"] { transition-delay: 0.25s; }
+.spine-wrap.spine-animated .era-col[data-era="8"] { transition-delay: 0.4s; }
+.spine-wrap.spine-animated .era-col[data-era="9"] { transition-delay: 0.55s; }
 
 /* Connector line between dot and card (vertical on mobile) */
 .era-connector {
