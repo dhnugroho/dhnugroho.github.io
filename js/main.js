@@ -10,6 +10,7 @@ import { initTheme } from './modules/theme.js';
 import { initCarousel } from './modules/carousel.js';
 import { initCeTimeline } from './modules/ceTimeline.js';
 import { initAccordion } from './modules/accordion.js';
+import { initNotesCarousel } from './modules/notesCarousel.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initCarousel();
   initCeTimeline();
+  initNotesCarousel();
 });
