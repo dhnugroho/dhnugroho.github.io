@@ -2703,72 +2703,130 @@
                           </div>
                         </div>
 
-                        <div style="margin: 1.5rem 0; overflow-x: auto;">
-                          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
-                            <thead>
-                              <tr style="border-bottom: 2px solid var(--border-subtle); color: var(--text-muted);">
-                                <th style="padding: 8px; width: 20%;">Data Input (Note 1)</th>
-                                <th style="padding: 8px; width: 25%;">Variabel Transisi Psikologis/Teknis</th>
-                                <th style="padding: 8px; width: 25%;">Output Prediktif (Note 2)</th>
-                                <th style="padding: 8px; width: 30%;">Jangkar Referensi Ilmiah Valid</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                                <td style="padding: 8px; font-weight: bold; color: var(--text-muted);">Era 1 &amp; 2
-                                  (2015–2020)</td>
-                                <td style="padding: 8px;">Pengalaman hulu data &amp; mitigasi resistensi adopsi user.
-                                </td>
-                                <td style="padding: 8px; font-weight: bold; color: var(--accent-primary);">Fase 6
-                                  (2026–2027):<br>Focus Shield</td>
-                                <td style="padding: 8px; font-size: 0.8rem; color: var(--text-subtle);">
-                                  <strong>Sweller (1988)</strong> - <em>Cognitive Load Theory</em>: Kebutuhan sistem
-                                  penyaringan data otomatis untuk mencegah kelumpuhan memori kerja otak akibat
-                                  <em>Information Overload</em>.
-                                </td>
-                              </tr>
-                              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                                <td style="padding: 8px; font-weight: bold; color: var(--text-muted);">Era 3 &amp; 4
-                                  (2020–2024)</td>
-                                <td style="padding: 8px;">Manajemen <em>Technical Debt</em> &amp; rancangan arsitektur
-                                  terdistribusi.</td>
-                                <td style="padding: 8px; font-weight: bold; color: var(--accent-primary);">Fase 7
-                                  (2027–2028):<br>Autonomous Pipelines</td>
-                                <td style="padding: 8px; font-size: 0.8rem; color: var(--text-subtle);">
-                                  <strong>Shi, et al. (2016)</strong> - <em>Edge Computing Framework</em>: Validasi
-                                  perpindahan ke sistem lokal/mandiri untuk kedaulatan data &amp; efisiensi energi
-                                  (<em>modern permaculture</em>).
-                                </td>
-                              </tr>
-                              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                                <td style="padding: 8px; font-weight: bold; color: var(--text-muted);">Era 4 &amp; 5
-                                  (2023–2025)</td>
-                                <td style="padding: 8px;">Pelepasan ego fanatisme <em>stack</em> teknologi; fokus pada
-                                  <em>root-cause</em>.
-                                </td>
-                                <td style="padding: 8px; font-weight: bold; color: var(--accent-primary);">Fase 8
-                                  (2028–2030):<br>Root-Cause Generalist</td>
-                                <td style="padding: 8px; font-size: 0.8rem; color: var(--text-subtle);">
-                                  <strong>Epstein (2019)</strong> - <em>Range</em>: Keunggulan generalis lintas domain
-                                  dalam mengurai rantai masalah makro pada lingkungan yang disruptif.
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="padding: 8px; font-weight: bold; color: var(--text-muted);">Era 5 (2025–Now)
-                                </td>
-                                <td style="padding: 8px;">Integrasi AI murni sebagai <em>amplifier</em>, bukan pengganti
-                                  nalar kritis.</td>
-                                <td style="padding: 8px; font-weight: bold; color: var(--accent-primary);">Fase 9
-                                  (2030–2031):<br>The Sovereign Architect</td>
-                                <td style="padding: 8px; font-size: 0.8rem; color: var(--text-subtle);">
-                                  <strong>Newport (2019) / Long &amp; Averill (2003)</strong> - <em>Digital Minimalism
-                                    &amp; Positive Solitude</em>: Memposisikan teknologi di bawah kontrol
-                                  <em>mindfulness</em> untuk otonomi penuh kehidupan.
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                        <!-- Data Pipeline Interactive Timeline -->
+                        <div class="spine-wrap pipeline-future" id="pipelineTimeline">
+                          <div class="spine-line"></div>
+                          <div class="spine-progress"></div>
+
+                          <!-- Era 1 & 2 → Fase 6: Focus Shield (2026–2027) -->
+                          <div class="era-col" data-era="6" role="button" tabindex="0"
+                            aria-label="Expand Focus Shield phase details">
+                            <div class="era-dot-wrap">
+                              <div class="era-dot dot-5"></div>
+                              <div class="era-connector"></div>
+                            </div>
+                            <div class="era-year">2026 &ndash; 2027</div>
+                            <div class="era-card card-5">
+                              <div class="card-role role-5">Fase 6: Focus Shield</div>
+                              <div class="card-tags">
+                                <span class="tag tag-5">Cognitive Load</span>
+                                <span class="tag tag-5">Data Filtering</span>
+                                <span class="tag tag-5">Info Overload</span>
+                              </div>
+                              <div class="card-expand-hint">
+                                <span class="expand-icon">+</span>
+                                <span class="expand-text">Tap untuk referensi ilmiah</span>
+                              </div>
+                              <div class="card-ethics card-ethics-collapsible">
+                                <strong>Data Input: Era 1 &amp; 2 (2015–2020)</strong> — Pengalaman hulu data &amp;
+                                mitigasi resistensi adopsi user.<br>
+                                <strong>Jangkar Referensi:</strong>
+                                <em>Sweller (1988) — Cognitive Load Theory:</em> Kebutuhan sistem penyaringan data
+                                otomatis untuk mencegah kelumpuhan memori kerja otak akibat
+                                <em>Information Overload</em>.
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Era 3 & 4 → Fase 7: Autonomous Pipelines (2027–2028) -->
+                          <div class="era-col" data-era="7" role="button" tabindex="0"
+                            aria-label="Expand Autonomous Pipelines phase details">
+                            <div class="era-dot-wrap">
+                              <div class="era-dot dot-4"></div>
+                              <div class="era-connector"></div>
+                            </div>
+                            <div class="era-year">2027 &ndash; 2028</div>
+                            <div class="era-card card-4">
+                              <div class="card-role role-4">Fase 7: Autonomous Pipelines</div>
+                              <div class="card-tags">
+                                <span class="tag tag-4">Edge Computing</span>
+                                <span class="tag tag-4">Tech Debt Mgmt</span>
+                                <span class="tag tag-4">Distributed Arch</span>
+                              </div>
+                              <div class="card-expand-hint">
+                                <span class="expand-icon">+</span>
+                                <span class="expand-text">Tap untuk referensi ilmiah</span>
+                              </div>
+                              <div class="card-ethics card-ethics-collapsible">
+                                <strong>Data Input: Era 3 &amp; 4 (2020–2024)</strong> — Manajemen
+                                <em>Technical Debt</em> &amp; rancangan arsitektur terdistribusi.<br>
+                                <strong>Jangkar Referensi:</strong>
+                                <em>Shi, et al. (2016) — Edge Computing Framework:</em> Validasi perpindahan ke sistem
+                                lokal/mandiri untuk kedaulatan data &amp; efisiensi energi
+                                (<em>modern permaculture</em>).
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Era 4 & 5 → Fase 8: Root-Cause Generalist (2028–2030) -->
+                          <div class="era-col" data-era="8" role="button" tabindex="0"
+                            aria-label="Expand Root-Cause Generalist phase details">
+                            <div class="era-dot-wrap">
+                              <div class="era-dot dot-3"></div>
+                              <div class="era-connector"></div>
+                            </div>
+                            <div class="era-year">2028 &ndash; 2030</div>
+                            <div class="era-card card-3">
+                              <div class="card-role role-3">Fase 8: Root-Cause Generalist</div>
+                              <div class="card-tags">
+                                <span class="tag tag-3">Cross-Domain</span>
+                                <span class="tag tag-3">Ego Release</span>
+                                <span class="tag tag-3">Root-Cause Focus</span>
+                              </div>
+                              <div class="card-expand-hint">
+                                <span class="expand-icon">+</span>
+                                <span class="expand-text">Tap untuk referensi ilmiah</span>
+                              </div>
+                              <div class="card-ethics card-ethics-collapsible">
+                                <strong>Data Input: Era 4 &amp; 5 (2023–2025)</strong> — Pelepasan ego fanatisme
+                                <em>stack</em> teknologi; fokus pada <em>root-cause</em>.<br>
+                                <strong>Jangkar Referensi:</strong>
+                                <em>Epstein (2019) — Range:</em> Keunggulan generalis lintas domain dalam mengurai
+                                rantai masalah makro pada lingkungan yang disruptif.
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Era 5 → Fase 9: The Sovereign Architect (2030–2031) -->
+                          <div class="era-col" data-era="9" role="button" tabindex="0"
+                            aria-label="Expand Sovereign Architect phase details">
+                            <div class="era-dot-wrap">
+                              <div class="era-dot dot-1"></div>
+                            </div>
+                            <div class="era-year">2030 &ndash; 2031</div>
+                            <div class="era-card card-1">
+                              <div class="card-role role-1">Fase 9: The Sovereign Architect</div>
+                              <div class="card-tags">
+                                <span class="tag tag-1">Digital Minimalism</span>
+                                <span class="tag tag-1">Positive Solitude</span>
+                                <span class="tag tag-1">Mindfulness</span>
+                              </div>
+                              <div class="card-expand-hint">
+                                <span class="expand-icon">+</span>
+                                <span class="expand-text">Tap untuk referensi ilmiah</span>
+                              </div>
+                              <div class="card-ethics card-ethics-collapsible">
+                                <strong>Data Input: Era 5 (2025–Now)</strong> — Integrasi AI murni sebagai
+                                <em>amplifier</em>, bukan pengganti nalar kritis.<br>
+                                <strong>Jangkar Referensi:</strong>
+                                <em>Newport (2019) / Long &amp; Averill (2003) — Digital Minimalism &amp; Positive
+                                  Solitude:</em> Memposisikan teknologi di bawah kontrol <em>mindfulness</em> untuk
+                                otonomi penuh kehidupan.
+                              </div>
+                            </div>
+                          </div>
+
+                        </div><!-- /.spine-wrap -->
 
                         <div class="insight-band">
                           <div class="insight-card ic-green">

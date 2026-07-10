@@ -254,15 +254,41 @@
   transform: translateY(0);
 }
 
-.spine-wrap.spine-animated .era-col[data-era="1"] { transition-delay: 0.1s; }
-.spine-wrap.spine-animated .era-col[data-era="2"] { transition-delay: 0.25s; }
-.spine-wrap.spine-animated .era-col[data-era="3"] { transition-delay: 0.4s; }
-.spine-wrap.spine-animated .era-col[data-era="4"] { transition-delay: 0.55s; }
-.spine-wrap.spine-animated .era-col[data-era="5"] { transition-delay: 0.7s; }
-.spine-wrap.spine-animated .era-col[data-era="6"] { transition-delay: 0.1s; }
-.spine-wrap.spine-animated .era-col[data-era="7"] { transition-delay: 0.25s; }
-.spine-wrap.spine-animated .era-col[data-era="8"] { transition-delay: 0.4s; }
-.spine-wrap.spine-animated .era-col[data-era="9"] { transition-delay: 0.55s; }
+.spine-wrap.spine-animated .era-col[data-era="1"] {
+  transition-delay: 0.1s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="2"] {
+  transition-delay: 0.25s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="3"] {
+  transition-delay: 0.4s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="4"] {
+  transition-delay: 0.55s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="5"] {
+  transition-delay: 0.7s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="6"] {
+  transition-delay: 0.1s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="7"] {
+  transition-delay: 0.25s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="8"] {
+  transition-delay: 0.4s;
+}
+
+.spine-wrap.spine-animated .era-col[data-era="9"] {
+  transition-delay: 0.55s;
+}
 
 /* Connector line between dot and card (vertical on mobile) */
 .era-connector {
@@ -350,10 +376,12 @@
 }
 
 @keyframes pulse-dot {
+
   0%,
   100% {
     box-shadow: 0 0 10px #F472B640;
   }
+
   50% {
     box-shadow: 0 0 22px #F472B680;
   }
@@ -390,7 +418,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top center, rgba(255,255,255,0.03), transparent 70%);
+  background: radial-gradient(circle at top center, rgba(255, 255, 255, 0.03), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
@@ -526,7 +554,8 @@
 
 /* ─── Expand hint button ─── */
 .card-expand-hint {
-  display: none; /* Hidden on desktop, shown on mobile */
+  display: none;
+  /* Hidden on desktop, shown on mobile */
   align-items: center;
   gap: 6px;
   font-size: 9px;
@@ -563,12 +592,13 @@
 
 /* ─── Collapsible ethics insight ─── */
 .card-ethics-collapsible {
-  max-height: 500px; /* Desktop: always shown */
+  max-height: 500px;
+  /* Desktop: always shown */
   overflow: hidden;
   transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.4s ease,
-              margin 0.4s ease,
-              padding 0.4s ease;
+    opacity 0.4s ease,
+    margin 0.4s ease,
+    padding 0.4s ease;
   opacity: 1;
 }
 
@@ -614,10 +644,12 @@
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1
   }
+
   50% {
     opacity: .3
   }
@@ -782,6 +814,203 @@
   color: #5A5A7A;
 }
 
+/* ─── Pipeline Future (Classic 2-Tone Projection) ─── */
+.pipeline-future {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Dashed spine — projected future */
+.pipeline-future .spine-line {
+  background: none;
+  border: none;
+  background-image: repeating-linear-gradient(90deg,
+      #C4A88230 0px,
+      #C4A88230 6px,
+      transparent 6px,
+      transparent 12px);
+  height: 2px;
+}
+
+/* Single-tone progress */
+.pipeline-future .spine-progress {
+  background: linear-gradient(90deg, #C4A88260, #C4A88220) !important;
+}
+
+/* Uniform hollow ring dots — one elegant tone */
+.pipeline-future .era-dot {
+  background: transparent !important;
+  border-width: 2px;
+  border-color: #C4A88260 !important;
+  box-shadow: none !important;
+  width: 14px;
+  height: 14px;
+  animation: none;
+}
+
+/* Hover: dot fills softly */
+.pipeline-future .era-col:hover .era-dot,
+.pipeline-future .era-col.era-expanded .era-dot {
+  background: #C4A88225 !important;
+  border-color: #C4A882 !important;
+  box-shadow: 0 0 12px #C4A88230 !important;
+}
+
+/* Year label — italic, warm muted */
+.pipeline-future .era-year {
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: #5A5550;
+}
+
+.pipeline-future .era-col:hover .era-year,
+.pipeline-future .era-col.era-expanded .era-year {
+  color: #C4A882;
+}
+
+/* Cards — all uniform with dashed border */
+.pipeline-future .era-card {
+  background: rgba(18, 20, 28, 0.45);
+  border: 1px dashed #C4A88218;
+  border-top: 2px solid #C4A88240;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.pipeline-future .era-card::after {
+  background: radial-gradient(circle at top center, #C4A88205, transparent 70%);
+}
+
+/* Card hover — dashed → solid, warms up */
+.pipeline-future .era-col:hover .era-card,
+.pipeline-future .era-col.era-expanded .era-card {
+  border: 1px solid #C4A88230;
+  border-top: 2px solid #C4A88280;
+  background: rgba(18, 20, 28, 0.75);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Role text — uniform warm tone */
+.pipeline-future .card-role {
+  color: #C4A882 !important;
+  background: none !important;
+  -webkit-text-fill-color: #C4A882 !important;
+  opacity: 0.8;
+}
+
+.pipeline-future .era-col:hover .card-role,
+.pipeline-future .era-col.era-expanded .card-role {
+  opacity: 1;
+}
+
+/* Tags — uniform champagne */
+.pipeline-future .tag {
+  color: #C4A88290 !important;
+  border-color: #C4A88220 !important;
+  background: #C4A88208 !important;
+  opacity: 0.7;
+  font-size: 8.5px;
+}
+
+.pipeline-future .era-col:hover .tag,
+.pipeline-future .era-col.era-expanded .tag {
+  opacity: 1;
+  color: #C4A882 !important;
+  border-color: #C4A88240 !important;
+  background: #C4A88210 !important;
+}
+
+/* Ethics — dashed separator, warm tones */
+.pipeline-future .card-ethics {
+  border-top: 1px dashed #C4A88218;
+  font-size: 9.5px;
+  line-height: 1.7;
+}
+
+.pipeline-future .card-ethics strong {
+  color: #C4A88290;
+  letter-spacing: 0.02em;
+}
+
+.pipeline-future .card-ethics em {
+  color: #9A9080;
+}
+
+/* Expand hint */
+.pipeline-future .card-expand-hint {
+  color: #5A5550;
+}
+
+.pipeline-future .expand-icon {
+  border-color: #C4A88230;
+  color: #C4A882;
+}
+
+/* Staggered entrance — slower, deliberate */
+.pipeline-future .era-col {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.pipeline-future.spine-animated .era-col[data-era="6"] {
+  transition-delay: 0.15s;
+}
+
+.pipeline-future.spine-animated .era-col[data-era="7"] {
+  transition-delay: 0.35s;
+}
+
+.pipeline-future.spine-animated .era-col[data-era="8"] {
+  transition-delay: 0.55s;
+}
+
+.pipeline-future.spine-animated .era-col[data-era="9"] {
+  transition-delay: 0.75s;
+}
+
+/* ─── Header & quote-strip in pipeline-future context ─── */
+.ce-root:has(.pipeline-future) .hdr-title span {
+  color: #C4A882;
+}
+
+.ce-root:has(.pipeline-future) .qs-bar {
+  background: linear-gradient(180deg, #C4A882, #C4A88240) !important;
+}
+
+.ce-root:has(.pipeline-future) .qs-text strong {
+  color: #C4A882;
+}
+
+/* ─── Insight band inside pipeline-future context ─── */
+.pipeline-future~.insight-band .insight-card {
+  background: rgba(18, 20, 28, 0.45);
+  border: 1px dashed #C4A88218;
+  border-top: 2px solid #C4A88230;
+}
+
+.pipeline-future~.insight-band .insight-card::before {
+  background: linear-gradient(90deg, #C4A88240, transparent) !important;
+}
+
+.pipeline-future~.insight-band .insight-card:hover {
+  border-style: solid;
+  border-color: #C4A88230;
+  border-top-color: #C4A88260;
+  background: rgba(18, 20, 28, 0.7);
+}
+
+.pipeline-future~.insight-band .insight-num {
+  color: #C4A882 !important;
+  font-size: 24px;
+}
+
+.pipeline-future~.insight-band .insight-label {
+  color: #C4A88290;
+}
+
+.pipeline-future~.insight-band .insight-desc {
+  color: #5A5550;
+}
+
 /* ═══════════════════════════════════════════════
    RESPONSIVE — MOBILE INTERACTIVE TIMELINE
    ═══════════════════════════════════════════════ */
@@ -924,9 +1153,33 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
+  /* ─── Pipeline Future mobile overrides ─── */
+  .pipeline-future .spine-line {
+    background-image: repeating-linear-gradient(180deg,
+        #2A264080 0px,
+        #2A264080 6px,
+        transparent 6px,
+        transparent 12px) !important;
+    width: 2px;
+    height: 100%;
+  }
+
+  .pipeline-future .era-card {
+    border-style: dashed;
+    border-top-style: solid;
+  }
+
+  .pipeline-future .era-col.era-expanded .era-card {
+    border-style: solid;
+  }
+
   /* Insight band on mobile */
   .insight-band {
     grid-template-columns: 1fr;
+  }
+
+  .insight-num {
+    font-size: 22px;
   }
 
   /* Quote strip */
@@ -1346,6 +1599,7 @@
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
