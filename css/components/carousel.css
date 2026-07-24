@@ -10,6 +10,7 @@
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 0;
@@ -43,20 +44,6 @@
   .portfolio-card:active {
     transform: scale(0.97);
     transition-duration: 0.1s;
-  }
-
-  /* Disable hover effects on touch */
-  .portfolio-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .portfolio-card:hover .portfolio-card-image img {
-    transform: none;
-  }
-
-  .portfolio-card:hover .portfolio-card-overlay {
-    opacity: 0;
   }
 }
 

@@ -11,6 +11,9 @@ import { initCarousel } from './modules/carousel.js';
 import { initCeTimeline } from './modules/ceTimeline.js';
 import { initAccordion } from './modules/accordion.js';
 import { initNotesCarousel } from './modules/notesCarousel.js';
+import { initEnhancements } from './modules/enhancements.js';
+import { initFocusMode } from './modules/focusMode.js';
+import { initArchLayers } from './modules/archLayers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
@@ -26,4 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
   initCeTimeline();
   initNotesCarousel();
+  initEnhancements();
+  initFocusMode();
+  initArchLayers();
 });

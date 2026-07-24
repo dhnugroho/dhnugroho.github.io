@@ -1,0 +1,294 @@
+/* ============================================
+   FOCUS SHIELD MODE (Quick Scan vs Deep Architect)
+   ============================================ */
+
+/* Navbar Focus Mode Toggle Switch */
+.focus-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 6px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.focus-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  transition: all 0.25s var(--ease-out);
+}
+
+.focus-btn:hover {
+  color: var(--text-bright);
+}
+
+.focus-btn.active {
+  background: var(--accent-primary);
+  color: var(--bg-deep) !important;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
+}
+
+/* Quick Scan Mode Behavior — High Contrast Recruiter View */
+body.mode-quick-scan #notes,
+body.mode-quick-scan #about,
+body.mode-quick-scan .card-ethics,
+body.mode-quick-scan .sig-quote,
+body.mode-quick-scan .quote-strip,
+body.mode-quick-scan .insight-band,
+body.mode-quick-scan [data-scan-hide] {
+  display: none !important;
+}
+
+body.mode-quick-scan #experience .tl-card:not(.tl-active) {
+  display: none !important;
+}
+
+/* Quick Scan: Project Showcase as a clean, skimmable list */
+body.mode-quick-scan #projects .pj-accordion-body {
+  display: none !important;
+  max-height: 0 !important;
+}
+
+body.mode-quick-scan #projects .pj-toggle {
+  display: none !important;
+}
+
+body.mode-quick-scan #projects .pj-header-tags {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+body.mode-quick-scan #projects .pj-header-tags span {
+  opacity: 1 !important;
+}
+
+body.mode-quick-scan #projects .pj-accordion-header {
+  pointer-events: none;
+  padding: 1.25rem 1.5rem !important;
+}
+
+/* Quick Scan: Capabilities/Skills aggregate summary view */
+.skill-summary-row {
+  display: none;
+}
+
+body.mode-quick-scan #skills .skill-row,
+body.mode-quick-scan #skills .di-wrap {
+  display: none !important;
+}
+
+body.mode-quick-scan .skill-summary-row {
+  display: flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0 0.25rem;
+}
+
+/* Quick Scan: Portfolio section text-only compact cards */
+body.mode-quick-scan #portfolio .portfolio-card-image {
+  display: none !important;
+}
+
+body.mode-quick-scan #portfolio .portfolio-card-body {
+  padding: 1.25rem 1.5rem !important;
+}
+
+body.mode-quick-scan .stat-card,
+body.mode-quick-scan .portfolio-card,
+body.mode-quick-scan .di-badge,
+body.mode-quick-scan [data-scan-highlight] {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.2) !important;
+}
+
+body.mode-quick-scan .hero-tagline {
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+body.mode-quick-scan section {
+  padding: 4rem 0 !important;
+}
+
+/* Visual cue badge in Quick Scan Mode */
+.quick-scan-banner {
+  display: none;
+  background: linear-gradient(90deg, var(--accent-primary-dim), rgba(124, 58, 237, 0.1));
+  border: 1px solid var(--border-glow);
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.mode-quick-scan .quick-scan-banner {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .focus-toggle-wrap {
+    padding: 2px 4px;
+  }
+  .focus-btn {
+    padding: 3px 7px;
+    font-size: 0.62rem;
+  }
+}
+
+/* ============================================
+   ARCHITECTURAL LAYER TOOLBAR
+   ============================================ */
+.arch-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  background: #181825;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow-x: auto;
+}
+
+.arch-toolbar-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.arch-layer-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s var(--ease-out);
+}
+
+.arch-layer-btn:hover,
+.arch-layer-btn.active {
+  background: var(--accent-primary-dim);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+
+/* ============================================
+   CONTEXTUAL SMART MICRO-CTAS
+   ============================================ */
+.smart-cta-box {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.06), rgba(124, 58, 237, 0.06));
+  border: 1px solid var(--border-glow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.smart-cta-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+}
+
+.smart-cta-text span {
+  color: var(--accent-primary);
+}
+
+.smart-cta-action {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--bg-deep);
+  background: var(--accent-primary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.smart-cta-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+}
+
+
+/* ============================================
+   AMBIENT SOLITUDE READING MODE
+   ============================================ */
+.notes-ambient-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ambient-toggle-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.25s;
+}
+
+.ambient-toggle-btn.active {
+  border-color: var(--accent-glow);
+  color: #a78bfa;
+  background: rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+body.mode-ambient #notes .notes-accordion-body-inner {
+  line-height: 2.1;
+  font-size: 1.05rem;
+  color: #f1f5f9;
+  max-width: 68ch;
+  margin: 0 auto;
+}
+
+body.mode-ambient #notes {
+  background: #05070c !important;
+}
+
+body.mode-ambient .ce-root {
+  opacity: 0.85;
+}
+

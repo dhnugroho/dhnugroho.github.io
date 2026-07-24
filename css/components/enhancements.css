@@ -1,0 +1,438 @@
+/* ============================================
+   ENHANCEMENTS — Premium Visual Upgrades
+   ============================================ */
+
+/* ---- 1. AURORA GRADIENT HERO BACKGROUND ---- */
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-aurora::before,
+.hero-aurora::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  animation: aurora-drift 12s ease-in-out infinite alternate;
+}
+
+.hero-aurora::before {
+  top: -40%;
+  left: -20%;
+  background: radial-gradient(ellipse, #00e5ff 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.hero-aurora::after {
+  bottom: -30%;
+  right: -20%;
+  background: radial-gradient(ellipse, #7c3aed 0%, transparent 70%);
+  animation-delay: -6s;
+  animation-direction: alternate-reverse;
+}
+
+.hero-aurora-accent {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 80%;
+  height: 60%;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.08;
+  background: radial-gradient(ellipse, #4ecdc4 0%, transparent 70%);
+  animation: aurora-drift 15s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.05); }
+  100% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+body.light-mode .hero-aurora::before { opacity: 0.08; }
+body.light-mode .hero-aurora::after { opacity: 0.06; }
+body.light-mode .hero-aurora-accent { opacity: 0.04; }
+
+
+/* ---- 2. GLASSMORPHISM ---- */
+.portfolio-card {
+  background: rgba(15, 23, 42, 0.45) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.stat-card {
+  background: rgba(15, 23, 42, 0.4) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.skill-group {
+  background: rgba(15, 23, 42, 0.35) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-mode .portfolio-card {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+body.light-mode .stat-card {
+  background: rgba(255, 255, 255, 0.55) !important;
+}
+body.light-mode .skill-group {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+
+/* ---- 3. ANIMATED WAVE SECTION DIVIDERS ---- */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+  margin-top: -1px;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  animation: wave-shift 8s linear infinite;
+}
+
+.wave-divider svg path {
+  fill: var(--bg-deep);
+  opacity: 0.6;
+}
+
+.wave-divider svg path:nth-child(2) {
+  opacity: 0.3;
+  animation: wave-shift 12s linear infinite reverse;
+}
+
+@keyframes wave-shift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .wave-divider { height: 50px; }
+}
+
+
+/* ---- 4. GLOW EFFECTS ON INTERACTIVE ELEMENTS ---- */
+@media (hover: hover) {
+  .hero-cta:hover {
+    box-shadow: 0 8px 30px rgba(0, 229, 255, 0.35),
+                0 0 60px rgba(0, 229, 255, 0.15) !important;
+  }
+
+  .portfolio-card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 229, 255, 0.12),
+                inset 0 0 30px rgba(0, 229, 255, 0.03) !important;
+  }
+
+  .nav-links a:hover {
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+  }
+
+  .stat-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 229, 255, 0.08) !important;
+  }
+}
+
+
+/* ---- 5. SCROLL PROGRESS INDICATOR ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-glow), var(--accent-warm));
+  z-index: 10001;
+  transition: none;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+
+/* ---- 7. MAGNETIC HOVER CTA ---- */
+.hero-cta,
+.pj-live-btn {
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.3s !important;
+}
+
+
+/* ---- 8. STAGGERED REVEAL ANIMATIONS ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal.visible .portfolio-card-body h3,
+.reveal.visible .portfolio-card-body p,
+.reveal.visible .portfolio-card-tags {
+  animation: stagger-fade 0.6s var(--ease-out) both;
+}
+
+.reveal.visible .portfolio-card-body h3 { animation-delay: 0.1s; }
+.reveal.visible .portfolio-card-body p { animation-delay: 0.2s; }
+.reveal.visible .portfolio-card-tags { animation-delay: 0.3s; }
+
+@keyframes stagger-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-delay-6 {
+  transition-delay: 0.6s;
+}
+
+
+/* ---- 11. TILT 3D EFFECT ON PORTFOLIO CARDS ---- */
+.portfolio-card {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.portfolio-card .portfolio-card-image img {
+  transition: transform 0.6s var(--ease-out);
+}
+
+/* Glare overlay for tilt effect */
+.portfolio-card .card-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 70%
+  );
+  transition: opacity 0.4s;
+}
+
+.portfolio-card:hover .card-glare {
+  opacity: 1;
+}
+
+
+/* ---- 13. NOISE/GRAIN TEXTURE OVERLAY ---- */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+body.light-mode .noise-overlay {
+  opacity: 0.02;
+  mix-blend-mode: multiply;
+}
+
+
+/* ---- 14. SMOOTH PAGE TRANSITION ON NAV ---- */
+.nav-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  background: var(--accent-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-transition-overlay.flash {
+  opacity: 0.04;
+}
+
+
+/* ---- 15. SKELETON LOADING FOR IMAGES ---- */
+.portfolio-card-image img,
+.modal-image {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(51, 65, 85, 0.5) 50%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.portfolio-card-image img[src],
+.modal-image[src] {
+  animation: none;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+body.light-mode .portfolio-card-image img,
+body.light-mode .modal-image {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.6) 0%,
+    rgba(203, 213, 225, 0.6) 50%,
+    rgba(226, 232, 240, 0.6) 100%
+  );
+  background-size: 200% 100%;
+}
+
+
+/* ---- 16. BACK-TO-TOP FAB WITH PROGRESS RING ---- */
+.back-to-top {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 2rem;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-surface-solid);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s var(--ease-spring),
+              box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 229, 255, 0.2);
+  background: var(--accent-primary);
+  color: var(--bg-deep);
+}
+
+.back-to-top svg.progress-ring {
+  position: absolute;
+  inset: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.back-to-top .progress-ring-circle {
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s;
+}
+
+.back-to-top .arrow-icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 5.5rem;
+    right: 1.5rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+
+/* ---- 17. ENHANCED CURSOR WITH TEXT LABELS ---- */
+.cursor-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring),
+    border-color 0.3s, opacity 0.3s, background 0.2s;
+}
+
+.cursor-label {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+
+.cursor-ring.hover .cursor-label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cursor-ring.hover {
+  background: rgba(0, 229, 255, 0.04);
+}
+
+
+/* ---- 18. SMOOTH THEME TOGGLE ANIMATION ---- */
+.theme-transition-circle {
+  position: fixed;
+  z-index: 9998;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 200vmax;
+  height: 200vmax;
+}
+
+.theme-transition-circle.expanding {
+  transform: scale(1);
+}
+
+body:not(.light-mode) .theme-transition-circle {
+  background: #f8fafc;
+}
+body.light-mode .theme-transition-circle {
+  background: #0a0e17;
+}

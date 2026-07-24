@@ -80,6 +80,18 @@
 
 <body>
 
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+
+  <!-- Noise/Grain Texture Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Nav Transition Overlay -->
+  <div class="nav-transition-overlay"></div>
+
+  <!-- Theme Transition Circle -->
+  <div class="theme-transition-circle"></div>
+
   <!-- Custom Cursor -->
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
@@ -104,6 +116,12 @@
         <li><a href="#notes">Notes</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-focus-item">
+          <div class="focus-toggle-wrap" title="Toggle UX focus mode">
+            <button class="focus-btn active" id="focusArchBtn">🧠 Deep</button>
+            <button class="focus-btn" id="focusScanBtn">⚡ Quick Scan</button>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
@@ -111,6 +129,10 @@
 
   <!-- ======================== HERO ======================== -->
   <header id="hero">
+    <!-- Aurora Gradient Background -->
+    <div class="hero-aurora">
+      <div class="hero-aurora-accent"></div>
+    </div>
     <canvas id="particleCanvas"></canvas>
 
     <div class="hero-content">
@@ -147,6 +169,21 @@
 
 
   <main>
+    <!-- Quick Scan Mode Active Banner -->
+    <div class="container" style="padding-top: 1rem;">
+      <div class="quick-scan-banner">
+        <span>⚡ <strong>Focus Shield: Quick Scan Mode Active</strong> — Long philosophical logs hidden &amp; key engineering metrics highlighted for fast review.</span>
+      </div>
+    </div>
+
+    <!-- Wave Divider: Hero → Tech Strip -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+        <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,80 L0,80 Z" />
+        <path d="M0,50 C200,10 400,70 600,50 C800,30 1000,60 1200,50 L1200,80 L0,80 Z" />
+      </svg>
+    </div>
+
     <!-- ======================== TECH STRIP ======================== -->
     <div class="tech-strip">
       <div class="tech-strip-inner">
@@ -503,6 +540,10 @@
                     </svg>
                     Under Development
                   </span>
+                  <div class="smart-cta-box">
+                    <div class="smart-cta-text">Interested in <span>Habits Systems &amp; Life OS Architecture</span>?</div>
+                    <button class="smart-cta-action" data-topic="Fajr OS &amp; Life OS Architecture">Discuss System →</button>
+                  </div>
                 </div>
                 <div class="pj-screens">
                   <div class="pj-browser">
@@ -511,6 +552,13 @@
                       <div class="pj-dot" style="background:#febc2e"></div>
                       <div class="pj-dot" style="background:#28c840"></div>
                       <div class="pj-url">fajros.internal / ringkasan</div>
+                    </div>
+                    <div class="arch-toolbar">
+                      <span class="arch-toolbar-title">Inspect Layer:</span>
+                      <button class="arch-layer-btn active" data-layer="all">All Layers</button>
+                      <button class="arch-layer-btn" data-layer="data">Data Pipeline</button>
+                      <button class="arch-layer-btn" data-layer="ai">AI Logic</button>
+                      <button class="arch-layer-btn" data-layer="ui">UI State</button>
                     </div>
                     <!-- Main Dashboard SVG Mockup -->
                     <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
@@ -2350,6 +2398,13 @@
 
           <div class="skill-group reveal reveal-delay-1">
             <div class="skill-group-label">Software Engineering</div>
+            <div class="skill-summary-row">
+              <span class="skill-name" style="font-weight:600; color:var(--accent-primary);">Overall Mastery</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-w="85" style="width: 85%; transform: scaleX(1);"></div>
+              </div>
+              <span class="skill-pct" style="color:var(--accent-primary); font-weight:600;">85%</span>
+            </div>
             <div class="skill-row">
               <span class="skill-name">Frontend Development</span>
               <div class="skill-bar-wrap">
@@ -2389,6 +2444,13 @@
 
           <div class="skill-group reveal reveal-delay-2">
             <div class="skill-group-label">Data Engineering</div>
+            <div class="skill-summary-row">
+              <span class="skill-name" style="font-weight:600; color:var(--accent-primary);">Overall Mastery</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-w="85" style="width: 85%; transform: scaleX(1);"></div>
+              </div>
+              <span class="skill-pct" style="color:var(--accent-primary); font-weight:600;">85%</span>
+            </div>
             <div class="skill-row">
               <span class="skill-name">ETL — SSIS / Pentaho</span>
               <div class="skill-bar-wrap">
@@ -2428,6 +2490,13 @@
 
           <div class="skill-group reveal reveal-delay-3">
             <div class="skill-group-label">Analytics &amp; BI</div>
+            <div class="skill-summary-row">
+              <span class="skill-name" style="font-weight:600; color:var(--accent-primary);">Overall Mastery</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-w="82" style="width: 82%; transform: scaleX(1);"></div>
+              </div>
+              <span class="skill-pct" style="color:var(--accent-primary); font-weight:600;">82%</span>
+            </div>
             <div class="skill-row">
               <span class="skill-name">Tableau</span>
               <div class="skill-bar-wrap">
@@ -2467,6 +2536,13 @@
 
           <div class="skill-group reveal reveal-delay-4">
             <div class="skill-group-label">Leadership</div>
+            <div class="skill-summary-row">
+              <span class="skill-name" style="font-weight:600; color:var(--accent-primary);">Overall Mastery</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" data-w="84" style="width: 84%; transform: scaleX(1);"></div>
+              </div>
+              <span class="skill-pct" style="color:var(--accent-primary); font-weight:600;">84%</span>
+            </div>
             <div class="skill-row">
               <span class="skill-name">Product Management</span>
               <div class="skill-bar-wrap">
@@ -2650,12 +2726,19 @@
           <h2 class="section-title">Personal Notes</h2>
           <p class="section-subtitle">Thoughts, concerns, and personal reflections over time.</p>
 
-          <!-- Translate Toggle -->
-          <div class="notes-lang-toggle">
-            <span class="lang-text">Translate Notes:</span>
-            <div class="lang-switch">
-              <button class="lang-btn active" id="langBtnId" data-lang="id">ID</button>
-              <button class="lang-btn" id="langBtnEn" data-lang="en">EN</button>
+          <!-- Translate & Ambient Toggle -->
+          <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <div class="notes-lang-toggle">
+              <span class="lang-text">Translate Notes:</span>
+              <div class="lang-switch">
+                <button class="lang-btn active" id="langBtnId" data-lang="id">ID</button>
+                <button class="lang-btn" id="langBtnEn" data-lang="en">EN</button>
+              </div>
+            </div>
+            <div class="notes-lang-toggle" style="margin-top: 1.5rem;">
+              <button class="ambient-toggle-btn" id="ambientToggleBtn">
+                <span>🧘 Solitude Reading Mode</span>
+              </button>
             </div>
           </div>
         </div>
@@ -3808,6 +3891,16 @@
       <line x1="21" y1="12" x2="23" y2="12"></line>
       <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+
+  <!-- Back-to-Top FAB with Progress Ring -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg class="progress-ring" viewBox="0 0 48 48">
+      <circle class="progress-ring-circle" cx="24" cy="24" r="20" />
+    </svg>
+    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 

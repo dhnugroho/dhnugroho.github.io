@@ -21,9 +21,11 @@
   transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
-.skill-group:hover {
-  border-color: var(--border-glow);
-  transform: translateY(-3px);
+@media (hover: hover) {
+  .skill-group:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-3px);
+  }
 }
 
 .skill-group-label {
@@ -266,6 +268,7 @@
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 0;
@@ -292,12 +295,6 @@
 
   .skill-group:last-child {
     margin-right: 1.25rem;
-  }
-
-  /* Disable hover effects on mobile */
-  .skill-group:hover {
-    transform: none;
-    border-color: var(--border-subtle);
   }
 
   /* Touch active feedback */
