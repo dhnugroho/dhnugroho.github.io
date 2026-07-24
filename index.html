@@ -116,12 +116,6 @@
         <li><a href="#notes">Notes</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li class="nav-focus-item">
-          <div class="focus-toggle-wrap" title="Toggle UX focus mode">
-            <button class="focus-btn active" id="focusArchBtn">🧠 Deep</button>
-            <button class="focus-btn" id="focusScanBtn">⚡ Quick Scan</button>
-          </div>
-        </li>
       </ul>
     </div>
   </nav>
@@ -145,7 +139,35 @@
       </h1>
       <p class="hero-username"
         style="font-family:'JetBrains Mono',monospace;font-size:0.95rem;color:#8892a4;margin-top:-0.25rem;letter-spacing:0.5px;">
-        @dhnugroho</p>
+        @dhnugroho.dev</p>
+
+      <p class="hero-invite"
+        style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-muted);margin:0.5rem auto 1rem;max-width:500px;font-style:italic;line-height:1.6;">
+        &ldquo;I invite you to dive into my craft, architecture, and journey.&rdquo;
+      </p>
+
+      <!-- View Experience Mode Selector -->
+      <div class="hero-focus-select" style="margin: 0.85rem auto 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+        <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--accent-primary); letter-spacing:0.06em; text-transform:uppercase;">Select view experience:</span>
+        <div class="focus-toggle-wrap" title="Toggle UX focus mode">
+          <button class="focus-btn active" id="focusArchBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline; vertical-align:-1px; margin-right:2px;">
+              <polygon points="12 2 2 7 12 12 22 7 12 2" />
+              <polyline points="2 17 12 22 22 17" />
+              <polyline points="2 12 12 17 22 12" />
+            </svg> Deep Architect
+          </button>
+          <button class="focus-btn" id="focusScanBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline; vertical-align:-1px; margin-right:2px;">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg> Quick Scan
+          </button>
+        </div>
+      </div>
 
       <p class="hero-tagline">
         <span id="typedText"></span><span class="typed-cursor"></span>
@@ -172,7 +194,8 @@
     <!-- Quick Scan Mode Active Banner -->
     <div class="container" style="padding-top: 1rem;">
       <div class="quick-scan-banner">
-        <span>⚡ <strong>Focus Shield: Quick Scan Mode Active</strong> — Long philosophical logs hidden &amp; key engineering metrics highlighted for fast review.</span>
+        <span>⚡ <strong>Focus Shield: Quick Scan Mode Active</strong> — Long philosophical logs hidden &amp; key
+          engineering metrics highlighted for fast review.</span>
       </div>
     </div>
 
@@ -541,8 +564,10 @@
                     Under Development
                   </span>
                   <div class="smart-cta-box">
-                    <div class="smart-cta-text">Interested in <span>Habits Systems &amp; Life OS Architecture</span>?</div>
-                    <button class="smart-cta-action" data-topic="Fajr OS &amp; Life OS Architecture">Discuss System →</button>
+                    <div class="smart-cta-text">Interested in <span>Habits Systems &amp; Life OS Architecture</span>?
+                    </div>
+                    <button class="smart-cta-action" data-topic="Fajr OS &amp; Life OS Architecture">Discuss System
+                      →</button>
                   </div>
                 </div>
                 <div class="pj-screens">
@@ -2737,7 +2762,13 @@
             </div>
             <div class="notes-lang-toggle" style="margin-top: 1.5rem;">
               <button class="ambient-toggle-btn" id="ambientToggleBtn">
-                <span>🧘 Solitude Reading Mode</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="display:inline; vertical-align:-1px; margin-right:3px;">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a7 7 0 1 0 10 10" />
+                </svg>
+                <span>Solitude Reading Mode</span>
               </button>
             </div>
           </div>
@@ -3739,22 +3770,48 @@
 
           <div class="about-stats">
             <div class="stat-card reveal reveal-delay-1">
-              <div class="stat-icon">🚀</div>
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.71 1.1-1.63 1.1-2.58 0-.95-.39-1.87-1.1-2.58l-3 3z" />
+                  <path d="M12 15l-3-3 6.4-6.4c1.1-1.1 2.9-1.1 4 0l.4.4c1.1 1.1 1.1 2.9 0 4L12 15z" />
+                </svg>
+              </div>
               <div class="stat-value">5+</div>
               <div class="stat-label">Large Corporate Projects</div>
             </div>
             <div class="stat-card reveal reveal-delay-2">
-              <div class="stat-icon">⚡</div>
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+              </div>
               <div class="stat-value">Full</div>
               <div class="stat-label">Stack</div>
             </div>
             <div class="stat-card reveal reveal-delay-3">
-              <div class="stat-icon">🌏</div>
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
               <div class="stat-value">JKT</div>
               <div class="stat-label">Based</div>
             </div>
             <div class="stat-card reveal reveal-delay-4">
-              <div class="stat-icon">🧭</div>
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+              </div>
               <div class="stat-value">∞</div>
               <div class="stat-label">Curiosity</div>
             </div>
@@ -3899,7 +3956,8 @@
     <svg class="progress-ring" viewBox="0 0 48 48">
       <circle class="progress-ring-circle" cx="24" cy="24" r="20" />
     </svg>
-    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
@@ -3917,12 +3975,18 @@
   <!-- Chat Panel -->
   <div id="chatbotPanel" class="chatbot-panel" role="dialog" aria-modal="false" aria-label="Chat Assistant">
     <div class="chatbot-header">
-      <div class="chatbot-avatar">🤖</div>
+      <div class="chatbot-avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5" />
+          <line x1="12" y1="19" x2="20" y2="19" />
+        </svg>
+      </div>
       <div class="chatbot-header-info">
-        <div class="chatbot-header-name">Dhani's Assistant</div>
+        <div class="chatbot-header-name">Dhani.cli</div>
         <div class="chatbot-header-status">
           <span class="chatbot-status-dot"></span>
-          Online — ask me anything
+          CLI Active &mdash; query stack &amp; work
         </div>
       </div>
       <button id="chatbotClose" class="chatbot-close" aria-label="Close chat">&times;</button>

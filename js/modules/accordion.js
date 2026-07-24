@@ -27,21 +27,13 @@ export function initAccordion() {
       indexEl.textContent = String(index + 1).padStart(2, '0');
     }
 
-    // Set first item active, collapse the rest
+    // Collapse all items by default
     const header = item.querySelector('.pj-accordion-header');
     const body = item.querySelector('.pj-accordion-body');
-    if (index === 0) {
-      item.classList.add('pj-active');
-      if (header) header.setAttribute('aria-expanded', 'true');
-      if (body) {
-        body.style.maxHeight = 'none';
-      }
-    } else {
-      item.classList.remove('pj-active');
-      if (header) header.setAttribute('aria-expanded', 'false');
-      if (body) {
-        body.style.maxHeight = '0px';
-      }
+    item.classList.remove('pj-active');
+    if (header) header.setAttribute('aria-expanded', 'false');
+    if (body) {
+      body.style.maxHeight = '0px';
     }
   });
 
