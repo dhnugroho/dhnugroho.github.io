@@ -469,6 +469,290 @@
 
         <div class="pj-accordion">
 
+          <!-- ═══ PROJECT: CRM & ERP Custom ═══ -->
+          <div class="pj-accordion-item reveal" id="pj-accordion-crm-erp" data-date="2026-07-25">
+            <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false"
+              aria-controls="pj-body-crm-erp">
+              <div class="pj-index">00</div>
+              <div class="pj-header-content">
+                <div class="pj-role-tag">Full-Stack Architect &amp; Contributor</div>
+                <h3 class="pj-title">CRM &amp; ERP Custom — Frappe/ERPNext Fork</h3>
+                <div class="pj-header-tags">
+                  <span>ERPNext / Frappe</span>
+                  <span>Custom App Pipeline</span>
+                  <span>Excel Ingestion</span>
+                  <span>RBAC Permissions</span>
+                  <span>Decoupled Architecture</span>
+                  <span>Python · pandas</span>
+                </div>
+              </div>
+              <div class="pj-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <div class="pj-accordion-body" id="pj-body-crm-erp">
+              <div class="pj-accordion-inner">
+                <div class="pj-info">
+                  <p class="pj-desc">
+                    A production-grade internal ERP &amp; CRM system built on a private fork of
+                    <strong>Frappe/ERPNext</strong>, extended with a <strong>Custom Excel Ingestion Pipeline</strong>
+                    (<code>custom_excel_pipeline</code>) that handles messy, non-standard spreadsheet data from
+                    multiple business units — without modifying a single line of ERPNext core.
+                    The architecture follows a strict <em>Decoupled Ingestion</em> pattern: all cleaning, validation,
+                    and mapping logic lives in a separate Frappe app, while ERPNext handles
+                    double-entry accounting, stock ledger integrity, and relational database constraints.
+                  </p>
+
+                  <ul class="pj-features">
+                    <li>
+                      <strong>Decoupled Ingestion Architecture:</strong>
+                      Built a standalone <code>custom_excel_pipeline</code> Frappe app using
+                      <code>bench new-app</code>, isolating all custom logic from ERPNext core.
+                      Upstream sync with <code>frappe/erpnext</code> runs every 6 months with near-zero merge conflicts.
+                    </li>
+                    <li>
+                      <strong>Excel Data Cleansing Engine (Python):</strong>
+                      Developed a <code>@frappe.whitelist()</code> API endpoint using <code>pandas</code> and
+                      <code>openpyxl</code> to normalize column names, strip whitespace, standardize date formats,
+                      drop empty rows, and validate data types via <code>pydantic</code> before any database write.
+                    </li>
+                    <li>
+                      <strong>Frappe ORM → Journal Entry Mapping:</strong>
+                      Each cleaned row is mapped to ERPNext <code>Journal Entry</code> or <code>Sales Invoice</code>
+                      DocTypes via <code>frappe.get_doc()</code>. Debit/credit imbalances and missing account codes
+                      are caught by ERPNext's native validator — no custom error handling required for accounting rules.
+                    </li>
+                    <li>
+                      <strong>CRM Lead Pipeline &amp; RBAC:</strong>
+                      Implemented a Kanban-style lead pipeline with custom DocTypes, dynamic workflow states,
+                      and role-based access control (RBAC) scoped to organizational unit and module operation level.
+                      Supports Sales, Finance, and Operations roles with independent permission matrices.
+                    </li>
+                    <li>
+                      <strong>Structured Error Logging &amp; Audit Trail:</strong>
+                      Per-row error capture (<code>f"Row {index+1}: {str(e)}"</code>) returns a structured
+                      JSON response with <code>success_count</code> and <code>error_log</code>, enabling
+                      partial-batch processing — failed rows are logged without rolling back successful entries.
+                    </li>
+                    <li>
+                      <strong>Long-term Maintainability Strategy:</strong>
+                      All customizations are encapsulated in the custom app layer. No direct edits to
+                      <code>frappe/frappe</code> or <code>frappe/erpnext</code> source files, enabling
+                      clean upstream security patches and feature merges with minimal intervention.
+                    </li>
+                  </ul>
+
+                  <span class="pj-dev-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polygon points="12 8 8 16 12 14 16 16 12 8"></polygon>
+                    </svg>
+                    Explore &amp; Contributing
+                  </span>
+
+                  <div class="smart-cta-box">
+                    <div class="smart-cta-text">Interested in <span>ERPNext Custom Architecture &amp; Data
+                        Pipeline</span>?</div>
+                    <button class="smart-cta-action" data-topic="CRM &amp; ERP Custom Architecture">Discuss System
+                      →</button>
+                  </div>
+                </div>
+
+                <div class="pj-screens">
+                  <div class="pj-browser">
+                    <div class="pj-browser-bar">
+                      <div class="pj-dot" style="background:#ff5f57"></div>
+                      <div class="pj-dot" style="background:#febc2e"></div>
+                      <div class="pj-dot" style="background:#28c840"></div>
+                      <div class="pj-url">enterprise.internal / custom-excel-pipeline / ingest</div>
+                    </div>
+                    <div class="arch-toolbar">
+                      <span class="arch-toolbar-title">Inspect Layer:</span>
+                      <button class="arch-layer-btn active" data-layer="all">All Layers</button>
+                      <button class="arch-layer-btn" data-layer="data">ERPNext Core</button>
+                      <button class="arch-layer-btn" data-layer="ai">Excel Pipeline</button>
+                      <button class="arch-layer-btn" data-layer="ui">RBAC &amp; Audit</button>
+                    </div>
+
+                    <!-- SVG UI Mockup — Excel Ingestion Dashboard on ERPNext Custom Fork -->
+                    <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="pj-svg">
+                      <!-- Background -->
+                      <rect width="560" height="340" fill="#0b0f19" />
+
+                      <!-- Top header bar -->
+                      <rect width="560" height="42" fill="#111625" />
+                      <text x="18" y="16" fill="#8892a4" font-size="6.5" font-family="sans-serif">custom_excel_pipeline
+                        · Frappe App</text>
+                      <text x="18" y="29" fill="#00e5ff" font-size="10.5" font-weight="bold"
+                        font-family="sans-serif">Excel Data Ingest — ERPNext Custom Fork</text>
+                      <rect x="460" y="10" width="84" height="22" rx="3" fill="#0d3347" />
+                      <text x="502" y="24" fill="#00e5ff" font-size="6.5" font-weight="bold" text-anchor="middle"
+                        font-family="sans-serif">● Branch: internal-custom</text>
+
+                      <!-- Left sidebar: pipeline status -->
+                      <rect x="14" y="56" width="148" height="272" rx="6" fill="#121829" stroke="#1d263b"
+                        stroke-width="1" />
+                      <text x="24" y="74" fill="#8892a4" font-size="7" font-weight="bold"
+                        font-family="sans-serif">INGESTION STATUS</text>
+
+                      <!-- Batch summary cards -->
+                      <rect x="22" y="82" width="132" height="30" rx="3" fill="#080b13" stroke="#1d263b"
+                        stroke-width="0.5" />
+                      <text x="30" y="93" fill="#8892a4" font-size="5.5" font-family="sans-serif">Last Batch Run</text>
+                      <text x="30" y="104" fill="#fff" font-size="8" font-weight="bold"
+                        font-family="monospace">2026-07-25 09:14 WIB</text>
+
+                      <rect x="22" y="118" width="132" height="30" rx="3" fill="#080b13" stroke="#1d263b"
+                        stroke-width="0.5" />
+                      <text x="30" y="129" fill="#8892a4" font-size="5.5" font-family="sans-serif">Rows Processed</text>
+                      <text x="30" y="140" fill="#4ecdc4" font-size="8" font-weight="bold" font-family="monospace">1,840
+                        / 1,847 rows</text>
+
+                      <rect x="22" y="154" width="132" height="30" rx="3" fill="#080b13" stroke="#1d263b"
+                        stroke-width="0.5" />
+                      <text x="30" y="165" fill="#8892a4" font-size="5.5" font-family="sans-serif">Journal Entries
+                        Created</text>
+                      <text x="30" y="176" fill="#fff" font-size="8" font-weight="bold" font-family="monospace">1,840
+                        Submitted</text>
+
+                      <rect x="22" y="190" width="132" height="30" rx="3" fill="#2d1e0e" stroke="#4a3010"
+                        stroke-width="0.5" />
+                      <text x="30" y="201" fill="#8892a4" font-size="5.5" font-family="sans-serif">Validation
+                        Errors</text>
+                      <text x="30" y="212" fill="#ffb74d" font-size="8" font-weight="bold" font-family="monospace">7
+                        rows → error_log</text>
+
+                      <text x="24" y="240" fill="#8892a4" font-size="7" font-weight="bold"
+                        font-family="sans-serif">ARCHITECTURE</text>
+                      <rect x="22" y="248" width="132" height="14" rx="2" fill="#1b223c" />
+                      <text x="88" y="258" fill="#00e5ff" font-size="6" text-anchor="middle"
+                        font-family="sans-serif">custom_excel_pipeline</text>
+                      <!-- Arrow down -->
+                      <text x="88" y="272" fill="#4a5568" font-size="8" text-anchor="middle" font-family="sans-serif">↓
+                        frappe.get_doc()</text>
+                      <rect x="22" y="276" width="132" height="14" rx="2" fill="#0e1e38" />
+                      <text x="88" y="286" fill="#4ecdc4" font-size="6" text-anchor="middle"
+                        font-family="sans-serif">ERPNext Core (untouched)</text>
+                      <rect x="22" y="296" width="132" height="14" rx="2" fill="#1a1f2e" stroke="#1d263b"
+                        stroke-width="0.5" />
+                      <text x="88" y="306" fill="#8892a4" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">Double-Entry Ledger · Validator</text>
+
+                      <!-- Main panel: Ingestion log table -->
+                      <rect x="174" y="56" width="372" height="272" rx="6" fill="#121829" stroke="#1d263b"
+                        stroke-width="1" />
+                      <text x="186" y="74" fill="#8892a4" font-size="7" font-weight="bold"
+                        font-family="sans-serif">BATCH PROCESSING LOG · journals_import_20260725.xlsx</text>
+
+                      <!-- Table header -->
+                      <rect x="182" y="80" width="356" height="18" rx="2" fill="#1b223c" />
+                      <text x="190" y="92" fill="#8892a4" font-size="6" font-weight="bold"
+                        font-family="sans-serif">ROW</text>
+                      <text x="218" y="92" fill="#8892a4" font-size="6" font-weight="bold"
+                        font-family="sans-serif">TANGGAL</text>
+                      <text x="270" y="92" fill="#8892a4" font-size="6" font-weight="bold" font-family="sans-serif">AKUN
+                        DEBIT</text>
+                      <text x="340" y="92" fill="#8892a4" font-size="6" font-weight="bold" font-family="sans-serif">AKUN
+                        KREDIT</text>
+                      <text x="418" y="92" fill="#8892a4" font-size="6" font-weight="bold"
+                        font-family="sans-serif">JUMLAH (IDR)</text>
+                      <text x="492" y="92" fill="#8892a4" font-size="6" font-weight="bold"
+                        font-family="sans-serif">STATUS</text>
+
+                      <!-- Row 1 — success -->
+                      <rect x="182" y="100" width="356" height="18" rx="0" fill="#0d1320" />
+                      <text x="190" y="112" fill="#8892a4" font-size="6" font-family="monospace">0001</text>
+                      <text x="218" y="112" fill="#fff" font-size="6" font-family="monospace">2026-07-01</text>
+                      <text x="270" y="112" fill="#fff" font-size="6" font-family="monospace">1101 · Cash</text>
+                      <text x="340" y="112" fill="#fff" font-size="6" font-family="monospace">4001 · Revenue</text>
+                      <text x="418" y="112" fill="#fff" font-size="6" font-family="monospace">12,500,000</text>
+                      <rect x="490" y="104" width="38" height="10" rx="2" fill="#0e3a1f" />
+                      <text x="509" y="112" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">✓ Submitted</text>
+
+                      <!-- Row 2 — success -->
+                      <rect x="182" y="120" width="356" height="18" rx="0" fill="#121829" />
+                      <text x="190" y="132" fill="#8892a4" font-size="6" font-family="monospace">0002</text>
+                      <text x="218" y="132" fill="#fff" font-size="6" font-family="monospace">2026-07-02</text>
+                      <text x="270" y="132" fill="#fff" font-size="6" font-family="monospace">5001 · COGS</text>
+                      <text x="340" y="132" fill="#fff" font-size="6" font-family="monospace">1301 · Inventory</text>
+                      <text x="418" y="132" fill="#fff" font-size="6" font-family="monospace">4,800,000</text>
+                      <rect x="490" y="124" width="38" height="10" rx="2" fill="#0e3a1f" />
+                      <text x="509" y="132" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">✓ Submitted</text>
+
+                      <!-- Row 3 — success -->
+                      <rect x="182" y="140" width="356" height="18" rx="0" fill="#0d1320" />
+                      <text x="190" y="152" fill="#8892a4" font-size="6" font-family="monospace">0003</text>
+                      <text x="218" y="152" fill="#fff" font-size="6" font-family="monospace">2026-07-03</text>
+                      <text x="270" y="152" fill="#fff" font-size="6" font-family="monospace">6001 · Salaries</text>
+                      <text x="340" y="152" fill="#fff" font-size="6" font-family="monospace">2101 · Payable</text>
+                      <text x="418" y="152" fill="#fff" font-size="6" font-family="monospace">28,000,000</text>
+                      <rect x="490" y="144" width="38" height="10" rx="2" fill="#0e3a1f" />
+                      <text x="509" y="152" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">✓ Submitted</text>
+
+                      <!-- Row 4 — error -->
+                      <rect x="182" y="160" width="356" height="18" rx="0" fill="#1a0f0f" />
+                      <text x="190" y="172" fill="#8892a4" font-size="6" font-family="monospace">0004</text>
+                      <text x="218" y="172" fill="#ff7070" font-size="6" font-family="monospace">2026-07-04</text>
+                      <text x="270" y="172" fill="#ff7070" font-size="6" font-family="monospace">9999 · [not
+                        found]</text>
+                      <text x="340" y="172" fill="#ff7070" font-size="6" font-family="monospace">4001 · Revenue</text>
+                      <text x="418" y="172" fill="#ff7070" font-size="6" font-family="monospace">7,200,000</text>
+                      <rect x="490" y="164" width="38" height="10" rx="2" fill="#3a1010" />
+                      <text x="509" y="172" fill="#ff7070" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">✗ Error</text>
+
+                      <!-- Row 5 — success -->
+                      <rect x="182" y="180" width="356" height="18" rx="0" fill="#121829" />
+                      <text x="190" y="192" fill="#8892a4" font-size="6" font-family="monospace">0005</text>
+                      <text x="218" y="192" fill="#fff" font-size="6" font-family="monospace">2026-07-05</text>
+                      <text x="270" y="192" fill="#fff" font-size="6" font-family="monospace">1101 · Cash</text>
+                      <text x="340" y="192" fill="#fff" font-size="6" font-family="monospace">3001 · Equity</text>
+                      <text x="418" y="192" fill="#fff" font-size="6" font-family="monospace">50,000,000</text>
+                      <rect x="490" y="184" width="38" height="10" rx="2" fill="#0e3a1f" />
+                      <text x="509" y="192" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">✓ Submitted</text>
+
+                      <!-- More rows indicator -->
+                      <text x="360" y="212" fill="#4a5568" font-size="6" text-anchor="middle" font-family="sans-serif">·
+                        · · 1,835 more rows processed · · ·</text>
+
+                      <!-- Error log panel -->
+                      <rect x="182" y="224" width="356" height="92" rx="4" fill="#0d0a00" stroke="#4a3010"
+                        stroke-width="0.5" />
+                      <text x="192" y="237" fill="#ffb74d" font-size="6.5" font-weight="bold"
+                        font-family="sans-serif">ERROR LOG (7 rows failed — partial batch preserved)</text>
+                      <text x="192" y="252" fill="#8892a4" font-size="5.5" font-family="monospace">Row 4: Account 9999
+                        not found in Chart of Accounts. [frappe.ValidationError]</text>
+                      <text x="192" y="263" fill="#8892a4" font-size="5.5" font-family="monospace">Row 18: Debit/Credit
+                        imbalance — debit 5,000,000 ≠ credit 4,999,000. [ERPNext core validator]</text>
+                      <text x="192" y="274" fill="#8892a4" font-size="5.5" font-family="monospace">Row 31: Missing
+                        required field: posting_date is NaT after date normalization.</text>
+                      <text x="192" y="285" fill="#8892a4" font-size="5.5" font-family="monospace">Row 55: Column
+                        'akun_kredit' not found — possible header mismatch in source Excel.</text>
+                      <text x="192" y="296" fill="#4a5568" font-size="5.5" font-family="monospace">+ 3 more errors ·
+                        Full log → Frappe Error Log DocType</text>
+
+                      <!-- Upstream sync badge -->
+                      <rect x="346" y="306" width="190" height="14" rx="3" fill="#111625" stroke="#1d263b"
+                        stroke-width="0.5" />
+                      <text x="441" y="316" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                        font-family="sans-serif">↑ Upstream sync: frappe/erpnext · Last merge: 2026-01-10 · 0
+                        conflicts</text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- ═══ PROJECT: Fajr OS - Habits Tracker ═══ -->
           <div class="pj-accordion-item reveal" id="pj-accordion-fajros" data-date="2026-06-21">
             <div class="pj-accordion-header" role="button" tabindex="0" aria-expanded="false"
@@ -563,7 +847,7 @@
                       <circle cx="12" cy="12" r="10"></circle>
                       <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
-                    Under Development
+                    Personal Usage Testing
                   </span>
                   <div class="smart-cta-box">
                     <div class="smart-cta-text">Interested in <span>Habits Systems &amp; Life OS Architecture</span>?

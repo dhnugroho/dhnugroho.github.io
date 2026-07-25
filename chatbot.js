@@ -45,6 +45,7 @@
     },
 
     projects: [
+      { name: 'CRM & ERP Custom', role: 'Full-Stack Architect & Contributor', desc: 'Modular CRM & ERP enterprise platform featuring custom lead pipelines, inventory & supply chain tracking, automated invoicing, role-based access control (RBAC), and scalable module extensions.', tags: ['CRM', 'ERP Custom Workflows', 'RBAC', 'Enterprise Architecture', 'Module Builder'] },
       { name: 'CSR Web Application', role: 'Individual Contributor — Full-Stack Engineer', desc: 'End-to-end CSR & Budget Management System with interactive geospatial mapping across Indonesia, dynamic priority scoring, and multi-level approval workflows.', tags: ['Full-Stack', 'Budget Management', 'OpenStreetMap', 'Approval Flow', 'Dashboard'] },
       { name: 'Big Data Platform', role: 'Project Manager & Technical Lead', desc: 'Centralized data platform enabling enterprise-wide data virtualization. Integrated Salesforce via background API sync plus a multi-dataset web uploader (.NET) feeding BI dashboards.', tags: ['Big Data', 'Salesforce API', '.NET', 'Denodo', 'Power BI', 'ETL'] },
       { name: 'Travel Management System', role: 'Team — Full-Stack Developer', desc: 'Enterprise travel management covering the complete trip lifecycle — from request and multi-level approval to self-reservation of flights, hotels & trains, plus settlement and SAP vendor payment integration.', tags: ['Full-Stack', 'SAP', 'HR System', 'Self-Reservation', 'Settlement'] },
