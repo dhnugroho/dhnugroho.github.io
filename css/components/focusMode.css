@@ -2,44 +2,216 @@
    FOCUS SHIELD MODE (Quick Scan vs Deep Architect)
    ============================================ */
 
-/* Navbar Focus Mode Toggle Switch */
-.focus-toggle-wrap {
-  display: inline-flex;
+/* ── 1. Outer container ───────────────────────── */
+.hero-focus-select {
+  margin: 0.85rem auto 1.5rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+}
+
+.focus-select-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── 2. Segmented control wrapper ─────────────── */
+.focus-toggle-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;          /* shrink-wraps so 50% pill calc is exact */
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  padding: 3px 6px;
+  padding: 3px;
   border-radius: 100px;
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  isolation: isolate;
 }
 
+/* ── 3. Sliding pill ──────────────────────────── */
+/*
+   The pill sits under both buttons (z-index: 0) and slides
+   left ↔ right by changing `left`. GPU-friendly because it
+   only animates a geometric property, not box-shadow layout.
+   Width = 50% of wrapper minus its own left offset (3 px).
+*/
+.focus-pill-indicator {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;                    /* scan = left slot */
+  width: calc(50% - 3px);
+  border-radius: 100px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.45);
+  pointer-events: none;
+  z-index: 0;
+  /* spring ease so the pill overshoots slightly — perceptibly alive */
+  transition: left 0.38s var(--ease-spring), box-shadow 0.3s ease;
+  will-change: left;
+}
+
+/* Pill slides to right slot when Deep Architect is active */
+.focus-toggle-wrap[data-mode="architect"] .focus-pill-indicator {
+  left: calc(50%);
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.5);
+}
+
+/* ── 4. Buttons ───────────────────────────────── */
 .focus-btn {
+  position: relative;
+  z-index: 1;             /* above the pill */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 100px;
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
-  transition: all 0.25s var(--ease-out);
+  transition: color 0.25s var(--ease-out);
+  overflow: hidden;         /* contain the click ripple */
+  user-select: none;
+  -webkit-user-select: none;
+  /* ensure min touch target (WCAG 2.5.5) */
+  min-height: 32px;
 }
 
+/* Active button — pill is underneath, so text goes dark */
+.focus-toggle-wrap[data-mode="scan"]      #focusScanBtn,
+.focus-toggle-wrap[data-mode="architect"] #focusArchBtn {
+  color: var(--bg-deep);
+  font-weight: 600;
+}
+
+/* Inactive hover */
 .focus-btn:hover {
   color: var(--text-bright);
 }
-
-.focus-btn.active {
-  background: var(--accent-primary);
-  color: var(--bg-deep) !important;
-  font-weight: 600;
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
+.focus-toggle-wrap[data-mode="scan"]      #focusScanBtn:hover,
+.focus-toggle-wrap[data-mode="architect"] #focusArchBtn:hover {
+  color: var(--bg-deep); /* keep readable on top of pill */
 }
 
-/* Quick Scan Mode Behavior — High Contrast Recruiter View */
+/* Focus-visible ring for keyboard users */
+.focus-btn:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ── 5. Click ripple ──────────────────────────── */
+/*
+   Spawned via JS on click — radial pulse that says
+   "this had an effect" without demanding attention.
+*/
+.focus-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(0);
+  animation: focus-ripple-expand 0.48s ease-out forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes focus-ripple-expand {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* ── 6. Mode hint text ────────────────────────── */
+/*
+   Delayed 2 s so it doesn't compete with the hero entrance.
+   Uses the existing fadeInUp keyframe defined in hero.css.
+*/
+.focus-mode-hint {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  min-height: 1rem;
+  text-align: center;
+  /* start invisible; hero.css defines fadeInUp */
+  opacity: 0;
+  animation: fadeInUp 0.6s var(--ease-out) 2s forwards;
+}
+
+.focus-hint-scan,
+.focus-hint-arch {
+  display: block;
+}
+
+/* ── 7. Main content fade during mode switch ──── */
+/*
+   Applied by JS only for the 140 ms content-swap window.
+   Just enough to register a "change happened" signal without
+   actually being disorienting (0.88 ≈ threshold of noticeability).
+*/
+main.focus-transitioning {
+  opacity: 0.88;
+  transition: opacity 0.14s ease;
+  pointer-events: none;
+}
+
+/* ── 8. Prefers reduced motion ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .focus-pill-indicator {
+    transition: none !important;
+  }
+  .focus-btn {
+    transition: none !important;
+  }
+  .focus-mode-hint {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .focus-ripple {
+    display: none;
+  }
+  main.focus-transitioning {
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .focus-toggle-wrap {
+    /* slightly snugger on mobile */
+    padding: 2px;
+  }
+  .focus-pill-indicator {
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+  }
+  .focus-toggle-wrap[data-mode="architect"] .focus-pill-indicator {
+    left: calc(50%);
+  }
+  .focus-btn {
+    padding: 3px 8px;
+    font-size: 0.62rem;
+    min-height: 28px;
+  }
+  .focus-mode-hint {
+    font-size: 0.6rem;
+  }
+}
+
+
 body.mode-quick-scan #notes,
 body.mode-quick-scan #about,
 body.mode-quick-scan .card-ethics,
@@ -48,6 +220,12 @@ body.mode-quick-scan .quote-strip,
 body.mode-quick-scan .insight-band,
 body.mode-quick-scan [data-scan-hide] {
   display: none !important;
+}
+
+/* Hide the corresponding nav links when their sections are hidden */
+body.mode-quick-scan .nav-links a[href="#notes"],
+body.mode-quick-scan .nav-links a[href="#about"] {
+  display: none;
 }
 
 body.mode-quick-scan #experience .tl-card:not(.tl-active) {

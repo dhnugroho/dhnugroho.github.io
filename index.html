@@ -147,24 +147,26 @@
       </p>
 
       <!-- View Experience Mode Selector -->
-      <div class="hero-focus-select" style="margin: 0.85rem auto 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-        <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--accent-primary); letter-spacing:0.06em; text-transform:uppercase;">Select view experience:</span>
-        <div class="focus-toggle-wrap" title="Toggle UX focus mode">
-          <button class="focus-btn active" id="focusArchBtn">
+      <div class="hero-focus-select">
+        <span class="focus-select-label">Select view experience</span>
+        <div class="focus-toggle-wrap" role="group" aria-label="View experience mode" data-mode="scan">
+          <!-- Sliding pill — moves underneath buttons via CSS/data-mode -->
+          <div class="focus-pill-indicator" aria-hidden="true"></div>
+          <button class="focus-btn" id="focusScanBtn" aria-pressed="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              style="display:inline; vertical-align:-1px; margin-right:2px;">
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            <span class="focus-btn-label">Quick Scan</span>
+          </button>
+          <button class="focus-btn" id="focusArchBtn" aria-pressed="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polygon points="12 2 2 7 12 12 22 7 12 2" />
               <polyline points="2 17 12 22 22 17" />
               <polyline points="2 12 12 17 22 12" />
-            </svg> Deep Architect
-          </button>
-          <button class="focus-btn" id="focusScanBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              style="display:inline; vertical-align:-1px; margin-right:2px;">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-            </svg> Quick Scan
+            </svg>
+            <span class="focus-btn-label">Deep Architect</span>
           </button>
         </div>
       </div>

@@ -5,23 +5,56 @@ export function initNavbar() {
 
   function updateNavbar() {
     if (!navbar) return;
-    if (window.scrollY > 60) {
+
+    const scrollY = window.scrollY;
+
+    if (scrollY > 60) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
-    let currentSection = '';
-    sections.forEach(function (section) {
-      const top = section.offsetTop - 100;
-      if (window.scrollY >= top) {
-        currentSection = section.getAttribute('id');
+    // ── Bottom-of-page guard ──────────────────────────────────────────
+    // In Quick Scan mode the page is shorter (hidden sections collapsed),
+    // so the last section (#contact) may be unreachable via the -120px
+    // threshold. When at/near the page bottom, force the last VISIBLE
+    // nav link active regardless of the offset math.
+    const atBottom =
+      scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+
+    if (atBottom && scrollY > 80) {
+      // Walk links in reverse to find the last one that is currently visible
+      const links = Array.from(navLinks);
+      let lastVisible = null;
+      for (let i = links.length - 1; i >= 0; i--) {
+        if (getComputedStyle(links[i]).display !== 'none') {
+          lastVisible = links[i];
+          break;
+        }
       }
-    });
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (lastVisible) lastVisible.classList.add('active');
+      return; // skip normal offset detection
+    }
+
+    // ── Normal scroll detection ───────────────────────────────────────
+    let currentSection = '';
+    if (scrollY > 80) {
+      sections.forEach(function (section) {
+        // display:none sections (hidden by Quick Scan mode) have offsetParent === null
+        // and offsetTop === 0, which would make them always "win" the >= check.
+        // Skip them entirely so only rendered sections participate.
+        if (section.offsetParent === null) return;
+        const top = section.offsetTop - 120;
+        if (scrollY >= top) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+    }
 
     navLinks.forEach(function (link) {
       link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + currentSection) {
+      if (currentSection && link.getAttribute('href') === '#' + currentSection) {
         link.classList.add('active');
       }
     });
