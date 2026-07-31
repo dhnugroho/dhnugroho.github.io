@@ -1225,8 +1225,440 @@
   }
 }
 
-/* ─── Focus visible for accessibility ─── */
-.era-col:focus-visible .era-card {
+
+/* ============================================
+   APPLIED ML CROSSROADS TIMELINE (Note 6 Overhaul)
+   Modern, Interactive, UX-first Responsive Timeline
+   ============================================ */
+
+.crossroads-flow-wrap {
+  position: relative;
+  background: rgba(13, 15, 20, 0.7);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  margin: 1.75rem 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.crossroads-flow-wrap:hover {
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(167, 139, 250, 0.08);
+}
+
+/* Background subtle ambient glow mesh */
+.crossroads-flow-wrap::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.08) 0%, rgba(167, 139, 250, 0.04) 50%, transparent 80%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── Stepper Navigation Bar ── */
+.ml-stepper-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  padding: 0 0.5rem 1rem;
+}
+
+.ml-stepper-track {
+  position: absolute;
+  top: 18px;
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.ml-stepper-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6EE7B7 0%, #38BDF8 30%, #FBBF24 55%, #A78BFA 80%, #F472B6 100%);
+  border-radius: 2px;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+}
+
+.ml-timeline-animated .ml-stepper-fill {
+  width: 82%;
+}
+
+/* Individual Stepper Node */
+.ml-step-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  flex: 1;
+  max-width: 140px;
+}
+
+.ml-step-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #12141C;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  color: #8A8A9A;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s var(--ease-spring);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ml-step-node:hover .ml-step-badge,
+.ml-step-node.active .ml-step-badge {
+  transform: scale(1.18);
+  color: #FFFFFF;
+}
+
+.ml-step-node[data-step="1"].active .ml-step-badge {
+  border-color: #6EE7B7;
+  background: #064E3B;
+  box-shadow: 0 0 16px rgba(110, 231, 183, 0.4);
+}
+
+.ml-step-node[data-step="2"].active .ml-step-badge {
+  border-color: #38BDF8;
+  background: #075985;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+.ml-step-node[data-step="3"].active .ml-step-badge {
+  border-color: #FBBF24;
+  background: #78350F;
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.4);
+}
+
+.ml-step-node[data-step="4"].active .ml-step-badge {
+  border-color: #A78BFA;
+  background: #4C1D95;
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.5);
+  animation: pulse-node-badge 2s ease-in-out infinite;
+}
+
+.ml-step-node[data-step="5"].active .ml-step-badge {
+  border-color: #F472B6;
+  background: #831843;
+  box-shadow: 0 0 18px rgba(244, 114, 182, 0.5);
+}
+
+@keyframes pulse-node-badge {
+  0%, 100% { box-shadow: 0 0 14px rgba(167, 139, 250, 0.4); }
+  50% { box-shadow: 0 0 24px rgba(244, 114, 182, 0.7); }
+}
+
+.ml-step-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #6A6A7A;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ml-step-node:hover .ml-step-label,
+.ml-step-node.active .ml-step-label {
+  color: #E8E6DF;
+  font-weight: 600;
+}
+
+/* ── Timeline Stage Flow Layout ── */
+.ml-stage-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.ml-stage-card {
+  background: rgba(18, 20, 28, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.1rem 1.1rem 1.25rem;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.ml-timeline-animated .ml-stage-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ml-timeline-animated .ml-stage-card:nth-child(1) { transition-delay: 0.1s; }
+.ml-timeline-animated .ml-stage-card:nth-child(2) { transition-delay: 0.2s; }
+.ml-timeline-animated .ml-stage-card:nth-child(3) { transition-delay: 0.3s; }
+.ml-timeline-animated .ml-stage-card:nth-child(4) { transition-delay: 0.4s; }
+.ml-timeline-animated .ml-stage-card:nth-child(5) { transition-delay: 0.5s; }
+
+.ml-stage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stage-accent, #A78BFA);
+  border-radius: 14px 14px 0 0;
+  opacity: 0.7;
+  transition: opacity 0.3s, height 0.3s;
+}
+
+.ml-stage-card:hover,
+.ml-stage-card.active-card {
+  border-color: rgba(167, 139, 250, 0.35);
+  background: rgba(22, 25, 36, 0.85);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.ml-stage-card:hover::before,
+.ml-stage-card.active-card::before {
+  opacity: 1;
+  height: 4px;
+}
+
+.ml-stage-card[data-stage="1"] { --stage-accent: #6EE7B7; }
+.ml-stage-card[data-stage="2"] { --stage-accent: #38BDF8; }
+.ml-stage-card[data-stage="3"] { --stage-accent: #FBBF24; }
+.ml-stage-card[data-stage="4"] { --stage-accent: #A78BFA; }
+.ml-stage-card[data-stage="5"] { --stage-accent: #F472B6; }
+
+.ml-stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.ml-stage-year {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #7A7A8A;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ml-stage-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #F0EDE6;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.ml-stage-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.ml-stage-tag {
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #A0A0B0;
+  transition: all 0.2s;
+}
+
+.ml-stage-card:hover .ml-stage-tag,
+.ml-stage-card.active-card .ml-stage-tag {
+  border-color: var(--stage-accent);
+  color: var(--stage-accent);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ml-stage-ethics {
+  font-size: 10.5px;
+  line-height: 1.65;
+  color: #8A8A9A;
+  font-style: italic;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.65rem;
+  margin-top: auto;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.ml-stage-ethics strong {
+  color: #C0C0D0;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── Applied ML Feature Matrix Section ── */
+.ml-feature-matrix {
+  background: rgba(14, 16, 24, 0.85);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.ml-matrix-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.ml-matrix-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #A78BFA;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ml-matrix-title::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #A78BFA;
+  box-shadow: 0 0 8px #A78BFA;
+}
+
+.ml-matrix-badge {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: #F472B6;
+  background: rgba(244, 114, 182, 0.1);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.ml-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.ml-feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ml-feature-name {
+  font-size: 10.5px;
+  color: #B8B4CC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ml-feature-val {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #6EE7B7;
+  font-weight: 600;
+}
+
+.ml-feature-bar-wrap {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ml-feature-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bar-green { background: linear-gradient(90deg, #059669, #6EE7B7); }
+.bar-blue { background: linear-gradient(90deg, #0284C7, #38BDF8); }
+.bar-purple { background: linear-gradient(90deg, #7C3AED, #A78BFA); }
+.bar-pink { background: linear-gradient(90deg, #DB2777, #F472B6); }
+
+/* ── Mobile Responsive Overrides ── */
+@media (max-width: 768px) {
+  .crossroads-flow-wrap {
+    padding: 1.25rem 1rem;
+  }
+
+  .ml-stepper-nav {
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+
+  .ml-stepper-track {
+    display: none;
+  }
+
+  .ml-step-node {
+    min-width: 68px;
+  }
+
+  .ml-stage-flow {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .ml-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Focus visible for accessibility ── */
+.ml-step-node:focus-visible .ml-step-badge,
+.ml-stage-card:focus-visible {
   outline: 2px solid #A78BFA;
   outline-offset: 2px;
 }
@@ -1234,6 +1666,7 @@
 
 /* ============================================
    NOTES CAROUSEL + ACCORDION SYSTEM
+
    Two-layer navigation: carousel slides + 
    collapsible accordion items per slide.
    ============================================ */

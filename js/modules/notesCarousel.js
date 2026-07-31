@@ -199,9 +199,17 @@ export function initNotesCarousel() {
     var spineWraps = item.querySelectorAll('.spine-wrap');
     spineWraps.forEach(function (sw) {
       if (!sw.classList.contains('spine-animated')) {
-        // Small delay for the accordion to open first
         setTimeout(function () {
           sw.classList.add('spine-animated');
+        }, 200);
+      }
+    });
+
+    var flowWraps = item.querySelectorAll('.crossroads-flow-wrap');
+    flowWraps.forEach(function (fw) {
+      if (!fw.classList.contains('ml-timeline-animated')) {
+        setTimeout(function () {
+          fw.classList.add('ml-timeline-animated');
         }, 200);
       }
     });
@@ -251,6 +259,10 @@ export function initNotesCarousel() {
       var spineWraps = item.querySelectorAll('.spine-wrap');
       spineWraps.forEach(function (sw) {
         sw.classList.remove('spine-animated');
+      });
+      var flowWraps = item.querySelectorAll('.crossroads-flow-wrap');
+      flowWraps.forEach(function (fw) {
+        fw.classList.remove('ml-timeline-animated');
       });
     });
   }

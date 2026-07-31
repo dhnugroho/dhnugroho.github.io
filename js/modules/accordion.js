@@ -30,20 +30,28 @@ export function initAccordion() {
     // Collapse all items by default
     const header = item.querySelector('.pj-accordion-header');
     const body = item.querySelector('.pj-accordion-body');
-    item.classList.remove('pj-active');
+    const inner = item.querySelector('.inner-content') || item.querySelector('.pj-accordion-inner');
+    item.classList.remove('pj-active', 'expanded');
     if (header) header.setAttribute('aria-expanded', 'false');
     if (body) {
+      body.classList.remove('active');
       body.style.maxHeight = '0px';
+    }
+    if (inner) {
+      inner.classList.remove('active');
     }
   });
 
   // Utility: close an item
   function closeItem(item) {
-    item.classList.remove('pj-active');
+    item.classList.remove('pj-active', 'expanded');
     const header = item.querySelector('.pj-accordion-header');
     if (header) header.setAttribute('aria-expanded', 'false');
     const body = item.querySelector('.pj-accordion-body');
+    const inner = item.querySelector('.inner-content') || item.querySelector('.pj-accordion-inner');
+    if (inner) inner.classList.remove('active');
     if (body) {
+      body.classList.remove('active');
       body.style.maxHeight = body.scrollHeight + 'px';
       // Force reflow before collapsing
       body.offsetHeight;
@@ -53,15 +61,18 @@ export function initAccordion() {
 
   // Utility: open an item
   function openItem(item) {
-    item.classList.add('pj-active');
+    item.classList.add('pj-active', 'expanded');
     const header = item.querySelector('.pj-accordion-header');
     if (header) header.setAttribute('aria-expanded', 'true');
     const body = item.querySelector('.pj-accordion-body');
+    const inner = item.querySelector('.inner-content') || item.querySelector('.pj-accordion-inner');
+    if (inner) inner.classList.add('active');
     if (body) {
+      body.classList.add('active');
       body.style.maxHeight = body.scrollHeight + 'px';
       // After transition, remove max-height to allow natural resizing
       const onEnd = () => {
-        if (item.classList.contains('pj-active')) {
+        if (item.classList.contains('pj-active') || item.classList.contains('expanded')) {
           body.style.maxHeight = 'none';
         }
         body.removeEventListener('transitionend', onEnd);
@@ -72,11 +83,11 @@ export function initAccordion() {
 
   // Toggle handler
   function toggleItem(clickedItem) {
-    const isOpen = clickedItem.classList.contains('pj-active');
+    const isOpen = clickedItem.classList.contains('pj-active') || clickedItem.classList.contains('expanded');
 
     // Close all
     items.forEach((item) => {
-      if (item !== clickedItem && item.classList.contains('pj-active')) {
+      if (item !== clickedItem && (item.classList.contains('pj-active') || item.classList.contains('expanded'))) {
         closeItem(item);
       }
     });
@@ -104,6 +115,11 @@ export function initAccordion() {
       }
     });
   });
+
+  // Open first item by default if none active
+  if (items.length > 0) {
+    openItem(items[0]);
+  }
 
   // Update project counter
   const countEl = document.querySelector('.pj-count-num');

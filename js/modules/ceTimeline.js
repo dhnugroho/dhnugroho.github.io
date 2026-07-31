@@ -11,55 +11,124 @@
 
 export function initCeTimeline() {
   const timelines = document.querySelectorAll('.spine-wrap');
-  if (!timelines.length) return;
+  if (timelines.length) {
+    timelines.forEach(function (timeline) {
+      const eraCols = timeline.querySelectorAll('.era-col');
 
-  timelines.forEach(function (timeline) {
-    const eraCols = timeline.querySelectorAll('.era-col');
+      if ('IntersectionObserver' in window) {
+        const timelineObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              timeline.classList.add('spine-animated');
+              timelineObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.2,
+          rootMargin: '0px 0px -40px 0px'
+        });
 
-    // ─── Scroll-triggered entrance animation ───
-    if ('IntersectionObserver' in window) {
-      const timelineObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            timeline.classList.add('spine-animated');
-            timelineObserver.unobserve(entry.target);
+        timelineObserver.observe(timeline);
+      } else {
+        timeline.classList.add('spine-animated');
+      }
+
+      eraCols.forEach(function (col) {
+        col.addEventListener('click', function (e) {
+          handleExpand(col, eraCols);
+        });
+
+        col.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleExpand(col, eraCols);
           }
         });
-      }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -40px 0px'
       });
 
-      timelineObserver.observe(timeline);
+      eraCols.forEach(function (col) {
+        col.addEventListener('touchstart', function () {
+          col.style.willChange = 'transform';
+        }, { passive: true });
+
+        col.addEventListener('touchend', function () {
+          col.style.willChange = 'auto';
+        }, { passive: true });
+      });
+    });
+  }
+
+  // Initialize Crossroads Flow Timeline (Note 6 Modern Overhaul)
+  initCrossroadsFlow();
+}
+
+/**
+  * Applied ML Crossroads Flow Timeline Interactivity
+  */
+export function initCrossroadsFlow() {
+  const flowWraps = document.querySelectorAll('.crossroads-flow-wrap');
+  if (!flowWraps.length) return;
+
+  flowWraps.forEach(function (wrap) {
+    const stepNodes = wrap.querySelectorAll('.ml-step-node');
+    const stageCards = wrap.querySelectorAll('.ml-stage-card');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            wrap.classList.add('ml-timeline-animated');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      observer.observe(wrap);
     } else {
-      // Fallback: show immediately
-      timeline.classList.add('spine-animated');
+      wrap.classList.add('ml-timeline-animated');
     }
 
-    // ─── Click/tap to expand cards ───
-    eraCols.forEach(function (col) {
-      col.addEventListener('click', function (e) {
-        handleExpand(col, eraCols);
+    function setActiveStage(stageNum) {
+      stepNodes.forEach(function (node) {
+        const isMatch = node.getAttribute('data-step') === String(stageNum);
+        node.classList.toggle('active', isMatch);
+        node.setAttribute('aria-selected', isMatch ? 'true' : 'false');
       });
 
-      // Keyboard support
-      col.addEventListener('keydown', function (e) {
+      stageCards.forEach(function (card) {
+        const isMatch = card.getAttribute('data-stage') === String(stageNum);
+        card.classList.toggle('active-card', isMatch);
+      });
+    }
+
+    stepNodes.forEach(function (node) {
+      node.addEventListener('click', function () {
+        const stepNum = node.getAttribute('data-step');
+        setActiveStage(stepNum);
+      });
+
+      node.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          handleExpand(col, eraCols);
+          const stepNum = node.getAttribute('data-step');
+          setActiveStage(stepNum);
         }
       });
     });
 
-    // ─── Touch feedback ───
-    eraCols.forEach(function (col) {
-      col.addEventListener('touchstart', function () {
-        col.style.willChange = 'transform';
-      }, { passive: true });
+    stageCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        const stageNum = card.getAttribute('data-stage');
+        setActiveStage(stageNum);
+      });
 
-      col.addEventListener('touchend', function () {
-        col.style.willChange = 'auto';
-      }, { passive: true });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const stageNum = card.getAttribute('data-stage');
+          setActiveStage(stageNum);
+        }
+      });
     });
   });
 }
@@ -74,7 +143,6 @@ function handleExpand(targetCol, allCols) {
   var isExpanded = targetCol.classList.contains('era-expanded');
 
   if (isMobile) {
-    // Accordion: collapse all others
     allCols.forEach(function (col) {
       if (col !== targetCol) {
         col.classList.remove('era-expanded');
@@ -83,7 +151,6 @@ function handleExpand(targetCol, allCols) {
     });
   }
 
-  // Toggle target
   if (isExpanded) {
     targetCol.classList.remove('era-expanded');
     targetCol.setAttribute('aria-expanded', 'false');
@@ -91,7 +158,6 @@ function handleExpand(targetCol, allCols) {
     targetCol.classList.add('era-expanded');
     targetCol.setAttribute('aria-expanded', 'true');
 
-    // Smooth scroll into view on mobile
     if (isMobile) {
       setTimeout(function () {
         targetCol.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -99,3 +165,4 @@ function handleExpand(targetCol, allCols) {
     }
   }
 }
+

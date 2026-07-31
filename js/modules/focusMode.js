@@ -58,12 +58,30 @@ export function initFocusMode() {
   function _applyContentDOM(mode) {
     const isScan = mode === 'scan';
     document.body.classList.toggle('mode-quick-scan', isScan);
+    document.body.classList.toggle('mode-deep-architect', !isScan);
     if (isScan) {
       document.querySelectorAll('.pj-accordion-item').forEach(item => {
-        item.classList.remove('pj-active');
+        item.classList.remove('pj-active', 'expanded');
         const body = item.querySelector('.pj-accordion-body');
         if (body) body.style.maxHeight = null;
       });
+    } else {
+      // Deep Architect mode: default open project 01 if no item is currently active
+      const items = Array.from(document.querySelectorAll('.pj-accordion-item'));
+      const hasActive = items.some(item => item.classList.contains('pj-active') || item.classList.contains('expanded'));
+      if (!hasActive && items.length > 0) {
+        const first = items[0];
+        first.classList.add('pj-active', 'expanded');
+        const header = first.querySelector('.pj-accordion-header');
+        if (header) header.setAttribute('aria-expanded', 'true');
+        const body = first.querySelector('.pj-accordion-body');
+        const inner = first.querySelector('.inner-content') || first.querySelector('.pj-accordion-inner');
+        if (inner) inner.classList.add('active');
+        if (body) {
+          body.classList.add('active');
+          body.style.maxHeight = 'none';
+        }
+      }
     }
   }
 

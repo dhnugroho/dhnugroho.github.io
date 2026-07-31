@@ -15,18 +15,38 @@
 .pj-accordion {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1rem;
 }
 
-/* ---- Individual accordion item ---- */
+/* ---- Individual accordion card / item ---- */
+.accordion-card,
 .pj-accordion-item {
-  border-bottom: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--bg-card);
   position: relative;
   overflow: hidden;
+  transition: width 0.5s var(--ease-out), height 0.5s var(--ease-out), border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.pj-accordion-item:first-child {
-  border-top: 1px solid var(--border-subtle);
+.accordion-card.expanded,
+.pj-accordion-item.pj-active {
+  border-color: rgba(0, 229, 255, 0.25);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(0, 229, 255, 0.04);
+}
+
+/* Overlay gradient effect when expanded */
+.accordion-card.expanded::after,
+.pj-accordion-item.pj-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle at top right, rgba(0, 229, 255, 0.03), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Glow line on left when active */
@@ -44,6 +64,7 @@
   z-index: 2;
 }
 
+.accordion-card.expanded::before,
 .pj-accordion-item.pj-active::before {
   transform: scaleY(1);
 }
@@ -57,6 +78,7 @@
   padding: 1.75rem 2rem;
   cursor: pointer;
   position: relative;
+  z-index: 1;
   transition: background 0.4s ease, padding 0.4s var(--ease-out);
   user-select: none;
 }
@@ -65,6 +87,7 @@
   background: rgba(0, 229, 255, 0.03);
 }
 
+.accordion-card.expanded .pj-accordion-header,
 .pj-accordion-item.pj-active .pj-accordion-header {
   background: rgba(0, 229, 255, 0.04);
   padding-bottom: 1.25rem;
@@ -81,6 +104,7 @@
   transition: color 0.4s ease;
 }
 
+.accordion-card.expanded .pj-accordion-header .pj-index,
 .pj-accordion-item.pj-active .pj-accordion-header .pj-index {
   color: rgba(0, 229, 255, 0.12);
 }
@@ -105,6 +129,7 @@
   transition: opacity 0.3s ease;
 }
 
+.accordion-card.expanded .pj-header-content .pj-role-tag,
 .pj-accordion-item.pj-active .pj-header-content .pj-role-tag,
 .pj-accordion-item:hover .pj-header-content .pj-role-tag {
   opacity: 1;
@@ -120,6 +145,7 @@
   transition: color 0.3s ease;
 }
 
+.accordion-card.expanded .pj-header-content .pj-title,
 .pj-accordion-item.pj-active .pj-header-content .pj-title {
   color: var(--accent-primary);
 }
@@ -143,6 +169,7 @@
   transition: opacity 0.3s ease;
 }
 
+.accordion-card.expanded .pj-header-tags span,
 .pj-accordion-item.pj-active .pj-header-tags span {
   opacity: 1;
 }
@@ -168,11 +195,13 @@
   transition: transform 0.5s var(--ease-out), stroke 0.3s ease;
 }
 
+.accordion-card.expanded .pj-toggle,
 .pj-accordion-item.pj-active .pj-toggle {
   border-color: var(--accent-primary);
   background: var(--accent-primary-dim);
 }
 
+.accordion-card.expanded .pj-toggle svg,
 .pj-accordion-item.pj-active .pj-toggle svg {
   transform: rotate(180deg);
   stroke: var(--accent-primary);
@@ -187,21 +216,35 @@
 .pj-accordion-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.7s var(--ease-out), opacity 0.4s ease;
+  transition: max-height 0.6s var(--ease-out), opacity 0.4s ease;
   opacity: 0;
 }
 
+.accordion-card.expanded .pj-accordion-body,
 .pj-accordion-item.pj-active .pj-accordion-body {
   opacity: 1;
 }
 
-/* Inner content wrapper */
+/* Inner content wrapper with reference opacity transition */
+.inner-content,
 .pj-accordion-inner {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 3rem;
   padding: 0.5rem 2rem 2.5rem 2rem;
   align-items: start;
+  opacity: 0;
+  transition: opacity 0s;
+  z-index: 2;
+  position: relative;
+}
+
+.inner-content.active,
+.pj-accordion-inner.active,
+.accordion-card.expanded .inner-content,
+.pj-accordion-item.pj-active .pj-accordion-inner {
+  opacity: 1;
+  transition: opacity 0.5s 0.3s;
 }
 
 /* ---- Info column inside accordion ---- */
@@ -477,6 +520,156 @@
 .smart-cta-action:hover {
   background: var(--accent-primary);
   color: var(--bg-deep);
+}
+
+/* ---- Horizontal Slider (Desktop > 1024px) — Only active in Deep Architect Mode ---- */
+@media screen and (min-width: 1025px) {
+  body.mode-deep-architect .pj-accordion,
+  body:not(.mode-quick-scan) .pj-accordion {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
+    min-height: 580px;
+    overflow-x: auto;
+    padding-bottom: 1.25rem;
+    scroll-behavior: smooth;
+  }
+
+  /* Horizontal Slider Scrollbar */
+  body.mode-deep-architect .pj-accordion::-webkit-scrollbar,
+  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar {
+    height: 6px;
+  }
+  body.mode-deep-architect .pj-accordion::-webkit-scrollbar-track,
+  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 3px;
+  }
+  body.mode-deep-architect .pj-accordion::-webkit-scrollbar-thumb,
+  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar-thumb {
+    background: rgba(0, 229, 255, 0.2);
+    border-radius: 3px;
+  }
+  body.mode-deep-architect .pj-accordion::-webkit-scrollbar-thumb:hover,
+  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+  }
+
+  /* Collapsed Card in Horizontal Slider */
+  body.mode-deep-architect .accordion-card,
+  body.mode-deep-architect .pj-accordion-item,
+  body:not(.mode-quick-scan) .accordion-card,
+  body:not(.mode-quick-scan) .pj-accordion-item {
+    flex: 0 0 100px;
+    min-width: 100px;
+    max-width: 140px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), min-width 0.6s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+  }
+
+  /* Collapsed Header Layout (Vertical pillar format) */
+  body.mode-deep-architect .accordion-card:not(.expanded) .pj-accordion-header,
+  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-accordion-header,
+  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-accordion-header,
+  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-accordion-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0.75rem;
+    height: 100%;
+    min-height: 520px;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  body.mode-deep-architect .accordion-card:not(.expanded) .pj-header-content,
+  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-header-content,
+  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-header-content,
+  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  body.mode-deep-architect .accordion-card:not(.expanded) .pj-header-content .pj-role-tag,
+  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-header-content .pj-role-tag,
+  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-header-content .pj-role-tag,
+  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-header-content .pj-role-tag {
+    display: none;
+  }
+
+  body.mode-deep-architect .accordion-card:not(.expanded) .pj-title,
+  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-title,
+  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-title,
+  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-title {
+    display: none;
+  }
+
+  body.mode-deep-architect .accordion-card:not(.expanded) .pj-header-tags,
+  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-header-tags,
+  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-header-tags,
+  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-header-tags {
+    display: none;
+  }
+
+  /* Expanded Card in Horizontal Slider */
+  body.mode-deep-architect .accordion-card.expanded,
+  body.mode-deep-architect .pj-accordion-item.pj-active,
+  body:not(.mode-quick-scan) .accordion-card.expanded,
+  body:not(.mode-quick-scan) .pj-accordion-item.pj-active {
+    flex: 1 0 780px;
+    min-width: 760px;
+    max-width: 860px;
+    cursor: default;
+  }
+
+  body.mode-deep-architect .accordion-card.expanded .pj-accordion-header,
+  body.mode-deep-architect .pj-accordion-item.pj-active .pj-accordion-header,
+  body:not(.mode-quick-scan) .accordion-card.expanded .pj-accordion-header,
+  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-accordion-header {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.75rem 2rem 1.25rem 2rem;
+    height: auto;
+    min-height: auto;
+    text-align: left;
+  }
+
+  body.mode-deep-architect .accordion-card.expanded .pj-title,
+  body.mode-deep-architect .pj-accordion-item.pj-active .pj-title,
+  body:not(.mode-quick-scan) .accordion-card.expanded .pj-title,
+  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-title {
+    display: block;
+    writing-mode: horizontal-tb;
+    transform: none;
+    max-height: none;
+    white-space: normal;
+  }
+
+  body.mode-deep-architect .accordion-card.expanded .pj-header-tags,
+  body.mode-deep-architect .pj-accordion-item.pj-active .pj-header-tags,
+  body:not(.mode-quick-scan) .accordion-card.expanded .pj-header-tags,
+  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-header-tags {
+    display: flex;
+  }
+
+  body.mode-deep-architect .accordion-card.expanded .pj-accordion-body,
+  body.mode-deep-architect .pj-accordion-item.pj-active .pj-accordion-body,
+  body:not(.mode-quick-scan) .accordion-card.expanded .pj-accordion-body,
+  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-accordion-body {
+    max-height: none !important;
+    overflow: visible;
+  }
 }
 
 /* ---- Responsive ---- */
