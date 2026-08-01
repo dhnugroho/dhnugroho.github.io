@@ -14,6 +14,7 @@ import { initNotesCarousel } from './modules/notesCarousel.js';
 import { initEnhancements } from './modules/enhancements.js';
 import { initFocusMode } from './modules/focusMode.js';
 import { initArchLayers } from './modules/archLayers.js';
+import { initTimelineSlider } from './modules/timelineSlider.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursor();
   initNavbar();
   initAccordion();
+  initTimelineSlider();
   initReveal();
   initModal();
   initForm();

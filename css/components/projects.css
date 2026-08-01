@@ -11,12 +11,138 @@
   margin-bottom: 4rem;
 }
 
-/* ---- Accordion container ---- */
-.pj-accordion {
+/* ============================================
+   PROJECTS CAROUSEL + ACCORDION SYSTEM
+   Matches notes-carousel-viewport slider layout:
+   - 2 items per slide on desktop, 1 on mobile
+   - Slide track with smooth translateX
+   - Nav arrows, counter, and pagination dots
+   ============================================ */
+.pj-carousel-viewport {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.pj-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pj-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-out);
+  flex-shrink: 0;
+}
+
+.pj-nav-btn:hover:not(.disabled) {
+  border-color: var(--border-glow);
+  color: var(--accent-primary);
+  background: var(--accent-primary-dim);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.pj-nav-btn:active:not(.disabled) {
+  transform: scale(0.95);
+}
+
+.pj-nav-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pj-nav-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.pj-carousel-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.pj-carousel-counter {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pj-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pj-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-out);
+}
+
+.pj-carousel-dot.active {
+  width: 28px;
+  border-radius: 100px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
+}
+
+.pj-carousel-dot:hover:not(.active) {
+  background: rgba(148, 163, 184, 0.4);
+  transform: scale(1.2);
+}
+
+.pj-carousel-overflow {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* ---- Accordion track & slides ---- */
+.pj-accordion,
+.pj-carousel-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.pj-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0 0.25rem;
 }
+
+
 
 /* ---- Individual accordion card / item ---- */
 .accordion-card,
@@ -522,155 +648,6 @@
   color: var(--bg-deep);
 }
 
-/* ---- Horizontal Slider (Desktop > 1024px) — Only active in Deep Architect Mode ---- */
-@media screen and (min-width: 1025px) {
-  body.mode-deep-architect .pj-accordion,
-  body:not(.mode-quick-scan) .pj-accordion {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 1rem;
-    width: 100%;
-    min-height: 580px;
-    overflow-x: auto;
-    padding-bottom: 1.25rem;
-    scroll-behavior: smooth;
-  }
-
-  /* Horizontal Slider Scrollbar */
-  body.mode-deep-architect .pj-accordion::-webkit-scrollbar,
-  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar {
-    height: 6px;
-  }
-  body.mode-deep-architect .pj-accordion::-webkit-scrollbar-track,
-  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 3px;
-  }
-  body.mode-deep-architect .pj-accordion::-webkit-scrollbar-thumb,
-  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar-thumb {
-    background: rgba(0, 229, 255, 0.2);
-    border-radius: 3px;
-  }
-  body.mode-deep-architect .pj-accordion::-webkit-scrollbar-thumb:hover,
-  body:not(.mode-quick-scan) .pj-accordion::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-primary);
-  }
-
-  /* Collapsed Card in Horizontal Slider */
-  body.mode-deep-architect .accordion-card,
-  body.mode-deep-architect .pj-accordion-item,
-  body:not(.mode-quick-scan) .accordion-card,
-  body:not(.mode-quick-scan) .pj-accordion-item {
-    flex: 0 0 100px;
-    min-width: 100px;
-    max-width: 140px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), min-width 0.6s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-  }
-
-  /* Collapsed Header Layout (Vertical pillar format) */
-  body.mode-deep-architect .accordion-card:not(.expanded) .pj-accordion-header,
-  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-accordion-header,
-  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-accordion-header,
-  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-accordion-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 0.75rem;
-    height: 100%;
-    min-height: 520px;
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  body.mode-deep-architect .accordion-card:not(.expanded) .pj-header-content,
-  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-header-content,
-  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-header-content,
-  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-  }
-
-  body.mode-deep-architect .accordion-card:not(.expanded) .pj-header-content .pj-role-tag,
-  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-header-content .pj-role-tag,
-  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-header-content .pj-role-tag,
-  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-header-content .pj-role-tag {
-    display: none;
-  }
-
-  body.mode-deep-architect .accordion-card:not(.expanded) .pj-title,
-  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-title,
-  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-title,
-  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-title {
-    display: none;
-  }
-
-  body.mode-deep-architect .accordion-card:not(.expanded) .pj-header-tags,
-  body.mode-deep-architect .pj-accordion-item:not(.pj-active) .pj-header-tags,
-  body:not(.mode-quick-scan) .accordion-card:not(.expanded) .pj-header-tags,
-  body:not(.mode-quick-scan) .pj-accordion-item:not(.pj-active) .pj-header-tags {
-    display: none;
-  }
-
-  /* Expanded Card in Horizontal Slider */
-  body.mode-deep-architect .accordion-card.expanded,
-  body.mode-deep-architect .pj-accordion-item.pj-active,
-  body:not(.mode-quick-scan) .accordion-card.expanded,
-  body:not(.mode-quick-scan) .pj-accordion-item.pj-active {
-    flex: 1 0 780px;
-    min-width: 760px;
-    max-width: 860px;
-    cursor: default;
-  }
-
-  body.mode-deep-architect .accordion-card.expanded .pj-accordion-header,
-  body.mode-deep-architect .pj-accordion-item.pj-active .pj-accordion-header,
-  body:not(.mode-quick-scan) .accordion-card.expanded .pj-accordion-header,
-  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-accordion-header {
-    display: grid;
-    grid-template-columns: 4.5rem 1fr auto;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.75rem 2rem 1.25rem 2rem;
-    height: auto;
-    min-height: auto;
-    text-align: left;
-  }
-
-  body.mode-deep-architect .accordion-card.expanded .pj-title,
-  body.mode-deep-architect .pj-accordion-item.pj-active .pj-title,
-  body:not(.mode-quick-scan) .accordion-card.expanded .pj-title,
-  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-title {
-    display: block;
-    writing-mode: horizontal-tb;
-    transform: none;
-    max-height: none;
-    white-space: normal;
-  }
-
-  body.mode-deep-architect .accordion-card.expanded .pj-header-tags,
-  body.mode-deep-architect .pj-accordion-item.pj-active .pj-header-tags,
-  body:not(.mode-quick-scan) .accordion-card.expanded .pj-header-tags,
-  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-header-tags {
-    display: flex;
-  }
-
-  body.mode-deep-architect .accordion-card.expanded .pj-accordion-body,
-  body.mode-deep-architect .pj-accordion-item.pj-active .pj-accordion-body,
-  body:not(.mode-quick-scan) .accordion-card.expanded .pj-accordion-body,
-  body:not(.mode-quick-scan) .pj-accordion-item.pj-active .pj-accordion-body {
-    max-height: none !important;
-    overflow: visible;
-  }
-}
 
 /* ---- Responsive ---- */
 @media (max-width: 960px) {
