@@ -144,16 +144,19 @@ function setupCarousel(gridSelector, dotsSelector, itemSelector) {
 export function initCarousel() {
   const mql = window.matchMedia('(max-width: 768px)');
 
-  const portfolioCarousel = setupCarousel('.portfolio-grid', '.carousel-dots:not(.skills-carousel-dots)', '.portfolio-card');
+  const portfolioCarousel = setupCarousel('.portfolio-grid', '.carousel-dots:not(.skills-carousel-dots):not(.di-carousel-dots)', '.portfolio-card');
   const skillsCarousel = setupCarousel('.skills-grid', '.skills-carousel-dots', '.skill-group');
+  const diCarousel = setupCarousel('.di-table tbody', '.di-carousel-dots', 'tr');
 
   function handleMediaChange(e) {
     if (e.matches) {
       if (portfolioCarousel) portfolioCarousel.activate();
       if (skillsCarousel) skillsCarousel.activate();
+      if (diCarousel) diCarousel.activate();
     } else {
       if (portfolioCarousel) portfolioCarousel.deactivate();
       if (skillsCarousel) skillsCarousel.deactivate();
+      if (diCarousel) diCarousel.deactivate();
     }
   }
 
@@ -161,5 +164,6 @@ export function initCarousel() {
   if (mql.matches) {
     if (portfolioCarousel) portfolioCarousel.activate();
     if (skillsCarousel) skillsCarousel.activate();
+    if (diCarousel) diCarousel.activate();
   }
 }
