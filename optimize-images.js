@@ -31,9 +31,9 @@ async function optimizePortfolio() {
         .webp({ quality: 80 })
         .toFile(outputPath);
       
-      // 2. Grid Thumbnail Image (550px max width)
+      // 2. Grid Thumbnail Image (380px max width for exact 346-360px rendered slot)
       await sharp(inputPath)
-        .resize({ width: 550, withoutEnlargement: true })
+        .resize({ width: 380, withoutEnlargement: true })
         .webp({ quality: 75 })
         .toFile(thumbPath);
 
@@ -53,11 +53,11 @@ async function optimizeProfile() {
   const tempPath = path.join(imgDir, 'profile_temp.png');
   const webpPath = path.join(imgDir, 'profile.webp');
 
-  console.log(`Processing profile.png -> profile.webp (200x200 WebP)`);
+  console.log(`Processing profile.png -> profile.webp (140x140 WebP matching display size)`);
   try {
     await sharp(inputPath)
-      .resize(200, 200)
-      .webp({ quality: 85 })
+      .resize(140, 140)
+      .webp({ quality: 82 })
       .toFile(webpPath);
     const webpSize = fs.statSync(webpPath).size;
     console.log(`  Created profile.webp: ${(webpSize / 1024).toFixed(1)} KB`);

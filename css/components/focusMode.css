@@ -181,10 +181,6 @@ main.focus-transitioning {
   .focus-ripple {
     display: none;
   }
-  main.focus-transitioning {
-    transition: none !important;
-    opacity: 1 !important;
-  }
 }
 
 @media (max-width: 768px) {
@@ -206,9 +202,6 @@ main.focus-transitioning {
     font-size: 0.62rem;
     min-height: 28px;
   }
-  .focus-mode-hint {
-    font-size: 0.6rem;
-  }
 }
 
 
@@ -226,10 +219,6 @@ body.mode-quick-scan [data-scan-hide] {
 body.mode-quick-scan .nav-links a[href="#notes"],
 body.mode-quick-scan .nav-links a[href="#about"] {
   display: none;
-}
-
-body.mode-quick-scan #experience .tl-card:not(.tl-active) {
-  display: none !important;
 }
 
 /* Quick Scan: Project Showcase as a clean, skimmable list */
@@ -254,23 +243,6 @@ body.mode-quick-scan #projects .pj-header-tags span {
 body.mode-quick-scan #projects .pj-accordion-header {
   pointer-events: none;
   padding: 1.25rem 1.5rem !important;
-}
-
-/* Quick Scan: Capabilities/Skills aggregate summary view */
-.skill-summary-row {
-  display: none;
-}
-
-body.mode-quick-scan #skills .skill-row,
-body.mode-quick-scan #skills .di-wrap {
-  display: none !important;
-}
-
-body.mode-quick-scan .skill-summary-row {
-  display: flex !important;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 0 0.25rem;
 }
 
 /* Quick Scan: Portfolio section text-only compact cards */

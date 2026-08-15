@@ -64,19 +64,22 @@
   .carousel-dot {
     width: 8px;
     height: 8px;
+    padding: 12px;
+    background-color: rgba(148, 163, 184, 0.25);
+    background-clip: content-box;
+    box-sizing: content-box;
     border-radius: 50%;
-    background: rgba(148, 163, 184, 0.25);
     border: none;
-    padding: 0;
     cursor: pointer;
     transition: all 0.35s var(--ease-out);
     position: relative;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .carousel-dot.active {
     width: 24px;
     border-radius: 100px;
-    background: var(--accent-primary);
+    background-color: var(--accent-primary);
     box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
   }
 }
