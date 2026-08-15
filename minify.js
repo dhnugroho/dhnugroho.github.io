@@ -15,6 +15,17 @@ async function build() {
       logLevel: 'info',
     });
     console.log('  ✅ CSS done!');
+
+    console.log('Minifying Notes CSS (css/components/notes.css -> css/notes.min.css)...');
+    await esbuild.build({
+      entryPoints: ['css/components/notes.css'],
+      bundle: false,
+      minify: true,
+      target: ['chrome90', 'firefox90', 'safari14'],
+      outfile: 'css/notes.min.css',
+      logLevel: 'info',
+    });
+    console.log('  ✅ Notes CSS done!');
   } catch (err) {
     console.error('  ❌ CSS failed:', err);
   }

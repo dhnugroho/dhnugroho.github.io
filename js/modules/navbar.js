@@ -7,6 +7,7 @@ export function initNavbar() {
   let docHeight = 0;
   let winHeight = 0;
   let isTicking = false;
+  let positionsDirty = true;
 
   function cachePositions() {
     winHeight = window.innerHeight;
@@ -20,6 +21,7 @@ export function initNavbar() {
         });
       }
     });
+    positionsDirty = false;
   }
 
   function renderNavbar() {
@@ -33,18 +35,23 @@ export function initNavbar() {
       navbar.classList.remove('scrolled');
     }
 
+    if (scrollY <= 80) {
+      navLinks.forEach(function (link, idx) {
+        link.classList.toggle('active', idx === 0 && link.getAttribute('href') === '#hero');
+      });
+      return;
+    }
+
+    if (positionsDirty) {
+      cachePositions();
+    }
+
     // ── Bottom-of-page guard ──────────────────────────────────────────
     const atBottom = scrollY + winHeight >= docHeight - 50;
 
-    if (atBottom && scrollY > 80) {
+    if (atBottom) {
       const links = Array.from(navLinks);
-      let lastVisible = null;
-      for (let i = links.length - 1; i >= 0; i--) {
-        if (links[i].offsetWidth > 0 || links[i].offsetHeight > 0) {
-          lastVisible = links[i];
-          break;
-        }
-      }
+      const lastVisible = links[links.length - 1];
       navLinks.forEach(function (l) { l.classList.remove('active'); });
       if (lastVisible) lastVisible.classList.add('active');
       return;
@@ -52,11 +59,9 @@ export function initNavbar() {
 
     // ── Normal scroll detection ───────────────────────────────────────
     let currentSection = '';
-    if (scrollY > 80) {
-      for (let i = 0; i < sectionPositions.length; i++) {
-        if (scrollY >= sectionPositions[i].top) {
-          currentSection = sectionPositions[i].id;
-        }
+    for (let i = 0; i < sectionPositions.length; i++) {
+      if (scrollY >= sectionPositions[i].top) {
+        currentSection = sectionPositions[i].id;
       }
     }
 
@@ -76,10 +81,11 @@ export function initNavbar() {
     }
   }
 
-  window.addEventListener('resize', cachePositions, { passive: true });
+  window.addEventListener('resize', function () {
+    positionsDirty = true;
+  }, { passive: true });
   window.addEventListener('scroll', updateNavbar, { passive: true });
 
-  cachePositions();
   renderNavbar();
 
   const navToggle = document.getElementById('navToggle');

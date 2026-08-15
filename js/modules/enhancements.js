@@ -43,15 +43,18 @@ function initScrollProgress() {
   const bar = document.querySelector('.scroll-progress');
   if (!bar) return;
 
-  let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  let docHeight = 0;
   let isTicking = false;
 
   window.addEventListener('resize', function () {
-    docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    docHeight = 0;
   }, { passive: true });
 
   function renderProgress() {
     const scrollTop = window.scrollY;
+    if (docHeight === 0) {
+      docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    }
     if (docHeight > 0) {
       const pct = (scrollTop / docHeight) * 100;
       bar.style.width = pct + '%';
@@ -67,8 +70,6 @@ function initScrollProgress() {
       isTicking = true;
     }
   }, { passive: true });
-
-  renderProgress();
 }
 
 
@@ -84,11 +85,11 @@ function initHeroParallax() {
   const heroName = hero.querySelector('.hero-name');
   const canvas = hero.querySelector('#particleCanvas');
 
-  let heroH = hero.offsetHeight;
+  let heroH = hero.clientHeight || window.innerHeight;
   let isTicking = false;
 
   window.addEventListener('resize', function () {
-    heroH = hero.offsetHeight;
+    heroH = hero.clientHeight || window.innerHeight;
   }, { passive: true });
 
   function renderParallax() {
@@ -292,26 +293,29 @@ function initBackToTop() {
     circle.style.strokeDashoffset = circumference;
   }
 
-  let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  let docHeight = 0;
   let isTicking = false;
 
   window.addEventListener('resize', function () {
-    docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    docHeight = 0;
   }, { passive: true });
 
   function renderBtn() {
     const scrollTop = window.scrollY;
-    const pct = docHeight > 0 ? scrollTop / docHeight : 0;
 
     // Show/hide
     if (scrollTop > 500) {
+      if (docHeight === 0) {
+        docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      }
       btn.classList.add('visible');
     } else {
       btn.classList.remove('visible');
     }
 
     // Update ring
-    if (circle) {
+    if (circle && scrollTop > 500 && docHeight > 0) {
+      const pct = scrollTop / docHeight;
       const offset = circumference - (pct * circumference);
       circle.style.strokeDashoffset = offset;
     }
@@ -326,8 +330,6 @@ function initBackToTop() {
       isTicking = true;
     }
   }, { passive: true });
-
-  renderBtn();
 
   btn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });

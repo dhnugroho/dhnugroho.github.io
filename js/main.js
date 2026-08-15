@@ -26,27 +26,48 @@ function initCritical() {
   initParticles();
 }
 
-// Phase 2: Deferred (Below the fold & progressive enhancements)
+// Phase 2: Deferred (Below the fold - executed in separate idle slices)
 function initDeferred() {
-  initReveal();
-  initAccordion();
-  initTimelineSlider();
-  initCarousel();
-  initNotesCarousel();
-  initCeTimeline();
-  initArchLayers();
-  initModal();
-  initForm();
-  initEnhancements();
-  initCursor();
+  const tasks = [
+    initReveal,
+    initAccordion,
+    initTimelineSlider,
+    initCarousel,
+    initNotesCarousel,
+    initCeTimeline,
+    initArchLayers,
+    initModal,
+    initForm,
+    initEnhancements,
+    initCursor
+  ];
+
+  function runNextTask() {
+    if (tasks.length === 0) return;
+    const fn = tasks.shift();
+    try {
+      fn();
+    } catch (e) {
+      console.warn('Deferred init error:', e);
+    }
+    if (tasks.length > 0) {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(runNextTask, { timeout: 500 });
+      } else {
+        setTimeout(runNextTask, 16);
+      }
+    }
+  }
+
+  runNextTask();
 }
 
 function start() {
   initCritical();
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(initDeferred, { timeout: 1000 });
+    requestIdleCallback(initDeferred, { timeout: 800 });
   } else {
-    setTimeout(initDeferred, 100);
+    setTimeout(initDeferred, 60);
   }
 }
 

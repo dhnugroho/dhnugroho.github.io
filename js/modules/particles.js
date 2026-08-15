@@ -13,8 +13,11 @@ export function initParticles() {
       cancelAnimationFrame(animationId);
       animationId = null;
     }
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
+    const parent = canvas.parentElement;
+    const w = parent ? parent.clientWidth : window.innerWidth;
+    const h = parent ? parent.clientHeight : window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
     init();
     animate();
   }

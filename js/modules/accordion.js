@@ -284,7 +284,18 @@ export function initAccordion() {
   const firstSlideEl = track.querySelector('.pj-slide[data-slide="0"]');
   if (firstSlideEl) {
     const firstItem = firstSlideEl.querySelector('.pj-accordion-item');
-    if (firstItem) openItem(firstItem);
+    if (firstItem) {
+      firstItem.classList.add('pj-active', 'expanded');
+      const header = firstItem.querySelector('.pj-accordion-header');
+      if (header) header.setAttribute('aria-expanded', 'true');
+      const body = firstItem.querySelector('.pj-accordion-body');
+      const inner = firstItem.querySelector('.inner-content') || firstItem.querySelector('.pj-accordion-inner');
+      if (inner) inner.classList.add('active');
+      if (body) {
+        body.classList.add('active');
+        body.style.maxHeight = 'none';
+      }
+    }
   }
 }
 
