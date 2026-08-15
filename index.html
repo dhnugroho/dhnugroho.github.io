@@ -16,7 +16,7 @@
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com https://www.gstatic.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://cdn.jsdelivr.net https://cdn.simpleicons.org https://www.gstatic.com https://fonts.gstatic.com https://www.google.com https://translate.googleapis.com https://translate.google.com http://translate.google.com; script-src 'self' 'unsafe-inline' https://*.googleapis.com https://translate.google.com; frame-src 'self' https://translate.google.com https://translate.googleapis.com; connect-src 'self' https://*.googleapis.com; object-src 'none';">
+    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com https://www.gstatic.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://cdn.jsdelivr.net https://cdn.simpleicons.org https://www.gstatic.com https://fonts.gstatic.com https://www.google.com; script-src 'self' 'unsafe-inline' https://*.googleapis.com; object-src 'none';">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Dhani Nugroho — Senior Fullstack Engineer & Data Architect | Jakarta">
@@ -61,7 +61,7 @@
     ],
     "knowsAbout": [
       "Fullstack Engineering", "Data Engineering", "Data Architecture",
-      "JavaScript", "React", "Vue.js", "Node.js", "ASP.NET", ".NET Core",
+      "JavaScript", "React", "Vue.js", "FastAPI", "ASP.NET", ".NET Core",
       "Python", "pandas", "SQL Server", "BigQuery", "Snowflake",
       "SSIS", "Pentaho", "Denodo", "dbt", "Azure Data Factory",
       "Power BI", "Tableau", "MicroStrategy",
@@ -78,6 +78,10 @@
   }
   </script>
 
+  <!-- Preconnect to CDN domains used for skill icons -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,6 +93,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet">
   </noscript>
+
+  <!-- Preload LCP hero avatar -->
+  <link rel="preload" as="image" href="img/profile.webp">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/main.min.css">
@@ -146,22 +153,19 @@
     <canvas id="particleCanvas"></canvas>
 
     <div class="hero-content">
-      <img class="hero-avatar" src="img/profile.webp" alt="Dhani Nugroho — Profile Photo" width="140" height="140">
+      <img class="hero-avatar" src="img/profile.webp" alt="Dhani Nugroho — Profile Photo" width="140" height="140"
+        fetchpriority="high">
 
       <p class="hero-greeting">// hello, world</p>
 
       <h1 class="hero-name">
-        I'm <span class="accent">Dhani Nugroho</span>
+        I'm <span class="accent">Dhani</span>
       </h1>
-      <p class="hero-username"
-        style="font-family:'JetBrains Mono',monospace;font-size:0.95rem;color:#8892a4;margin-top:-0.25rem;letter-spacing:0.5px;">
-        @dhnugroho.dev</p>
+      <p class="hero-username">@dhnugroho.dev</p>
 
-      <p class="hero-invite"
-        style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-muted);margin:0.5rem auto 1rem;max-width:600px;font-style:normal;line-height:1.6;">
-        <strong style="color:var(--text-bright);">Engineering meets Design Thinking.</strong> 10+ years building
-        enterprise systems by empathizing with users, co-creating with stakeholders, and delivering reliable solutions
-        end-to-end.
+      <p class="hero-invite">
+        <strong>Engineering meets Design Thinking.</strong> 10+ years building enterprise systems by empathizing with
+        users, co-creating with stakeholders, and delivering reliable solutions end-to-end.
       </p>
 
       <!-- View Experience Mode Selector -->
@@ -234,7 +238,7 @@
         <span>React</span>
         <span>ASP.NET</span>
         <span>Python</span>
-        <span>Node.js</span>
+        <span>FastAPI</span>
         <span>SQL Server</span>
         <span>Data Pipelines</span>
         <span>Power BI</span>
@@ -267,7 +271,8 @@
             data-description="A collection of vector illustrations (WPAP and silhouette designs) built with Corel Draw. This project explores visual storytelling through clean geometric forms and bold silhouettes, demonstrating design capability beyond code."
             data-tags="Corel Draw, Vector, Illustration, Design">
             <div class="portfolio-card-image">
-              <img src="img/portfolio/siluet_new_thumb.webp" alt="Vector illustration project" loading="lazy">
+              <img src="img/portfolio/siluet_new_thumb.webp" alt="Vector illustration project" loading="lazy"
+                width="550" height="397">
               <div class="portfolio-card-overlay">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -298,7 +303,8 @@
             data-description="Enterprise corporate travel management platform digitizing the trip lifecycle from employee requests and DPH executive approvals to in-app self-reservations, expense settlements, and direct SAP vendor payment integration."
             data-tags="HTML, CSS, JavaScript, ASP.NET, SAP ERP">
             <div class="portfolio-card-image">
-              <img src="img/portfolio/travel_thumb.webp" alt="Travel web application" loading="lazy">
+              <img src="img/portfolio/travel_thumb.webp" alt="Travel web application" loading="lazy" width="550"
+                height="397">
               <div class="portfolio-card-overlay">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -325,11 +331,12 @@
           <!-- Card 3: Portfolio Digital -->
           <div class="portfolio-card reveal reveal-delay-3" id="portfolio-card-3" role="button" tabindex="0"
             aria-label="Open Digital Portfolio project details" data-image="img/portfolio/portofolio.webp"
-            data-title="Digital Portfolio"
-            data-description="A personal digital portfolio website built with a customized Bootstrap template. The project involved extensive HTML, JavaScript and CSS modifications to create a unique, branded online presence that showcases professional work and skills."
-            data-tags="Bootstrap, HTML, CSS, Portfolio, Web Design">
+            data-title="Digital Portfolio &amp; Continuous Iteration"
+            data-description="A living engineering platform rooted in continuous improvement — evolving from an initial Bootstrap foundation into a bespoke, performance-tuned static architecture. Iteratively optimized for Core Web Vitals, modular CSS/JS architecture, automated minification bundling, and responsive user experience."
+            data-tags="Continuous Improvement, Web Performance, Core Web Vitals, Vanilla CSS, JS Optimization">
             <div class="portfolio-card-image">
-              <img src="img/portfolio/portofolio_thumb.webp" alt="Digital portfolio project" loading="lazy">
+              <img src="img/portfolio/portofolio_thumb.webp" alt="Digital portfolio project" loading="lazy" width="550"
+                height="397">
               <div class="portfolio-card-overlay">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -344,11 +351,11 @@
             </div>
             <div class="portfolio-card-body">
               <h3>Digital Portfolio</h3>
-              <p>Custom Bootstrap-based portfolio with tailored HTML & CSS design work.</p>
+              <p>Living digital platform built on continuous improvement, performance tuning &amp; modular UX.</p>
               <div class="portfolio-card-tags">
-                <span>Bootstrap</span>
-                <span>HTML</span>
-                <span>CSS</span>
+                <span>Optimization</span>
+                <span>Performance</span>
+                <span>HTML / CSS</span>
               </div>
             </div>
           </div>
@@ -360,7 +367,8 @@
             data-description="A mobile-responsive employee rewards and compensation portal. Integrated payslip breakdowns, benefits calculators, and employee statements with strict role-based access for HR and legal compliance."
             data-tags="jQuery, HTML, CSS, Mobile, HR Tech">
             <div class="portfolio-card-image">
-              <img src="img/portfolio/crm_thumb.webp" alt="CRM Mobile application" loading="lazy">
+              <img src="img/portfolio/crm_thumb.webp" alt="CRM Mobile application" loading="lazy" width="550"
+                height="362">
               <div class="portfolio-card-overlay">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -391,7 +399,8 @@
             data-description="Custom hotel booking engine designed from scratch with responsive UI, dynamic property listings, room detail filtering, and streamlined booking checkout flow."
             data-tags="HTML, CSS, Web Design, Hospitality">
             <div class="portfolio-card-image">
-              <img src="img/portfolio/hotel_thumb.webp" alt="Hotel reservation system" loading="lazy">
+              <img src="img/portfolio/hotel_thumb.webp" alt="Hotel reservation system" loading="lazy" width="550"
+                height="413">
               <div class="portfolio-card-overlay">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -422,7 +431,8 @@
             data-description="High-engagement loyalty CRM designed for multinational FMCG brand activation (Philippines). Features high-throughput serial code validation, gamified spin wheel, UGC contest entry, and optimized backend logic."
             data-tags="UI/UX, FMCG Loyalty, Serial Code, Gamification">
             <div class="portfolio-card-image">
-              <img src="img/portfolio/custom-crm_thumb.webp" alt="Custom CRM platform" loading="lazy">
+              <img src="img/portfolio/custom-crm_thumb.webp" alt="Custom CRM platform" loading="lazy" width="550"
+                height="333">
               <div class="portfolio-card-overlay">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3133,42 +3143,42 @@
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-                  alt="HTML &amp; CSS" width="16" height="16">
+                  alt="HTML &amp; CSS" width="16" height="16" loading="lazy">
                 <span class="chip-name">HTML &amp; CSS</span>
                 <span class="chip-yrs">6 yrs</span>
               </div>
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                  alt="JavaScript" width="16" height="16">
+                  alt="JavaScript" width="16" height="16" loading="lazy">
                 <span class="chip-name">JavaScript</span>
                 <span class="chip-yrs">6 yrs</span>
               </div>
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg"
-                  alt="ASP.NET / .NET Core" width="16" height="16">
+                  alt="ASP.NET / .NET Core" width="16" height="16" loading="lazy">
                 <span class="chip-name">ASP.NET / .NET Core</span>
                 <span class="chip-yrs">6 yrs</span>
               </div>
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg"
-                  alt="Razor Page MVC" width="16" height="16">
+                  alt="Razor Page MVC" width="16" height="16" loading="lazy">
                 <span class="chip-name">Razor Page MVC</span>
                 <span class="chip-yrs">6 yrs</span>
               </div>
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-                  alt="React JS" width="16" height="16">
+                  alt="React JS" width="16" height="16" loading="lazy">
                 <span class="chip-name">React JS</span>
                 <span class="chip-yrs">2 yrs</span>
               </div>
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue JS"
-                  width="16" height="16">
+                  width="16" height="16" loading="lazy">
                 <span class="chip-name">Vue JS</span>
                 <span class="chip-yrs">2 yrs</span>
               </div>
@@ -3204,7 +3214,7 @@
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
-                  alt="ETL" width="16" height="16">
+                  alt="ETL" width="16" height="16" loading="lazy">
                 <span class="chip-name">ETL (SSIS / Pentaho / Talend Studio)</span>
                 <span class="chip-yrs">4 yrs</span>
               </div>
@@ -3231,19 +3241,20 @@
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
-                  alt="SQL" width="16" height="16">
+                  alt="SQL" width="16" height="16" loading="lazy">
                 <span class="chip-name">SQL Optimization</span>
                 <span class="chip-yrs">9 yrs</span>
               </div>
               <div class="skill-chip">
                 <img class="chip-icon"
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                  alt="Python" width="16" height="16">
-                <span class="chip-name">Python (Data Pipelines, pandas, pydantic, openpyxl)</span>
+                  alt="Python" width="16" height="16" loading="lazy">
+                <span class="chip-name">Python (pandas, pydantic, openpyxl)</span>
                 <span class="chip-yrs">2 yrs</span>
               </div>
               <div class="skill-chip">
-                <img class="chip-icon" src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" width="16" height="16">
+                <img class="chip-icon" src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" width="16" height="16"
+                  loading="lazy">
                 <span class="chip-name">n8n (Workflow &amp; Pipeline Automation)</span>
                 <span class="chip-yrs">1 yr</span>
               </div>
@@ -3371,7 +3382,7 @@
                   <td>
                     <div style="display: flex; align-items: center; gap: 8px;">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                        alt="Python" width="18" height="18">
+                        alt="Python" width="18" height="18" loading="lazy">
                       <span class="di-skill-name" style="margin: 0;">Python Data Pipelines</span>
                     </div>
                   </td>
@@ -3384,7 +3395,7 @@
                       <img
                         src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
                         alt="SSIS" width="18" height="18"
-                        style="filter: drop-shadow(0px 0px 1px rgba(255,255,255,0.3));">
+                        style="filter: drop-shadow(0px 0px 1px rgba(255,255,255,0.3));" loading="lazy">
                       <span class="di-skill-name" style="margin: 0;">SSIS ETL</span>
                     </div>
                   </td>
@@ -3409,7 +3420,8 @@
                 <tr>
                   <td>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                      <img src="https://cdn.simpleicons.org/talend/FF6D70" alt="Talend" width="18" height="18">
+                      <img src="https://cdn.simpleicons.org/talend/FF6D70" alt="Talend" width="18" height="18"
+                        loading="lazy">
                       <span class="di-skill-name" style="margin: 0;">Talend Studio</span>
                     </div>
                   </td>
@@ -3420,7 +3432,7 @@
                   <td>
                     <div style="display: flex; align-items: center; gap: 8px;">
                       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
-                        alt="Azure Data Factory" width="18" height="18">
+                        alt="Azure Data Factory" width="18" height="18" loading="lazy">
                       <span class="di-skill-name" style="margin: 0;">Azure Data Factory</span>
                     </div>
                   </td>
@@ -3487,7 +3499,8 @@
                 <tr>
                   <td>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                      <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" width="18" height="18">
+                      <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" width="18" height="18"
+                        loading="lazy">
                       <span class="di-skill-name" style="margin: 0;">Data Warehousing</span>
                     </div>
                   </td>
@@ -3513,20 +3526,13 @@
           <h2 class="section-title">Personal Notes</h2>
           <p class="section-subtitle">Thoughts, concerns, and personal reflections over time.</p>
 
-          <!-- Translate & Ambient Toggle -->
-          <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <div class="notes-lang-toggle">
-              <span class="lang-text">Translate Notes:</span>
-              <div class="lang-switch">
-                <button class="lang-btn active" id="langBtnId" data-lang="id">ID</button>
-                <button class="lang-btn" id="langBtnEn" data-lang="en">EN</button>
-              </div>
-            </div>
-            <div class="notes-lang-toggle" style="margin-top: 1.5rem;">
+          <!-- Ambient Solitude Toggle -->
+          <div style="display: flex; align-items: center; justify-content: center; margin-top: 1.25rem;">
+            <div class="notes-ambient-wrap">
               <button class="ambient-toggle-btn" id="ambientToggleBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  style="display:inline; vertical-align:-1px; margin-right:3px;">
+                  style="display:inline; vertical-align:-1px; margin-right:4px;">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M12 2a7 7 0 1 0 10 10" />
                 </svg>
@@ -3627,9 +3633,7 @@
 
                         I've applied this compound method across enterprise data platforms, CSR geospatial systems, CRM
                         integrations, and Business Intelligence dashboards &mdash; often as the sole end-to-end
-                        contributor, which means
-                        the
-                        design thinking discipline has to live inside me. That's made
+                        contributor, which means the design thinking discipline has to live inside me. That's made
                         the methodology more rigorous in my practice, not less.<br><br>
 
                         <span style="color: var(--accent-primary); font-size: 0.85rem;">#DesignThinking #AgileDelivery
@@ -3643,12 +3647,11 @@
                           <h1 class="hdr-title">Design Thinking &amp; Agile:<br>A Compound Delivery <span>Method</span>
                           </h1>
                           <p class="hdr-sub">Not two frameworks on a shelf — one continuous loop from user empathy
-                            through
-                            working software, applied across a decade of enterprise delivery.</p>
+                            through working software, applied across a decade of enterprise delivery.</p>
                         </div>
 
                         <div class="quote-strip">
-                          <div class="qs-bar" style="background: var(--accent-primary);"></div>
+                          <div class="qs-bar"></div>
                           <div class="qs-text">
                             <strong>"Design Thinking keeps us solving the right problem. Agile keeps us solving it at
                               the right pace. Neither is useful without the other — and most delivery failures live
@@ -3657,176 +3660,109 @@
                         </div>
 
                         <!-- ── Dual-Axis: DT vs Agile Interactive Comparison ── -->
-                        <div class="dt-agile-wrap" id="dtAgileCompare" style="margin: 2rem 0;">
+                        <div class="dt-agile-wrap" id="dtAgileCompare">
 
                           <!-- Framework Toggle Tabs -->
-                          <div class="dt-tab-bar" role="tablist" aria-label="Framework selector"
-                            style="display:flex; gap:0.5rem; margin-bottom:1.5rem; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:6px;">
-                            <button class="dt-tab active" data-panel="both" role="tab" aria-selected="true"
-                              style="flex:1; padding:0.55rem 0.75rem; border:none; border-radius:8px; font-size:0.78rem; font-weight:600; letter-spacing:0.03em; cursor:pointer; transition:all 0.2s; background:var(--accent-primary); color:#fff;">
+                          <div class="dt-tab-bar" role="tablist" aria-label="Framework selector">
+                            <button class="dt-tab active" data-panel="both" role="tab" aria-selected="true">
                               ⚡ Both Together
                             </button>
-                            <button class="dt-tab" data-panel="dt" role="tab" aria-selected="false"
-                              style="flex:1; padding:0.55rem 0.75rem; border:none; border-radius:8px; font-size:0.78rem; font-weight:600; letter-spacing:0.03em; cursor:pointer; transition:all 0.2s; background:transparent; color:var(--text-muted);">
+                            <button class="dt-tab" data-panel="dt" role="tab" aria-selected="false">
                               🔍 Design Thinking
                             </button>
-                            <button class="dt-tab" data-panel="agile" role="tab" aria-selected="false"
-                              style="flex:1; padding:0.55rem 0.75rem; border:none; border-radius:8px; font-size:0.78rem; font-weight:600; letter-spacing:0.03em; cursor:pointer; transition:all 0.2s; background:transparent; color:var(--text-muted);">
+                            <button class="dt-tab" data-panel="agile" role="tab" aria-selected="false">
                               🔄 Agile
                             </button>
                           </div>
 
-                          <!-- Panel: Both Together (Split Columns) -->
-                          <div class="dt-panel" id="panel-both"
-                            style="display:grid; grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch;">
+                          <!-- Panel: Both Together (Split Columns on Desktop / Stacked on Mobile) -->
+                          <div class="dt-panel" id="panel-both">
 
                             <!-- Left Column: Design Thinking -->
-                            <div class="dt-col"
-                              style="display:flex; flex-direction:column; gap:0.75rem; padding-right:1rem;">
-                              <div class="dt-col-label"
-                                style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6EE7B7; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.4rem;">
+                            <div class="dt-col">
+                              <div class="dt-col-label">
                                 <span
-                                  style="width:8px;height:8px;border-radius:50%;background:#6EE7B7;display:inline-block;"></span>
+                                  style="width:8px;height:8px;border-radius:50%;background:#6EE7B7;display:inline-block;flex-shrink:0;"></span>
                                 Design Thinking
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(110,231,183,0.06); border:1px solid rgba(110,231,183,0.18); border-radius:10px; padding:0.75rem 0.9rem;">
-                                <div
-                                  style="font-size:0.65rem; color:#6EE7B7; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Empathize</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Go into the
-                                  field. Understand frustrations, workarounds, and unspoken needs before forming any
-                                  opinion about the solution.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Empathize</div>
+                                <div class="dt-row-card-text">Go into the field. Understand frustrations, workarounds,
+                                  and unspoken needs before forming any opinion about the solution.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(110,231,183,0.06); border:1px solid rgba(110,231,183,0.18); border-radius:10px; padding:0.75rem 0.9rem;">
-                                <div
-                                  style="font-size:0.65rem; color:#6EE7B7; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Define</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Reframe the
-                                  problem into a human-centered statement. Most engineering briefs define the solution —
-                                  this step recovers the actual problem.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Define</div>
+                                <div class="dt-row-card-text">Reframe the problem into a human-centered statement. Most
+                                  engineering briefs define the solution — this step recovers the actual problem.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(110,231,183,0.06); border:1px solid rgba(110,231,183,0.18); border-radius:10px; padding:0.75rem 0.9rem;">
-                                <div
-                                  style="font-size:0.65rem; color:#6EE7B7; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Ideate</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Diverge
-                                  first — no filtering. Then converge using real criteria: impact, feasibility, user
-                                  alignment. Two separate cognitive speeds.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Ideate</div>
+                                <div class="dt-row-card-text">Diverge first — no filtering. Then converge using real
+                                  criteria: impact, feasibility, user alignment. Two separate cognitive speeds.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(110,231,183,0.06); border:1px solid rgba(110,231,183,0.18); border-radius:10px; padding:0.75rem 0.9rem;">
-                                <div
-                                  style="font-size:0.65rem; color:#6EE7B7; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Prototype</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Build the
-                                  cheapest version that exposes the biggest assumption. A prototype is a question, not a
-                                  deliverable.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Prototype</div>
+                                <div class="dt-row-card-text">Build the cheapest version that exposes the biggest
+                                  assumption. A prototype is a question, not a deliverable.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(110,231,183,0.06); border:1px solid rgba(110,231,183,0.18); border-radius:10px; padding:0.75rem 0.9rem;">
-                                <div
-                                  style="font-size:0.65rem; color:#6EE7B7; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Test &amp; Loop</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Put it in
-                                  front of real users. Failures here are free. The loop is non-linear — findings can
-                                  send you back to any earlier phase.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Test &amp; Loop</div>
+                                <div class="dt-row-card-text">Put it in front of real users. Failures here are free. The
+                                  loop is non-linear — findings can send you back to any earlier phase.</div>
                               </div>
                             </div>
 
                             <!-- Center Spine: Overlap Zone -->
-                            <div class="dt-spine"
-                              style="width:90px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; position:relative; padding:0 0.5rem;">
-                              <div
-                                style="position:absolute; top:0; bottom:0; left:50%; width:1px; background:linear-gradient(to bottom, transparent, rgba(167,139,250,0.4) 20%, rgba(167,139,250,0.4) 80%, transparent); transform:translateX(-50%);">
-                              </div>
-
-                              <div
-                                style="font-size:0.55rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#A78BFA; text-align:center; line-height:1.4; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:8px; padding:0.4rem 0.35rem; position:relative; z-index:1;">
-                                Discovery</div>
-
-                              <div
-                                style="font-size:0.55rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#A78BFA; text-align:center; line-height:1.4; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:8px; padding:0.4rem 0.35rem; position:relative; z-index:1;">
-                                Backlog<br>Feed</div>
-
-                              <div
-                                style="font-size:0.55rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#A78BFA; text-align:center; line-height:1.4; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:8px; padding:0.4rem 0.35rem; position:relative; z-index:1;">
-                                Early<br>Validation</div>
-
-                              <div
-                                style="font-size:0.55rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#A78BFA; text-align:center; line-height:1.4; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:8px; padding:0.4rem 0.35rem; position:relative; z-index:1;">
-                                Feedback<br>Loop</div>
-
-                              <div
-                                style="font-size:0.55rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#A78BFA; text-align:center; line-height:1.4; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); border-radius:8px; padding:0.4rem 0.35rem; position:relative; z-index:1;">
-                                Ship &amp;<br>Learn</div>
+                            <div class="dt-spine">
+                              <div class="dt-spine-badge">Discovery</div>
+                              <div class="dt-spine-badge">Backlog<br>Feed</div>
+                              <div class="dt-spine-badge">Early<br>Validation</div>
+                              <div class="dt-spine-badge">Feedback<br>Loop</div>
+                              <div class="dt-spine-badge">Ship &amp;<br>Learn</div>
                             </div>
 
                             <!-- Right Column: Agile -->
-                            <div class="agile-col"
-                              style="display:flex; flex-direction:column; gap:0.75rem; padding-left:1rem;">
-                              <div class="dt-col-label"
-                                style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#93C5FD; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.4rem; justify-content:flex-end;">
+                            <div class="agile-col">
+                              <div class="dt-col-label">
                                 Agile
                                 <span
-                                  style="width:8px;height:8px;border-radius:50%;background:#93C5FD;display:inline-block;"></span>
+                                  style="width:8px;height:8px;border-radius:50%;background:#93C5FD;display:inline-block;flex-shrink:0;"></span>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(147,197,253,0.06); border:1px solid rgba(147,197,253,0.18); border-radius:10px; padding:0.75rem 0.9rem; text-align:right;">
-                                <div
-                                  style="font-size:0.65rem; color:#93C5FD; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Sprint Planning</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Empathy
-                                  outputs become acceptance criteria. Stories are grounded in real context, not
-                                  assumptions about what users probably want.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Sprint Planning</div>
+                                <div class="dt-row-card-text">Empathy outputs become acceptance criteria. Stories are
+                                  grounded in real context, not assumptions about what users probably want.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(147,197,253,0.06); border:1px solid rgba(147,197,253,0.18); border-radius:10px; padding:0.75rem 0.9rem; text-align:right;">
-                                <div
-                                  style="font-size:0.65rem; color:#93C5FD; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Backlog Refinement</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Problem
-                                  definition feeds the backlog with the right items at the right priority — not features
-                                  ordered by loudest stakeholder.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Backlog Refinement</div>
+                                <div class="dt-row-card-text">Problem definition feeds the backlog with the right items
+                                  at the right priority — not features ordered by loudest stakeholder.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(147,197,253,0.06); border:1px solid rgba(147,197,253,0.18); border-radius:10px; padding:0.75rem 0.9rem; text-align:right;">
-                                <div
-                                  style="font-size:0.65rem; color:#93C5FD; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Sprint Execution</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Ideation
-                                  choices become engineering tasks. The convergent filter keeps the sprint focused — no
-                                  sprawl from "wouldn't it be nice if."</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Sprint Execution</div>
+                                <div class="dt-row-card-text">Ideation choices become engineering tasks. The convergent
+                                  filter keeps the sprint focused — no sprawl from "wouldn't it be nice if."</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(147,197,253,0.06); border:1px solid rgba(147,197,253,0.18); border-radius:10px; padding:0.75rem 0.9rem; text-align:right;">
-                                <div
-                                  style="font-size:0.65rem; color:#93C5FD; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Sprint Review</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Prototype
-                                  logic carries into demo cadence. Working software replaces slide decks — users react
-                                  to something real, not a concept.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Sprint Review</div>
+                                <div class="dt-row-card-text">Prototype logic carries into demo cadence. Working
+                                  software replaces slide decks — users react to something real, not a concept.</div>
                               </div>
 
-                              <div class="dt-row-card"
-                                style="background:rgba(147,197,253,0.06); border:1px solid rgba(147,197,253,0.18); border-radius:10px; padding:0.75rem 0.9rem; text-align:right;">
-                                <div
-                                  style="font-size:0.65rem; color:#93C5FD; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.3rem;">
-                                  Retrospective</div>
-                                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">Test
-                                  findings re-enter the loop as refined requirements. The retro is where the DT cycle
-                                  and the Agile cycle reconnect for the next sprint.</div>
+                              <div class="dt-row-card">
+                                <div class="dt-row-card-tag">Retrospective</div>
+                                <div class="dt-row-card-text">Test findings re-enter the loop as refined requirements.
+                                  The retro is where the DT cycle and the Agile cycle reconnect for the next sprint.
+                                </div>
                               </div>
                             </div>
                           </div><!-- /#panel-both -->
@@ -3834,91 +3770,56 @@
                           <!-- Panel: Design Thinking Solo -->
                           <div class="dt-panel" id="panel-dt" style="display:none;">
                             <div
-                              style="background:rgba(110,231,183,0.04); border:1px solid rgba(110,231,183,0.15); border-radius:14px; padding:1.25rem; margin-bottom:1rem;">
+                              style="background:rgba(110,231,183,0.04); border:1px solid rgba(110,231,183,0.15); border-radius:14px; padding:1.25rem; margin-bottom:1rem; box-sizing:border-box;">
                               <div
                                 style="font-size:0.65rem; color:#6EE7B7; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
                                 Design Thinking &middot; Full Loop</div>
-                              <div style="display:flex; flex-direction:column; gap:0;">
-                                <!-- DT Loop Visual -->
-                                <div style="display:flex; align-items:stretch; gap:0;">
-                                  <div
-                                    style="display:flex; flex-direction:column; align-items:center; margin-right:0.75rem; flex-shrink:0;">
-                                    <div
-                                      style="width:32px;height:32px;border-radius:50%;background:rgba(110,231,183,0.15);border:2px solid #6EE7B7;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#6EE7B7;">
-                                      E</div>
-                                    <div
-                                      style="width:2px;flex:1;background:rgba(110,231,183,0.2);margin:4px 0;min-height:40px;">
-                                    </div>
-                                    <div
-                                      style="width:32px;height:32px;border-radius:50%;background:rgba(110,231,183,0.15);border:2px solid #6EE7B7;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#6EE7B7;">
-                                      D</div>
-                                    <div
-                                      style="width:2px;flex:1;background:rgba(110,231,183,0.2);margin:4px 0;min-height:40px;">
-                                    </div>
-                                    <div
-                                      style="width:32px;height:32px;border-radius:50%;background:rgba(110,231,183,0.15);border:2px solid #6EE7B7;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#6EE7B7;">
-                                      I</div>
-                                    <div
-                                      style="width:2px;flex:1;background:rgba(110,231,183,0.2);margin:4px 0;min-height:40px;">
-                                    </div>
-                                    <div
-                                      style="width:32px;height:32px;border-radius:50%;background:rgba(110,231,183,0.15);border:2px solid #6EE7B7;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#6EE7B7;">
-                                      P</div>
-                                    <div
-                                      style="width:2px;flex:1;background:rgba(110,231,183,0.2);margin:4px 0;min-height:40px;">
-                                    </div>
-                                    <div
-                                      style="width:32px;height:32px;border-radius:50%;background:rgba(110,231,183,0.25);border:2px solid #6EE7B7;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#6EE7B7;">
-                                      T</div>
-                                  </div>
-                                  <div style="flex:1;display:flex;flex-direction:column;gap:0.6rem;">
-                                    <div
-                                      style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
-                                      <strong style="font-size:0.78rem;color:#6EE7B7;">Empathize</strong>
-                                      <p
-                                        style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
-                                        Observe, interview, shadow. Seek the gap between what users say and what they
-                                        actually do. Behavior over self-report.</p>
-                                    </div>
-                                    <div
-                                      style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
-                                      <strong style="font-size:0.78rem;color:#6EE7B7;">Define</strong>
-                                      <p
-                                        style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
-                                        Synthesize findings into a Point of View — a human-centered problem statement
-                                        that guides everything downstream. Not a feature list.</p>
-                                    </div>
-                                    <div
-                                      style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
-                                      <strong style="font-size:0.78rem;color:#6EE7B7;">Ideate</strong>
-                                      <p
-                                        style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
-                                        Generate first, evaluate second. Quantity before quality. Defer judgment during
-                                        divergent phase or you kill the process before it starts.</p>
-                                    </div>
-                                    <div
-                                      style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
-                                      <strong style="font-size:0.78rem;color:#6EE7B7;">Prototype</strong>
-                                      <p
-                                        style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
-                                        Fast and intentionally rough. If it takes more than a day to build, it's too
-                                        expensive to learn from. Purpose: expose the assumption, not demonstrate the
-                                        feature.</p>
-                                    </div>
-                                    <div
-                                      style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.12);border:1px solid rgba(110,231,183,0.3);">
-                                      <strong style="font-size:0.78rem;color:#6EE7B7;">Test &amp; Iterate ↺</strong>
-                                      <p
-                                        style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
-                                        Non-linear. Findings from testing might send you back to Define — or all the way
-                                        to Empathize. The loop is the method, not a flaw in the process.</p>
-                                    </div>
-                                  </div>
+                              <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                                <div
+                                  style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
+                                  <strong style="font-size:0.78rem;color:#6EE7B7;">1. Empathize</strong>
+                                  <p
+                                    style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
+                                    Observe, interview, shadow. Seek the gap between what users say and what they
+                                    actually do. Behavior over self-report.</p>
+                                </div>
+                                <div
+                                  style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
+                                  <strong style="font-size:0.78rem;color:#6EE7B7;">2. Define</strong>
+                                  <p
+                                    style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
+                                    Synthesize findings into a Point of View — a human-centered problem statement that
+                                    guides everything downstream. Not a feature list.</p>
+                                </div>
+                                <div
+                                  style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
+                                  <strong style="font-size:0.78rem;color:#6EE7B7;">3. Ideate</strong>
+                                  <p
+                                    style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
+                                    Generate first, evaluate second. Quantity before quality. Defer judgment during
+                                    divergent phase or you kill the process before it starts.</p>
+                                </div>
+                                <div
+                                  style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.07);border:1px solid rgba(110,231,183,0.15);">
+                                  <strong style="font-size:0.78rem;color:#6EE7B7;">4. Prototype</strong>
+                                  <p
+                                    style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
+                                    Fast and intentionally rough. If it takes more than a day to build, it's too
+                                    expensive to learn from. Purpose: expose the assumption, not demonstrate the
+                                    feature.</p>
+                                </div>
+                                <div
+                                  style="padding:0.6rem 0.8rem;border-radius:8px;background:rgba(110,231,183,0.12);border:1px solid rgba(110,231,183,0.3);">
+                                  <strong style="font-size:0.78rem;color:#6EE7B7;">5. Test &amp; Iterate ↺</strong>
+                                  <p
+                                    style="margin:0.2rem 0 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.45;">
+                                    Non-linear. Findings from testing might send you back to Define — or all the way to
+                                    Empathize. The loop is the method, not a flaw in the process.</p>
                                 </div>
                               </div>
                             </div>
                             <div
-                              style="background:rgba(110,231,183,0.04);border:1px solid rgba(110,231,183,0.12);border-radius:10px;padding:0.9rem 1rem;">
+                              style="background:rgba(110,231,183,0.04);border:1px solid rgba(110,231,183,0.12);border-radius:10px;padding:0.9rem 1rem; box-sizing:border-box;">
                               <span style="font-size:0.72rem;color:#6EE7B7;font-weight:600;">Key principle
                                 &mdash;</span>
                               <span style="font-size:0.78rem;color:var(--text-secondary);"> Design Thinking is
@@ -3931,16 +3832,14 @@
                           <!-- Panel: Agile Solo -->
                           <div class="dt-panel" id="panel-agile" style="display:none;">
                             <div
-                              style="background:rgba(147,197,253,0.04); border:1px solid rgba(147,197,253,0.15); border-radius:14px; padding:1.25rem;">
+                              style="background:rgba(147,197,253,0.04); border:1px solid rgba(147,197,253,0.15); border-radius:14px; padding:1.25rem; box-sizing:border-box;">
                               <div
                                 style="font-size:0.65rem; color:#93C5FD; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
                                 Agile &middot; Sprint Rhythm</div>
 
-                              <!-- Sprint cycle visual: horizontal -->
-                              <div
-                                style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-bottom:1rem;">
-                                <div
-                                  style="border:1px solid rgba(147,197,253,0.2);border-radius:10px;padding:0.7rem;background:rgba(147,197,253,0.06);text-align:center;">
+                              <!-- Sprint cycle visual: responsive grid -->
+                              <div class="agile-sprint-grid">
+                                <div class="agile-sprint-card">
                                   <div style="font-size:1.2rem;margin-bottom:0.3rem;">📋</div>
                                   <div
                                     style="font-size:0.65rem;font-weight:700;color:#93C5FD;letter-spacing:0.06em;text-transform:uppercase;">
@@ -3949,8 +3848,7 @@
                                     style="font-size:0.72rem;color:var(--text-secondary);margin-top:0.25rem;line-height:1.4;">
                                     Define sprint goal &amp; commit to stories</div>
                                 </div>
-                                <div
-                                  style="border:1px solid rgba(147,197,253,0.2);border-radius:10px;padding:0.7rem;background:rgba(147,197,253,0.06);text-align:center;">
+                                <div class="agile-sprint-card">
                                   <div style="font-size:1.2rem;margin-bottom:0.3rem;">⚙️</div>
                                   <div
                                     style="font-size:0.65rem;font-weight:700;color:#93C5FD;letter-spacing:0.06em;text-transform:uppercase;">
@@ -3959,8 +3857,7 @@
                                     style="font-size:0.72rem;color:var(--text-secondary);margin-top:0.25rem;line-height:1.4;">
                                     Daily standups surface blockers early</div>
                                 </div>
-                                <div
-                                  style="border:1px solid rgba(147,197,253,0.35);border-radius:10px;padding:0.7rem;background:rgba(147,197,253,0.12);text-align:center;">
+                                <div class="agile-sprint-card highlight">
                                   <div style="font-size:1.2rem;margin-bottom:0.3rem;">🧪</div>
                                   <div
                                     style="font-size:0.65rem;font-weight:700;color:#93C5FD;letter-spacing:0.06em;text-transform:uppercase;">
@@ -3969,8 +3866,7 @@
                                     style="font-size:0.72rem;color:var(--text-secondary);margin-top:0.25rem;line-height:1.4;">
                                     Demo to stakeholders; real working software</div>
                                 </div>
-                                <div
-                                  style="border:1px solid rgba(147,197,253,0.2);border-radius:10px;padding:0.7rem;background:rgba(147,197,253,0.06);text-align:center;">
+                                <div class="agile-sprint-card">
                                   <div style="font-size:1.2rem;margin-bottom:0.3rem;">🔁</div>
                                   <div
                                     style="font-size:0.65rem;font-weight:700;color:#93C5FD;letter-spacing:0.06em;text-transform:uppercase;">
@@ -4016,12 +3912,12 @@
                               </div>
                             </div>
                             <div
-                              style="background:rgba(147,197,253,0.04);border:1px solid rgba(147,197,253,0.12);border-radius:10px;padding:0.9rem 1rem;margin-top:0.75rem;">
+                              style="background:rgba(147,197,253,0.04);border:1px solid rgba(147,197,253,0.12);border-radius:10px;padding:0.9rem 1rem;margin-top:0.75rem; box-sizing:border-box;">
                               <span style="font-size:0.72rem;color:#93C5FD;font-weight:600;">Key principle
                                 &mdash;</span>
                               <span style="font-size:0.78rem;color:var(--text-secondary);"> Agile's real value isn't
                                 speed — it's honesty. Short cycles make it harder to hide problems. The transparency
-                                that uncomfortable makes the delivery sustainable.</span>
+                                that feels uncomfortable makes the delivery sustainable.</span>
                             </div>
                           </div><!-- /#panel-agile -->
 
@@ -4038,19 +3934,19 @@
                                   var target = this.getAttribute('data-panel');
 
                                   tabs.forEach(function (t) {
+                                    t.classList.remove('active');
                                     t.setAttribute('aria-selected', 'false');
-                                    t.style.background = 'transparent';
-                                    t.style.color = 'var(--text-muted)';
                                   });
+                                  this.classList.add('active');
                                   this.setAttribute('aria-selected', 'true');
-                                  this.style.background = 'var(--accent-primary)';
-                                  this.style.color = '#fff';
 
                                   panels.forEach(function (p) {
                                     p.style.display = 'none';
                                   });
                                   var targetPanel = document.getElementById('panel-' + target);
-                                  if (targetPanel) targetPanel.style.display = (target === 'both') ? 'grid' : 'block';
+                                  if (targetPanel) {
+                                    targetPanel.style.display = '';
+                                  }
                                 });
                               });
                             })();
@@ -4064,15 +3960,14 @@
                             <div class="insight-num">5 Phases</div>
                             <div class="insight-label">DT Loop, Not a Waterfall</div>
                             <div class="insight-desc">Empathize &rarr; Define &rarr; Ideate &rarr; Prototype &rarr;
-                              Test.
-                              Non-linear by design &mdash; you can re-enter any phase when reality pushes back.</div>
+                              Test. Non-linear by design &mdash; you can re-enter any phase when reality pushes back.
+                            </div>
                           </div>
                           <div class="insight-card ic-amber">
                             <div class="insight-num">2-Speed</div>
                             <div class="insight-label">Diverge Then Converge</div>
                             <div class="insight-desc">Creative ideation requires separating the generative phase from
-                              the
-                              evaluative one. Judging ideas during brainstorming kills the divergent half of the
+                              the evaluative one. Judging ideas during brainstorming kills the divergent half of the
                               process.</div>
                           </div>
                           <div class="insight-card ic-pink">
@@ -4088,11 +3983,9 @@
                         <div class="sig-quote">
                           <p class="sig-text">
                             "I stopped treating methodology as a checklist somewhere around year four. Design Thinking
-                            isn't
-                            a workshop exercise and Agile isn't a calendar of standups. Together, they're a discipline
-                            for
-                            staying honest — about what users actually need, and whether what we're building is actually
-                            getting there."
+                            isn't a workshop exercise and Agile isn't a calendar of standups. Together, they're a
+                            discipline for staying honest — about what users actually need, and whether what we're
+                            building is actually getting there."
                           </p>
                           <div class="sig-footer">Engineering Practice &nbsp;&middot;&nbsp;
                             <span>#DesignThinking #AgileDelivery #EmpathyFirst #CoCreate #UXEngineering</span>
@@ -4103,9 +3996,7 @@
 
                       <div class="note-signature"
                         style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
-                        <span style="color: var(--text-muted); font-style: italic;">Written in Jakarta &middot; Two
-                          Lenses,
-                          One Delivery</span>
+                        <span style="color: var(--text-muted); font-style: italic;">Two Lenses, One Delivery</span>
                         <span class="signature-name" style="font-weight: bold;">&mdash; Dhani N.</span>
                       </div>
 
@@ -4557,10 +4448,10 @@
                       </p>
 
                       <div style="margin: 1.5rem auto 0; text-align: center; max-width: 360px; width: 85%;">
-                        <img src="img/portfolio/intj.png"
+                        <img src="img/portfolio/intj.webp"
                           alt="Intrapersonal Intelligence — Howard Gardner's Multiple Intelligences"
                           style="width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.3); display: block;"
-                          loading="lazy">
+                          loading="lazy" width="720" height="1080">
                       </div>
 
                       <div class="note-signature"
@@ -4628,9 +4519,9 @@
                       </p>
 
                       <div style="margin: 1.5rem auto 0; text-align: center; max-width: 360px; width: 85%;">
-                        <img src="img/portfolio/poster.png" alt="AI-generated side profile poster from LinkedIn photo"
+                        <img src="img/portfolio/poster.webp" alt="Concept poster design crafted from portfolio content"
                           style="width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.3); display: block;"
-                          loading="lazy">
+                          loading="lazy" width="720" height="1080">
                       </div>
 
                       <div class="note-signature"
@@ -5279,7 +5170,7 @@
                                 <span class="tag tag-4">Snowflake</span>
                                 <span class="tag tag-4">Airflow</span>
                                 <span class="tag tag-4">React</span>
-                                <span class="tag tag-4">Node.js</span>
+                                <span class="tag tag-4">FastAPI</span>
                               </div>
                               <div class="card-expand-hint">
                                 <span class="expand-icon">+</span>
@@ -5433,9 +5324,10 @@
             </p>
 
             <p class="reveal">
-              My technical stack centers on React, ASP.NET, Python, and Node.js for software engineering, alongside
-              SSIS, Pentaho, Denodo, Power BI, and BigQuery for data architecture. I also build practical workflow
-              automations using n8n and explore AI integrations—focusing on concrete business value rather than hype.
+              My technical stack centers on MVC (.NET Core API, Razor Pages, Vue JS) for software engineering. I work
+              with T-SQL, SSIS, Pentaho, Denodo, Power BI, and BigQuery for data architecture. I also build practical
+              workflow automations using n8n and explore AI integrations—focusing on concrete business value rather than
+              hype.
             </p>
 
             <p class="reveal">
@@ -5691,25 +5583,6 @@
   <!-- Scripts -->
   <script type="module" src="js/main.min.js"></script>
   <script src="chatbot.min.js" defer></script>
-
-  <!-- Google Translate Integration -->
-  <div class="gtranslate-wrapper">
-    <div id="google_translate_element"></div>
-  </div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'id',
-        includedLanguages: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    defer></script>
-
-
 
 </body>
 

@@ -93,6 +93,34 @@
   background-clip: text;
 }
 
+.hero-username {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #8892a4;
+  margin-top: -0.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  animation: fadeInUp 0.8s var(--ease-out) 0.55s forwards;
+}
+
+.hero-invite {
+  font-family: var(--font-body);
+  font-size: clamp(0.76rem, 1.4vw, 0.83rem);
+  color: var(--text-muted);
+  margin: 0.35rem auto 1.15rem;
+  max-width: 540px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: fadeInUp 0.8s var(--ease-out) 0.6s forwards;
+}
+
+.hero-invite strong {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
 .hero-tagline {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: var(--text-muted);
@@ -236,6 +264,18 @@
   .hero-name {
     font-size: clamp(2rem, 8vw, 3rem);
     margin-bottom: 0.35rem;
+  }
+
+  .hero-username {
+    font-size: 0.78rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-invite {
+    font-size: 0.78rem;
+    line-height: 1.48;
+    max-width: 90%;
+    margin: 0.25rem auto 1rem;
   }
 
   .hero-tagline {

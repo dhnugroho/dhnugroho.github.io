@@ -2050,3 +2050,448 @@
 .notes-slide .notes-accordion-item:nth-child(3) {
   animation-delay: 0.3s;
 }
+
+/* ============================================
+   NOTE 7: DESIGN THINKING & AGILE INTERACTIVE
+   ============================================ */
+.ce-root {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ce-root .hdr {
+  margin-bottom: 1.5rem;
+}
+
+.ce-root .hdr-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.ce-root .hdr-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 4vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+.ce-root .hdr-title span {
+  color: var(--accent-primary);
+}
+
+.ce-root .hdr-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+.quote-strip {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  background: rgba(0, 229, 255, 0.04);
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.quote-strip .qs-bar {
+  width: 3px;
+  border-radius: 4px;
+  background: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.quote-strip .qs-text {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-style: italic;
+  overflow-wrap: break-word;
+}
+
+/* Tab Bar */
+.dt-agile-wrap {
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.dt-tab-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dt-tab {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.dt-tab:hover:not(.active) {
+  color: var(--text-bright);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dt-tab.active {
+  background: var(--accent-primary);
+  color: var(--bg-deep);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.25);
+}
+
+/* Panels */
+.dt-panel {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Panel Both - Desktop 3 Columns */
+#panel-both {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+}
+
+.dt-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 1rem;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.agile-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 1rem;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dt-col-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.agile-col .dt-col-label {
+  color: #93c5fd;
+  justify-content: flex-end;
+}
+
+.dt-row-card {
+  background: rgba(110, 231, 183, 0.06);
+  border: 1px solid rgba(110, 231, 183, 0.18);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  transition: all 0.25s ease;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.agile-col .dt-row-card {
+  background: rgba(147, 197, 253, 0.06);
+  border-color: rgba(147, 197, 253, 0.18);
+  text-align: right;
+}
+
+.dt-row-card-tag {
+  font-size: 0.65rem;
+  color: #6ee7b7;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.agile-col .dt-row-card-tag {
+  color: #93c5fd;
+}
+
+.dt-row-card-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+/* Center Spine */
+.dt-spine {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  position: relative;
+  padding: 1.8rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.dt-spine::before {
+  content: '';
+  position: absolute;
+  top: 1.8rem;
+  bottom: 1rem;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(167, 139, 250, 0.4) 15%, rgba(167, 139, 250, 0.4) 85%, transparent);
+  transform: translateX(-50%);
+}
+
+.dt-spine-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a78bfa;
+  text-align: center;
+  line-height: 1.3;
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 8px;
+  padding: 0.4rem 0.35rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Agile Sprint Grid (Panel Agile) */
+.agile-sprint-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.agile-sprint-card {
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 10px;
+  padding: 0.75rem 0.5rem;
+  background: rgba(147, 197, 253, 0.06);
+  text-align: center;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.agile-sprint-card.highlight {
+  border-color: rgba(147, 197, 253, 0.35);
+  background: rgba(147, 197, 253, 0.12);
+}
+
+/* Insight Band */
+.insight-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.insight-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.insight-card .insight-num {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.insight-card.ic-green .insight-num { color: #6ee7b7; }
+.insight-card.ic-amber .insight-num { color: #fbbf24; }
+.insight-card.ic-pink .insight-num { color: #f472b6; }
+
+.insight-card .insight-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.insight-card .insight-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+/* Signature Quote */
+.sig-quote {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.sig-quote .sig-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  overflow-wrap: break-word;
+}
+
+.sig-quote .sig-footer {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  overflow-wrap: break-word;
+}
+
+.sig-quote .sig-footer span {
+  color: var(--accent-primary);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN FOR NOTE 7
+   ============================================ */
+@media (max-width: 768px) {
+  .dt-tab-bar {
+    gap: 0.35rem;
+    padding: 4px;
+  }
+
+  .dt-tab {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.4rem;
+  }
+
+  #panel-both {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .dt-col, .agile-col {
+    padding: 0;
+    width: 100%;
+  }
+
+  .agile-col .dt-col-label {
+    justify-content: flex-start;
+  }
+
+  .agile-col .dt-row-card {
+    text-align: left;
+  }
+
+  /* Transform spine to horizontal connector on mobile */
+  .dt-spine {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem 0;
+    gap: 0.4rem;
+  }
+
+  .dt-spine::before {
+    display: none;
+  }
+
+  .dt-spine-badge {
+    width: auto;
+    font-size: 0.55rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+  }
+
+  .agile-sprint-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .insight-band {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dt-tab-bar {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .dt-tab {
+    width: 100%;
+    font-size: 0.72rem;
+    padding: 0.55rem 0.6rem;
+  }
+
+  .dt-row-card {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .dt-row-card-tag {
+    font-size: 0.62rem;
+  }
+
+  .dt-row-card-text {
+    font-size: 0.75rem;
+  }
+
+  .agile-sprint-grid {
+    grid-template-columns: 1fr;
+  }
+}

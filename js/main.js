@@ -5,7 +5,6 @@ import { initNavbar } from './modules/navbar.js';
 import { initReveal } from './modules/reveal.js';
 import { initModal } from './modules/modal.js';
 import { initForm } from './modules/form.js';
-import { initLang } from './modules/lang.js';
 import { initTheme } from './modules/theme.js';
 import { initCarousel } from './modules/carousel.js';
 import { initCeTimeline } from './modules/ceTimeline.js';
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initModal();
   initForm();
-  initLang();
   initTheme();
   initCarousel();
   initCeTimeline();

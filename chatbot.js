@@ -30,17 +30,17 @@
     about: "Dhani Nugroho is a Full-stack Engineer & Data Architect based in Jakarta, Indonesia. With 10+ years of progressive experience spanning implementation, data engineering, software development, and data architecture — he brings a pragmatic, ethics-first approach to problem solving. His philosophy: understand the root cause first, find the right solution, then choose the best technology. Currently exploring AI integration while staying grounded in real-world problem solving.",
 
     experience: [
-      { period: '2023 — Present', role: 'Full-stack Engineer & Data Architect', desc: 'Hybrid Full-stack + Data role — architecting data platforms, building analytics engineering pipelines, and designing end-to-end data infrastructure.', tags: ['dbt', 'Snowflake', 'Airflow', 'Data Modeling', 'React', 'Node.js'] },
+      { period: '2023 — Present', role: 'Full-stack Engineer & Data Architect', desc: 'Hybrid Full-stack + Data role — architecting data platforms, building analytics engineering pipelines, and designing end-to-end data infrastructure.', tags: ['dbt', 'Snowflake', 'Airflow', 'Data Modeling', 'React', 'FastAPI'] },
       { period: '2020 — 2023', role: 'Software Engineer', desc: 'Software architecture, frontend & backend development. Led full-stack development across multiple enterprise web applications including CSR platform, Big Data Uploader, and Travel Management System.', tags: ['ASP.NET', 'JavaScript', 'SQL Server', 'REST API', 'System Architecture'] },
       { period: '2016 — 2020', role: 'Data Engineer', desc: 'Designed and maintained data pipelines, ETL processes, database optimization. Built enterprise data warehousing solutions using SSIS, Pentaho, and Denodo.', tags: ['SSIS', 'Pentaho', 'Denodo', 'Power BI', 'Tableau', 'Data Warehouse'] },
       { period: '2015 — 2016', role: 'Implementor', desc: 'System deployment, client onboarding, and user training. Foundation of enterprise software delivery.', tags: ['System Deployment', 'Client Onboarding', 'User Training'] }
     ],
 
     skills: {
-      'Software Engineering': ['Frontend Development (90%)', 'Backend Development (85%)', 'ASP.NET / .NET Framework (82%)', 'System Architecture (80%)'],
-      'Data & Analytics': ['Data Pipeline / ETL (88%)', 'SQL & Database Design (90%)', 'Business Intelligence (82%)', 'Data Warehousing (80%)'],
-      'Tools & Platforms': ['Git & Version Control (85%)', 'Cloud Platforms (75%)', 'CI/CD Pipelines (72%)', 'Docker / Containers (70%)'],
-      'Leadership & Delivery': ['Project Management (85%)', 'Technical Lead (82%)', 'Client Onboarding (85%)', 'Team Collaboration (90%)'],
+      'Software Engineering': ['Frontend Development (8+ yrs)', 'Backend & API Architecture (10+ yrs)', 'ASP.NET & .NET Core (7+ yrs)', 'System Architecture & MVC (10+ yrs)'],
+      'Data & Analytics': ['Data Pipeline & ETL (6+ yrs)', 'SQL & Database Design (10+ yrs)', 'Business Intelligence (6+ yrs)', 'Data Warehousing & Virtualization (6+ yrs)'],
+      'Tools & Platforms': ['Git & Version Control', 'Cloud Data Platforms (BigQuery, Snowflake)', 'CI/CD & Task Orchestration', 'n8n Workflow Automation'],
+      'Leadership & Delivery': ['Project Management', 'Technical Lead & Architecture', 'Client Onboarding & Training', 'Stakeholder Empathy & Design Thinking'],
       'Data Integration': ['SSIS ETL', 'Pentaho (Kettle)', 'Talend Studio', 'Azure Data Factory', 'BI Data Preparation', 'Data Virtualization (Denodo)', 'Migration & Cleansing', 'Data Warehousing']
     },
 
@@ -55,7 +55,7 @@
     portfolio: [
       { name: 'Vector Illustration', desc: 'Vector illustrations and silhouette designs built with Corel Draw.', tags: ['Corel Draw', 'Vector', 'Design'] },
       { name: 'Travel Web Application', desc: 'Mockup-to-code implementation with HTML, CSS & JS frontend and ASP.NET backend.', tags: ['HTML/CSS', 'JavaScript', 'ASP.NET'] },
-      { name: 'Digital Portfolio', desc: 'Personal portfolio website built with customized Bootstrap template.', tags: ['Bootstrap', 'HTML', 'CSS'] },
+      { name: 'Digital Portfolio & Continuous Iteration', desc: 'Living digital platform built on continuous improvement — iteratively optimized for Core Web Vitals, modular architecture, and modern UX.', tags: ['Continuous Improvement', 'Performance', 'Vanilla CSS', 'Web Engineering'] },
       { name: 'CRM Mobile', desc: 'Mobile-optimized web CRM application built with jQuery.', tags: ['jQuery', 'Mobile', 'CRM'] },
       { name: 'Hotel Reservation', desc: 'Hotel booking page built from scratch with HTML & CSS.', tags: ['HTML', 'CSS', 'Web Design'] },
       { name: 'Custom CRM & CMS', desc: 'Tailored CRM solution with complete UI/UX revamp for Philippine market.', tags: ['UI/UX', 'CMS', 'Backend', 'CRM'] }
@@ -75,19 +75,19 @@
   // 2. INTENT MATCHING ENGINE
   // =========================================
   var intents = [
-    { id: 'greeting',    keywords: ['hi', 'hello', 'hey', 'halo', 'yo', 'sup', 'good morning', 'good evening', 'good afternoon', 'howdy', 'what\'s up', 'greetings'] },
-    { id: 'about',       keywords: ['about', 'who', 'tell me', 'introduce', 'yourself', 'dhani', 'background', 'bio', 'profile', 'siapa'] },
-    { id: 'experience',  keywords: ['experience', 'career', 'work', 'job', 'timeline', 'history', 'role', 'position', 'years', 'pengalaman', 'karir'] },
-    { id: 'skills',      keywords: ['skill', 'skills', 'tech', 'technology', 'stack', 'tools', 'capability', 'capabilities', 'programming', 'language', 'framework', 'keahlian'] },
-    { id: 'projects',    keywords: ['project', 'projects', 'showcase', 'built', 'develop', 'application', 'app', 'system', 'proyek'] },
-    { id: 'portfolio',   keywords: ['portfolio', 'design', 'work', 'gallery', 'vector', 'illustration', 'crm', 'hotel', 'portofolio'] },
-    { id: 'contact',     keywords: ['contact', 'email', 'reach', 'connect', 'linkedin', 'hire', 'message', 'mail', 'hubungi', 'kontak'] },
-    { id: 'location',    keywords: ['where', 'location', 'based', 'city', 'country', 'live', 'lokasi', 'dimana'] },
-    { id: 'philosophy',  keywords: ['philosophy', 'pragmatic', 'approach', 'principle', 'belief', 'value', 'ethics', 'prinsip', 'filosofi'] },
-    { id: 'ai',          keywords: ['ai', 'artificial intelligence', 'machine learning', 'llm', 'gpt', 'prompt', 'rag', 'mcp'] },
-    { id: 'thanks',      keywords: ['thank', 'thanks', 'thx', 'appreciate', 'terima kasih', 'makasih'] },
-    { id: 'help',        keywords: ['help', 'what can you', 'options', 'menu', 'bantuan'] },
-    { id: 'navigation',  keywords: ['navigate', 'go to', 'show me', 'jump', 'scroll', 'section'] }
+    { id: 'greeting', keywords: ['hi', 'hello', 'hey', 'halo', 'yo', 'sup', 'good morning', 'good evening', 'good afternoon', 'howdy', 'what\'s up', 'greetings'] },
+    { id: 'about', keywords: ['about', 'who', 'tell me', 'introduce', 'yourself', 'dhani', 'background', 'bio', 'profile', 'siapa'] },
+    { id: 'experience', keywords: ['experience', 'career', 'work', 'job', 'timeline', 'history', 'role', 'position', 'years', 'pengalaman', 'karir'] },
+    { id: 'skills', keywords: ['skill', 'skills', 'tech', 'technology', 'stack', 'tools', 'capability', 'capabilities', 'programming', 'language', 'framework', 'keahlian'] },
+    { id: 'projects', keywords: ['project', 'projects', 'showcase', 'built', 'develop', 'application', 'app', 'system', 'proyek'] },
+    { id: 'portfolio', keywords: ['portfolio', 'design', 'work', 'gallery', 'vector', 'illustration', 'crm', 'hotel', 'portofolio'] },
+    { id: 'contact', keywords: ['contact', 'email', 'reach', 'connect', 'linkedin', 'hire', 'message', 'mail', 'hubungi', 'kontak'] },
+    { id: 'location', keywords: ['where', 'location', 'based', 'city', 'country', 'live', 'lokasi', 'dimana'] },
+    { id: 'philosophy', keywords: ['philosophy', 'pragmatic', 'approach', 'principle', 'belief', 'value', 'ethics', 'prinsip', 'filosofi'] },
+    { id: 'ai', keywords: ['ai', 'artificial intelligence', 'machine learning', 'llm', 'gpt', 'prompt', 'rag', 'mcp'] },
+    { id: 'thanks', keywords: ['thank', 'thanks', 'thx', 'appreciate', 'terima kasih', 'makasih'] },
+    { id: 'help', keywords: ['help', 'what can you', 'options', 'menu', 'bantuan'] },
+    { id: 'navigation', keywords: ['navigate', 'go to', 'show me', 'jump', 'scroll', 'section'] }
   ];
 
   function matchIntent(input) {

@@ -82,9 +82,41 @@ async function optimizeProfile() {
   }
 }
 
+async function optimizeNoteImages() {
+  console.log('\n--- Optimizing Note Images ---');
+  const noteImages = ['intj.png', 'poster.png'];
+
+  for (const img of noteImages) {
+    const inputPath = path.join(portfolioDir, img);
+    const baseName = path.basename(img, path.extname(img));
+    const outputPath = path.join(portfolioDir, `${baseName}.webp`);
+
+    if (!fs.existsSync(inputPath)) {
+      console.log(`  Skipping ${img} (not found)`);
+      continue;
+    }
+
+    console.log(`Processing: ${img}`);
+    try {
+      // Displayed at max 360px CSS width — generate 720px for 2x retina
+      await sharp(inputPath)
+        .resize({ width: 720, withoutEnlargement: true })
+        .webp({ quality: 80 })
+        .toFile(outputPath);
+
+      const origSize = fs.statSync(inputPath).size;
+      const newSize = fs.statSync(outputPath).size;
+      console.log(`  Done! ${(origSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${((1 - newSize / origSize) * 100).toFixed(1)}% savings)`);
+    } catch (err) {
+      console.error(`  Error processing ${img}:`, err);
+    }
+  }
+}
+
 async function run() {
   await optimizePortfolio();
   await optimizeProfile();
+  await optimizeNoteImages();
 }
 
 run();

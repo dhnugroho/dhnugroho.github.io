@@ -10,6 +10,7 @@ async function build() {
       entryPoints: ['css/main.css'],
       bundle: true,
       minify: true,
+      target: ['chrome90', 'firefox90', 'safari14'],
       outfile: 'css/main.min.css',
       logLevel: 'info',
     });
@@ -25,6 +26,7 @@ async function build() {
       entryPoints: ['js/main.js'],
       bundle: true,
       minify: true,
+      target: ['chrome90', 'firefox90', 'safari14'],
       outfile: 'js/main.min.js',
       logLevel: 'info',
     });
@@ -40,6 +42,7 @@ async function build() {
       entryPoints: ['chatbot.js'],
       bundle: false,
       minify: true,
+      target: ['chrome90', 'firefox90', 'safari14'],
       outfile: 'chatbot.min.js',
       logLevel: 'info',
     });
