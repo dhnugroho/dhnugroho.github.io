@@ -78,12 +78,10 @@
   }
   </script>
 
-  <!-- Preconnect to CDN domains used for skill icons -->
+  <!-- Preconnect to CDN domains used for skill icons & fonts -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
@@ -94,11 +92,80 @@
       rel="stylesheet">
   </noscript>
 
-  <!-- Preload LCP hero avatar -->
-  <link rel="preload" as="image" href="img/profile.webp">
+  <!-- Preload LCP hero avatar with high priority -->
+  <link rel="preload" as="image" href="img/profile.webp" fetchpriority="high">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/main.min.css">
+  <!-- Critical Inline CSS (Above the Fold) -->
+  <style>
+    :root {
+      --bg-deep: #0a0e17;
+      --bg-surface: rgba(15, 23, 42, 0.7);
+      --bg-surface-solid: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.55);
+      --accent-primary: #00e5ff;
+      --accent-warm: #ff6b35;
+      --accent-glow: #7c3aed;
+      --accent-primary-dim: rgba(0, 229, 255, 0.15);
+      --text-primary: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-bright: #f8fafc;
+      --border-subtle: rgba(148, 163, 184, 0.12);
+      --border-glow: rgba(0, 229, 255, 0.3);
+      --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    body.light-mode {
+      --bg-deep: #f8fafc;
+      --bg-surface: rgba(255, 255, 255, 0.85);
+      --bg-surface-solid: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.7);
+      --accent-primary: #0284c7;
+      --accent-warm: #ea580c;
+      --accent-glow: #7e22ce;
+      --accent-primary-dim: rgba(2, 132, 199, 0.15);
+      --text-primary: #334155;
+      --text-muted: #64748b;
+      --text-bright: #0f172a;
+      --border-subtle: rgba(15, 23, 42, 0.1);
+      --border-glow: rgba(2, 132, 199, 0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); background-color: var(--bg-deep); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
+    h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; color: var(--text-bright); line-height: 1.2; }
+    p { color: var(--text-muted); }
+    a { color: var(--accent-primary); text-decoration: none; }
+    #mainNav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.25rem 0; }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-bright); }
+    .nav-brand span { color: var(--accent-primary); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 5rem; }
+    #particleCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 0 1.5rem; }
+    .hero-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 2rem; display: inline-block; aspect-ratio: 1/1; }
+    .hero-greeting { font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-primary); letter-spacing: 0.15em; margin-bottom: 0.75rem; }
+    .hero-name { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .hero-name .accent { background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-username { font-family: var(--font-mono); font-size: 0.88rem; color: #8892a4; margin-top: -0.25rem; margin-bottom: 0.5rem; }
+    .hero-invite { font-size: clamp(0.76rem, 1.4vw, 0.83rem); color: var(--text-muted); margin: 0.35rem auto 1.15rem; max-width: 540px; line-height: 1.5; }
+    .hero-invite strong { color: var(--text-bright); font-weight: 600; }
+    .hero-focus-select { margin: 0.85rem auto 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+    .focus-toggle-wrap { display: grid; grid-template-columns: 1fr 1fr; width: fit-content; position: relative; background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 3px; border-radius: 100px; }
+    .focus-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.42rem 0.9rem; border-radius: 100px; border: none; background: transparent; color: var(--text-muted); cursor: pointer; }
+    .focus-btn.active { color: var(--text-bright); font-weight: 600; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.875rem 2rem; font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; color: var(--bg-deep); background: var(--accent-primary); border-radius: 8px; text-decoration: none; }
+    @media (max-width: 768px) { #hero { min-height: 100svh; padding-top: 4rem; } .hero-avatar { width: 100px; height: 100px; margin-bottom: 1.5rem; } .nav-links { display: none; } }
+  </style>
+
+  <!-- Full Stylesheet (Async Load with fallback) -->
+  <link rel="preload" as="style" href="css/main.min.css" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.min.css"></noscript>
 </head>
 
 <body>
@@ -2994,22 +3061,22 @@
                 <div class="tl-spine-progress"></div>
               </div>
               <div class="tl-spine-nodes">
-                <button class="tl-spine-node active" data-step="0" aria-label="2023 - Present">
+                <button class="tl-spine-node active" data-step="0" aria-label="2023 - Present" aria-pressed="true">
                   <span class="tl-node-dot"></span>
                   <span class="tl-node-year">2023 — Present</span>
                   <span class="tl-node-role">Full-stack Engineer</span>
                 </button>
-                <button class="tl-spine-node" data-step="1" aria-label="2020 - 2023">
+                <button class="tl-spine-node" data-step="1" aria-label="2020 - 2023" aria-pressed="false">
                   <span class="tl-node-dot"></span>
                   <span class="tl-node-year">2020 — 2023</span>
                   <span class="tl-node-role">Software Engineer</span>
                 </button>
-                <button class="tl-spine-node" data-step="2" aria-label="2016 - 2020">
+                <button class="tl-spine-node" data-step="2" aria-label="2016 - 2020" aria-pressed="false">
                   <span class="tl-node-dot"></span>
                   <span class="tl-node-year">2016 — 2020</span>
                   <span class="tl-node-role">Data Engineer</span>
                 </button>
-                <button class="tl-spine-node" data-step="3" aria-label="2015 - 2016">
+                <button class="tl-spine-node" data-step="3" aria-label="2015 - 2016" aria-pressed="false">
                   <span class="tl-node-dot"></span>
                   <span class="tl-node-year">2015 — 2016</span>
                   <span class="tl-node-role">Implementor</span>
@@ -5581,7 +5648,7 @@
   </div>
 
   <!-- Scripts -->
-  <script type="module" src="js/main.min.js"></script>
+  <script type="module" src="js/main.min.js" defer></script>
   <script src="chatbot.min.js" defer></script>
 
 </body>

@@ -41,7 +41,7 @@ export function initTimelineSlider() {
     nodes.forEach((node, i) => {
       const isActive = i === currentStep;
       node.classList.toggle('active', isActive);
-      node.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      node.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
     // Update spine progress bar width

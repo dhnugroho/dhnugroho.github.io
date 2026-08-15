@@ -155,9 +155,11 @@ export function initAccordion() {
     if (inner) inner.classList.remove('active');
     if (body) {
       body.classList.remove('active');
-      body.style.maxHeight = body.scrollHeight + 'px';
-      body.offsetHeight;
-      body.style.maxHeight = '0px';
+      const h = body.scrollHeight;
+      body.style.maxHeight = h + 'px';
+      requestAnimationFrame(() => {
+        body.style.maxHeight = '0px';
+      });
     }
   }
 

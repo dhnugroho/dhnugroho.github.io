@@ -43,17 +43,32 @@ function initScrollProgress() {
   const bar = document.querySelector('.scroll-progress');
   if (!bar) return;
 
-  function updateProgress() {
+  let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  let isTicking = false;
+
+  window.addEventListener('resize', function () {
+    docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  }, { passive: true });
+
+  function renderProgress() {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     if (docHeight > 0) {
       const pct = (scrollTop / docHeight) * 100;
       bar.style.width = pct + '%';
     }
   }
 
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+  window.addEventListener('scroll', function () {
+    if (!isTicking) {
+      requestAnimationFrame(function () {
+        renderProgress();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, { passive: true });
+
+  renderProgress();
 }
 
 
@@ -69,12 +84,16 @@ function initHeroParallax() {
   const heroName = hero.querySelector('.hero-name');
   const canvas = hero.querySelector('#particleCanvas');
 
-  function onScroll() {
-    const scrollY = window.scrollY;
-    const heroH = hero.offsetHeight;
-    if (scrollY > heroH) return;
+  let heroH = hero.offsetHeight;
+  let isTicking = false;
 
-    const ratio = scrollY / heroH;
+  window.addEventListener('resize', function () {
+    heroH = hero.offsetHeight;
+  }, { passive: true });
+
+  function renderParallax() {
+    const scrollY = window.scrollY;
+    if (scrollY > heroH) return;
 
     if (avatar) avatar.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
     if (greeting) greeting.style.transform = 'translateY(' + (scrollY * 0.1) + 'px)';
@@ -82,7 +101,15 @@ function initHeroParallax() {
     if (canvas) canvas.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', function () {
+    if (!isTicking) {
+      requestAnimationFrame(function () {
+        renderParallax();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, { passive: true });
 }
 
 
@@ -94,16 +121,23 @@ function initMagneticButtons() {
 
   const buttons = document.querySelectorAll('.hero-cta, .pj-live-btn');
   buttons.forEach(function (btn) {
+    let btnRect = null;
+
+    btn.addEventListener('mouseenter', function () {
+      btnRect = btn.getBoundingClientRect();
+    });
+
     btn.addEventListener('mousemove', function (e) {
-      const rect = btn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
+      if (!btnRect) btnRect = btn.getBoundingClientRect();
+      const cx = btnRect.left + btnRect.width / 2;
+      const cy = btnRect.top + btnRect.height / 2;
       const dx = (e.clientX - cx) * 0.25;
       const dy = (e.clientY - cy) * 0.25;
       btn.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
     });
 
     btn.addEventListener('mouseleave', function () {
+      btnRect = null;
       btn.style.transform = 'translate(0, 0)';
     });
   });
@@ -168,12 +202,18 @@ function initCardTilt() {
     glare.className = 'card-glare';
     card.appendChild(glare);
 
+    let cardRect = null;
+
+    card.addEventListener('mouseenter', function () {
+      cardRect = card.getBoundingClientRect();
+    });
+
     card.addEventListener('mousemove', function (e) {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
+      if (!cardRect) cardRect = card.getBoundingClientRect();
+      const x = e.clientX - cardRect.left;
+      const y = e.clientY - cardRect.top;
+      const cx = cardRect.width / 2;
+      const cy = cardRect.height / 2;
 
       const rotateY = ((x - cx) / cx) * 8;
       const rotateX = ((cy - y) / cy) * 8;
@@ -181,13 +221,14 @@ function initCardTilt() {
       card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
 
       // Update glare position
-      const glareX = (x / rect.width) * 100;
-      const glareY = (y / rect.height) * 100;
+      const glareX = (x / cardRect.width) * 100;
+      const glareY = (y / cardRect.height) * 100;
       glare.style.setProperty('--glare-x', glareX + '%');
       glare.style.setProperty('--glare-y', glareY + '%');
     });
 
     card.addEventListener('mouseleave', function () {
+      cardRect = null;
       card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
     });
   });
@@ -251,9 +292,15 @@ function initBackToTop() {
     circle.style.strokeDashoffset = circumference;
   }
 
-  function updateBtn() {
+  let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  let isTicking = false;
+
+  window.addEventListener('resize', function () {
+    docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  }, { passive: true });
+
+  function renderBtn() {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? scrollTop / docHeight : 0;
 
     // Show/hide
@@ -270,8 +317,17 @@ function initBackToTop() {
     }
   }
 
-  window.addEventListener('scroll', updateBtn, { passive: true });
-  updateBtn();
+  window.addEventListener('scroll', function () {
+    if (!isTicking) {
+      requestAnimationFrame(function () {
+        renderBtn();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, { passive: true });
+
+  renderBtn();
 
   btn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -332,12 +388,14 @@ function initThemeTransition() {
 
   themeBtn.addEventListener('click', function () {
     const rect = themeBtn.getBoundingClientRect();
+    const cW = circle.offsetWidth;
+    const cH = circle.offsetHeight;
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
 
-    // Position circle centered on button
-    circle.style.left = (cx - circle.offsetWidth / 2) + 'px';
-    circle.style.top = (cy - circle.offsetHeight / 2) + 'px';
+    // Position circle centered on button (reads before writes)
+    circle.style.left = (cx - cW / 2) + 'px';
+    circle.style.top = (cy - cH / 2) + 'px';
 
     // Trigger expansion
     circle.classList.add('expanding');

@@ -167,11 +167,12 @@ export function initNotesCarousel() {
     if (header) header.setAttribute('aria-expanded', 'false');
     var body = item.querySelector('.notes-accordion-body');
     if (body) {
-      // Set current height first, then animate to 0
-      body.style.maxHeight = body.scrollHeight + 'px';
-      // Force reflow
-      body.offsetHeight;
-      body.style.maxHeight = '0px';
+      // Set current height first, then animate to 0 smoothly without forced synchronous layout
+      var h = body.scrollHeight;
+      body.style.maxHeight = h + 'px';
+      requestAnimationFrame(function () {
+        body.style.maxHeight = '0px';
+      });
     }
   }
 

@@ -32,6 +32,16 @@
   color: var(--accent-primary);
 }
 
+body.light-mode .tech-strip-inner span {
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+body.light-mode .tech-strip-inner span:hover {
+  opacity: 1;
+  color: var(--accent-primary);
+}
+
 @keyframes scroll-strip {
   0% {
     transform: translateX(0);

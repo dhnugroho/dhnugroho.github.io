@@ -131,15 +131,23 @@ export function initParticles() {
     animationId = requestAnimationFrame(animate);
   }
 
+  let canvasRect = null;
+  function updateCanvasRect() {
+    canvasRect = canvas.getBoundingClientRect();
+  }
+
+  canvas.addEventListener('mouseenter', updateCanvasRect);
+
   canvas.addEventListener('mousemove', function (e) {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+    if (!canvasRect) updateCanvasRect();
+    mouse.x = e.clientX - canvasRect.left;
+    mouse.y = e.clientY - canvasRect.top;
   });
 
   canvas.addEventListener('mouseleave', function () {
     mouse.x = null;
     mouse.y = null;
+    canvasRect = null;
   });
 
   let resizeTimer = null;
