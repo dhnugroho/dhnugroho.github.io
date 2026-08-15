@@ -88,8 +88,8 @@
    CAREER EVOLUTION NOTE (Note 2)
    ============================================ */
 .ce-root {
-  background: #0D0F14;
-  color: #E8E6DF;
+  background: var(--bg-surface-solid);
+  color: var(--text-primary);
   padding: 2.5rem 1.5rem 3rem;
   max-width: 860px;
   margin: 0 auto;
@@ -104,30 +104,31 @@
 }
 
 .hdr-eyebrow {
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
-  color: #5A5A6A;
+  color: var(--accent-primary);
   text-transform: uppercase;
   margin-bottom: 0.6rem;
 }
 
 .hdr-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
   font-size: clamp(18px, 4vw, 28px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #F0EDE6;
+  color: var(--text-bright);
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
 .hdr-title span {
-  color: #A78BFA;
+  color: var(--accent-primary);
 }
 
 .hdr-sub {
   font-size: 12px;
-  color: #5A5A6A;
+  color: var(--text-muted);
   line-height: 1.6;
   max-width: 520px;
   margin: 0 auto;
@@ -2474,4 +2475,141 @@
   .agile-sprint-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   LIGHT MODE OVERRIDES FOR NOTES & CE-ROOT
+   ============================================ */
+body.light-mode .ce-root {
+  background: var(--bg-surface-solid);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .hdr-title,
+body.light-mode .ce-root .hdr-title {
+  color: var(--text-bright);
+}
+
+body.light-mode .hdr-eyebrow,
+body.light-mode .ce-root .hdr-eyebrow {
+  color: var(--accent-primary);
+}
+
+body.light-mode .hdr-sub,
+body.light-mode .ce-root .hdr-sub {
+  color: var(--text-muted);
+}
+
+body.light-mode .quote-strip {
+  background: rgba(2, 132, 199, 0.06);
+  border-color: rgba(2, 132, 199, 0.2);
+}
+
+body.light-mode .qs-text {
+  color: var(--text-primary);
+}
+
+body.light-mode .qs-text strong {
+  color: var(--text-bright);
+}
+
+body.light-mode .era-card,
+body.light-mode .insight-card,
+body.light-mode .sig-quote,
+body.light-mode .crossroads-flow-wrap,
+body.light-mode .ml-stage-card,
+body.light-mode .ml-feature-matrix {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+body.light-mode .era-year,
+body.light-mode .ml-stage-year {
+  color: var(--text-muted);
+}
+
+body.light-mode .card-ethics,
+body.light-mode .ml-stage-ethics,
+body.light-mode .insight-desc {
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}
+
+body.light-mode .card-ethics strong,
+body.light-mode .ml-stage-ethics strong {
+  color: var(--text-bright);
+}
+
+body.light-mode .sig-text,
+body.light-mode .ml-stage-title,
+body.light-mode .ml-feature-name {
+  color: var(--text-bright);
+}
+
+body.light-mode .ml-step-badge {
+  background: var(--bg-surface-solid);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+}
+
+body.light-mode .ml-step-label {
+  color: var(--text-muted);
+}
+
+body.light-mode .ml-step-node:hover .ml-step-label,
+body.light-mode .ml-step-node.active .ml-step-label {
+  color: var(--text-bright);
+}
+
+body.light-mode .ml-stage-tag {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+}
+
+body.light-mode .ml-matrix-head {
+  border-color: var(--border-subtle);
+}
+
+body.light-mode .ml-feature-bar-wrap {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .dt-tab-bar {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+body.light-mode .dt-tab:hover:not(.active) {
+  color: var(--text-bright);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .dt-row-card-text {
+  color: var(--text-primary);
+}
+
+body.light-mode .sig-quote {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+body.light-mode .sig-quote::before {
+  color: rgba(2, 132, 199, 0.1);
+}
+
+body.light-mode .notes-accordion-header:hover {
+  background: rgba(2, 132, 199, 0.04);
+}
+
+body.light-mode .notes-acc-active .notes-accordion-header {
+  background: rgba(2, 132, 199, 0.06);
+}
+
+body.light-mode .notes-acc-toggle:hover {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary-dim);
 }
