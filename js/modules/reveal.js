@@ -24,11 +24,14 @@ export function initReveal() {
   }
 
   // TECH STRIP INFINITE SCROLL
+  // Items are pre-duplicated in HTML (data-strip-cloned="true"), so JS cloning
+  // is only a fallback for cases where the HTML wasn't updated.
   const techStripInner = document.querySelector('.tech-strip-inner');
-  if (techStripInner) {
+  if (techStripInner && !techStripInner.dataset.stripCloned) {
     const originals = Array.from(techStripInner.children);
     originals.forEach(function (child) {
       techStripInner.appendChild(child.cloneNode(true));
     });
+    techStripInner.dataset.stripCloned = 'true';
   }
 }

@@ -139,6 +139,8 @@ export function initFocusMode() {
   let savedMode = 'scan';
   try { savedMode = localStorage.getItem(STORAGE_KEY) || 'scan'; } catch (_) {}
   applyMode(savedMode, false);
+  // Clean up the early-init attribute now that body class is authoritative
+  document.documentElement.removeAttribute('data-mode-pending');
 
   // ── Click handlers ───────────────────────────────────────────────
   // Guard now checks toggleWrap.dataset.mode — the single source of

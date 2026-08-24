@@ -90,6 +90,29 @@
   <!-- Preload LCP hero avatar with high priority -->
   <link rel="preload" as="image" href="img/profile.webp?v=2.3" fetchpriority="high">
 
+  <!-- Early Init: apply theme + focus-mode before first paint to prevent flash/shift -->
+  <script>
+    (function () {
+      /* 1. Theme — set class immediately so CSS variables resolve correctly */
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && !window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+          document.documentElement.classList.add('light-mode-pending');
+        }
+      } catch (_) {}
+
+      /* 2. Focus / view mode — apply body class before CSS cascade so
+            sections hidden in quick-scan never paint at all */
+      try {
+        var vm = localStorage.getItem('dhn-view-mode') || 'scan';
+        if (vm === 'scan') {
+          document.documentElement.setAttribute('data-mode-pending', 'scan');
+        }
+      } catch (_) {}
+    })();
+  </script>
+
   <!-- Critical Inline CSS (Above the Fold) -->
   <style>
     :root {
@@ -111,6 +134,37 @@
       --font-mono: 'JetBrains Mono', monospace;
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Applied immediately by the early-init script above, before JS module loads */
+    html.light-mode-pending body,
+    html.light-mode-pending {
+      --bg-deep: #f8fafc;
+      --bg-surface: rgba(255, 255, 255, 0.85);
+      --bg-surface-solid: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.7);
+      --accent-primary: #0284c7;
+      --accent-warm: #ea580c;
+      --accent-glow: #7e22ce;
+      --accent-primary-dim: rgba(2, 132, 199, 0.15);
+      --text-primary: #334155;
+      --text-muted: #64748b;
+      --text-bright: #0f172a;
+      --border-subtle: rgba(15, 23, 42, 0.1);
+      --border-glow: rgba(2, 132, 199, 0.3);
+      background-color: #f8fafc;
+      color: #334155;
+    }
+
+    /* Quick Scan: hide sections immediately on html attribute — before JS runs */
+    html[data-mode-pending="scan"] #notes,
+    html[data-mode-pending="scan"] #about,
+    html[data-mode-pending="scan"] .card-ethics,
+    html[data-mode-pending="scan"] .sig-quote,
+    html[data-mode-pending="scan"] .quote-strip,
+    html[data-mode-pending="scan"] .insight-band,
+    html[data-mode-pending="scan"] [data-scan-hide] {
+      display: none !important;
     }
 
     body.light-mode {
@@ -415,13 +469,9 @@
     }
   </style>
 
-  <!-- Stylesheets (Async Load with fallback) -->
-  <link rel="preload" as="style" href="css/main.min.css?v=2.3" onload="this.rel='stylesheet'">
-  <link rel="preload" as="style" href="css/notes.min.css?v=2.3" onload="this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="css/main.min.css?v=2.3">
-    <link rel="stylesheet" href="css/notes.min.css?v=2.3">
-  </noscript>
+  <!-- Stylesheets (blocking — critical for layout correctness; inline CSS already covers hero) -->
+  <link rel="stylesheet" href="css/main.min.css?v=2.3">
+  <link rel="stylesheet" href="css/notes.min.css?v=2.3">
 </head>
 
 <body>
@@ -555,8 +605,10 @@
     </div>
 
     <!-- ======================== TECH STRIP ======================== -->
+    <!-- Items are duplicated here in HTML so the CSS -50% marquee animation
+         works correctly from the very first frame without waiting for JS -->
     <div class="tech-strip">
-      <div class="tech-strip-inner">
+      <div class="tech-strip-inner" data-strip-cloned="true">
         <span>JavaScript</span>
         <span>React</span>
         <span>ASP.NET</span>
@@ -570,6 +622,20 @@
         <span>n8n</span>
         <span>REST APIs</span>
         <span>Git</span>
+        <!-- Duplicate set for seamless loop -->
+        <span aria-hidden="true">JavaScript</span>
+        <span aria-hidden="true">React</span>
+        <span aria-hidden="true">ASP.NET</span>
+        <span aria-hidden="true">Python</span>
+        <span aria-hidden="true">FastAPI</span>
+        <span aria-hidden="true">SQL Server</span>
+        <span aria-hidden="true">Data Pipelines</span>
+        <span aria-hidden="true">Power BI</span>
+        <span aria-hidden="true">BigQuery</span>
+        <span aria-hidden="true">ERPNext</span>
+        <span aria-hidden="true">n8n</span>
+        <span aria-hidden="true">REST APIs</span>
+        <span aria-hidden="true">Git</span>
       </div>
     </div>
 

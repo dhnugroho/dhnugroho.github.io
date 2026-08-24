@@ -13,6 +13,8 @@ export function initTheme() {
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) metaThemeColor.setAttribute('content', '#ffffff');
   }
+  // Clean up the early-init class now that body.light-mode is authoritative
+  document.documentElement.classList.remove('light-mode-pending');
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', function () {
