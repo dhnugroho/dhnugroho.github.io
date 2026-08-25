@@ -64,3 +64,59 @@ body.light-mode {
   --border-glow: rgba(2, 132, 199, 0.3);
 }
 
+/* ============================================
+   GREEN THEME — Alternate palette (randomised on each page load)
+   Applied via: body.green-theme (dark)
+                body.light-mode.green-theme (light)
+   Reference palette:
+     Dark  → Void/Mint  (#0E0F12 bg, #00C896 accent, #00FFB3 highlight)
+     Light → Boreal     (#F0F4EE bg, #2E7D52 accent, #78C99A highlight)
+   ============================================ */
+
+/* --- Green Dark (default / no light-mode) --- */
+body.green-theme {
+  /* Backgrounds — Void */
+  --bg-deep:         #0E0F12;
+  --bg-surface:      rgba(22, 23, 27, 0.75);
+  --bg-surface-solid:#16171B;
+  --bg-card:         rgba(22, 23, 27, 0.55);
+
+  /* Accents — Mint / Pulse */
+  --accent-primary:     #00C896;
+  --accent-warm:        #78C99A;
+  --accent-glow:        #006B4F;
+  --accent-primary-dim: rgba(0, 200, 150, 0.15);
+
+  /* Text */
+  --text-primary: #E8E8E0;
+  --text-muted:   #8FA898;
+  --text-bright:  #00FFB3;
+
+  /* Borders */
+  --border-subtle: rgba(143, 168, 152, 0.12);
+  --border-glow:   rgba(0, 200, 150, 0.30);
+}
+
+/* --- Green Light --- */
+body.light-mode.green-theme {
+  /* Backgrounds — Birch / Lichen */
+  --bg-deep:         #F0F4EE;
+  --bg-surface:      rgba(226, 235, 228, 0.85);
+  --bg-surface-solid:#E2EBE4;
+  --bg-card:         rgba(226, 235, 228, 0.70);
+
+  /* Accents — Forest / Moss */
+  --accent-primary:     #2E7D52;
+  --accent-warm:        #1C5C3A;
+  --accent-glow:        #78C99A;
+  --accent-primary-dim: rgba(46, 125, 82, 0.12);
+
+  /* Text */
+  --text-primary: #1C2B22;
+  --text-muted:   #8FA898;
+  --text-bright:  #2E7D52;
+
+  /* Borders */
+  --border-subtle: rgba(28, 43, 34, 0.10);
+  --border-glow:   rgba(46, 125, 82, 0.30);
+}
