@@ -221,10 +221,61 @@ body.mode-quick-scan .nav-links a[href="#about"] {
   display: none;
 }
 
-/* Quick Scan: Project Showcase as a clean, skimmable list */
+/* Quick Scan: Project Showcase as a clean, skimmable list with Key Business Metrics */
 body.mode-quick-scan #projects .pj-accordion-body {
+  display: block !important;
+  max-height: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible !important;
+}
+
+body.mode-quick-scan #projects .pj-accordion-inner,
+body.mode-quick-scan #projects .inner-content {
+  display: block !important;
+  opacity: 1 !important;
+  padding: 0 2rem 1.25rem 2rem !important;
+  max-width: 100% !important;
+}
+
+body.mode-quick-scan #projects .pj-info {
+  max-width: 100% !important;
+}
+
+/* Hide deep-dive components in Quick Scan mode */
+body.mode-quick-scan #projects .pj-desc,
+body.mode-quick-scan #projects .pj-features,
+body.mode-quick-scan #projects .pj-diff-callout,
+body.mode-quick-scan #projects .pj-screens,
+body.mode-quick-scan #projects .pj-live-btn,
+body.mode-quick-scan #projects .pj-gallery-wrapper {
   display: none !important;
-  max-height: 0 !important;
+}
+
+/* Show Key Business Metrics box skimmably */
+body.mode-quick-scan #projects .pj-metrics-box {
+  display: block !important;
+  margin: 0.5rem 0 0 0 !important;
+  padding: 0.85rem 1.25rem !important;
+  background: rgba(0, 229, 255, 0.035) !important;
+  border: 1px solid rgba(0, 229, 255, 0.18) !important;
+  border-radius: 6px !important;
+}
+
+body.mode-quick-scan #projects .pj-metrics-title {
+  margin-bottom: 0.5rem !important;
+  color: var(--accent-warm) !important;
+}
+
+body.mode-quick-scan #projects .pj-metrics-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 0.6rem 1.5rem !important;
+}
+
+body.mode-quick-scan #projects .pj-metrics-list li {
+  font-size: 0.82rem !important;
+  line-height: 1.45 !important;
 }
 
 body.mode-quick-scan #projects .pj-toggle {
@@ -242,7 +293,24 @@ body.mode-quick-scan #projects .pj-header-tags span {
 
 body.mode-quick-scan #projects .pj-accordion-header {
   pointer-events: none;
-  padding: 1.25rem 1.5rem !important;
+  padding: 1.25rem 2rem 0.5rem 2rem !important;
+}
+
+@media (max-width: 768px) {
+  body.mode-quick-scan #projects .pj-accordion-header {
+    padding: 1rem 1rem 0.4rem 1rem !important;
+  }
+  body.mode-quick-scan #projects .pj-accordion-inner,
+  body.mode-quick-scan #projects .inner-content {
+    padding: 0 1rem 1rem 1rem !important;
+  }
+  body.mode-quick-scan #projects .pj-metrics-box {
+    padding: 0.75rem 0.85rem !important;
+  }
+  body.mode-quick-scan #projects .pj-metrics-list {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
 }
 
 /* Quick Scan: Portfolio section text-only compact cards */

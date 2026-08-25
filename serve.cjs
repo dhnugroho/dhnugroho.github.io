@@ -3,7 +3,7 @@ const http = require('http');
 const fs   = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+let port = parseInt(process.env.PORT || process.argv[2] || '3000', 10);
 const ROOT = __dirname;
 
 const MIME = {
@@ -42,11 +42,25 @@ const server = http.createServer(function (req, res) {
   });
 });
 
-server.listen(PORT, function () {
-  console.log('');
-  console.log('  ✅  Local server running at:');
-  console.log('  👉  http://localhost:' + PORT);
-  console.log('');
-  console.log('  Press Ctrl+C to stop.');
-  console.log('');
+function startServer(currentPort) {
+  server.listen(currentPort, function () {
+    console.log('');
+    console.log('  ✅  Local server running at:');
+    console.log('  👉  http://localhost:' + currentPort);
+    console.log('');
+    console.log('  Press Ctrl+C to stop.');
+    console.log('');
+  });
+}
+
+server.on('error', function (err) {
+  if (err.code === 'EADDRINUSE') {
+    console.log(`  ⚠️  Port ${port} is currently in use. Trying port ${port + 1}...`);
+    port += 1;
+    startServer(port);
+  } else {
+    console.error('Server error:', err);
+  }
 });
+
+startServer(port);
