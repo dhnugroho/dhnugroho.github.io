@@ -17,11 +17,22 @@ export function initTheme() {
   // Clean up the early-init class now that body.light-mode is authoritative
   document.documentElement.classList.remove('light-mode-pending');
 
-  // ── Green alternate theme (random per page load, not persisted) ──────────
-  // 50 % chance — flips on every refresh independently of light/dark mode
-  if (Math.random() < 0.5) {
-    document.body.classList.add('green-theme');
+  // ── Green alternate theme (strictly alternates on every refresh) ──────────
+  try {
+    let currentVariant = sessionStorage.getItem('colorThemeVariant');
+    if (!currentVariant) {
+      currentVariant = 'green';
+      sessionStorage.setItem('colorThemeVariant', currentVariant);
+    }
+    if (currentVariant === 'green') {
+      document.body.classList.add('green-theme');
+    } else {
+      document.body.classList.remove('green-theme');
+    }
+  } catch (_) {
+    document.body.classList.toggle('green-theme');
   }
+  document.documentElement.classList.remove('green-theme-pending');
 
   // ── Theme toggle button ───────────────────────────────────────────────────
   if (themeToggleBtn) {

@@ -102,7 +102,17 @@
         }
       } catch (_) {}
 
-      /* 2. Focus / view mode — apply body class before CSS cascade so
+      /* 2. Color Theme Variant (Blue vs Green) — alternate on every single refresh */
+      try {
+        var lastVariant = sessionStorage.getItem('colorThemeVariant');
+        var nextVariant = lastVariant === 'green' ? 'default' : 'green';
+        sessionStorage.setItem('colorThemeVariant', nextVariant);
+        if (nextVariant === 'green') {
+          document.documentElement.classList.add('green-theme-pending');
+        }
+      } catch (_) {}
+
+      /* 3. Focus / view mode — apply body class before CSS cascade so
             sections hidden in quick-scan never paint at all */
       try {
         var vm = localStorage.getItem('dhn-view-mode') || 'scan';
@@ -136,6 +146,24 @@
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
+    /* Green alternate theme (dark) pending */
+    html.green-theme-pending body,
+    html.green-theme-pending {
+      --bg-deep: #0E0F12;
+      --bg-surface: rgba(22, 23, 27, 0.75);
+      --bg-surface-solid: #16171B;
+      --bg-card: rgba(22, 23, 27, 0.55);
+      --accent-primary: #00C896;
+      --accent-warm: #78C99A;
+      --accent-glow: #006B4F;
+      --accent-primary-dim: rgba(0, 200, 150, 0.15);
+      --text-primary: #E8E8E0;
+      --text-muted: #8FA898;
+      --text-bright: #00FFB3;
+      --border-subtle: rgba(143, 168, 152, 0.12);
+      --border-glow: rgba(0, 200, 150, 0.30);
+    }
+
     /* Applied immediately by the early-init script above, before JS module loads */
     html.light-mode-pending body,
     html.light-mode-pending {
@@ -154,6 +182,26 @@
       --border-glow: rgba(2, 132, 199, 0.3);
       background-color: #f8fafc;
       color: #334155;
+    }
+
+    /* Green alternate theme (light) pending */
+    html.light-mode-pending.green-theme-pending body,
+    html.light-mode-pending.green-theme-pending {
+      --bg-deep: #F0F4EE;
+      --bg-surface: rgba(226, 235, 228, 0.85);
+      --bg-surface-solid: #E2EBE4;
+      --bg-card: rgba(226, 235, 228, 0.70);
+      --accent-primary: #2E7D52;
+      --accent-warm: #1C5C3A;
+      --accent-glow: #78C99A;
+      --accent-primary-dim: rgba(46, 125, 82, 0.12);
+      --text-primary: #1C2B22;
+      --text-muted: #8FA898;
+      --text-bright: #2E7D52;
+      --border-subtle: rgba(28, 43, 34, 0.10);
+      --border-glow: rgba(46, 125, 82, 0.30);
+      background-color: #F0F4EE;
+      color: #1C2B22;
     }
 
     /* Quick Scan: hide sections immediately on html attribute — before JS runs */
