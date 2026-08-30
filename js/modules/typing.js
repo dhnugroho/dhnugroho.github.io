@@ -5,11 +5,10 @@ export function initTyping() {
     typedElement.setAttribute('aria-atomic', 'true');
 
     const phrases = [
-      'Fullstack Engineer',
-      'Data Engineer',
-      'Enterprise Architect',
-      'Solo End-to-End Delivery',
-      'Jakarta \u00b7 Remote Ready'
+      'Senior Fullstack Engineer',
+      'Architecting Enterprise-Scale Solutions',
+      'End-to-End Delivery · Product Ownership',
+      'Jakarta · Remote Ready'
     ];
     let phraseIndex = 0;
     let charIndex = 0;
