@@ -6,7 +6,7 @@ export function initTyping() {
 
     const phrases = [
       'Senior Fullstack Engineer',
-      'Architecting Enterprise-Scale Solutions',
+      'Architecting Data-Driven Enterprise Systems',
       'End-to-End Delivery · Product Ownership',
       'Jakarta · Remote Ready'
     ];
