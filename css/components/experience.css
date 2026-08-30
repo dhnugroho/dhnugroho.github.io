@@ -275,6 +275,10 @@
   margin-bottom: 1.5rem;
 }
 
+.tl-desc:not(:last-of-type) {
+  margin-bottom: 0.85rem;
+}
+
 .tl-tags {
   display: flex;
   flex-wrap: wrap;
