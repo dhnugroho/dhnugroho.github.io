@@ -222,6 +222,25 @@ body.mode-quick-scan .nav-links a[href="#about"] {
 }
 
 /* Quick Scan: Project Showcase as a clean, skimmable list with Key Business Metrics */
+body.mode-quick-scan #projects .accordion-card,
+body.mode-quick-scan #projects .pj-accordion-item {
+  box-shadow: none !important;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+body.mode-quick-scan #projects .accordion-card::before,
+body.mode-quick-scan #projects .pj-accordion-item::before,
+body.mode-quick-scan #projects .accordion-card::after,
+body.mode-quick-scan #projects .pj-accordion-item::after {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+body.mode-quick-scan #projects .pj-accordion-header {
+  background: transparent !important;
+}
+
 body.mode-quick-scan #projects .pj-accordion-body {
   display: block !important;
   max-height: none !important;

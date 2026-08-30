@@ -139,10 +139,15 @@ export function initAccordion() {
     updateDots();
     updateCounter();
     updateNavButtons();
-    const currentSlideEl = track.querySelector(`.pj-slide[data-slide="${currentSlide}"]`);
-    if (currentSlideEl) {
-      const firstInSlide = currentSlideEl.querySelector('.pj-accordion-item');
-      if (firstInSlide) openItem(firstInSlide);
+    const isQuickScan = document.body.classList.contains('mode-quick-scan') || 
+      document.documentElement.getAttribute('data-mode-pending') === 'scan' ||
+      (localStorage.getItem('dhn-view-mode') || 'scan') === 'scan';
+    if (!isQuickScan) {
+      const currentSlideEl = track.querySelector(`.pj-slide[data-slide="${currentSlide}"]`);
+      if (currentSlideEl) {
+        const firstInSlide = currentSlideEl.querySelector('.pj-accordion-item');
+        if (firstInSlide) openItem(firstInSlide);
+      }
     }
   }
 
@@ -281,19 +286,25 @@ export function initAccordion() {
   const countEl = document.querySelector('.pj-count-num');
   if (countEl) countEl.textContent = items.length;
 
-  const firstSlideEl = track.querySelector('.pj-slide[data-slide="0"]');
-  if (firstSlideEl) {
-    const firstItem = firstSlideEl.querySelector('.pj-accordion-item');
-    if (firstItem) {
-      firstItem.classList.add('pj-active', 'expanded');
-      const header = firstItem.querySelector('.pj-accordion-header');
-      if (header) header.setAttribute('aria-expanded', 'true');
-      const body = firstItem.querySelector('.pj-accordion-body');
-      const inner = firstItem.querySelector('.inner-content') || firstItem.querySelector('.pj-accordion-inner');
-      if (inner) inner.classList.add('active');
-      if (body) {
-        body.classList.add('active');
-        body.style.maxHeight = 'none';
+  const isQuickScan = document.body.classList.contains('mode-quick-scan') || 
+    document.documentElement.getAttribute('data-mode-pending') === 'scan' ||
+    (localStorage.getItem('dhn-view-mode') || 'scan') === 'scan';
+
+  if (!isQuickScan) {
+    const firstSlideEl = track.querySelector('.pj-slide[data-slide="0"]');
+    if (firstSlideEl) {
+      const firstItem = firstSlideEl.querySelector('.pj-accordion-item');
+      if (firstItem) {
+        firstItem.classList.add('pj-active', 'expanded');
+        const header = firstItem.querySelector('.pj-accordion-header');
+        if (header) header.setAttribute('aria-expanded', 'true');
+        const body = firstItem.querySelector('.pj-accordion-body');
+        const inner = firstItem.querySelector('.inner-content') || firstItem.querySelector('.pj-accordion-inner');
+        if (inner) inner.classList.add('active');
+        if (body) {
+          body.classList.add('active');
+          body.style.maxHeight = 'none';
+        }
       }
     }
   }
