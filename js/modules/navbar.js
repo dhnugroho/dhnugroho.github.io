@@ -3,70 +3,62 @@ export function initNavbar() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
-  let sectionPositions = [];
-  let docHeight = 0;
-  let winHeight = 0;
   let isTicking = false;
-  let positionsDirty = true;
-
-  function cachePositions() {
-    winHeight = window.innerHeight;
-    docHeight = document.documentElement.scrollHeight;
-    sectionPositions = [];
-    sections.forEach(function (section) {
-      if (section.offsetParent !== null) {
-        sectionPositions.push({
-          id: section.getAttribute('id'),
-          top: section.offsetTop - 120
-        });
-      }
-    });
-    positionsDirty = false;
-  }
 
   function renderNavbar() {
     if (!navbar) return;
 
     const scrollY = window.scrollY;
 
+    // Scrolled navbar styling
     if (scrollY > 60) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
+    // When near top (hero header), remove active state from section links
     if (scrollY <= 80) {
-      navLinks.forEach(function (link, idx) {
-        link.classList.toggle('active', idx === 0 && link.getAttribute('href') === '#hero');
+      navLinks.forEach(function (link) {
+        link.classList.remove('active');
       });
       return;
     }
 
-    if (positionsDirty) {
-      cachePositions();
-    }
+    const navHeight = navbar.offsetHeight || 70;
+    // Activation line offset below navbar
+    const threshold = navHeight + 80;
+    const docHeight = document.documentElement.scrollHeight;
+    const winHeight = window.innerHeight;
+    const atBottom = scrollY + winHeight >= docHeight - 40;
 
-    // ── Bottom-of-page guard ──────────────────────────────────────────
-    const atBottom = scrollY + winHeight >= docHeight - 50;
+    let currentSection = '';
 
     if (atBottom) {
-      const links = Array.from(navLinks);
-      const lastVisible = links[links.length - 1];
-      navLinks.forEach(function (l) { l.classList.remove('active'); });
-      if (lastVisible) lastVisible.classList.add('active');
-      return;
-    }
-
-    // ── Normal scroll detection ───────────────────────────────────────
-    let currentSection = '';
-    for (let i = 0; i < sectionPositions.length; i++) {
-      if (scrollY >= sectionPositions[i].top) {
-        currentSection = sectionPositions[i].id;
+      // Pick the last visible section on the page
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = sections[i];
+        if (sec.offsetParent !== null) {
+          currentSection = sec.getAttribute('id');
+          break;
+        }
       }
+    } else {
+      // Find the active section based on current viewport bounding rects
+      sections.forEach(function (section) {
+        if (section.offsetParent !== null) {
+          const rect = section.getBoundingClientRect();
+          // If section top is above the threshold, this section is current/scrolled-past
+          if (rect.top <= threshold) {
+            currentSection = section.getAttribute('id');
+          }
+        }
+      });
     }
 
     navLinks.forEach(function (link) {
-      const isActive = currentSection && link.getAttribute('href') === '#' + currentSection;
+      const href = link.getAttribute('href');
+      const isActive = currentSection && href === '#' + currentSection;
       link.classList.toggle('active', !!isActive);
     });
   }
@@ -81,26 +73,17 @@ export function initNavbar() {
     }
   }
 
-  window.addEventListener('resize', function () {
-    positionsDirty = true;
-  }, { passive: true });
+  window.addEventListener('resize', updateNavbar, { passive: true });
   window.addEventListener('scroll', updateNavbar, { passive: true });
 
+  // Initial render
   renderNavbar();
 
+  // Mobile navigation drawer toggle
   const navToggle = document.getElementById('navToggle');
   const navLinksContainer = document.getElementById('navLinks');
 
   if (navToggle && navLinksContainer) {
-    navToggle.addEventListener('click', function () {
-      const isOpen = navLinksContainer.classList.toggle('open');
-      navToggle.classList.toggle('open', isOpen);
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      // Toggle backdrop overlay class on nav
-      if (navbar) navbar.classList.toggle('nav-open', isOpen);
-    });
-
     function closeNav() {
       navToggle.classList.remove('open');
       navLinksContainer.classList.remove('open');
@@ -108,6 +91,14 @@ export function initNavbar() {
       document.body.style.overflow = '';
       if (navbar) navbar.classList.remove('nav-open');
     }
+
+    navToggle.addEventListener('click', function () {
+      const isOpen = navLinksContainer.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (navbar) navbar.classList.toggle('nav-open', isOpen);
+    });
 
     navLinksContainer.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeNav);

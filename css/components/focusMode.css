@@ -216,6 +216,8 @@ body.mode-quick-scan [data-scan-hide] {
 }
 
 /* Hide the corresponding nav links when their sections are hidden */
+body.mode-quick-scan .nav-links li:has(a[href="#notes"]),
+body.mode-quick-scan .nav-links li:has(a[href="#about"]),
 body.mode-quick-scan .nav-links a[href="#notes"],
 body.mode-quick-scan .nav-links a[href="#about"] {
   display: none;

@@ -326,6 +326,10 @@
     /* Quick Scan: hide sections immediately on html attribute — before JS runs */
     html[data-mode-pending="scan"] #notes,
     html[data-mode-pending="scan"] #about,
+    html[data-mode-pending="scan"] .nav-links li:has(a[href="#notes"]),
+    html[data-mode-pending="scan"] .nav-links li:has(a[href="#about"]),
+    html[data-mode-pending="scan"] .nav-links a[href="#notes"],
+    html[data-mode-pending="scan"] .nav-links a[href="#about"],
     html[data-mode-pending="scan"] .card-ethics,
     html[data-mode-pending="scan"] .sig-quote,
     html[data-mode-pending="scan"] .quote-strip,
