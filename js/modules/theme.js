@@ -3,6 +3,10 @@ export function initTheme() {
   const themeIconDark  = document.getElementById('themeIconDark');
   const themeIconLight = document.getElementById('themeIconLight');
 
+  // ── All available color theme variants ────────────────────────────────────
+  const THEME_VARIANTS = ['default', 'green', 'cocoa', 'mocha', 'truffle'];
+  const THEME_CLASSES  = ['green-theme', 'cocoa-theme', 'mocha-theme', 'truffle-theme'];
+
   // ── Light / Dark preference (persisted) ──────────────────────────────────
   const savedTheme        = localStorage.getItem('theme');
   const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -17,21 +21,30 @@ export function initTheme() {
   // Clean up the early-init class now that body.light-mode is authoritative
   document.documentElement.classList.remove('light-mode-pending');
 
-  // ── Green alternate theme (strictly alternates on every refresh) ──────────
+  // ── Color theme variant (cycles through all 5 on each refresh) ───────────
   try {
     let currentVariant = sessionStorage.getItem('colorThemeVariant');
-    if (!currentVariant) {
-      currentVariant = 'green';
+    if (!currentVariant || !THEME_VARIANTS.includes(currentVariant)) {
+      currentVariant = THEME_VARIANTS[0];
       sessionStorage.setItem('colorThemeVariant', currentVariant);
     }
-    if (currentVariant === 'green') {
-      document.body.classList.add('green-theme');
-    } else {
-      document.body.classList.remove('green-theme');
+
+    // Remove all theme classes first
+    document.body.classList.remove(...THEME_CLASSES);
+
+    // Apply the active theme class (if not 'default')
+    if (currentVariant !== 'default') {
+      document.body.classList.add(currentVariant + '-theme');
     }
   } catch (_) {
-    document.body.classList.toggle('green-theme');
+    // Fallback: just remove all theme classes
+    document.body.classList.remove(...THEME_CLASSES);
   }
+
+  // Clean up all pending theme classes
+  THEME_CLASSES.forEach(cls => {
+    document.documentElement.classList.remove(cls.replace('-theme', '-theme-pending'));
+  });
   document.documentElement.classList.remove('green-theme-pending');
 
   // ── Theme toggle button ───────────────────────────────────────────────────

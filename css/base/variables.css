@@ -120,3 +120,174 @@ body.light-mode.green-theme {
   --border-subtle: rgba(28, 43, 34, 0.10);
   --border-glow:   rgba(46, 125, 82, 0.30);
 }
+
+/* ============================================
+   COCOA THEME — Warm chocolate palette
+   Applied via: body.cocoa-theme (dark)
+                body.light-mode.cocoa-theme (light)
+   Reference palette:
+     Dark  → Espresso   (#1A120B bg, #D4915C accent, #F5E6D3 highlight)
+     Light → Latte      (#FDF6EC bg, #8B5E3C accent, #2C1810 text)
+   ============================================ */
+
+/* --- Cocoa Dark --- */
+body.cocoa-theme {
+  /* Backgrounds — Espresso */
+  --bg-deep:         #1A120B;
+  --bg-surface:      rgba(38, 26, 18, 0.75);
+  --bg-surface-solid:#261A12;
+  --bg-card:         rgba(38, 26, 18, 0.55);
+
+  /* Accents — Warm Cocoa / Caramel */
+  --accent-primary:     #D4915C;
+  --accent-warm:        #E8B88A;
+  --accent-glow:        #8B5E3C;
+  --accent-primary-dim: rgba(212, 145, 92, 0.15);
+
+  /* Text */
+  --text-primary: #F5E6D3;
+  --text-muted:   #A89080;
+  --text-bright:  #FFD4A8;
+
+  /* Borders */
+  --border-subtle: rgba(168, 144, 128, 0.12);
+  --border-glow:   rgba(212, 145, 92, 0.30);
+}
+
+/* --- Cocoa Light --- */
+body.light-mode.cocoa-theme {
+  /* Backgrounds — Latte / Cream */
+  --bg-deep:         #FDF6EC;
+  --bg-surface:      rgba(245, 230, 211, 0.85);
+  --bg-surface-solid:#F5E6D3;
+  --bg-card:         rgba(245, 230, 211, 0.70);
+
+  /* Accents — Dark Cocoa */
+  --accent-primary:     #8B5E3C;
+  --accent-warm:        #6B4226;
+  --accent-glow:        #D4915C;
+  --accent-primary-dim: rgba(139, 94, 60, 0.12);
+
+  /* Text */
+  --text-primary: #2C1810;
+  --text-muted:   #8B7260;
+  --text-bright:  #8B5E3C;
+
+  /* Borders */
+  --border-subtle: rgba(44, 24, 16, 0.10);
+  --border-glow:   rgba(139, 94, 60, 0.30);
+}
+
+/* ============================================
+   MOCHA THEME — Cool chocolate palette
+   Applied via: body.mocha-theme (dark)
+                body.light-mode.mocha-theme (light)
+   Reference palette:
+     Dark  → Dark Coffee (#141118 bg, #C49B82 accent, #B8687D glow)
+     Light → Ivory-Pink  (#F8F0EB bg, #7D5A50 accent, #3D2B24 text)
+   ============================================ */
+
+/* --- Mocha Dark --- */
+body.mocha-theme {
+  /* Backgrounds — Dark Coffee */
+  --bg-deep:         #141118;
+  --bg-surface:      rgba(28, 22, 32, 0.75);
+  --bg-surface-solid:#1C1620;
+  --bg-card:         rgba(28, 22, 32, 0.55);
+
+  /* Accents — Mauve-Brown / Dusty Rose */
+  --accent-primary:     #C49B82;
+  --accent-warm:        #B8687D;
+  --accent-glow:        #7D5A50;
+  --accent-primary-dim: rgba(196, 155, 130, 0.15);
+
+  /* Text */
+  --text-primary: #E8DDD6;
+  --text-muted:   #9A8A82;
+  --text-bright:  #E8C4B0;
+
+  /* Borders */
+  --border-subtle: rgba(154, 138, 130, 0.12);
+  --border-glow:   rgba(196, 155, 130, 0.30);
+}
+
+/* --- Mocha Light --- */
+body.light-mode.mocha-theme {
+  /* Backgrounds — Ivory-Pink */
+  --bg-deep:         #F8F0EB;
+  --bg-surface:      rgba(240, 228, 220, 0.85);
+  --bg-surface-solid:#F0E4DC;
+  --bg-card:         rgba(240, 228, 220, 0.70);
+
+  /* Accents — Roasted Brown */
+  --accent-primary:     #7D5A50;
+  --accent-warm:        #5C3D32;
+  --accent-glow:        #C49B82;
+  --accent-primary-dim: rgba(125, 90, 80, 0.12);
+
+  /* Text */
+  --text-primary: #3D2B24;
+  --text-muted:   #8A7068;
+  --text-bright:  #7D5A50;
+
+  /* Borders */
+  --border-subtle: rgba(61, 43, 36, 0.10);
+  --border-glow:   rgba(125, 90, 80, 0.30);
+}
+
+/* ============================================
+   TRUFFLE THEME — Deep chocolate palette
+   Applied via: body.truffle-theme (dark)
+                body.light-mode.truffle-theme (light)
+   Reference palette:
+     Dark  → Near-Black Chocolate (#120E0A bg, #C8A96E accent, #D4A847 glow)
+     Light → Cream Parchment      (#F5EFE6 bg, #6B4F3A accent, #2A1F14 text)
+   ============================================ */
+
+/* --- Truffle Dark --- */
+body.truffle-theme {
+  /* Backgrounds — Near-Black Chocolate */
+  --bg-deep:         #120E0A;
+  --bg-surface:      rgba(26, 20, 14, 0.75);
+  --bg-surface-solid:#1A140E;
+  --bg-card:         rgba(26, 20, 14, 0.55);
+
+  /* Accents — Dark Gold / Amber */
+  --accent-primary:     #C8A96E;
+  --accent-warm:        #D4A847;
+  --accent-glow:        #8A7340;
+  --accent-primary-dim: rgba(200, 169, 110, 0.15);
+
+  /* Text */
+  --text-primary: #E8E0D0;
+  --text-muted:   #9A8E78;
+  --text-bright:  #F0D88A;
+
+  /* Borders */
+  --border-subtle: rgba(154, 142, 120, 0.12);
+  --border-glow:   rgba(200, 169, 110, 0.30);
+}
+
+/* --- Truffle Light --- */
+body.light-mode.truffle-theme {
+  /* Backgrounds — Cream Parchment */
+  --bg-deep:         #F5EFE6;
+  --bg-surface:      rgba(235, 225, 212, 0.85);
+  --bg-surface-solid:#EBE1D4;
+  --bg-card:         rgba(235, 225, 212, 0.70);
+
+  /* Accents — Dark Truffle */
+  --accent-primary:     #6B4F3A;
+  --accent-warm:        #4A3425;
+  --accent-glow:        #C8A96E;
+  --accent-primary-dim: rgba(107, 79, 58, 0.12);
+
+  /* Text */
+  --text-primary: #2A1F14;
+  --text-muted:   #8A7A68;
+  --text-bright:  #6B4F3A;
+
+  /* Borders */
+  --border-subtle: rgba(42, 31, 20, 0.10);
+  --border-glow:   rgba(107, 79, 58, 0.30);
+}
