@@ -21,20 +21,18 @@ export function initTheme() {
   // Clean up the early-init class now that body.light-mode is authoritative
   document.documentElement.classList.remove('light-mode-pending');
 
-  // ── Color theme variant (cycles through all 5 on each refresh) ───────────
+  // ── Color theme variant (chosen once by early-init script; we just apply it) ──
   try {
-    let currentVariant = sessionStorage.getItem('colorThemeVariant');
-    if (!currentVariant || !THEME_VARIANTS.includes(currentVariant)) {
-      currentVariant = THEME_VARIANTS[0];
-      sessionStorage.setItem('colorThemeVariant', currentVariant);
-    }
+    // The inline <head> script already picked a random variant and stored it in
+    // sessionStorage to avoid a double-pick race. Read it here and apply to body.
+    const chosenVariant = sessionStorage.getItem('chosenColorThemeVariant') || 'default';
 
     // Remove all theme classes first
     document.body.classList.remove(...THEME_CLASSES);
 
     // Apply the active theme class (if not 'default')
-    if (currentVariant !== 'default') {
-      document.body.classList.add(currentVariant + '-theme');
+    if (chosenVariant !== 'default') {
+      document.body.classList.add(chosenVariant + '-theme');
     }
   } catch (_) {
     // Fallback: just remove all theme classes

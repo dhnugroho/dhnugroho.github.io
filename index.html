@@ -104,16 +104,18 @@
         }
       } catch (_) { }
 
-      /* 2. Color Theme Variant — cycle through all 5 palettes on every refresh */
+      /* 2. Color Theme Variant — picked here ONCE per load; theme.js reads this same value */
       try {
         var variants = ['default', 'green', 'cocoa', 'mocha', 'truffle'];
-        var lastVariant = sessionStorage.getItem('colorThemeVariant');
-        var lastIdx = variants.indexOf(lastVariant);
-        var nextIdx = (lastIdx + 1) % variants.length;
-        var nextVariant = variants[nextIdx];
-        sessionStorage.setItem('colorThemeVariant', nextVariant);
-        if (nextVariant !== 'default') {
-          document.documentElement.classList.add(nextVariant + '-theme-pending');
+        var lastVariant = localStorage.getItem('lastColorThemeVariant');
+        var pool = variants.filter(function(v) { return v !== lastVariant; });
+        var chosenVariant = pool[Math.floor(Math.random() * pool.length)];
+        /* Write chosen variant to sessionStorage so theme.js can read the same value */
+        sessionStorage.setItem('chosenColorThemeVariant', chosenVariant);
+        /* Write to localStorage so NEXT page load knows what to avoid */
+        localStorage.setItem('lastColorThemeVariant', chosenVariant);
+        if (chosenVariant !== 'default') {
+          document.documentElement.classList.add(chosenVariant + '-theme-pending');
         }
       } catch (_) { }
 
@@ -598,9 +600,19 @@
       position: fixed;
       top: 0;
       left: 0;
+      width: 0;
       height: 3px;
       z-index: 10001;
-      background: linear-gradient(90deg, var(--accent-primary), var(--accent-glow));
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-glow), var(--accent-primary));
+      background-size: 200% 100%;
+      box-shadow: 0 0 8px var(--accent-primary), 0 0 16px var(--accent-primary);
+      border-radius: 0 2px 2px 0;
+      animation: progress-shimmer 2.5s linear infinite;
+      transition: width 0.1s linear;
+    }
+    @keyframes progress-shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .wave-divider {
