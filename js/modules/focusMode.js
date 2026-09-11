@@ -101,7 +101,7 @@ export function initFocusMode() {
   }
 
   function applyMode(mode, withTransition) {
-    try { localStorage.setItem(STORAGE_KEY, mode); } catch (_) {}
+    try { sessionStorage.setItem(STORAGE_KEY, mode); } catch (_) {}
 
     // Phase 1: always immediate
     _applyControlsDOM(mode);
@@ -135,9 +135,9 @@ export function initFocusMode() {
     }
   }
 
-  // ── Init: restore saved mode, default to Quick Scan ─────────────
+  // ── Init: restore mode within session; default to Quick Scan on every fresh visit ──
   let savedMode = 'scan';
-  try { savedMode = localStorage.getItem(STORAGE_KEY) || 'scan'; } catch (_) {}
+  try { savedMode = sessionStorage.getItem(STORAGE_KEY) || 'scan'; } catch (_) {}
   applyMode(savedMode, false);
   // Clean up the early-init attribute now that body class is authoritative
   document.documentElement.removeAttribute('data-mode-pending');

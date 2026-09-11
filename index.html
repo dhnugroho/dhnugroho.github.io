@@ -119,10 +119,9 @@
         }
       } catch (_) { }
 
-      /* 3. Focus / view mode — apply body class before CSS cascade so
-            sections hidden in quick-scan never paint at all */
+      /* 3. Focus / view mode — sessionStorage so every fresh visit starts in Quick Scan */
       try {
-        var vm = localStorage.getItem('dhn-view-mode') || 'scan';
+        var vm = sessionStorage.getItem('dhn-view-mode') || 'scan';
         if (vm === 'scan') {
           document.documentElement.setAttribute('data-mode-pending', 'scan');
         }
