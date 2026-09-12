@@ -751,11 +751,21 @@
         display: none;
       }
     }
+
+    /* Maroon Ruby Gem Emblem */
+    .ruby-gem-icon {
+      display: inline-block;
+      vertical-align: -0.16em;
+      flex-shrink: 0;
+      width: 1.15em;
+      height: 1.15em;
+      filter: drop-shadow(0 0 2px rgba(128, 0, 0, 0.5));
+    }
   </style>
 
   <!-- Stylesheets (blocking — critical for layout correctness; inline CSS already covers hero) -->
-  <link rel="stylesheet" href="css/main.min.css?v=2.6">
-  <link rel="stylesheet" href="css/notes.min.css?v=2.3">
+  <link rel="stylesheet" href="css/main.min.css?v=2.8">
+  <link rel="stylesheet" href="css/notes.min.css?v=2.5">
 </head>
 
 <body>
@@ -812,12 +822,12 @@
     <div class="hero-content">
       <!-- Hero Profile & Interactive Architecture Topology Area -->
       <div class="hero-profile-area" id="heroProfileArea">
-        <div class="hero-avatar-wrapper" id="heroAvatarWrap" role="button" tabindex="0"
-          aria-haspopup="dialog" aria-expanded="false"
+        <div class="hero-avatar-wrapper" id="heroAvatarWrap" role="button" tabindex="0" aria-haspopup="dialog"
+          aria-expanded="false"
           aria-label="Active Topology: Distributed Cloud Mesh (Stellar). Click to toggle architecture philosophy."
           title="Click profile to inspect active architecture philosophy">
-          <img class="hero-avatar" src="img/profile.webp?v=2.2" alt="Dhani Nugroho — Profile Photo" width="140" height="140"
-            fetchpriority="high">
+          <img class="hero-avatar" src="img/profile.webp?v=2.2" alt="Dhani Nugroho — Profile Photo" width="140"
+            height="140" fetchpriority="high">
           <!-- Interactive idea spark badge attached to avatar -->
           <div class="hero-avatar-spark" id="heroAvatarSpark" aria-hidden="true">
             <span class="spark-icon">💡</span>
@@ -828,9 +838,10 @@
         </div>
 
         <!-- Interactive Architecture Topology Thought Callout / HUD Card (Minimalist) -->
-        <div class="hero-topology-bubble" id="heroTopologyBubble" role="dialog" aria-label="Active Technical Topology Philosophy" aria-hidden="true">
+        <div class="hero-topology-bubble" id="heroTopologyBubble" role="dialog"
+          aria-label="Active Technical Topology Philosophy" aria-hidden="true">
           <div class="bubble-arrow" aria-hidden="true"></div>
-          
+
           <div class="bubble-inner">
             <div class="bubble-header">
               <div class="bubble-theme-badge" id="bubbleThemeBadge">
@@ -843,7 +854,8 @@
                   <span class="beacon-dot"></span> LIVE
                 </span>
                 <button type="button" class="bubble-close-btn" id="bubbleCloseBtn" aria-label="Dismiss card">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                   </svg>
@@ -853,7 +865,8 @@
 
             <h4 class="bubble-paradigm-title" id="bubbleParadigmTitle">Distributed Cloud Mesh</h4>
             <p class="bubble-philosophy-text" id="bubblePhilosophyText">
-              Full-width cross-region fiber trunks with 45° dogleg bypasses, dual cyan/violet sync packets, and <code>CLOUD::BACKBONE</code> telemetry.
+              Full-width cross-region fiber trunks with 45° dogleg bypasses, dual cyan/violet sync packets, and
+              <code>CLOUD::BACKBONE</code> telemetry.
             </p>
 
             <div class="bubble-telemetry-tag" id="bubbleTelemetryTag">
@@ -4328,6 +4341,1131 @@
             <!-- Track (slides are built dynamically by JS, items below are source) -->
             <div class="notes-carousel-track">
 
+              <!-- ═══ Note 8: Enterprise Data Topologies — Architectural Abstractions in Production (REVISED) ═══ -->
+              <div class="notes-accordion-item" data-note-date="2026-09-12">
+
+                <!-- Accordion Header (always visible) -->
+                <div class="notes-accordion-header" role="button" tabindex="0" aria-expanded="false">
+                  <div class="notes-acc-header-content">
+                    <span class="note-datetime">September 12, 2026 &bull; 10:30 PM</span>
+                    <h3 class="notes-acc-title">Six Data Topologies, Six Real Systems: A Technical Cross-Reference</h3>
+                    <p class="notes-acc-excerpt">A revised technical reference mapping six portfolio theme geometries to
+                      distributed architectures, storage engines, and consensus protocols, with the underlying research cited
+                      rather than assumed.</p>
+                  </div>
+                  <div class="notes-acc-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Accordion Body (collapsed by default) -->
+                <div class="notes-accordion-body">
+                  <div class="notes-accordion-body-inner">
+                    <div class="note-card">
+
+                      <p class="note-body">
+                        A visual interface and its backend architecture are usually treated as separate concerns: one is
+                        designed, the other is engineered. This note takes the opposite position for a narrower reason than
+                        aesthetics. <strong>Each of the six portfolio themes below was built as a structural analogy for a
+                          specific, identifiable class of production data system</strong> — not as decoration applied after the
+                        fact.<br><br>
+
+                        <span
+                          style="display:block; border-left:3px solid var(--accent-primary); padding:0.6rem 1rem; margin:0.5rem 0; background:rgba(0,229,255,0.06); border-radius:0 8px 8px 0; font-style:italic;">
+                          After several years working across pipelines, warehouses, BI layers, and transactional systems, I find
+                          that most diagrams claiming to represent architecture actually represent intent. The revision below
+                          corrects that gap: every visual claim is checked against the paper or system documentation it is
+                          supposedly based on, and adjusted where the original description was imprecise or overstated.
+                        </span><br>
+
+                        The reference below maps each theme to its closest real-world equivalent — Cassandra-style and
+                        Spanner-style replication, Airflow-style DAG orchestration, Snowflake-style columnar pruning,
+                        Kafka-style partitioning, Druid-style OLAP ingestion, and two-phase commit in financial-grade
+                        transaction systems — and, where the original mapping conflated distinct mechanisms, separates them.
+                        <br><br>
+
+                        <span style="color: var(--accent-primary); font-size: 0.85rem;">#DataEngineering
+                          #SystemArchitecture #DistributedSystems #DataPipeline #ColumnarStorage #EventDriven #ACID
+                          #Observability</span>
+                      </p>
+
+                      <!-- ── ce-root: Rich Interactive Topology Deep-Dive Component ── -->
+                      <div class="ce-root">
+                        <div class="hdr">
+                          <div class="hdr-eyebrow">Enterprise Data Architecture &middot; Technical Reference (Revised)</div>
+                          <h1 class="hdr-title">Six Topologies, Cross-Checked:<br>Visual Geometry <span>&rarr;
+                              Cited Production Systems</span></h1>
+                          <p class="hdr-sub">An interactive reference showing how each theme's conduits, packets, and
+                            telemetry correspond to a specific mechanism in distributed systems literature — with the
+                            simplifications made explicit rather than implied.</p>
+                        </div>
+
+                        <div class="quote-strip">
+                          <div class="qs-bar"></div>
+                          <div class="qs-text">
+                            <strong>A diagram earns the label "architectural" only when its parts can be traced back to a
+                              real constraint — a round-trip time, a quorum rule, a partition boundary — rather than to
+                              whatever shape looked balanced on screen.</strong>
+                          </div>
+                        </div>
+
+                        <!-- ── Interactive Tabbed Topologies ── -->
+                        <div class="topo-notes-wrap" id="topoNotesWrap">
+
+                          <!-- 6 Interactive Theme Selector Tabs -->
+                          <div class="topo-tab-bar" role="tablist" aria-label="Select data architecture topology">
+                            <button type="button" class="topo-tab active" data-theme="stellar" role="tab"
+                              aria-selected="true">
+                              <span>⚡</span> Stellar
+                            </button>
+                            <button type="button" class="topo-tab" data-theme="voidmint" role="tab"
+                              aria-selected="false">
+                              <span>🌿</span> Void Mint
+                            </button>
+                            <button type="button" class="topo-tab" data-theme="espresso" role="tab"
+                              aria-selected="false">
+                              <span>☕</span> Espresso
+                            </button>
+                            <button type="button" class="topo-tab" data-theme="mocha" role="tab" aria-selected="false">
+                              <span>🍫</span> Mocha
+                            </button>
+                            <button type="button" class="topo-tab" data-theme="truffle" role="tab"
+                              aria-selected="false">
+                              <span>✨</span> Truffle
+                            </button>
+                            <button type="button" class="topo-tab" data-theme="crimson" role="tab"
+                              aria-selected="false">
+                              <span><svg class="ruby-gem-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                  <polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="#dc2626" />
+                                  <polygon points="6,3 2,8.5 8.5,8.5" fill="#991b1b" />
+                                  <polygon points="18,3 22,8.5 15.5,8.5" fill="#7f1d1d" />
+                                  <polygon points="8.5,8.5 15.5,8.5 12,21" fill="#991b1b" />
+                                  <polygon points="2,8.5 8.5,8.5 12,21" fill="#b91c1c" />
+                                  <polygon points="15.5,8.5 22,8.5 12,21" fill="#580808" />
+                                  <polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="none"
+                                    stroke="rgba(255,255,255,0.45)" stroke-width="0.6" />
+                                  <line x1="2" y1="8.5" x2="22" y2="8.5" stroke="rgba(255,255,255,0.35)"
+                                    stroke-width="0.6" />
+                                  <line x1="8.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)"
+                                    stroke-width="0.6" />
+                                  <line x1="15.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)"
+                                    stroke-width="0.6" />
+                                </svg></span> Crimson Ruby
+                            </button>
+                          </div>
+
+                          <!-- ══ PANEL 1: STELLAR ⚡ ══ -->
+                          <div class="topo-panel" id="panel-stellar">
+                            <div class="topo-header-pill">
+                              <h4 class="topo-header-title">⚡ Stellar &mdash; Distributed Cloud Mesh</h4>
+                              <span class="topo-header-tag">CLOUD::BACKBONE</span>
+                            </div>
+
+                            <!-- Architecture Graphic Diagram (SVG) — unchanged -->
+                            <div class="topo-diagram-box">
+                              <svg class="topo-diagram-svg" viewBox="0 0 760 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="760" height="220" rx="8" fill="#0b1220" />
+                                <rect x="30" y="30" width="180" height="160" rx="8" fill="#111c33" stroke="#00e5ff"
+                                  stroke-width="1.2" stroke-dasharray="4 2" />
+                                <text x="45" y="55" fill="#00e5ff" font-size="11" font-weight="700"
+                                  font-family="monospace">REGION_A [JAKARTA]</text>
+                                <circle cx="80" cy="95" r="14" fill="#0e2a47" stroke="#00e5ff" stroke-width="1.5" />
+                                <text x="80" y="99" fill="#fff" font-size="9" text-anchor="middle"
+                                  font-family="monospace">Node 1</text>
+                                <circle cx="150" cy="140" r="14" fill="#0e2a47" stroke="#00e5ff" stroke-width="1.5" />
+                                <text x="150" y="144" fill="#fff" font-size="9" text-anchor="middle"
+                                  font-family="monospace">Node 2</text>
+                                <line x1="94" y1="95" x2="136" y2="135" stroke="#00e5ff" stroke-width="1.5"
+                                  opacity="0.6" />
+                                <rect x="550" y="30" width="180" height="160" rx="8" fill="#111c33" stroke="#00e5ff"
+                                  stroke-width="1.2" stroke-dasharray="4 2" />
+                                <text x="565" y="55" fill="#00e5ff" font-size="11" font-weight="700"
+                                  font-family="monospace">REGION_B [SINGAPORE]</text>
+                                <circle cx="600" cy="95" r="14" fill="#0e2a47" stroke="#00e5ff" stroke-width="1.5" />
+                                <text x="600" y="99" fill="#fff" font-size="9" text-anchor="middle"
+                                  font-family="monospace">Node 3</text>
+                                <circle cx="670" cy="140" r="14" fill="#0e2a47" stroke="#00e5ff" stroke-width="1.5" />
+                                <text x="670" y="144" fill="#fff" font-size="9" text-anchor="middle"
+                                  font-family="monospace">Node 4</text>
+                                <line x1="614" y1="95" x2="656" y2="135" stroke="#00e5ff" stroke-width="1.5"
+                                  opacity="0.6" />
+                                <path d="M 210 95 L 350 95 L 390 135 L 550 135" stroke="#00e5ff" stroke-width="2.5" />
+                                <text x="380" y="85" fill="#00e5ff" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle">PRIMARY BACKBONE (Fiber Trunk)</text>
+                                <path d="M 210 140 L 330 140 L 370 100 L 430 100 L 460 70 L 550 70" stroke="#7c3aed"
+                                  stroke-width="2" stroke-dasharray="6 3" />
+                                <text x="380" y="165" fill="#a78bfa" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle">45° FAILOVER BYPASS (Alternate Path)</text>
+                                <circle cx="310" cy="95" r="5" fill="#00e5ff" />
+                                <circle cx="480" cy="135" r="5" fill="#00e5ff" />
+                                <circle cx="280" cy="140" r="4.5" fill="#c084fc" />
+                                <circle cx="500" cy="70" r="4.5" fill="#c084fc" />
+                                <rect x="300" y="185" width="160" height="22" rx="4" fill="#0f172a"
+                                  stroke="rgba(0,229,255,0.4)" />
+                                <text x="380" y="200" fill="#38bdf8" font-size="9" font-family="monospace"
+                                  text-anchor="middle">CLOUD::BACKBONE [12ms RTT]</text>
+                              </svg>
+                            </div>
+                            <p style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
+                              Note: the systems named below do not share one consistency model. Cassandra, CockroachDB, and
+                              Spanner are grouped here by topology (multi-region replication), not by guarantee — see the
+                              distinction drawn in the third card.
+                            </p>
+
+                            <!-- Term Mapping Grid -->
+                            <div class="topo-term-grid">
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual">"Cross-region fiber trunks"</span>
+                                  <span class="topo-term-real-badge">Multi-Region Topology</span>
+                                </div>
+                                <h5 class="topo-term-name">Cross-Datacenter Cluster Replication</h5>
+                                <p class="topo-term-desc">
+                                  This represents any database that maintains copies of data across geographically separate
+                                  data centres — Apache Cassandra, CockroachDB, and Google Cloud Spanner all do this, though
+                                  by different mechanisms (see below). The purpose is the same in each case: if one region
+                                  becomes unreachable, the system keeps serving reads and, in most configurations, writes
+                                  from the surviving regions.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual">"45° dogleg bypass"</span>
+                                  <span class="topo-term-real-badge">Fault Tolerance</span>
+                                </div>
+                                <h5 class="topo-term-name">Failover Routing and Ring Rebalancing</h5>
+                                <p class="topo-term-desc">
+                                  The bypass line stands for what happens when a primary route fails: traffic is redirected
+                                  along a surviving path. In practice this takes different forms depending on the layer —
+                                  BGP route convergence at the network level, or partition reassignment on a consistent
+                                  hashing ring at the database level, as used in Cassandra's ring topology
+                                  (DeCandia et al., 2007).
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual">"Dual cyan/violet sync packets"</span>
+                                  <span class="topo-term-real-badge">Replication Models</span>
+                                </div>
+                                <h5 class="topo-term-name">Two Distinct Replication Disciplines — Not One Binary Choice</h5>
+                                <p class="topo-term-desc">
+                                  This is where the three systems named above actually diverge, and it is worth being
+                                  precise about it:
+                                  <br>&bull; <strong>Cassandra</strong> is AP-oriented in Brewer's CAP framing (Brewer, 2000;
+                                  Gilbert &amp; Lynch, 2002). It does not enforce one fixed sync/async mode — consistency is
+                                  tunable per query through the read/write quorum settings described in the original Dynamo
+                                  paper (DeCandia et al., 2007).
+                                  <br>&bull; <strong>CockroachDB and Spanner</strong> are CP-oriented. They use a consensus
+                                  protocol — Raft in CockroachDB's case (Ongaro &amp; Ousterhout, 2014), Paxos plus a
+                                  synchronised clock in Spanner's case (Corbett et al., 2012) — to guarantee that a write is
+                                  durable across a quorum before it is acknowledged.
+                                  <br>The cyan/violet split is a useful simplification of "coordinated" versus "lagging"
+                                  replication, but it should not be read as implying all three systems offer the same choice.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"><code>CLOUD::BACKBONE</code></span>
+                                  <span class="topo-term-real-badge">Observability</span>
+                                </div>
+                                <h5 class="topo-term-name">Structured Tracing and Span Telemetry</h5>
+                                <p class="topo-term-desc">
+                                  The tag format follows the <code>service::component</code> convention used in
+                                  OpenTelemetry span naming, feeding dashboards such as Grafana or Datadog. The metrics
+                                  that would actually populate such a dashboard include replication lag, inter-region
+                                  round-trip time, and packet loss — the 12ms figure shown is illustrative, not measured.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="topo-tools-bar">
+                              <span class="topo-tools-label">Production Stack:</span>
+                              <span class="topo-tool-chip">CockroachDB</span>
+                              <span class="topo-tool-chip">Apache Cassandra</span>
+                              <span class="topo-tool-chip">Google Cloud Spanner</span>
+                              <span class="topo-tool-chip">AWS Transit Gateway</span>
+                              <span class="topo-tool-chip">OpenTelemetry</span>
+                            </div>
+                          </div><!-- /#panel-stellar -->
+
+                          <!-- ══ PANEL 2: VOID MINT 🌿 ══ -->
+                          <div class="topo-panel" id="panel-voidmint" style="display: none;">
+                            <div class="topo-header-pill">
+                              <h4 class="topo-header-title">🌿 Void Mint &mdash; ETL Data Pipeline (DAG)</h4>
+                              <span class="topo-header-tag"
+                                style="background:rgba(0,200,150,0.1);color:#00C896;border-color:rgba(0,200,150,0.3);">ETL::DAG_EXECUTOR</span>
+                            </div>
+
+                            <div class="topo-diagram-box">
+                              <svg class="topo-diagram-svg" viewBox="0 0 760 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="760" height="220" rx="8" fill="#0a1813" />
+                                <rect x="25" y="40" width="110" height="50" rx="6" fill="#132e22" stroke="#00C896"
+                                  stroke-width="1.2" />
+                                <text x="80" y="62" fill="#00C896" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">EXTRACT_CDC</text>
+                                <text x="80" y="77" fill="#86efac" font-size="8" font-family="monospace"
+                                  text-anchor="middle">Source DB Drop</text>
+                                <rect x="25" y="130" width="110" height="50" rx="6" fill="#132e22" stroke="#00C896"
+                                  stroke-width="1.2" />
+                                <text x="80" y="152" fill="#00C896" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">EXTRACT_API</text>
+                                <text x="80" y="167" fill="#86efac" font-size="8" font-family="monospace"
+                                  text-anchor="middle">S3 Ingestion</text>
+                                <rect x="195" y="85" width="125" height="50" rx="6" fill="#132e22" stroke="#00C896"
+                                  stroke-width="1.2" />
+                                <text x="257" y="107" fill="#00C896" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">SCHEMA_VALIDATE</text>
+                                <text x="257" y="122" fill="#86efac" font-size="8" font-family="monospace"
+                                  text-anchor="middle">Type Check &amp; Drop</text>
+                                <polygon points="380,85 415,110 380,135 345,110" fill="#1b4332" stroke="#4ade80"
+                                  stroke-width="1.5" />
+                                <text x="380" y="113" fill="#4ade80" font-size="8.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">JOIN BARRIER</text>
+                                <rect x="475" y="40" width="115" height="50" rx="6" fill="#132e22" stroke="#00C896"
+                                  stroke-width="1.2" />
+                                <text x="532" y="62" fill="#00C896" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">TRANSFORM_DEDUP</text>
+                                <text x="532" y="77" fill="#86efac" font-size="8" font-family="monospace"
+                                  text-anchor="middle">Spark Windowing</text>
+                                <rect x="475" y="130" width="115" height="50" rx="6" fill="#132e22" stroke="#00C896"
+                                  stroke-width="1.2" />
+                                <text x="532" y="152" fill="#00C896" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">AGGREGATION</text>
+                                <text x="532" y="167" fill="#86efac" font-size="8" font-family="monospace"
+                                  text-anchor="middle">Rolling Metrics</text>
+                                <rect x="640" y="85" width="95" height="50" rx="6" fill="#1b4332" stroke="#4ade80"
+                                  stroke-width="1.5" />
+                                <text x="687" y="107" fill="#4ade80" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">TARGET_LOAD</text>
+                                <text x="687" y="122" fill="#bbf7d0" font-size="8" font-family="monospace"
+                                  text-anchor="middle">DW Upsert</text>
+                                <path d="M 135 65 L 165 65 L 165 100 L 195 100" stroke="#00C896" stroke-width="1.5" />
+                                <path d="M 135 155 L 165 155 L 165 120 L 195 120" stroke="#00C896" stroke-width="1.5" />
+                                <path d="M 320 110 L 345 110" stroke="#00C896" stroke-width="1.5" />
+                                <path d="M 415 110 L 445 110 L 445 65 L 475 65" stroke="#00C896" stroke-width="1.5" />
+                                <path d="M 415 110 L 445 110 L 445 155 L 475 155" stroke="#00C896" stroke-width="1.5" />
+                                <path d="M 590 65 L 615 65 L 615 100 L 640 100" stroke="#00C896" stroke-width="1.5" />
+                                <path d="M 590 155 L 615 155 L 615 120 L 640 120" stroke="#00C896" stroke-width="1.5" />
+                                <circle cx="155" cy="100" r="4.5" fill="#4ade80" />
+                                <circle cx="335" cy="110" r="4.5" fill="#4ade80" />
+                                <circle cx="435" cy="65" r="4.5" fill="#4ade80" />
+                                <circle cx="625" cy="100" r="4.5" fill="#4ade80" />
+                              </svg>
+                            </div>
+
+                            <div class="topo-term-grid">
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#00C896;background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.25);">"Cascading
+                                    stages"</span>
+                                  <span class="topo-term-real-badge" style="color:#00C896;">DAG Execution</span>
+                                </div>
+                                <h5 class="topo-term-name">Directed Acyclic Graph Task Scheduling</h5>
+                                <p class="topo-term-desc">
+                                  This is a dependency-ordered pipeline, the kind Apache Airflow, Dagster, or Prefect
+                                  execute: <code>Extract &rarr; Validate &rarr; Transform &rarr; Load</code>. The graph must
+                                  be acyclic because a scheduler resolves execution order through a topological sort
+                                  (Cormen et al., 2009); a cycle would leave no valid ordering and the scheduler would stall.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#00C896;background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.25);">"Extraction
+                                    drops"</span>
+                                  <span class="topo-term-real-badge" style="color:#00C896;">Ingestion</span>
+                                </div>
+                                <h5 class="topo-term-name">CDC and Object Storage Ingestion Boundaries</h5>
+                                <p class="topo-term-desc">
+                                  These are the points where raw records enter the pipeline — a Change Data Capture stream
+                                  reading a database's write-ahead log (Debezium is the common open-source tool for this),
+                                  an API webhook, or a batch drop into object storage such as S3. Each ingestion point
+                                  typically applies schema validation before the record is allowed downstream.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#00C896;background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.25);">"Merge
+                                    gates"</span>
+                                  <span class="topo-term-real-badge" style="color:#00C896;">Barrier</span>
+                                </div>
+                                <h5 class="topo-term-name">Synchronization Barrier and Join Gate</h5>
+                                <p class="topo-term-desc">
+                                  This is the point where two branches of the DAG converge. It acts as a synchronization
+                                  barrier: the join task will not run until every upstream task it depends on has reported
+                                  success, which is what prevents the pipeline from reading a partially written dataset.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#00C896;background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.25);">"Emerald
+                                    batch packets"</span>
+                                  <span class="topo-term-real-badge" style="color:#00C896;">Processing</span>
+                                </div>
+                                <h5 class="topo-term-name">Micro-Batch DataFrame Partitions</h5>
+                                <p class="topo-term-desc">
+                                  These represent discrete chunks of data — an Apache Spark DataFrame partition, or an
+                                  incremental dbt model run — going through deduplication, type casting, and windowed
+                                  aggregation before landing in the target table.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="topo-tools-bar">
+                              <span class="topo-tools-label">Production Stack:</span>
+                              <span class="topo-tool-chip">Apache Airflow</span>
+                              <span class="topo-tool-chip">Dagster</span>
+                              <span class="topo-tool-chip">dbt (Data Build Tool)</span>
+                              <span class="topo-tool-chip">Apache Spark</span>
+                              <span class="topo-tool-chip">Debezium CDC</span>
+                            </div>
+                          </div><!-- /#panel-voidmint -->
+
+                          <!-- ══ PANEL 3: ESPRESSO ☕ ══ -->
+                          <div class="topo-panel" id="panel-espresso" style="display: none;">
+                            <div class="topo-header-pill">
+                              <h4 class="topo-header-title">☕ Espresso &mdash; Data Warehouse Columnar Fabric</h4>
+                              <span class="topo-header-tag"
+                                style="background:rgba(212,145,92,0.1);color:#D4915C;border-color:rgba(212,145,92,0.3);">DW::COLUMNAR_FABRIC</span>
+                            </div>
+
+                            <div class="topo-diagram-box">
+                              <svg class="topo-diagram-svg" viewBox="0 0 760 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="760" height="220" rx="8" fill="#1b120c" />
+                                <text x="140" y="32" fill="#D4915C" font-size="10" font-family="monospace"
+                                  font-weight="700" text-anchor="middle">TRADITIONAL ROW STORE (OLTP)</text>
+                                <rect x="30" y="45" width="220" height="24" rx="4" fill="#2d1c14"
+                                  stroke="rgba(212,145,92,0.3)" />
+                                <text x="40" y="61" fill="#bbb" font-size="8.5" font-family="monospace">Row 1: [ID:1 |
+                                  Date:09-12 | $140]</text>
+                                <rect x="30" y="75" width="220" height="24" rx="4" fill="#2d1c14"
+                                  stroke="rgba(212,145,92,0.3)" />
+                                <text x="40" y="91" fill="#bbb" font-size="8.5" font-family="monospace">Row 2: [ID:2 |
+                                  Date:09-12 | $320]</text>
+                                <text x="140" y="120" fill="#a8a29e" font-size="8" font-family="sans-serif"
+                                  text-anchor="middle">Scans complete row tuples even when queries project only the
+                                  'Amount' column</text>
+                                <text x="510" y="32" fill="#D4915C" font-size="10" font-family="monospace"
+                                  font-weight="700" text-anchor="middle">COLUMNAR STORAGE FABRIC
+                                  (Snowflake/BigQuery)</text>
+                                <rect x="330" y="48" width="105" height="110" rx="6" fill="#26160d" stroke="#D4915C"
+                                  stroke-width="1.2" />
+                                <text x="382" y="65" fill="#D4915C" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">COL::ID</text>
+                                <rect x="340" y="75" width="85" height="18" rx="3" fill="#3a2214" /><text x="382" y="88"
+                                  fill="#e7e5e4" font-size="8" font-family="monospace" text-anchor="middle">[1, 2, 3,
+                                  4]</text>
+                                <rect x="340" y="98" width="85" height="18" rx="3" fill="#3a2214" /><text x="382"
+                                  y="111" fill="#e7e5e4" font-size="8" font-family="monospace" text-anchor="middle">[5,
+                                  6, 7, 8]</text>
+                                <rect x="450" y="48" width="115" height="110" rx="6" fill="#26160d" stroke="#D4915C"
+                                  stroke-width="1.2" />
+                                <text x="507" y="65" fill="#D4915C" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">COL::DATE</text>
+                                <rect x="460" y="75" width="95" height="18" rx="3" fill="#3a2214" /><text x="507" y="88"
+                                  fill="#e7e5e4" font-size="8" font-family="monospace" text-anchor="middle">RLE: 09-12
+                                  (x4)</text>
+                                <rect x="460" y="98" width="95" height="18" rx="3" fill="#3a2214" /><text x="507"
+                                  y="111" fill="#e7e5e4" font-size="8" font-family="monospace" text-anchor="middle">RLE:
+                                  09-13 (x4)</text>
+                                <rect x="580" y="48" width="140" height="110" rx="6" fill="#381d0f" stroke="#f59e0b"
+                                  stroke-width="1.5" />
+                                <text x="650" y="65" fill="#f59e0b" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">COL::AMOUNT [HOT]</text>
+                                <rect x="590" y="75" width="120" height="18" rx="3" fill="#4d2812" /><text x="650"
+                                  y="88" fill="#fef3c7" font-size="8" font-family="monospace" text-anchor="middle">SIMD
+                                  Vectorized</text>
+                                <rect x="590" y="98" width="120" height="18" rx="3" fill="#4d2812" /><text x="650"
+                                  y="111" fill="#fef3c7" font-size="8" font-family="monospace" text-anchor="middle">Sum:
+                                  $14.2M (0.2ms)</text>
+                                <line x1="330" y1="180" x2="720" y2="180" stroke="#f59e0b" stroke-width="2"
+                                  stroke-dasharray="4 2" />
+                                <text x="525" y="198" fill="#f59e0b" font-size="9" font-family="monospace"
+                                  text-anchor="middle">RHYTHMIC MEMORY SWEEP &bull; BATCH COMPACTION &bull; PARTITION
+                                  PRUNING</text>
+                              </svg>
+                            </div>
+                            <p style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
+                              Note: figures such as "0.2ms" and "95% pruning" in this panel are illustrative examples, not
+                              benchmark results. Actual pruning efficiency depends heavily on data skew and how well the
+                              partition key aligns with query filters.
+                            </p>
+
+                            <div class="topo-term-grid">
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#D4915C;background:rgba(212,145,92,0.1);border-color:rgba(212,145,92,0.25);">"Dense
+                                    memory bus lines"</span>
+                                  <span class="topo-term-real-badge" style="color:#D4915C;">Column-Store</span>
+                                </div>
+                                <h5 class="topo-term-name">Column-Oriented Physical Storage Layout</h5>
+                                <p class="topo-term-desc">
+                                  Values are stored contiguously by column rather than as complete row records — the
+                                  architecture first formalised in the C-Store paper (Stonebraker et al., 2005). An
+                                  aggregation query such as <code>SUM(amount)</code> then loads only the relevant column
+                                  into memory, which improves CPU cache behaviour and allows vectorized (SIMD) execution.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#D4915C;background:rgba(212,145,92,0.1);border-color:rgba(212,145,92,0.25);">"Partitioned
+                                    columnar nodes"</span>
+                                  <span class="topo-term-real-badge" style="color:#D4915C;">Optimization</span>
+                                </div>
+                                <h5 class="topo-term-name">Micro-Partitioning and Min/Max Pruning</h5>
+                                <p class="topo-term-desc">
+                                  Large tables are split into immutable micro-partitions (Snowflake's term) or segments
+                                  (ClickHouse's term). The query planner checks each partition's stored min/max values
+                                  before deciding whether to scan it, which is how a filtered query can skip most of the
+                                  table without reading it. How much gets skipped depends entirely on the data's clustering.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#D4915C;background:rgba(212,145,92,0.1);border-color:rgba(212,145,92,0.25);">"Warm
+                                    amber sweep packets"</span>
+                                  <span class="topo-term-real-badge" style="color:#D4915C;">Compaction</span>
+                                </div>
+                                <h5 class="topo-term-name">Encoding and Background Compaction</h5>
+                                <p class="topo-term-desc">
+                                  This represents periodic background passes that apply run-length encoding, dictionary
+                                  encoding, or delta encoding to reduce storage size. The closest familiar analogues are
+                                  PostgreSQL's <code>VACUUM</code> process and LSM-tree compaction in RocksDB — different
+                                  implementations of the same idea: reclaim space and keep scans fast.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#D4915C;background:rgba(212,145,92,0.1);border-color:rgba(212,145,92,0.25);"><code>DW::COLUMNAR_FABRIC</code></span>
+                                  <span class="topo-term-real-badge" style="color:#D4915C;">Storage Engine</span>
+                                </div>
+                                <h5 class="topo-term-name">Lakehouse Columnar Storage (Parquet, Iceberg)</h5>
+                                <p class="topo-term-desc">
+                                  This refers to open table formats such as Apache Iceberg or Delta Lake, which separate
+                                  the storage layer from the compute engine. This separation is what allows several
+                                  different query engines to read the same underlying files without duplicating the data.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="topo-tools-bar">
+                              <span class="topo-tools-label">Production Stack:</span>
+                              <span class="topo-tool-chip">Snowflake</span>
+                              <span class="topo-tool-chip">Google BigQuery</span>
+                              <span class="topo-tool-chip">ClickHouse</span>
+                              <span class="topo-tool-chip">Apache Parquet / Iceberg</span>
+                              <span class="topo-tool-chip">DuckDB</span>
+                            </div>
+                          </div><!-- /#panel-espresso -->
+
+                          <!-- ══ PANEL 4: MOCHA 🍫 ══ -->
+                          <div class="topo-panel" id="panel-mocha" style="display: none;">
+                            <div class="topo-header-pill">
+                              <h4 class="topo-header-title">🍫 Mocha &mdash; Event-Driven Message Broker</h4>
+                              <span class="topo-header-tag"
+                                style="background:rgba(196,155,130,0.1);color:#C49B82;border-color:rgba(196,155,130,0.3);">MQ::BROKER_CLUSTER</span>
+                            </div>
+
+                            <div class="topo-diagram-box">
+                              <svg class="topo-diagram-svg" viewBox="0 0 760 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="760" height="220" rx="8" fill="#17111a" />
+                                <rect x="30" y="85" width="95" height="50" rx="6" fill="#25182a" stroke="#C49B82"
+                                  stroke-width="1.2" />
+                                <text x="77" y="108" fill="#C49B82" font-size="9.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">PRODUCER</text>
+                                <text x="77" y="122" fill="#e9d5ff" font-size="8" font-family="monospace"
+                                  text-anchor="middle">Event Source</text>
+                                <polygon points="175,110 205,80 235,110 205,140" fill="#35203d" stroke="#f472b6"
+                                  stroke-width="1.5" />
+                                <text x="205" y="113" fill="#f472b6" font-size="8" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">FANOUT</text>
+                                <rect x="290" y="35" width="220" height="42" rx="6" fill="#25182a" stroke="#C49B82"
+                                  stroke-width="1.2" />
+                                <text x="300" y="52" fill="#C49B82" font-size="8.5" font-family="monospace"
+                                  font-weight="700">PARTITION 0 (Order Placed)</text>
+                                <rect x="420" y="44" width="20" height="24" rx="3" fill="#4a2854" /><text x="430" y="60"
+                                  fill="#fff" font-size="8" font-family="monospace" text-anchor="middle">E1</text>
+                                <rect x="445" y="44" width="20" height="24" rx="3" fill="#4a2854" /><text x="455" y="60"
+                                  fill="#fff" font-size="8" font-family="monospace" text-anchor="middle">E2</text>
+                                <rect x="470" y="44" width="20" height="24" rx="3" fill="#4a2854" /><text x="480" y="60"
+                                  fill="#fff" font-size="8" font-family="monospace" text-anchor="middle">E3</text>
+                                <rect x="290" y="89" width="220" height="42" rx="6" fill="#25182a" stroke="#C49B82"
+                                  stroke-width="1.2" />
+                                <text x="300" y="106" fill="#C49B82" font-size="8.5" font-family="monospace"
+                                  font-weight="700">PARTITION 1 (Payment Success)</text>
+                                <rect x="420" y="98" width="20" height="24" rx="3" fill="#4a2854" /><text x="430"
+                                  y="114" fill="#fff" font-size="8" font-family="monospace"
+                                  text-anchor="middle">E4</text>
+                                <rect x="445" y="98" width="20" height="24" rx="3" fill="#4a2854" /><text x="455"
+                                  y="114" fill="#fff" font-size="8" font-family="monospace"
+                                  text-anchor="middle">E5</text>
+                                <rect x="290" y="143" width="220" height="42" rx="6" fill="#25182a" stroke="#C49B82"
+                                  stroke-width="1.2" />
+                                <text x="300" y="160" fill="#C49B82" font-size="8.5" font-family="monospace"
+                                  font-weight="700">PARTITION 2 (Shipment Created)</text>
+                                <rect x="420" y="152" width="20" height="24" rx="3" fill="#4a2854" /><text x="430"
+                                  y="168" fill="#fff" font-size="8" font-family="monospace"
+                                  text-anchor="middle">E6</text>
+                                <rect x="580" y="40" width="140" height="42" rx="6" fill="#35203d" stroke="#f472b6"
+                                  stroke-width="1.2" />
+                                <text x="650" y="58" fill="#f472b6" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">BILLING_SERVICE</text>
+                                <text x="650" y="72" fill="#e9d5ff" font-size="7.5" font-family="monospace"
+                                  text-anchor="middle">Consumer Group A &rarr; ACK</text>
+                                <rect x="580" y="130" width="140" height="42" rx="6" fill="#35203d" stroke="#f472b6"
+                                  stroke-width="1.2" />
+                                <text x="650" y="148" fill="#f472b6" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">NOTIF_SERVICE</text>
+                                <text x="650" y="162" fill="#e9d5ff" font-size="7.5" font-family="monospace"
+                                  text-anchor="middle">Consumer Group B &rarr; ACK</text>
+                                <line x1="125" y1="110" x2="175" y2="110" stroke="#C49B82" stroke-width="1.5" />
+                                <path d="M 235 110 L 260 110 L 260 56 L 290 56" stroke="#C49B82" stroke-width="1.5" />
+                                <path d="M 235 110 L 290 110" stroke="#C49B82" stroke-width="1.5" />
+                                <path d="M 235 110 L 260 110 L 260 164 L 290 164" stroke="#C49B82" stroke-width="1.5" />
+                                <line x1="510" y1="61" x2="580" y2="61" stroke="#f472b6" stroke-width="1.5" />
+                                <line x1="510" y1="151" x2="580" y2="151" stroke="#f472b6" stroke-width="1.5" />
+                                <path d="M 580 75 L 530 75" stroke="#a78bfa" stroke-width="1.5"
+                                  stroke-dasharray="3 2" />
+                              </svg>
+                            </div>
+
+                            <div class="topo-term-grid">
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C49B82;background:rgba(196,155,130,0.1);border-color:rgba(196,155,130,0.25);">"Segmented
+                                    queue lanes"</span>
+                                  <span class="topo-term-real-badge" style="color:#C49B82;">Concurrency</span>
+                                </div>
+                                <h5 class="topo-term-name">Topic Partitioning (Kafka / Pulsar)</h5>
+                                <p class="topo-term-desc">
+                                  A topic is split into partitions, each an independent, ordered commit log
+                                  (Kreps, Narkhede &amp; Rao, 2011). Ordering is only guaranteed within a single partition,
+                                  not across the topic as a whole — a detail that matters whenever downstream consumers
+                                  assume global ordering and shouldn't.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C49B82;background:rgba(196,155,130,0.1);border-color:rgba(196,155,130,0.25);">"Fan-out
+                                    junction hubs"</span>
+                                  <span class="topo-term-real-badge" style="color:#C49B82;">Pub / Sub</span>
+                                </div>
+                                <h5 class="topo-term-name">One-to-Many Fan-Out</h5>
+                                <p class="topo-term-desc">
+                                  A single published event reaching multiple independent consumers — RabbitMQ's fanout
+                                  exchange type is one implementation; separate Kafka consumer groups reading the same
+                                  topic independently is another. Each consumer advances its own offset, so one slow
+                                  consumer does not block the others.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C49B82;background:rgba(196,155,130,0.1);border-color:rgba(196,155,130,0.25);">"Bidirectional
+                                    event packets"</span>
+                                  <span class="topo-term-real-badge" style="color:#C49B82;">Reliability</span>
+                                </div>
+                                <h5 class="topo-term-name">Correlation and Acknowledgment</h5>
+                                <p class="topo-term-desc">
+                                  Two related mechanisms sit under this label: a correlation identifier that links a reply
+                                  event back to its originating request (used in the saga pattern for distributed
+                                  transactions), and the ACK/NACK a consumer sends back to the broker once a message is
+                                  processed, which is what enforces at-least-once delivery.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C49B82;background:rgba(196,155,130,0.1);border-color:rgba(196,155,130,0.25);"><code>MQ::BROKER_CLUSTER</code></span>
+                                  <span class="topo-term-real-badge" style="color:#C49B82;">Clustering</span>
+                                </div>
+                                <h5 class="topo-term-name">Distributed Log and Leader Rebalance</h5>
+                                <p class="topo-term-desc">
+                                  A clustered broker with leader-follower replication for each partition. Since Kafka's
+                                  KIP-500 migration, leader election on broker failure is handled by KRaft, a Raft-based
+                                  controller quorum, rather than an external ZooKeeper cluster.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="topo-tools-bar">
+                              <span class="topo-tools-label">Production Stack:</span>
+                              <span class="topo-tool-chip">Apache Kafka</span>
+                              <span class="topo-tool-chip">RabbitMQ</span>
+                              <span class="topo-tool-chip">Apache Pulsar</span>
+                              <span class="topo-tool-chip">AWS SQS / SNS</span>
+                              <span class="topo-tool-chip">Redpanda</span>
+                            </div>
+                          </div><!-- /#panel-mocha -->
+
+                          <!-- ══ PANEL 5: TRUFFLE ✨ ══ -->
+                          <div class="topo-panel" id="panel-truffle" style="display: none;">
+                            <div class="topo-header-pill">
+                              <h4 class="topo-header-title">✨ Truffle &mdash; Real-Time OLAP Compute Matrix</h4>
+                              <span class="topo-header-tag"
+                                style="background:rgba(200,169,110,0.1);color:#C8A96E;border-color:rgba(200,169,110,0.3);">OLAP::QUERY_ENGINE</span>
+                            </div>
+
+                            <div class="topo-diagram-box">
+                              <svg class="topo-diagram-svg" viewBox="0 0 760 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="760" height="220" rx="8" fill="#18130d" />
+                                <g transform="translate(60, 30)">
+                                  <polygon points="120,20 200,50 120,80 40,50" fill="#2d2215" stroke="#C8A96E"
+                                    stroke-width="1.5" />
+                                  <polygon points="40,50 120,80 120,160 40,130" fill="#241a0e" stroke="#C8A96E"
+                                    stroke-width="1.5" />
+                                  <polygon points="120,80 200,50 200,130 120,160" fill="#3a2b19" stroke="#C8A96E"
+                                    stroke-width="1.5" />
+                                  <line x1="80" y1="35" x2="80" y2="145" stroke="rgba(200,169,110,0.4)"
+                                    stroke-dasharray="3 2" />
+                                  <line x1="160" y1="65" x2="160" y2="145" stroke="rgba(200,169,110,0.4)"
+                                    stroke-dasharray="3 2" />
+                                  <text x="120" y="15" fill="#fcd34d" font-size="9" font-family="monospace"
+                                    text-anchor="middle" font-weight="700">DIMENSION: TIME &times; REGION &times;
+                                    SKU</text>
+                                  <text x="120" y="105" fill="#fff" font-size="8.5" font-family="monospace"
+                                    text-anchor="middle" font-weight="700">OLAP CUBE</text>
+                                  <text x="120" y="120" fill="#C8A96E" font-size="7.5" font-family="monospace"
+                                    text-anchor="middle">[Slice &bull; Dice &bull; Roll-up]</text>
+                                </g>
+                                <polygon points="370,80 395,105 370,130 345,105" fill="#422f18" stroke="#f59e0b"
+                                  stroke-width="1.5" />
+                                <text x="370" y="108" fill="#fef08a" font-size="8" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">ROUTER</text>
+                                <rect x="460" y="40" width="160" height="42" rx="6" fill="#2d2215" stroke="#C8A96E"
+                                  stroke-width="1.2" />
+                                <text x="540" y="58" fill="#fcd34d" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">MATERIALIZED VIEW</text>
+                                <text x="540" y="72" fill="#e7e5e4" font-size="8" font-family="monospace"
+                                  text-anchor="middle">Pre-aggregated (0.4ms)</text>
+                                <rect x="460" y="125" width="160" height="42" rx="6" fill="#2d2215" stroke="#C8A96E"
+                                  stroke-width="1.2" />
+                                <text x="540" y="143" fill="#fcd34d" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">REAL-TIME IN-MEMORY</text>
+                                <text x="540" y="157" fill="#e7e5e4" font-size="8" font-family="monospace"
+                                  text-anchor="middle">LSM Segment (Sub-sec)</text>
+                                <line x1="260" y1="105" x2="345" y2="105" stroke="#C8A96E" stroke-width="1.5" />
+                                <path d="M 395 105 L 425 105 L 425 61 L 460 61" stroke="#C8A96E" stroke-width="1.5" />
+                                <path d="M 395 105 L 425 105 L 425 146 L 460 146" stroke="#C8A96E" stroke-width="1.5" />
+                                <circle cx="300" cy="105" r="4" fill="#fbbf24" />
+                                <circle cx="435" cy="61" r="4" fill="#fbbf24" />
+                                <circle cx="435" cy="146" r="4" fill="#fbbf24" />
+                                <circle cx="650" cy="61" r="5" fill="#10b981" />
+                                <text x="690" y="65" fill="#10b981" font-size="8.5"
+                                  font-family="monospace">ACK_OK</text>
+                              </svg>
+                            </div>
+
+                            <div class="topo-term-grid">
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C8A96E;background:rgba(200,169,110,0.1);border-color:rgba(200,169,110,0.25);">"Precision
+                                    analytical cross-grid"</span>
+                                  <span class="topo-term-real-badge" style="color:#C8A96E;">OLAP Cube</span>
+                                </div>
+                                <h5 class="topo-term-name">Multi-Dimensional OLAP Cube</h5>
+                                <p class="topo-term-desc">
+                                  Business dimensions — time, region, SKU — are arranged against measures such as revenue
+                                  or transaction volume, allowing slice, dice, drill-down, and roll-up operations without
+                                  rescanning the raw transactional table each time.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C8A96E;background:rgba(200,169,110,0.1);border-color:rgba(200,169,110,0.25);">"Diamond
+                                    routing nodes"</span>
+                                  <span class="topo-term-real-badge" style="color:#C8A96E;">Query Plan</span>
+                                </div>
+                                <h5 class="topo-term-name">Cost-Based Optimizer and View Selection</h5>
+                                <p class="topo-term-desc">
+                                  This is the optimizer inside engines such as ClickHouse, Trino, or Presto that estimates
+                                  cardinality and cost to decide whether a query should hit a pre-aggregated materialized
+                                  view or a raw memory segment, and which join strategy — broadcast or partitioned — to use.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C8A96E;background:rgba(200,169,110,0.1);border-color:rgba(200,169,110,0.25);">"High-frequency
+                                    golden packets"</span>
+                                  <span class="topo-term-real-badge" style="color:#C8A96E;">Streaming</span>
+                                </div>
+                                <h5 class="topo-term-name">Sub-Second Streaming Ingestion</h5>
+                                <p class="topo-term-desc">
+                                  New data is held in a mutable in-memory buffer before being sealed into an immutable
+                                  historical segment — the real-time/historical split used in Apache Druid
+                                  (Yang et al., 2014) and Apache Pinot. This is what allows a query to return results on
+                                  data that arrived moments earlier.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#C8A96E;background:rgba(200,169,110,0.1);border-color:rgba(200,169,110,0.25);"><code>OLAP::QUERY_ENGINE</code></span>
+                                  <span class="topo-term-real-badge" style="color:#C8A96E;">Sub-Second</span>
+                                </div>
+                                <h5 class="topo-term-name">Low-Latency Interactive Analytics</h5>
+                                <p class="topo-term-desc">
+                                  Engines in this category are built for user-facing dashboards handling many concurrent
+                                  queries at low latency — typically tens of milliseconds under normal load, though the
+                                  exact figure depends on cardinality and cluster sizing rather than being a fixed constant.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="topo-tools-bar">
+                              <span class="topo-tools-label">Production Stack:</span>
+                              <span class="topo-tool-chip">Apache Druid</span>
+                              <span class="topo-tool-chip">Apache Pinot</span>
+                              <span class="topo-tool-chip">ClickHouse</span>
+                              <span class="topo-tool-chip">Trino / Presto</span>
+                              <span class="topo-tool-chip">Cube.js</span>
+                            </div>
+                          </div><!-- /#panel-truffle -->
+
+                          <!-- ══ PANEL 6: CRIMSON RUBY ══ -->
+                          <div class="topo-panel" id="panel-crimson" style="display: none;">
+                            <div class="topo-header-pill">
+                              <h4 class="topo-header-title"><svg class="ruby-gem-icon" viewBox="0 0 24 24" width="20"
+                                  height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                  <polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="#dc2626" />
+                                  <polygon points="6,3 2,8.5 8.5,8.5" fill="#991b1b" />
+                                  <polygon points="18,3 22,8.5 15.5,8.5" fill="#7f1d1d" />
+                                  <polygon points="8.5,8.5 15.5,8.5 12,21" fill="#991b1b" />
+                                  <polygon points="2,8.5 8.5,8.5 12,21" fill="#b91c1c" />
+                                  <polygon points="15.5,8.5 22,8.5 12,21" fill="#580808" />
+                                  <polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="none"
+                                    stroke="rgba(255,255,255,0.45)" stroke-width="0.6" />
+                                  <line x1="2" y1="8.5" x2="22" y2="8.5" stroke="rgba(255,255,255,0.35)"
+                                    stroke-width="0.6" />
+                                  <line x1="8.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)"
+                                    stroke-width="0.6" />
+                                  <line x1="15.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)"
+                                    stroke-width="0.6" />
+                                </svg> Crimson Ruby &mdash; Mission-Critical Transaction Fabric &amp; Security Gateway
+                              </h4>
+                              <span class="topo-header-tag"
+                                style="background:rgba(225,29,72,0.1);color:#f43f5e;border-color:rgba(225,29,72,0.3);">GATEWAY::DUAL_RAIL</span>
+                            </div>
+
+                            <div class="topo-diagram-box">
+                              <svg class="topo-diagram-svg" viewBox="0 0 760 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="760" height="220" rx="8" fill="#170c10" />
+                                <rect x="30" y="80" width="105" height="56" rx="6" fill="#2d131b" stroke="#e11d48"
+                                  stroke-width="1.2" />
+                                <text x="82" y="103" fill="#fda4af" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">CLIENT INGRESS</text>
+                                <text x="82" y="118" fill="#fb7185" font-size="8" font-family="monospace"
+                                  text-anchor="middle">HTTPS / mTLS</text>
+                                <polygon points="185,108 215,80 245,108 215,136" fill="#3f1322" stroke="#f43f5e"
+                                  stroke-width="1.5" />
+                                <text x="215" y="105" fill="#fff" font-size="8" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">WAF / TLS</text>
+                                <text x="215" y="117" fill="#fda4af" font-size="7" font-family="monospace"
+                                  text-anchor="middle">GATEWAY</text>
+                                <line x1="245" y1="95" x2="440" y2="95" stroke="#e11d48" stroke-width="2.2" />
+                                <line x1="245" y1="121" x2="440" y2="121" stroke="#e11d48" stroke-width="2.2"
+                                  stroke-dasharray="5 2" />
+                                <text x="342" y="85" fill="#f43f5e" font-size="8.5" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">DUAL-RAIL PRIMARY (Raft Quorum)</text>
+                                <text x="342" y="136" fill="#f43f5e" font-size="8" font-family="monospace"
+                                  text-anchor="middle">SYNCHRONOUS MIRROR (2PC Log)</text>
+                                <polygon points="480,75 515,90 515,126 480,141 445,126 445,90" fill="#3f1322"
+                                  stroke="#fb7185" stroke-width="1.5" />
+                                <text x="480" y="105" fill="#fff" font-size="8" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">CONSENSUS</text>
+                                <text x="480" y="118" fill="#fda4af" font-size="7" font-family="monospace"
+                                  text-anchor="middle">ACID VAULT</text>
+                                <rect x="580" y="50" width="140" height="42" rx="6" fill="#2d131b" stroke="#e11d48"
+                                  stroke-width="1.2" />
+                                <text x="650" y="68" fill="#fda4af" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">PRIMARY NODE</text>
+                                <text x="650" y="82" fill="#fb7185" font-size="7.5" font-family="monospace"
+                                  text-anchor="middle">Strict Serializability</text>
+                                <rect x="580" y="125" width="140" height="42" rx="6" fill="#2d131b" stroke="#e11d48"
+                                  stroke-width="1.2" />
+                                <text x="650" y="143" fill="#fda4af" font-size="9" font-family="monospace"
+                                  text-anchor="middle" font-weight="700">HOT STANDBY</text>
+                                <text x="650" y="157" fill="#fb7185" font-size="7.5" font-family="monospace"
+                                  text-anchor="middle">Synchronous Replica</text>
+                                <path d="M 515 98 L 545 98 L 545 71 L 580 71" stroke="#e11d48" stroke-width="1.5" />
+                                <path d="M 515 118 L 545 118 L 545 146 L 580 146" stroke="#e11d48" stroke-width="1.5" />
+                                <circle cx="330" cy="95" r="5" fill="#f43f5e" />
+                                <circle cx="390" cy="121" r="5" fill="#f43f5e" />
+                                <circle cx="545" cy="71" r="4" fill="#fb7185" />
+                                <text x="342" y="180" fill="#fda4af" font-size="8.5" font-family="monospace"
+                                  text-anchor="middle">ZERO DATA LOSS &bull; TWO-PHASE COMMIT (2PC) &bull; AES-256
+                                  ENCRYPTION</text>
+                              </svg>
+                            </div>
+                            <p style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
+                              Note: Raft consensus and two-phase commit operate at different layers here, not as
+                              interchangeable alternatives — see the clarification in the third card below.
+                            </p>
+
+                            <div class="topo-term-grid">
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#e11d48;background:rgba(225,29,72,0.1);border-color:rgba(225,29,72,0.25);">"Redundant
+                                    dual-rail conduits"</span>
+                                  <span class="topo-term-real-badge" style="color:#e11d48;">High Availability</span>
+                                </div>
+                                <h5 class="topo-term-name">Synchronous Quorum Replication</h5>
+                                <p class="topo-term-desc">
+                                  A transaction is only committed once a quorum of replicas has confirmed the write —
+                                  coordinated through Raft (Ongaro &amp; Ousterhout, 2014) or Paxos (Lamport, 1998). This
+                                  is what prevents a split-brain state if one node in the cluster fails.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#e11d48;background:rgba(225,29,72,0.1);border-color:rgba(225,29,72,0.25);">"Encryption
+                                    validation gates"</span>
+                                  <span class="topo-term-real-badge" style="color:#e11d48;">Security</span>
+                                </div>
+                                <h5 class="topo-term-name">mTLS and In-Transit Verification</h5>
+                                <p class="topo-term-desc">
+                                  This is the perimeter check performed before a request reaches the transactional core:
+                                  mutual TLS with X.509 certificate validation, payload encryption (typically AES-256-GCM),
+                                  and integrity verification (HMAC-SHA256) — the layer that stops a tampered or spoofed
+                                  request from being processed.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#e11d48;background:rgba(225,29,72,0.1);border-color:rgba(225,29,72,0.25);">"Pulsating
+                                    ACID tokens"</span>
+                                  <span class="topo-term-real-badge" style="color:#e11d48;">Consensus</span>
+                                </div>
+                                <h5 class="topo-term-name">Two-Phase Commit — a Different Layer From Raft</h5>
+                                <p class="topo-term-desc">
+                                  It is worth separating two mechanisms the diagram places side by side. Raft (or Paxos)
+                                  replicates a single shard across its own nodes. Two-phase commit (Gray, 1978) is what
+                                  coordinates atomicity when one transaction spans <em>multiple</em> shards: each
+                                  participant is asked to <code>Prepare</code>, and only commits once every participant
+                                  has agreed. In a system such as CockroachDB, both run at once — Raft within a range,
+                                  2PC across ranges — which is why the diagram shows two parallel lines rather than one.
+                                </p>
+                              </div>
+
+                              <div class="topo-term-card">
+                                <div class="topo-term-header">
+                                  <span class="topo-term-visual"
+                                    style="color:#e11d48;background:rgba(225,29,72,0.1);border-color:rgba(225,29,72,0.25);"><code>GATEWAY::DUAL_RAIL</code></span>
+                                  <span class="topo-term-real-badge" style="color:#e11d48;">Zero Data Loss</span>
+                                </div>
+                                <h5 class="topo-term-name">Mission-Critical Financial OLTP</h5>
+                                <p class="topo-term-desc">
+                                  This is the general class of infrastructure used for banking ledgers, payment gateways,
+                                  and clearing systems, where strict serializability is required so that account balances
+                                  and audit trails remain correct even under node failure.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="topo-tools-bar">
+                              <span class="topo-tools-label">Production Stack:</span>
+                              <span class="topo-tool-chip">PostgreSQL (mTLS / Patroni)</span>
+                              <span class="topo-tool-chip">CockroachDB</span>
+                              <span class="topo-tool-chip">HashiCorp Vault</span>
+                              <span class="topo-tool-chip">Envoy Proxy</span>
+                              <span class="topo-tool-chip">Raft Consensus</span>
+                            </div>
+                          </div><!-- /#panel-crimson -->
+
+                        </div><!-- /.topo-notes-wrap -->
+
+                        <!-- ── Master Summary Comparison Table ── -->
+                        <div class="topo-summary-wrap">
+                          <table class="topo-table">
+                            <thead>
+                              <tr>
+                                <th>Visual Theme</th>
+                                <th>Architectural Paradigm</th>
+                                <th>Underlying Mechanism</th>
+                                <th>Typical Latency Profile</th>
+                                <th>Representative Stack</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="topo-table-theme"><span style="color:#00e5ff;">⚡</span> Stellar</td>
+                                <td>Distributed Cloud Mesh</td>
+                                <td>Multi-region replication — tunable quorum (Cassandra) or consensus-based (CockroachDB, Spanner)</td>
+                                <td>10&ndash;80 ms (inter-region RTT)</td>
+                                <td>CockroachDB, Cassandra, Spanner, AWS TGW</td>
+                              </tr>
+                              <tr>
+                                <td class="topo-table-theme"><span style="color:#00C896;">🌿</span> Void Mint</td>
+                                <td>ETL Data Pipeline (DAG)</td>
+                                <td>Dependency-ordered task scheduling, CDC ingestion, synchronization barriers</td>
+                                <td>Minutes&ndash;hours (scheduled batch)</td>
+                                <td>Airflow, Dagster, dbt, Spark, Debezium</td>
+                              </tr>
+                              <tr>
+                                <td class="topo-table-theme"><span style="color:#D4915C;">☕</span> Espresso</td>
+                                <td>Data Warehouse Columnar Fabric</td>
+                                <td>Column-oriented layout, partition pruning, vectorized scans, background compaction</td>
+                                <td>Seconds (high-throughput scan)</td>
+                                <td>Snowflake, BigQuery, ClickHouse, Parquet, Iceberg</td>
+                              </tr>
+                              <tr>
+                                <td class="topo-table-theme"><span style="color:#C49B82;">🍫</span> Mocha</td>
+                                <td>Event-Driven Message Broker</td>
+                                <td>Topic partitioning, consumer group scaling, fan-out, ACK-based delivery</td>
+                                <td>Under 20 ms typical</td>
+                                <td>Apache Kafka, RabbitMQ, Pulsar, Redpanda</td>
+                              </tr>
+                              <tr>
+                                <td class="topo-table-theme"><span style="color:#C8A96E;">✨</span> Truffle</td>
+                                <td>Real-Time OLAP Compute Matrix</td>
+                                <td>OLAP cubes, cost-based query routing, in-memory streaming ingestion</td>
+                                <td>Tens of ms typical</td>
+                                <td>Apache Druid, Apache Pinot, ClickHouse, Trino</td>
+                              </tr>
+                              <tr>
+                                <td class="topo-table-theme"><svg class="ruby-gem-icon" viewBox="0 0 24 24" width="16"
+                                    height="16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="#dc2626" />
+                                    <polygon points="6,3 2,8.5 8.5,8.5" fill="#991b1b" />
+                                    <polygon points="18,3 22,8.5 15.5,8.5" fill="#7f1d1d" />
+                                    <polygon points="8.5,8.5 15.5,8.5 12,21" fill="#991b1b" />
+                                    <polygon points="2,8.5 8.5,8.5 12,21" fill="#b91c1c" />
+                                    <polygon points="15.5,8.5 22,8.5 12,21" fill="#580808" />
+                                    <polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="none"
+                                      stroke="rgba(255,255,255,0.45)" stroke-width="0.6" />
+                                    <line x1="2" y1="8.5" x2="22" y2="8.5" stroke="rgba(255,255,255,0.35)"
+                                      stroke-width="0.6" />
+                                    <line x1="8.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)"
+                                      stroke-width="0.6" />
+                                    <line x1="15.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)"
+                                      stroke-width="0.6" />
+                                  </svg> Crimson Ruby</td>
+                                <td>Mission-Critical Transaction Fabric</td>
+                                <td>Raft/Paxos for intra-shard replication, two-phase commit for cross-shard atomicity, mTLS gateway</td>
+                                <td>5&ndash;15 ms typical (strict serializability)</td>
+                                <td>PostgreSQL (Patroni), CockroachDB, Vault, Envoy</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <!-- Sources -->
+                        <div class="topo-sources-wrap" style="margin-top:1.25rem; font-size:0.78rem; color:var(--text-muted); line-height:1.6;">
+                          <strong style="color:var(--text-secondary);">Sources referenced above:</strong>
+                          <ol style="margin:0.4rem 0 0 1.1rem; padding:0;">
+                            <li>Brewer, E. (2000). Towards Robust Distributed Systems (CAP conjecture, PODC keynote).</li>
+                            <li>Gilbert, S. &amp; Lynch, N. (2002). Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services. <em>ACM SIGACT News</em>.</li>
+                            <li>DeCandia, G. et al. (2007). Dynamo: Amazon's Highly Available Key-value Store. <em>SOSP</em>.</li>
+                            <li>Ongaro, D. &amp; Ousterhout, J. (2014). In Search of an Understandable Consensus Algorithm (Raft). <em>USENIX ATC</em>.</li>
+                            <li>Lamport, L. (1998). The Part-Time Parliament (Paxos). <em>ACM TOCS</em>.</li>
+                            <li>Corbett, J. et al. (2012). Spanner: Google's Globally-Distributed Database. <em>OSDI</em>.</li>
+                            <li>Gray, J. (1978). Notes on Data Base Operating Systems (two-phase commit).</li>
+                            <li>Stonebraker, M. et al. (2005). C-Store: A Column-oriented DBMS. <em>VLDB</em>.</li>
+                            <li>Kreps, J., Narkhede, N., &amp; Rao, J. (2011). Kafka: a Distributed Messaging System for Log Processing. <em>NetDB</em>.</li>
+                            <li>Yang, F. et al. (2014). Druid: A Real-time Analytical Data Store. <em>SIGMOD</em>.</li>
+                            <li>Cormen, T., Leiserson, C., Rivest, R., &amp; Stein, C. (2009). <em>Introduction to Algorithms</em> (3rd ed.) — topological sort.</li>
+                          </ol>
+                        </div>
+
+                        <!-- Closing statement, reframed as design philosophy, not a citation -->
+                        <div class="sig-quote" style="margin-top: 1.5rem;">
+                          <p class="sig-text">
+                            A visual layer stops being decoration the moment its parts correspond to something checkable —
+                            a round-trip time, a quorum size, a partition boundary. That correspondence is the whole design
+                            principle behind these six themes; everything else is styling.
+                          </p>
+                          <div class="sig-footer">Design note, not a citation &nbsp;&middot;&nbsp;
+                            <span>#DataEngineering #DistributedSystems #VisualMetaphor #EnterpriseArchitecture
+                              #SystemIntegrity</span>
+                          </div>
+                        </div>
+
+                        <!-- Tab switching interactive script -->
+                        <script>
+                          (function () {
+                            var wrap = document.getElementById('topoNotesWrap');
+                            if (!wrap) return;
+                            var tabs = wrap.querySelectorAll('.topo-tab');
+                            var panels = wrap.querySelectorAll('.topo-panel');
+
+                            tabs.forEach(function (tab) {
+                              tab.addEventListener('click', function () {
+                                var theme = this.getAttribute('data-theme');
+
+                                tabs.forEach(function (t) {
+                                  t.classList.remove('active');
+                                  t.setAttribute('aria-selected', 'false');
+                                });
+                                this.classList.add('active');
+                                this.setAttribute('aria-selected', 'true');
+
+                                panels.forEach(function (p) {
+                                  p.style.display = 'none';
+                                });
+                                var target = document.getElementById('panel-' + theme);
+                                if (target) {
+                                  target.style.display = 'flex';
+                                }
+                              });
+                            });
+                          })();
+                        </script>
+
+                      </div><!-- /.ce-root -->
+
+                      <div class="note-signature"
+                        style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
+                        <span style="color: var(--text-muted); font-style: italic;">From Visual Metaphor to Verified Mechanism</span>
+                        <span class="signature-name" style="font-weight: bold;">&mdash; Dhani N.</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.notes-accordion-item (Note 8, revised) -->
+
               <!-- ═══ Note 7: Design Thinking & Agile — Two Lenses, One Delivery ═══ -->
               <div class="notes-accordion-item" data-note-date="2026-08-09">
 
@@ -6342,7 +7480,7 @@
   </div>
 
   <!-- Scripts -->
-  <script type="module" src="js/main.min.js?v=2.6" defer></script>
+  <script type="module" src="js/main.min.js?v=2.8" defer></script>
   <script src="chatbot.min.js?v=2.3" defer></script>
 
 </body>

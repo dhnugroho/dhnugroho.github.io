@@ -2613,3 +2613,316 @@ body.light-mode .notes-acc-toggle:hover {
   border-color: var(--accent-primary);
   background: var(--accent-primary-dim);
 }
+
+/* ================================================================
+   NOTE 8: THEME ARCHITECTURE TOPOLOGIES (DEEP-DIVE REFERENCE)
+   ================================================================ */
+.topo-notes-wrap {
+  margin: 1.5rem 0;
+}
+
+.topo-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+}
+
+body.light-mode .topo-tab-bar {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.topo-tab {
+  flex: 1 1 calc(16.666% - 0.5rem);
+  min-width: 120px;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.topo-tab:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.light-mode .topo-tab:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.topo-tab.active {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border-color: var(--border-glow);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.topo-tab.active[data-theme="stellar"] { border-color: #00e5ff; color: #00e5ff; }
+.topo-tab.active[data-theme="voidmint"] { border-color: #00C896; color: #00C896; }
+.topo-tab.active[data-theme="espresso"] { border-color: #D4915C; color: #D4915C; }
+.topo-tab.active[data-theme="mocha"] { border-color: #C49B82; color: #C49B82; }
+.topo-tab.active[data-theme="truffle"] { border-color: #C8A96E; color: #C8A96E; }
+.topo-tab.active[data-theme="crimson"] { border-color: #e11d48; color: #e11d48; }
+
+.topo-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.topo-header-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+}
+
+.topo-header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topo-header-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--accent-primary);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+}
+
+/* ── Graphic Diagram Box ── */
+.topo-diagram-box {
+  background: rgba(10, 15, 26, 0.88);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+body.light-mode .topo-diagram-box {
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.topo-diagram-svg {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  display: block;
+}
+
+/* ── Term Grid: Visual Term -> Real Process ── */
+.topo-term-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .topo-term-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topo-term-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.topo-term-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-glow);
+}
+
+.topo-term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.topo-term-visual {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--accent-warm);
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.topo-term-real-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.topo-term-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.topo-term-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.topo-term-desc code {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--accent-primary);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* ── Tool Stack Bar ── */
+.topo-tools-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0.65rem 0.95rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 8px;
+  font-size: 0.76rem;
+}
+
+body.light-mode .topo-tools-bar {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.topo-tools-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.topo-tool-chip {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* ── Master Summary Comparison Table ── */
+.topo-summary-wrap {
+  margin-top: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow-x: auto;
+  background: var(--bg-surface);
+}
+
+.topo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.topo-table th {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+body.light-mode .topo-table th {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.topo-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.topo-table tr:last-child td {
+  border-bottom: none;
+}
+
+.topo-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+body.light-mode .topo-table tr:hover td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.topo-table-theme {
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Ruby Gem Icon (Maroon Theme Emblem) ── */
+.ruby-gem-icon {
+  display: inline-block;
+  vertical-align: -0.16em;
+  flex-shrink: 0;
+  width: 1.15em;
+  height: 1.15em;
+  filter: drop-shadow(0 0 2px rgba(128, 0, 0, 0.5));
+}

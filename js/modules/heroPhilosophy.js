@@ -54,6 +54,7 @@ export const TOPOLOGIES = {
     id: 'maroon',
     themeName: 'Crimson Ruby',
     emoji: '💎',
+    iconHtml: '<svg class="ruby-gem-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="#dc2626"/><polygon points="6,3 2,8.5 8.5,8.5" fill="#991b1b"/><polygon points="18,3 22,8.5 15.5,8.5" fill="#7f1d1d"/><polygon points="8.5,8.5 15.5,8.5 12,21" fill="#991b1b"/><polygon points="2,8.5 8.5,8.5 12,21" fill="#b91c1c"/><polygon points="15.5,8.5 22,8.5 12,21" fill="#580808"/><polygon points="6,3 18,3 15.5,8.5 8.5,8.5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="0.6"/><line x1="2" y1="8.5" x2="22" y2="8.5" stroke="rgba(255,255,255,0.35)" stroke-width="0.6"/><line x1="8.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)" stroke-width="0.6"/><line x1="15.5" y1="8.5" x2="12" y2="21" stroke="rgba(255,255,255,0.25)" stroke-width="0.6"/></svg>',
     title: 'Mission-Critical Transaction Fabric & Security Gateway',
     philosophy: 'Redundant dual-rail transactional conduits, encryption validation gates, and pulsating ruby-crimson ACID transaction tokens.',
     telemetry: 'GATEWAY::DUAL_RAIL · ACID Tokens',
@@ -96,7 +97,13 @@ export function initHeroPhilosophy() {
     const data = TOPOLOGIES[themeId] || TOPOLOGIES.default;
     currentThemeId = themeId;
 
-    if (themeIcon) themeIcon.textContent = data.emoji;
+    if (themeIcon) {
+      if (data.iconHtml) {
+        themeIcon.innerHTML = data.iconHtml;
+      } else {
+        themeIcon.textContent = data.emoji;
+      }
+    }
     if (themeName) themeName.textContent = data.themeName;
     if (paradigmTitle) paradigmTitle.textContent = data.title;
     if (philosophyText) philosophyText.innerHTML = data.philosophy;
