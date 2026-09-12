@@ -1,4 +1,5 @@
 import { initHeroBackground } from './modules/heroBackground.js';
+import { initHeroPhilosophy } from './modules/heroPhilosophy.js';
 import { initTyping } from './modules/typing.js';
 import { initNavbar } from './modules/navbar.js';
 import { initTheme } from './modules/theme.js';
@@ -25,6 +26,7 @@ function initCritical() {
   initNavbar();
   initTyping();
   initHeroBackground();
+  initHeroPhilosophy();
 }
 
 // Phase 2: Deferred (Below the fold - executed in separate idle slices)

@@ -113,7 +113,7 @@
           chosenVariant = userPicked;
         } else {
           var lastVariant = localStorage.getItem('lastColorThemeVariant');
-          var pool = variants.filter(function(v) { return v !== lastVariant; });
+          var pool = variants.filter(function (v) { return v !== lastVariant; });
           chosenVariant = pool[Math.floor(Math.random() * pool.length)];
           localStorage.setItem('lastColorThemeVariant', chosenVariant);
         }
@@ -536,13 +536,32 @@
       padding: 0 1.5rem;
     }
 
-    .hero-avatar {
+    .hero-profile-area {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero-avatar-wrapper {
+      position: relative;
       width: 140px;
       height: 140px;
       border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 2rem;
-      display: inline-block;
+      margin-bottom: 0;
+      display: block;
       aspect-ratio: 1/1;
     }
 
@@ -652,9 +671,15 @@
       animation: progress-shimmer 2.5s linear infinite;
       transition: width 0.1s linear;
     }
+
     @keyframes progress-shimmer {
-      0%   { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
     }
 
     .wave-divider {
@@ -707,10 +732,19 @@
         padding-top: 4rem;
       }
 
-      .hero-avatar {
+      .hero-profile-area {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-avatar-wrapper {
         width: 100px;
         height: 100px;
-        margin-bottom: 1.5rem;
+      }
+
+      .hero-avatar {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
       }
 
       .nav-links {
@@ -720,7 +754,7 @@
   </style>
 
   <!-- Stylesheets (blocking — critical for layout correctness; inline CSS already covers hero) -->
-  <link rel="stylesheet" href="css/main.min.css?v=2.3">
+  <link rel="stylesheet" href="css/main.min.css?v=2.6">
   <link rel="stylesheet" href="css/notes.min.css?v=2.3">
 </head>
 
@@ -776,8 +810,63 @@
     <canvas id="particleCanvas"></canvas>
 
     <div class="hero-content">
-      <img class="hero-avatar" src="img/profile.webp?v=2.2" alt="Dhani Nugroho — Profile Photo" width="140" height="140"
-        fetchpriority="high">
+      <!-- Hero Profile & Interactive Architecture Topology Area -->
+      <div class="hero-profile-area" id="heroProfileArea">
+        <div class="hero-avatar-wrapper" id="heroAvatarWrap" role="button" tabindex="0"
+          aria-haspopup="dialog" aria-expanded="false"
+          aria-label="Active Topology: Distributed Cloud Mesh (Stellar). Click to toggle architecture philosophy."
+          title="Click profile to inspect active architecture philosophy">
+          <img class="hero-avatar" src="img/profile.webp?v=2.2" alt="Dhani Nugroho — Profile Photo" width="140" height="140"
+            fetchpriority="high">
+          <!-- Interactive idea spark badge attached to avatar -->
+          <div class="hero-avatar-spark" id="heroAvatarSpark" aria-hidden="true">
+            <span class="spark-icon">💡</span>
+            <span class="spark-pulse"></span>
+          </div>
+          <!-- Pulsing topology halo ring -->
+          <div class="hero-avatar-halo" aria-hidden="true"></div>
+        </div>
+
+        <!-- Interactive Architecture Topology Thought Callout / HUD Card (Minimalist) -->
+        <div class="hero-topology-bubble" id="heroTopologyBubble" role="dialog" aria-label="Active Technical Topology Philosophy" aria-hidden="true">
+          <div class="bubble-arrow" aria-hidden="true"></div>
+          
+          <div class="bubble-inner">
+            <div class="bubble-header">
+              <div class="bubble-theme-badge" id="bubbleThemeBadge">
+                <span class="bubble-theme-icon" id="bubbleThemeIcon">⚡</span>
+                <span class="bubble-theme-name" id="bubbleThemeName">Stellar</span>
+                <span class="bubble-topology-chip" id="bubbleTopologyChip">TOPOLOGY</span>
+              </div>
+              <div class="bubble-header-actions">
+                <span class="bubble-live-beacon" title="Live Topology Active">
+                  <span class="beacon-dot"></span> LIVE
+                </span>
+                <button type="button" class="bubble-close-btn" id="bubbleCloseBtn" aria-label="Dismiss card">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <h4 class="bubble-paradigm-title" id="bubbleParadigmTitle">Distributed Cloud Mesh</h4>
+            <p class="bubble-philosophy-text" id="bubblePhilosophyText">
+              Full-width cross-region fiber trunks with 45° dogleg bypasses, dual cyan/violet sync packets, and <code>CLOUD::BACKBONE</code> telemetry.
+            </p>
+
+            <div class="bubble-telemetry-tag" id="bubbleTelemetryTag">
+              <span class="telemetry-dot"></span>
+              <code id="bubbleTelemetryVal">CLOUD::BACKBONE · 45° Dogleg Trunks</code>
+            </div>
+          </div>
+
+          <div class="bubble-timer-track" title="Auto-dismiss timer (pauses on hover)">
+            <div class="bubble-timer-bar" id="bubbleTimerBar"></div>
+          </div>
+        </div>
+      </div>
 
       <p class="hero-greeting">// hello, world</p>
 
@@ -829,11 +918,6 @@
           <polyline points="19 12 12 19 5 12"></polyline>
         </svg>
       </a>
-    </div>
-
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </header>
 
@@ -6258,7 +6342,7 @@
   </div>
 
   <!-- Scripts -->
-  <script type="module" src="js/main.min.js?v=2.3" defer></script>
+  <script type="module" src="js/main.min.js?v=2.6" defer></script>
   <script src="chatbot.min.js?v=2.3" defer></script>
 
 </body>

@@ -132,13 +132,13 @@ export function initHeroBackground() {
   const THEME_PRESETS = {
     default: {
       name: 'Distributed Cloud Mesh',
-      telemetry: 'CLOUD::DISTRIBUTED_MESH',
+      telemetry: 'CLOUD::BACKBONE',
       subTelemetry: 'CROSS_REGION::ACTIVE [12ms]',
       nodeShape: 'circle',
       gridType: 'crosshair',
     },
     green: {
-      name: 'ETL Pipeline DAG',
+      name: 'ETL Data Pipeline (DAG)',
       telemetry: 'ETL::DAG_EXECUTOR',
       subTelemetry: 'STAGE::TRANSFORM_LOAD [10K/s]',
       nodeShape: 'square',
@@ -166,8 +166,8 @@ export function initHeroBackground() {
       gridType: 'precision_matrix',
     },
     maroon: {
-      name: 'Zero-Trust Transaction Fabric',
-      telemetry: 'GATEWAY::ZERO_TRUST',
+      name: 'Mission-Critical Transaction Fabric & Security Gateway',
+      telemetry: 'GATEWAY::DUAL_RAIL_SECURITY',
       subTelemetry: 'TX::ACID_CONSENSUS [0x8F4E]',
       nodeShape: 'hex_vault',
       gridType: 'security_mesh',

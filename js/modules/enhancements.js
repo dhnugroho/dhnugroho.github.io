@@ -80,7 +80,7 @@ function initHeroParallax() {
   const hero = document.getElementById('hero');
   if (!hero) return;
 
-  const avatar = hero.querySelector('.hero-avatar');
+  const avatar = hero.querySelector('.hero-profile-area') || hero.querySelector('.hero-avatar');
   const greeting = hero.querySelector('.hero-greeting');
   const heroName = hero.querySelector('.hero-name');
   const canvas = hero.querySelector('#particleCanvas');
