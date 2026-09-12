@@ -315,8 +315,8 @@ body.light-mode .modal-image {
 /* ---- 16. BACK-TO-TOP FAB WITH PROGRESS RING ---- */
 .back-to-top {
   position: fixed;
-  bottom: 6.5rem;
-  right: 2rem;
+  bottom: calc(2rem + 55px + 0.75rem + 55px + 0.75rem); /* positioned directly above #theme-chooser-badge */
+  right: calc(2rem + 3.5px);                           /* centered with 55px buttons below */
   z-index: 9999;
   width: 48px;
   height: 48px;
@@ -332,7 +332,7 @@ body.light-mode .modal-image {
   visibility: hidden;
   transform: translateY(20px);
   transition: opacity 0.3s, visibility 0.3s, transform 0.3s var(--ease-spring),
-              box-shadow 0.3s, background 0.3s;
+              box-shadow 0.3s, background 0.3s, color 0.3s;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -344,9 +344,13 @@ body.light-mode .modal-image {
 
 .back-to-top:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 229, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-primary-dim);
   background: var(--accent-primary);
-  color: var(--bg-deep);
+  color: var(--bg-surface-solid);
+}
+
+body.maroon-theme .back-to-top:hover {
+  color: #EDE7DA;
 }
 
 .back-to-top svg.progress-ring {
@@ -373,8 +377,8 @@ body.light-mode .modal-image {
 
 @media (max-width: 768px) {
   .back-to-top {
-    bottom: 5.5rem;
-    right: 1.5rem;
+    bottom: calc(1.5rem + 48px + 0.65rem + 48px + 0.65rem);
+    right: calc(1.5rem + 3px);
     width: 42px;
     height: 42px;
   }

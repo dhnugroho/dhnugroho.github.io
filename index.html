@@ -106,7 +106,7 @@
 
       /* 2. Color Theme Variant — honors persistent user pick, otherwise randomizes once per load */
       try {
-        var variants = ['default', 'green', 'cocoa', 'mocha', 'truffle'];
+        var variants = ['default', 'green', 'cocoa', 'mocha', 'truffle', 'maroon'];
         var userPicked = localStorage.getItem('userPickedColorTheme');
         var chosenVariant;
         if (userPicked && variants.indexOf(userPicked) !== -1) {
@@ -327,6 +327,44 @@
       --border-glow: rgba(107, 79, 58, 0.30);
       background-color: #F5EFE6;
       color: #2A1F14;
+    }
+
+    /* Maroon alternate theme (dark) pending */
+    html.maroon-theme-pending body,
+    html.maroon-theme-pending {
+      --bg-deep: #1A1918;
+      --bg-surface: rgba(43, 42, 40, 0.78);
+      --bg-surface-solid: #2B2A28;
+      --bg-card: rgba(43, 42, 40, 0.58);
+      --accent-primary: #7A1F2B;
+      --accent-warm: #800000;
+      --accent-glow: #5A0000;
+      --accent-primary-dim: rgba(122, 31, 43, 0.22);
+      --text-primary: #EDE7DA;
+      --text-muted: #A89E90;
+      --text-bright: #FFFFFF;
+      --border-subtle: rgba(237, 231, 218, 0.14);
+      --border-glow: rgba(122, 31, 43, 0.45);
+    }
+
+    /* Maroon alternate theme (light) pending */
+    html.light-mode-pending.maroon-theme-pending body,
+    html.light-mode-pending.maroon-theme-pending {
+      --bg-deep: #EDE7DA;
+      --bg-surface: rgba(237, 231, 218, 0.85);
+      --bg-surface-solid: #E3DDD0;
+      --bg-card: rgba(237, 231, 218, 0.70);
+      --accent-primary: #800000;
+      --accent-warm: #7A1F2B;
+      --accent-glow: #5A0000;
+      --accent-primary-dim: rgba(128, 0, 0, 0.14);
+      --text-primary: #2B2A28;
+      --text-muted: #6E685E;
+      --text-bright: #800000;
+      --border-subtle: rgba(43, 42, 40, 0.12);
+      --border-glow: rgba(128, 0, 0, 0.35);
+      background-color: #EDE7DA;
+      color: #2B2A28;
     }
 
     /* Quick Scan: hide sections immediately on html attribute — before JS runs */

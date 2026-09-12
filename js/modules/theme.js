@@ -4,8 +4,8 @@ export function initTheme() {
   const themeIconLight = document.getElementById('themeIconLight');
 
   // ── All available color theme variants ────────────────────────────────────
-  const THEME_VARIANTS = ['default', 'green', 'cocoa', 'mocha', 'truffle'];
-  const THEME_CLASSES  = ['green-theme', 'cocoa-theme', 'mocha-theme', 'truffle-theme'];
+  const THEME_VARIANTS = ['default', 'green', 'cocoa', 'mocha', 'truffle', 'maroon'];
+  const THEME_CLASSES  = ['green-theme', 'cocoa-theme', 'mocha-theme', 'truffle-theme', 'maroon-theme'];
 
   // ── Light / Dark preference (persisted) ──────────────────────────────────
   const savedTheme        = localStorage.getItem('theme');
@@ -63,6 +63,10 @@ export function initTheme() {
         const metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) metaThemeColor.setAttribute('content', '#0a0e17');
       }
+
+      try {
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { isLight } }));
+      } catch (_) {}
     });
   }
 }

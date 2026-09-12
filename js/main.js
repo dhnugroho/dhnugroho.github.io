@@ -1,4 +1,4 @@
-import { initParticles } from './modules/particles.js';
+import { initHeroBackground } from './modules/heroBackground.js';
 import { initTyping } from './modules/typing.js';
 import { initNavbar } from './modules/navbar.js';
 import { initTheme } from './modules/theme.js';
@@ -24,7 +24,7 @@ function initCritical() {
   initFocusMode();
   initNavbar();
   initTyping();
-  initParticles();
+  initHeroBackground();
 }
 
 // Phase 2: Deferred (Below the fold - executed in separate idle slices)

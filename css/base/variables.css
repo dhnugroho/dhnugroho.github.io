@@ -76,49 +76,49 @@ body.light-mode {
 /* --- Green Dark (default / no light-mode) --- */
 body.green-theme {
   /* Backgrounds — Void */
-  --bg-deep:         #0E0F12;
-  --bg-surface:      rgba(22, 23, 27, 0.75);
-  --bg-surface-solid:#16171B;
-  --bg-card:         rgba(22, 23, 27, 0.55);
+  --bg-deep: #0E0F12;
+  --bg-surface: rgba(22, 23, 27, 0.75);
+  --bg-surface-solid: #16171B;
+  --bg-card: rgba(22, 23, 27, 0.55);
 
   /* Accents — Mint / Pulse */
-  --accent-primary:     #00C896;
-  --accent-warm:        #78C99A;
-  --accent-glow:        #006B4F;
+  --accent-primary: #00C896;
+  --accent-warm: #78C99A;
+  --accent-glow: #006B4F;
   --accent-primary-dim: rgba(0, 200, 150, 0.15);
 
   /* Text */
   --text-primary: #E8E8E0;
-  --text-muted:   #8FA898;
-  --text-bright:  #00FFB3;
+  --text-muted: #8FA898;
+  --text-bright: #00FFB3;
 
   /* Borders */
   --border-subtle: rgba(143, 168, 152, 0.12);
-  --border-glow:   rgba(0, 200, 150, 0.30);
+  --border-glow: rgba(0, 200, 150, 0.30);
 }
 
 /* --- Green Light --- */
 body.light-mode.green-theme {
   /* Backgrounds — Birch / Lichen */
-  --bg-deep:         #F0F4EE;
-  --bg-surface:      rgba(226, 235, 228, 0.85);
-  --bg-surface-solid:#E2EBE4;
-  --bg-card:         rgba(226, 235, 228, 0.70);
+  --bg-deep: #F0F4EE;
+  --bg-surface: rgba(226, 235, 228, 0.85);
+  --bg-surface-solid: #E2EBE4;
+  --bg-card: rgba(226, 235, 228, 0.70);
 
   /* Accents — Forest / Moss */
-  --accent-primary:     #2E7D52;
-  --accent-warm:        #1C5C3A;
-  --accent-glow:        #78C99A;
+  --accent-primary: #2E7D52;
+  --accent-warm: #1C5C3A;
+  --accent-glow: #78C99A;
   --accent-primary-dim: rgba(46, 125, 82, 0.12);
 
   /* Text */
   --text-primary: #1C2B22;
-  --text-muted:   #8FA898;
-  --text-bright:  #2E7D52;
+  --text-muted: #8FA898;
+  --text-bright: #2E7D52;
 
   /* Borders */
   --border-subtle: rgba(28, 43, 34, 0.10);
-  --border-glow:   rgba(46, 125, 82, 0.30);
+  --border-glow: rgba(46, 125, 82, 0.30);
 }
 
 /* ============================================
@@ -133,49 +133,49 @@ body.light-mode.green-theme {
 /* --- Cocoa Dark --- */
 body.cocoa-theme {
   /* Backgrounds — Espresso */
-  --bg-deep:         #1A120B;
-  --bg-surface:      rgba(38, 26, 18, 0.75);
-  --bg-surface-solid:#261A12;
-  --bg-card:         rgba(38, 26, 18, 0.55);
+  --bg-deep: #1A120B;
+  --bg-surface: rgba(38, 26, 18, 0.75);
+  --bg-surface-solid: #261A12;
+  --bg-card: rgba(38, 26, 18, 0.55);
 
   /* Accents — Warm Cocoa / Caramel */
-  --accent-primary:     #D4915C;
-  --accent-warm:        #E8B88A;
-  --accent-glow:        #8B5E3C;
+  --accent-primary: #D4915C;
+  --accent-warm: #E8B88A;
+  --accent-glow: #8B5E3C;
   --accent-primary-dim: rgba(212, 145, 92, 0.15);
 
   /* Text */
   --text-primary: #F5E6D3;
-  --text-muted:   #A89080;
-  --text-bright:  #FFD4A8;
+  --text-muted: #A89080;
+  --text-bright: #FFD4A8;
 
   /* Borders */
   --border-subtle: rgba(168, 144, 128, 0.12);
-  --border-glow:   rgba(212, 145, 92, 0.30);
+  --border-glow: rgba(212, 145, 92, 0.30);
 }
 
 /* --- Cocoa Light --- */
 body.light-mode.cocoa-theme {
   /* Backgrounds — Latte / Cream */
-  --bg-deep:         #FDF6EC;
-  --bg-surface:      rgba(245, 230, 211, 0.85);
-  --bg-surface-solid:#F5E6D3;
-  --bg-card:         rgba(245, 230, 211, 0.70);
+  --bg-deep: #FDF6EC;
+  --bg-surface: rgba(245, 230, 211, 0.85);
+  --bg-surface-solid: #F5E6D3;
+  --bg-card: rgba(245, 230, 211, 0.70);
 
   /* Accents — Dark Cocoa */
-  --accent-primary:     #8B5E3C;
-  --accent-warm:        #6B4226;
-  --accent-glow:        #D4915C;
+  --accent-primary: #8B5E3C;
+  --accent-warm: #6B4226;
+  --accent-glow: #D4915C;
   --accent-primary-dim: rgba(139, 94, 60, 0.12);
 
   /* Text */
   --text-primary: #2C1810;
-  --text-muted:   #8B7260;
-  --text-bright:  #8B5E3C;
+  --text-muted: #8B7260;
+  --text-bright: #8B5E3C;
 
   /* Borders */
   --border-subtle: rgba(44, 24, 16, 0.10);
-  --border-glow:   rgba(139, 94, 60, 0.30);
+  --border-glow: rgba(139, 94, 60, 0.30);
 }
 
 /* ============================================
@@ -190,49 +190,49 @@ body.light-mode.cocoa-theme {
 /* --- Mocha Dark --- */
 body.mocha-theme {
   /* Backgrounds — Dark Coffee */
-  --bg-deep:         #141118;
-  --bg-surface:      rgba(28, 22, 32, 0.75);
-  --bg-surface-solid:#1C1620;
-  --bg-card:         rgba(28, 22, 32, 0.55);
+  --bg-deep: #141118;
+  --bg-surface: rgba(28, 22, 32, 0.75);
+  --bg-surface-solid: #1C1620;
+  --bg-card: rgba(28, 22, 32, 0.55);
 
   /* Accents — Mauve-Brown / Dusty Rose */
-  --accent-primary:     #C49B82;
-  --accent-warm:        #B8687D;
-  --accent-glow:        #7D5A50;
+  --accent-primary: #C49B82;
+  --accent-warm: #B8687D;
+  --accent-glow: #7D5A50;
   --accent-primary-dim: rgba(196, 155, 130, 0.15);
 
   /* Text */
   --text-primary: #E8DDD6;
-  --text-muted:   #9A8A82;
-  --text-bright:  #E8C4B0;
+  --text-muted: #9A8A82;
+  --text-bright: #E8C4B0;
 
   /* Borders */
   --border-subtle: rgba(154, 138, 130, 0.12);
-  --border-glow:   rgba(196, 155, 130, 0.30);
+  --border-glow: rgba(196, 155, 130, 0.30);
 }
 
 /* --- Mocha Light --- */
 body.light-mode.mocha-theme {
   /* Backgrounds — Ivory-Pink */
-  --bg-deep:         #F8F0EB;
-  --bg-surface:      rgba(240, 228, 220, 0.85);
-  --bg-surface-solid:#F0E4DC;
-  --bg-card:         rgba(240, 228, 220, 0.70);
+  --bg-deep: #F8F0EB;
+  --bg-surface: rgba(240, 228, 220, 0.85);
+  --bg-surface-solid: #F0E4DC;
+  --bg-card: rgba(240, 228, 220, 0.70);
 
   /* Accents — Roasted Brown */
-  --accent-primary:     #7D5A50;
-  --accent-warm:        #5C3D32;
-  --accent-glow:        #C49B82;
+  --accent-primary: #7D5A50;
+  --accent-warm: #5C3D32;
+  --accent-glow: #C49B82;
   --accent-primary-dim: rgba(125, 90, 80, 0.12);
 
   /* Text */
   --text-primary: #3D2B24;
-  --text-muted:   #8A7068;
-  --text-bright:  #7D5A50;
+  --text-muted: #8A7068;
+  --text-bright: #7D5A50;
 
   /* Borders */
   --border-subtle: rgba(61, 43, 36, 0.10);
-  --border-glow:   rgba(125, 90, 80, 0.30);
+  --border-glow: rgba(125, 90, 80, 0.30);
 }
 
 /* ============================================
@@ -247,47 +247,105 @@ body.light-mode.mocha-theme {
 /* --- Truffle Dark --- */
 body.truffle-theme {
   /* Backgrounds — Near-Black Chocolate */
-  --bg-deep:         #120E0A;
-  --bg-surface:      rgba(26, 20, 14, 0.75);
-  --bg-surface-solid:#1A140E;
-  --bg-card:         rgba(26, 20, 14, 0.55);
+  --bg-deep: #120E0A;
+  --bg-surface: rgba(26, 20, 14, 0.75);
+  --bg-surface-solid: #1A140E;
+  --bg-card: rgba(26, 20, 14, 0.55);
 
   /* Accents — Dark Gold / Amber */
-  --accent-primary:     #C8A96E;
-  --accent-warm:        #D4A847;
-  --accent-glow:        #8A7340;
+  --accent-primary: #C8A96E;
+  --accent-warm: #D4A847;
+  --accent-glow: #8A7340;
   --accent-primary-dim: rgba(200, 169, 110, 0.15);
 
   /* Text */
   --text-primary: #E8E0D0;
-  --text-muted:   #9A8E78;
-  --text-bright:  #F0D88A;
+  --text-muted: #9A8E78;
+  --text-bright: #F0D88A;
 
   /* Borders */
   --border-subtle: rgba(154, 142, 120, 0.12);
-  --border-glow:   rgba(200, 169, 110, 0.30);
+  --border-glow: rgba(200, 169, 110, 0.30);
 }
 
 /* --- Truffle Light --- */
 body.light-mode.truffle-theme {
   /* Backgrounds — Cream Parchment */
-  --bg-deep:         #F5EFE6;
-  --bg-surface:      rgba(235, 225, 212, 0.85);
-  --bg-surface-solid:#EBE1D4;
-  --bg-card:         rgba(235, 225, 212, 0.70);
+  --bg-deep: #F5EFE6;
+  --bg-surface: rgba(235, 225, 212, 0.85);
+  --bg-surface-solid: #EBE1D4;
+  --bg-card: rgba(235, 225, 212, 0.70);
 
   /* Accents — Dark Truffle */
-  --accent-primary:     #6B4F3A;
-  --accent-warm:        #4A3425;
-  --accent-glow:        #C8A96E;
+  --accent-primary: #6B4F3A;
+  --accent-warm: #4A3425;
+  --accent-glow: #C8A96E;
   --accent-primary-dim: rgba(107, 79, 58, 0.12);
 
   /* Text */
   --text-primary: #2A1F14;
-  --text-muted:   #8A7A68;
-  --text-bright:  #6B4F3A;
+  --text-muted: #8A7A68;
+  --text-bright: #6B4F3A;
 
   /* Borders */
   --border-subtle: rgba(42, 31, 20, 0.10);
-  --border-glow:   rgba(107, 79, 58, 0.30);
+  --border-glow: rgba(107, 79, 58, 0.30);
+}
+
+/* ============================================
+   MAROON THEME — Crimson Ruby
+   Applied via: body.maroon-theme (dark)
+                body.light-mode.maroon-theme (light)
+   Palette tokens:
+     Maroon:   #800000 & #7A1F2B
+     Charcoal: #2B2A28
+     Bone:     #EDE7DA
+   ============================================ */
+
+/* --- Maroon Dark --- */
+body.maroon-theme {
+  /* Backgrounds — Charcoal #2B2A28 */
+  --bg-deep: #1A1918;
+  --bg-surface: rgba(43, 42, 40, 0.78);
+  --bg-surface-solid: #2B2A28;
+  --bg-card: rgba(43, 42, 40, 0.58);
+
+  /* Accents — Crimson Ruby (#7A1F2B) & Maroon (#800000) */
+  --accent-primary: #7A1F2B;
+  --accent-warm: #800000;
+  --accent-glow: #5A0000;
+  --accent-primary-dim: rgba(122, 31, 43, 0.22);
+
+  /* Text — Bone #EDE7DA */
+  --text-primary: #EDE7DA;
+  --text-muted: #A89E90;
+  --text-bright: #FFFFFF;
+
+  /* Borders */
+  --border-subtle: rgba(237, 231, 218, 0.14);
+  --border-glow: rgba(122, 31, 43, 0.45);
+}
+
+/* --- Maroon Light --- */
+body.light-mode.maroon-theme {
+  /* Backgrounds — Bone #EDE7DA */
+  --bg-deep: #EDE7DA;
+  --bg-surface: rgba(237, 231, 218, 0.85);
+  --bg-surface-solid: #E3DDD0;
+  --bg-card: rgba(237, 231, 218, 0.70);
+
+  /* Accents — Maroon (#800000) & Crimson Ruby (#7A1F2B) */
+  --accent-primary: #800000;
+  --accent-warm: #7A1F2B;
+  --accent-glow: #5A0000;
+  --accent-primary-dim: rgba(128, 0, 0, 0.14);
+
+  /* Text — Charcoal #2B2A28 */
+  --text-primary: #2B2A28;
+  --text-muted: #6E685E;
+  --text-bright: #800000;
+
+  /* Borders */
+  --border-subtle: rgba(43, 42, 40, 0.12);
+  --border-glow: rgba(128, 0, 0, 0.35);
 }

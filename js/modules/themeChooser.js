@@ -6,49 +6,58 @@
 // ── Theme metadata ────────────────────────────────────────────────────────────
 const THEMES = [
   {
-    id:      'default',
-    name:    'Stellar',
-    desc:    'Electric Blue · Default',
-    emoji:   '⚡',
-    color:   '#00e5ff',
-    bg:      '#0f172a',
-    class:   null,
+    id: 'default',
+    name: 'Stellar',
+    desc: 'Electric Blue · Default',
+    emoji: '⚡',
+    color: '#00e5ff',
+    bg: '#0f172a',
+    class: null,
   },
   {
-    id:      'green',
-    name:    'Void Mint',
-    desc:    'Forest Green · Dark',
-    emoji:   '🌿',
-    color:   '#00C896',
-    bg:      '#16171B',
-    class:   'green-theme',
+    id: 'green',
+    name: 'Void Mint',
+    desc: 'Forest Green · Dark',
+    emoji: '🌿',
+    color: '#00C896',
+    bg: '#16171B',
+    class: 'green-theme',
   },
   {
-    id:      'cocoa',
-    name:    'Espresso',
-    desc:    'Warm Cocoa · Caramel',
-    emoji:   '☕',
-    color:   '#D4915C',
-    bg:      '#261A12',
-    class:   'cocoa-theme',
+    id: 'cocoa',
+    name: 'Espresso',
+    desc: 'Warm Cocoa · Caramel',
+    emoji: '☕',
+    color: '#D4915C',
+    bg: '#261A12',
+    class: 'cocoa-theme',
   },
   {
-    id:      'mocha',
-    name:    'Mocha',
-    desc:    'Mauve Brown · Dusty Rose',
-    emoji:   '🍫',
-    color:   '#C49B82',
-    bg:      '#1C1620',
-    class:   'mocha-theme',
+    id: 'mocha',
+    name: 'Mocha',
+    desc: 'Mauve Brown · Dusty Rose',
+    emoji: '🍫',
+    color: '#C49B82',
+    bg: '#1C1620',
+    class: 'mocha-theme',
   },
   {
-    id:      'truffle',
-    name:    'Truffle',
-    desc:    'Dark Gold · Amber',
-    emoji:   '✨',
-    color:   '#C8A96E',
-    bg:      '#1A140E',
-    class:   'truffle-theme',
+    id: 'truffle',
+    name: 'Truffle',
+    desc: 'Dark Gold · Amber',
+    emoji: '✨',
+    color: '#C8A96E',
+    bg: '#1A140E',
+    class: 'truffle-theme',
+  },
+  {
+    id: 'maroon',
+    name: 'Crimson Ruby',
+    desc: 'Crimson Ruby · Maroon',
+    emoji: '🍷',
+    color: '#800000',
+    bg: '#2B2A28',
+    class: 'maroon-theme',
   },
 ];
 
@@ -64,7 +73,8 @@ function getActiveTheme() {
 }
 
 // ── Apply a theme ────────────────────────────────────────────────────────────
-function applyTheme(themeId, { animate = true } = {}) {
+function applyTheme(themeId, options) {
+  const animate = options && options.animate !== undefined ? options.animate : true;
   const theme = THEMES.find(t => t.id === themeId);
   if (!theme) return;
 
@@ -89,7 +99,7 @@ function applyTheme(themeId, { animate = true } = {}) {
     // Also sync the variant keys used by the random picker so next page load respects it
     sessionStorage.setItem('chosenColorThemeVariant', themeId);
     localStorage.setItem('lastColorThemeVariant', themeId);
-  } catch (_) {}
+  } catch (_) { }
 
   // Sync meta theme-color
   const metaColor = document.querySelector('meta[name="theme-color"]');
@@ -97,6 +107,11 @@ function applyTheme(themeId, { animate = true } = {}) {
     const isLight = document.body.classList.contains('light-mode');
     metaColor.setAttribute('content', isLight ? '#ffffff' : (theme.bg || '#0a0e17'));
   }
+
+  // Dispatch event for hero background and other reactive components
+  try {
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { themeId, theme } }));
+  } catch (_) { }
 }
 
 // ── Pick a random theme (excluding current) ──────────────────────────────────
@@ -112,99 +127,60 @@ function buildChooserUI() {
   flash.className = 'tc-transition-flash';
   document.body.appendChild(flash);
 
-  // ── Badge ──────────────────────────────────────────────────────────────
+  // ── Direct Action Button — Circular Spinning Die FAB ───────────────────────
   const badge = document.createElement('button');
   badge.id = 'theme-chooser-badge';
-  badge.setAttribute('aria-label', 'Open theme picker');
-  badge.setAttribute('aria-expanded', 'false');
-  badge.setAttribute('aria-controls', 'theme-chooser-panel');
+  badge.setAttribute('aria-label', 'Surprise theme: roll a random color theme');
+  badge.setAttribute('title', 'Surprise Theme');
 
-  const swatch = document.createElement('span');
-  swatch.className = 'tc-badge-swatch';
+  // Spinning die SVG icon matching stroke/size style of themeToggleBtn
+  const dieIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  dieIcon.setAttribute('class', 'tc-badge-die-icon');
+  dieIcon.setAttribute('width', '24');
+  dieIcon.setAttribute('height', '24');
+  dieIcon.setAttribute('viewBox', '0 0 24 24');
+  dieIcon.setAttribute('fill', 'none');
+  dieIcon.setAttribute('stroke', 'currentColor');
+  dieIcon.setAttribute('stroke-width', '2');
+  dieIcon.setAttribute('stroke-linecap', 'round');
+  dieIcon.setAttribute('stroke-linejoin', 'round');
+  dieIcon.innerHTML = `
+    <rect x="3" y="3" width="18" height="18" rx="4" ry="4"/>
+    <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
+    <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+    <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor" stroke="none"/>
+    <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor" stroke="none"/>
+  `;
 
-  const label = document.createElement('span');
-  label.className = 'tc-badge-label';
+  // Tooltip label on hover
+  const tooltip = document.createElement('span');
+  tooltip.className = 'tc-badge-tooltip';
+  tooltip.textContent = 'Surprise Theme';
 
-  const chevron = document.createElement('span');
-  chevron.className = 'tc-badge-chevron';
-  chevron.innerHTML = `<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polyline points="2,3 5,7 8,3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
+  badge.append(dieIcon, tooltip);
+  document.body.append(badge);
 
-  badge.append(swatch, label, chevron);
-
-  // ── Panel ──────────────────────────────────────────────────────────────
-  const panel = document.createElement('div');
-  panel.id = 'theme-chooser-panel';
-  panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'Choose a theme');
-
-  const panelTitle = document.createElement('div');
-  panelTitle.className = 'tc-panel-title';
-  panelTitle.textContent = '🎨 Your Vibe';
-
-  const grid = document.createElement('div');
-  grid.className = 'tc-theme-grid';
-
-  // Build one row per theme
-  THEMES.forEach(theme => {
-    const row = document.createElement('button');
-    row.className = 'tc-theme-option';
-    row.dataset.themeId = theme.id;
-    row.setAttribute('aria-label', `Switch to ${theme.name} theme`);
-
-    const dot = document.createElement('span');
-    dot.className = 'tc-swatch-dot';
-    dot.style.background = theme.color;
-    dot.style.borderColor = theme.bg;
-
-    const info = document.createElement('span');
-    info.className = 'tc-swatch-info';
-
-    const name = document.createElement('span');
-    name.className = 'tc-swatch-name';
-    name.textContent = `${theme.emoji} ${theme.name}`;
-
-    const desc = document.createElement('span');
-    desc.className = 'tc-swatch-desc';
-    desc.textContent = theme.desc;
-
-    info.append(name, desc);
-    row.append(dot, info);
-    grid.appendChild(row);
-  });
-
-  // Surprise Me button
-  const surpriseBtn = document.createElement('button');
-  surpriseBtn.className = 'tc-surprise-btn';
-  surpriseBtn.innerHTML = `<span class="tc-dice-icon">🎲</span> Surprise Me`;
-
-  panel.append(panelTitle, grid, surpriseBtn);
-
-  document.body.append(badge, panel);
-
-  return { badge, panel, swatch, label, grid, surpriseBtn };
+  return { badge, dieIcon, tooltip };
 }
 
 // ── Sync badge visual with current theme ────────────────────────────────────
-function syncBadge(theme, swatch, label) {
-  swatch.style.background = theme.color;
-  swatch.style.boxShadow  = `0 0 8px ${theme.color}60`;
-  label.textContent = theme.name;
-}
-
-// ── Sync panel active state ──────────────────────────────────────────────────
-function syncPanel(themeId, grid) {
-  grid.querySelectorAll('.tc-theme-option').forEach(row => {
-    row.classList.toggle('active', row.dataset.themeId === themeId);
-  });
+function syncBadge(theme, tooltip, badge, justRolled = false) {
+  if (tooltip && theme) {
+    tooltip.textContent = justRolled ? `🎲 ${theme.name}!` : `Surprise Theme: ${theme.name}`;
+  }
+  if (badge && theme) {
+    badge.setAttribute('aria-label', `Surprise theme: roll a random color theme (Current: ${theme.name})`);
+    badge.setAttribute('title', `Surprise Theme: ${theme.name}`);
+  }
 }
 
 // ── Main init ─────────────────────────────────────────────────────────────────
 export function initThemeChooser() {
-  const { badge, panel, swatch, label, grid, surpriseBtn } = buildChooserUI();
-
-  let isOpen = false;
+  const ui = buildChooserUI();
+  const badge = ui.badge;
+  const dieIcon = ui.dieIcon;
+  const tooltip = ui.tooltip;
 
   // Sync initial state — user's pick overrides randomised session variant
   let initialTheme = getActiveTheme();
@@ -215,67 +191,32 @@ export function initThemeChooser() {
       applyTheme(picked, { animate: false });
       initialTheme = THEMES.find(t => t.id === picked) || initialTheme;
     }
-  } catch (_) {}
+  } catch (_) { }
 
-  syncBadge(initialTheme, swatch, label);
-  syncPanel(initialTheme.id, grid);
+  syncBadge(initialTheme, tooltip, badge, false);
 
-  // ── Toggle panel ──────────────────────────────────────────────────────
-  function openPanel() {
-    isOpen = true;
-    panel.classList.add('open');
-    badge.classList.add('open');
-    badge.setAttribute('aria-expanded', 'true');
-  }
+  let isRolling = false;
 
-  function closePanel() {
-    isOpen = false;
-    panel.classList.remove('open');
-    badge.classList.remove('open');
-    badge.setAttribute('aria-expanded', 'false');
-  }
+  // ── Direct Roll on Click ───────────────────────────────────────────────
+  badge.addEventListener('click', () => {
+    if (isRolling) return;
+    isRolling = true;
 
-  badge.addEventListener('click', (e) => {
-    e.stopPropagation();
-    isOpen ? closePanel() : openPanel();
-  });
+    // Trigger fast 3D roll spin
+    dieIcon.classList.remove('rolling');
+    void dieIcon.offsetWidth; // force DOM reflow
+    dieIcon.classList.add('rolling');
 
-  // Close on click outside
-  document.addEventListener('click', (e) => {
-    if (isOpen && !panel.contains(e.target) && !badge.contains(e.target)) {
-      closePanel();
-    }
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (isOpen && e.key === 'Escape') {
-      closePanel();
-      badge.focus();
-    }
-  });
-
-  // ── Theme swatch click ────────────────────────────────────────────────
-  grid.addEventListener('click', (e) => {
-    const row = e.target.closest('.tc-theme-option');
-    if (!row) return;
-    const themeId = row.dataset.themeId;
-    applyTheme(themeId);
-    const picked = THEMES.find(t => t.id === themeId) || THEMES[0];
-    syncBadge(picked, swatch, label);
-    syncPanel(themeId, grid);
-    // Brief delay before closing so the active state is visible
-    setTimeout(closePanel, 300);
-  });
-
-  // ── Surprise Me ──────────────────────────────────────────────────────
-  surpriseBtn.addEventListener('click', () => {
     const current = getActiveTheme();
-    const next    = pickSurpriseTheme(current.id);
+    const next = pickSurpriseTheme(current.id);
     applyTheme(next.id);
-    syncBadge(next, swatch, label);
-    syncPanel(next.id, grid);
-    setTimeout(closePanel, 350);
+    syncBadge(next, tooltip, badge, true);
+
+    setTimeout(() => {
+      dieIcon.classList.remove('rolling');
+      isRolling = false;
+      syncBadge(next, tooltip, badge, false);
+    }, 800);
   });
 
   // ── Re-sync badge if light/dark toggle changes ─────────────────────────
@@ -284,7 +225,7 @@ export function initThemeChooser() {
     themeToggleBtn.addEventListener('click', () => {
       requestAnimationFrame(() => {
         const current = getActiveTheme();
-        syncBadge(current, swatch, label);
+        syncBadge(current, tooltip, badge, false);
       });
     });
   }
