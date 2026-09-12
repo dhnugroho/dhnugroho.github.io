@@ -104,16 +104,21 @@
         }
       } catch (_) { }
 
-      /* 2. Color Theme Variant — picked here ONCE per load; theme.js reads this same value */
+      /* 2. Color Theme Variant — honors persistent user pick, otherwise randomizes once per load */
       try {
         var variants = ['default', 'green', 'cocoa', 'mocha', 'truffle'];
-        var lastVariant = localStorage.getItem('lastColorThemeVariant');
-        var pool = variants.filter(function(v) { return v !== lastVariant; });
-        var chosenVariant = pool[Math.floor(Math.random() * pool.length)];
+        var userPicked = localStorage.getItem('userPickedColorTheme');
+        var chosenVariant;
+        if (userPicked && variants.indexOf(userPicked) !== -1) {
+          chosenVariant = userPicked;
+        } else {
+          var lastVariant = localStorage.getItem('lastColorThemeVariant');
+          var pool = variants.filter(function(v) { return v !== lastVariant; });
+          chosenVariant = pool[Math.floor(Math.random() * pool.length)];
+          localStorage.setItem('lastColorThemeVariant', chosenVariant);
+        }
         /* Write chosen variant to sessionStorage so theme.js can read the same value */
         sessionStorage.setItem('chosenColorThemeVariant', chosenVariant);
-        /* Write to localStorage so NEXT page load knows what to avoid */
-        localStorage.setItem('lastColorThemeVariant', chosenVariant);
         if (chosenVariant !== 'default') {
           document.documentElement.classList.add(chosenVariant + '-theme-pending');
         }

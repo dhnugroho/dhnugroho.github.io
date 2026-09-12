@@ -16,6 +16,7 @@ import { initEnhancements } from './modules/enhancements.js';
 import { initArchLayers } from './modules/archLayers.js';
 import { initTimelineSlider } from './modules/timelineSlider.js';
 import { initCursor } from './modules/cursor.js';
+import { initThemeChooser } from './modules/themeChooser.js';
 
 // Phase 1: Critical (Immediate - Above the fold)
 function initCritical() {
@@ -39,7 +40,8 @@ function initDeferred() {
     initModal,
     initForm,
     initEnhancements,
-    initCursor
+    initCursor,
+    initThemeChooser
   ];
 
   function runNextTask() {
