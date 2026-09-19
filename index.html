@@ -4340,6 +4340,1423 @@
             <!-- Track (slides are built dynamically by JS, items below are source) -->
             <div class="notes-carousel-track">
 
+              <!-- ═══ Note 9: As Long As This Signal Moves — A Reflection on Resilience ═══ -->
+              <div class="notes-accordion-item" data-note-date="2026-09-13">
+
+                <!-- Accordion Header (always visible) -->
+                <div class="notes-accordion-header" role="button" tabindex="0" aria-expanded="false">
+                  <div class="notes-acc-header-content">
+                    <span class="note-datetime">September 19, 2026 &bull; 11:19 PM</span>
+                    <h3 class="notes-acc-title">As long as this signal moves, the system has not flatlined.</h3>
+                    <p class="notes-acc-excerpt">A personal reflection: on exhaustion and the reasons one goes through
+                      life—a system in constant motion.</p>
+                  </div>
+                  <div class="notes-acc-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Accordion Body (collapsed by default) -->
+                <div class="notes-accordion-body">
+                  <div class="notes-accordion-body-inner">
+                    <div class="note-card">
+
+                      <!-- ── Note 9 ECG Terminal Root ── -->
+                      <div class="n9t-root" id="note9EcgRoot">
+
+                        <style>
+                          /* ════════════════════════════════════════════════
+                             NOTE 9 · ECG MONITOR — Theme Harmonized
+                             Unified with Site Theme Palette (Dark & Light)
+                             Interactive color reserved for ECG graph only
+                          ════════════════════════════════════════════════ */
+                          .n9t-root {
+                            position: relative;
+                            background: var(--bg-surface-solid);
+                            border: 1px solid var(--border-subtle);
+                            border-radius: 20px;
+                            overflow: hidden;
+                            font-family: var(--font-body);
+                            color: var(--text-primary);
+                            line-height: 1.75;
+                            margin-top: 1.5rem;
+                            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+                            transition: background 0.3s var(--ease-out), border-color 0.3s ease, box-shadow 0.3s ease;
+                          }
+
+                          body.light-mode .n9t-root,
+                          html.light-mode-pending .n9t-root {
+                            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+                          }
+
+                          .n9t-glass-shine {
+                            position: absolute;
+                            top: 0;
+                            left: 20px;
+                            right: 20px;
+                            height: 1px;
+                            background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+                            z-index: 22;
+                            pointer-events: none;
+                            opacity: 0.6;
+                          }
+
+                          .n9t-scanlines {
+                            position: absolute;
+                            inset: 0;
+                            z-index: 20;
+                            pointer-events: none;
+                            opacity: 0.4;
+                            background: repeating-linear-gradient(to bottom, transparent 0px, transparent 6px, rgba(0, 0, 0, 0.04) 6px, rgba(0, 0, 0, 0.04) 7px);
+                          }
+
+                          body.light-mode .n9t-scanlines {
+                            opacity: 0.15;
+                          }
+
+                          .n9t-aura {
+                            position: absolute;
+                            top: -80px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 600px;
+                            height: 300px;
+                            filter: blur(50px);
+                            pointer-events: none;
+                            z-index: 0;
+                            background: radial-gradient(ellipse at center, var(--accent-primary-dim) 0%, transparent 70%);
+                            opacity: 0.7;
+                          }
+
+                          .n9t-bg-canvas {
+                            position: absolute;
+                            inset: 0;
+                            width: 100%;
+                            z-index: 1;
+                            pointer-events: none;
+                            opacity: 0.6;
+                          }
+
+                          .n9t-body {
+                            position: relative;
+                            z-index: 5;
+                            padding: 2rem;
+                            background: var(--bg-card);
+                            backdrop-filter: blur(16px);
+                            -webkit-backdrop-filter: blur(16px);
+                            transition: background 0.3s var(--ease-out);
+                          }
+
+                          @media (max-width: 640px) {
+                            .n9t-body {
+                              padding: 1.25rem 1rem 1.75rem;
+                            }
+                          }
+
+                          /* ── Monitor Header Bar ── */
+                          .n9t-monitor-bar {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 1.25rem;
+                            flex-wrap: wrap;
+                            gap: 0.5rem;
+                          }
+
+                          .n9t-monitor-id {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                          }
+
+                          /* Interactive dot for ECG only */
+                          .n9t-mon-dot {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 50%;
+                            flex-shrink: 0;
+                            background: #2dd4bf;
+                            box-shadow: 0 0 10px #2dd4bf;
+                            animation: n9t-glow 1.8s ease-in-out infinite;
+                          }
+
+                          .n9t-mon-dot.dead {
+                            background: #fb7185;
+                            box-shadow: 0 0 10px #fb7185;
+                            animation: none;
+                          }
+
+                          @keyframes n9t-glow {
+
+                            0%,
+                            100% {
+                              opacity: 1;
+                              transform: scale(1);
+                            }
+
+                            50% {
+                              opacity: 0.35;
+                              transform: scale(0.85);
+                            }
+                          }
+
+                          .n9t-mon-label {
+                            font-family: var(--font-mono);
+                            font-size: 0.74rem;
+                            font-weight: 600;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--text-bright);
+                          }
+
+                          .n9t-mon-time {
+                            font-family: var(--font-mono);
+                            font-size: 0.74rem;
+                            font-weight: 500;
+                            color: var(--text-muted);
+                            letter-spacing: 0.06em;
+                          }
+
+                          /* ── ECG Strip (Interactive Graph Only) ── */
+                          .n9t-ecg-strip {
+                            position: relative;
+                            height: 80px;
+                            margin-bottom: 1.5rem;
+                            border-radius: 12px;
+                            overflow: hidden;
+                            border: 1px solid var(--border-glow);
+                            background: rgba(0, 0, 0, 0.35);
+                            backdrop-filter: blur(12px);
+                            -webkit-backdrop-filter: blur(12px);
+                            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                          }
+
+                          body.light-mode .n9t-ecg-strip {
+                            background: rgba(0, 0, 0, 0.04);
+                            border-color: var(--border-subtle);
+                          }
+
+                          .n9t-ecg-canvas {
+                            width: 100%;
+                            height: 80px;
+                            display: block;
+                          }
+
+                          .n9t-ecg-labels {
+                            position: absolute;
+                            inset: 0;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            padding: 6px 12px;
+                            pointer-events: none;
+                          }
+
+                          .n9t-ecg-lbl {
+                            font-family: var(--font-mono);
+                            font-size: 0.68rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: var(--text-muted);
+                          }
+
+                          .n9t-ecg-lbl.red {
+                            color: #2dd4bf;
+                          }
+
+                          .n9t-bpm-live {
+                            position: absolute;
+                            bottom: 6px;
+                            right: 12px;
+                            font-family: var(--font-mono);
+                            font-size: 0.85rem;
+                            font-weight: 700;
+                            color: #2dd4bf;
+                            letter-spacing: 0.04em;
+                            pointer-events: none;
+                          }
+
+                          /* ── Status Grid (Theme Harmonized) ── */
+                          .n9t-status-grid {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            gap: 10px;
+                            margin-bottom: 1.5rem;
+                          }
+
+                          @media (max-width: 540px) {
+                            .n9t-status-grid {
+                              grid-template-columns: repeat(2, 1fr);
+                            }
+                          }
+
+                          .n9t-sg-cell {
+                            background: var(--bg-surface);
+                            border: 1px solid var(--border-subtle);
+                            border-radius: 10px;
+                            padding: 12px 14px;
+                            backdrop-filter: blur(8px);
+                            -webkit-backdrop-filter: blur(8px);
+                            transition: transform 0.2s var(--ease-out), border-color 0.2s ease;
+                          }
+
+                          .n9t-sg-cell:hover {
+                            border-color: var(--border-glow);
+                            transform: translateY(-2px);
+                          }
+
+                          .n9t-sg-key {
+                            font-family: var(--font-mono);
+                            font-size: 0.68rem;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--text-muted);
+                            margin-bottom: 4px;
+                            font-weight: 600;
+                          }
+
+                          .n9t-sg-val {
+                            font-family: var(--font-mono);
+                            font-size: 0.92rem;
+                            font-weight: 700;
+                            letter-spacing: 0.04em;
+                            color: var(--text-bright);
+                          }
+
+                          .n9t-sg-val.green {
+                            color: var(--accent-primary);
+                          }
+
+                          .n9t-sg-val.amber {
+                            color: var(--text-bright);
+                          }
+
+                          .n9t-sg-val.red {
+                            color: #fb7185;
+                          }
+
+                          .n9t-sg-val.dim {
+                            color: var(--text-muted);
+                          }
+
+                          .n9t-rule {
+                            height: 1px;
+                            background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+                            margin: 0 0 1.5rem;
+                          }
+
+                          /* ── Note Meta ── */
+                          .n9t-note-meta {
+                            margin-bottom: 1.25rem;
+                          }
+
+                          .n9t-note-date {
+                            font-family: var(--font-mono);
+                            font-size: 0.74rem;
+                            font-weight: 600;
+                            color: var(--text-muted);
+                            letter-spacing: 0.06em;
+                            margin-bottom: 8px;
+                          }
+
+                          .n9t-note-tag {
+                            display: inline-block;
+                            padding: 3px 10px;
+                            border-radius: 999px;
+                            margin-right: 6px;
+                            margin-bottom: 6px;
+                            border: 1px solid var(--border-subtle);
+                            background: var(--accent-primary-dim);
+                            font-family: var(--font-mono);
+                            font-size: 0.68rem;
+                            font-weight: 600;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: var(--accent-primary);
+                          }
+
+                          /* ── Main Note Title ── */
+                          .n9t-note-title {
+                            font-family: var(--font-heading);
+                            font-size: clamp(1.35rem, 3vw, 1.85rem);
+                            font-weight: 700;
+                            color: var(--text-bright);
+                            line-height: 1.25;
+                            letter-spacing: -0.02em;
+                            margin-bottom: 1.5rem;
+                          }
+
+                          .n9t-note-title em {
+                            font-style: italic;
+                            color: var(--accent-primary);
+                          }
+
+                          /* ── Preamble Alert ── */
+                          .n9t-preamble {
+                            border-left: 3px solid var(--accent-primary);
+                            padding: 1rem 1.25rem;
+                            margin: 0 0 1.75rem;
+                            background: var(--accent-primary-dim);
+                            border-radius: 0 10px 10px 0;
+                            border-top: 1px solid var(--border-subtle);
+                            border-right: 1px solid var(--border-subtle);
+                            border-bottom: 1px solid var(--border-subtle);
+                          }
+
+                          .n9t-preamble-head {
+                            font-family: var(--font-mono);
+                            font-size: 0.72rem;
+                            font-weight: 700;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--accent-primary);
+                            margin-bottom: 6px;
+                          }
+
+                          .n9t-preamble-body {
+                            font-family: var(--font-body);
+                            font-size: 0.94rem;
+                            color: var(--text-primary);
+                            line-height: 1.7;
+                          }
+
+                          .n9t-preamble-body strong {
+                            color: var(--text-bright);
+                            font-weight: 600;
+                          }
+
+                          /* ── Section Indicators (Theme Unified) ── */
+                          .n9t-section {
+                            margin-bottom: 2rem;
+                          }
+
+                          .n9t-sec-key {
+                            font-family: var(--font-mono);
+                            font-size: 0.74rem;
+                            font-weight: 600;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--accent-primary);
+                            margin-bottom: 12px;
+                            padding: 4px 10px;
+                            border-radius: 6px;
+                            display: inline-block;
+                            background: var(--accent-primary-dim);
+                            border: 1px solid var(--border-glow);
+                          }
+
+                          .n9t-sec-key.teal,
+                          .n9t-sec-key.amber,
+                          .n9t-sec-key.red {
+                            color: var(--accent-primary);
+                            background: var(--accent-primary-dim);
+                            border-color: var(--border-glow);
+                          }
+
+                          .n9t-prose {
+                            font-family: var(--font-body);
+                            font-size: 0.95rem;
+                            font-weight: 400;
+                            color: var(--text-primary);
+                            line-height: 1.8;
+                            margin-bottom: 14px;
+                          }
+
+                          .n9t-prose:last-child {
+                            margin-bottom: 0;
+                          }
+
+                          .n9t-prose em {
+                            color: var(--accent-primary);
+                            font-style: normal;
+                            font-weight: 500;
+                          }
+
+                          .n9t-prose strong {
+                            color: var(--text-bright);
+                            font-weight: 600;
+                          }
+
+                          /* ── Signal Diagram ── */
+                          .n9t-signal-diagram {
+                            border: 1px solid var(--border-subtle);
+                            border-radius: 12px;
+                            padding: 1.5rem 1.25rem 1.25rem;
+                            margin: 1.5rem 0;
+                            position: relative;
+                            background: var(--bg-surface);
+                            backdrop-filter: blur(8px);
+                            -webkit-backdrop-filter: blur(8px);
+                          }
+
+                          .n9t-sd-title {
+                            position: absolute;
+                            top: -9px;
+                            left: 16px;
+                            background: var(--bg-surface-solid);
+                            padding: 1px 8px;
+                            font-family: var(--font-mono);
+                            font-size: 0.68rem;
+                            font-weight: 700;
+                            letter-spacing: 0.1em;
+                            color: var(--accent-primary);
+                            text-transform: uppercase;
+                            border-radius: 4px;
+                            border: 1px solid var(--border-subtle);
+                          }
+
+                          .n9t-sd-row {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            margin-bottom: 10px;
+                          }
+
+                          .n9t-sd-row:last-child {
+                            margin-bottom: 0;
+                          }
+
+                          .n9t-sd-label {
+                            font-family: var(--font-mono);
+                            font-size: 0.72rem;
+                            font-weight: 500;
+                            color: var(--text-muted);
+                            letter-spacing: 0.02em;
+                            width: 170px;
+                            flex-shrink: 0;
+                          }
+
+                          .n9t-sd-bar {
+                            flex: 1;
+                            height: 6px;
+                            background: var(--border-subtle);
+                            border-radius: 10px;
+                            position: relative;
+                            overflow: hidden;
+                          }
+
+                          .n9t-sd-bar-inner {
+                            height: 100%;
+                            border-radius: 10px;
+                            transition: width 0.8s var(--ease-out);
+                            position: relative;
+                            background: var(--accent-primary);
+                          }
+
+                          .n9t-sd-bar-inner.active {
+                            background: var(--accent-primary);
+                          }
+
+                          .n9t-sd-bar-inner.lazy {
+                            background: var(--accent-primary);
+                            opacity: 0.7;
+                          }
+
+                          .n9t-sd-bar-inner.dead {
+                            background: var(--text-muted);
+                            opacity: 0.5;
+                          }
+
+                          .n9t-sd-status {
+                            font-family: var(--font-mono);
+                            font-size: 0.7rem;
+                            font-weight: 600;
+                            letter-spacing: 0.04em;
+                            width: 110px;
+                            text-align: right;
+                            flex-shrink: 0;
+                            color: var(--text-muted);
+                          }
+
+                          .n9t-sd-status.active {
+                            color: var(--accent-primary);
+                          }
+
+                          .n9t-sd-status.lazy {
+                            color: var(--text-bright);
+                          }
+
+                          .n9t-sd-status.dead {
+                            color: var(--text-muted);
+                          }
+
+                          /* ── Diagnostic Grid ── */
+                          .n9t-diag-grid {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 10px;
+                            margin: 1rem 0;
+                          }
+
+                          @media (max-width: 640px) {
+                            .n9t-diag-grid {
+                              grid-template-columns: 1fr;
+                            }
+                          }
+
+                          .n9t-diag-cell {
+                            background: var(--bg-surface);
+                            border: 1px solid var(--border-subtle);
+                            border-radius: 10px;
+                            padding: 14px 16px;
+                            backdrop-filter: blur(8px);
+                            -webkit-backdrop-filter: blur(8px);
+                          }
+
+                          .n9t-diag-lbl {
+                            font-family: var(--font-mono);
+                            font-size: 0.7rem;
+                            font-weight: 700;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--accent-primary);
+                            margin-bottom: 6px;
+                          }
+
+                          .n9t-diag-desc {
+                            font-family: var(--font-body);
+                            font-size: 0.9rem;
+                            color: var(--text-primary);
+                            line-height: 1.65;
+                          }
+
+                          .n9t-diag-desc strong {
+                            color: var(--text-bright);
+                            font-weight: 600;
+                          }
+
+                          /* ── IKIGAI Block ── */
+                          .n9t-ikigai-block {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 12px;
+                            margin: 1.25rem 0;
+                          }
+
+                          @media (max-width: 768px) {
+                            .n9t-ikigai-block {
+                              grid-template-columns: 1fr;
+                            }
+                          }
+
+                          .n9t-ik {
+                            background: var(--bg-surface);
+                            border: 1px solid var(--border-subtle);
+                            border-radius: 14px;
+                            padding: 1.25rem 1.4rem;
+                            backdrop-filter: blur(10px);
+                            -webkit-backdrop-filter: blur(10px);
+                            transition: transform 0.25s var(--ease-out), border-color 0.25s ease;
+                          }
+
+                          .n9t-ik:hover {
+                            border-color: var(--border-glow);
+                            transform: translateY(-2px);
+                          }
+
+                          .n9t-ik-k {
+                            font-family: var(--font-mono);
+                            font-size: 0.76rem;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--accent-primary);
+                            margin-bottom: 12px;
+                            font-weight: 700;
+                            border-bottom: 1px solid var(--border-subtle);
+                            padding-bottom: 6px;
+                          }
+
+                          .n9t-ik-v {
+                            font-family: var(--font-body);
+                            font-size: 0.94rem;
+                            color: var(--text-primary);
+                            line-height: 1.78;
+                          }
+
+                          .n9t-ik-v p {
+                            margin-bottom: 10px;
+                          }
+
+                          .n9t-ik-v p:last-child {
+                            margin-bottom: 0;
+                          }
+
+                          .n9t-ik-v em {
+                            color: var(--accent-primary);
+                            font-style: normal;
+                            font-weight: 600;
+                          }
+
+                          .n9t-ik-v strong {
+                            color: var(--text-bright);
+                            font-weight: 600;
+                          }
+
+                          .n9t-ik-sample {
+                            font-size: 0.86rem;
+                            color: var(--text-muted);
+                            font-style: italic;
+                            margin-top: 10px;
+                            line-height: 1.6;
+                          }
+
+                          .n9t-ik-footer {
+                            grid-column: 1/-1;
+                            background: var(--accent-primary-dim);
+                            border: 1px solid var(--border-glow);
+                            border-radius: 12px;
+                            padding: 1rem 1.25rem;
+                            backdrop-filter: blur(10px);
+                            -webkit-backdrop-filter: blur(10px);
+                          }
+
+                          .n9t-ik-footer-title {
+                            font-size: 0.72rem;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            color: var(--accent-primary);
+                            margin-bottom: 6px;
+                            font-weight: 700;
+                            font-family: var(--font-mono);
+                          }
+
+                          .n9t-ik-footer-desc {
+                            font-family: var(--font-body);
+                            font-size: 0.92rem;
+                            color: var(--text-primary);
+                            line-height: 1.7;
+                            margin: 0;
+                          }
+
+                          /* ── Flatline alert ── */
+                          .n9t-flatline-final {
+                            border: 1px solid var(--border-subtle);
+                            border-radius: 10px;
+                            background: rgba(0, 0, 0, 0.2);
+                            padding: 16px;
+                            margin: 1.25rem 0;
+                            backdrop-filter: blur(8px);
+                            -webkit-backdrop-filter: blur(8px);
+                          }
+
+                          body.light-mode .n9t-flatline-final {
+                            background: rgba(0, 0, 0, 0.03);
+                          }
+
+                          .n9t-flatline-canvas {
+                            width: 100%;
+                            height: 36px;
+                            display: block;
+                          }
+
+                          .n9t-fl-caption {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 8px;
+                            flex-wrap: wrap;
+                            gap: 4px;
+                          }
+
+                          .n9t-fl-cap-text {
+                            font-family: var(--font-mono);
+                            font-size: 0.7rem;
+                            font-weight: 600;
+                            letter-spacing: 0.06em;
+                            color: var(--text-muted);
+                          }
+
+                          /* ── Manifesto ── */
+                          .n9t-manifesto {
+                            padding: 1.5rem;
+                            border: 1px solid var(--border-glow);
+                            border-radius: 14px;
+                            background: var(--accent-primary-dim);
+                            margin: 1.5rem 0;
+                            backdrop-filter: blur(10px);
+                            -webkit-backdrop-filter: blur(10px);
+                          }
+
+                          .n9t-manifesto p {
+                            font-family: var(--font-body);
+                            font-size: 0.98rem;
+                            font-weight: 400;
+                            color: var(--text-primary);
+                            line-height: 1.8;
+                            margin: 0;
+                          }
+
+                          .n9t-manifesto strong {
+                            color: var(--accent-primary);
+                            font-weight: 600;
+                          }
+
+                          /* ── Quote Blocks ── */
+                          .n9t-q-block {
+                            border-left: 3px solid var(--accent-primary);
+                            padding: 12px 18px;
+                            margin-bottom: 12px;
+                            background: var(--bg-surface);
+                            border-radius: 0 8px 8px 0;
+                            border-top: 1px solid var(--border-subtle);
+                            border-right: 1px solid var(--border-subtle);
+                            border-bottom: 1px solid var(--border-subtle);
+                          }
+
+                          .n9t-q-block:last-child {
+                            margin-bottom: 0;
+                          }
+
+                          .n9t-q-text {
+                            font-family: var(--font-body);
+                            font-size: 0.94rem;
+                            font-style: italic;
+                            color: var(--text-primary);
+                            line-height: 1.7;
+                            margin-bottom: 4px;
+                          }
+
+                          .n9t-q-attr {
+                            font-family: var(--font-mono);
+                            font-size: 0.72rem;
+                            font-weight: 600;
+                            letter-spacing: 0.06em;
+                            color: var(--accent-primary);
+                          }
+
+                          /* ── Signature ── */
+                          .n9t-footer-sig {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            border-top: 1px solid var(--border-subtle);
+                            padding-top: 1.25rem;
+                            margin-top: 2rem;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                          }
+
+                          .n9t-sig-left {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 3px;
+                          }
+
+                          .n9t-sig-name {
+                            font-family: var(--font-heading);
+                            font-size: 0.94rem;
+                            font-weight: 700;
+                            letter-spacing: 0.02em;
+                            color: var(--text-bright);
+                          }
+
+                          .n9t-sig-url {
+                            font-family: var(--font-mono);
+                            font-size: 0.72rem;
+                            letter-spacing: 0.06em;
+                            color: var(--accent-primary);
+                          }
+
+                          .n9t-sig-right {
+                            font-family: var(--font-mono);
+                            font-size: 0.72rem;
+                            font-weight: 500;
+                            color: var(--text-muted);
+                            letter-spacing: 0.04em;
+                            text-align: right;
+                            line-height: 1.7;
+                          }
+                        </style>
+
+                        <!-- Glass shine highlight -->
+                        <div class="n9t-glass-shine"></div>
+                        <!-- CRT scanlines -->
+                        <div class="n9t-scanlines"></div>
+                        <!-- Ambient aura -->
+                        <div class="n9t-aura"></div>
+                        <!-- BG subtle grid canvas -->
+                        <canvas class="n9t-bg-canvas" id="n9tBgCanvas"></canvas>
+
+                        <div class="n9t-body">
+
+
+
+                          <!-- ── Monitor bar ── -->
+                          <div class="n9t-monitor-bar">
+                            <div class="n9t-monitor-id">
+                              <div class="n9t-mon-dot" id="n9tMonDot"></div>
+                              <span class="n9t-mon-label" id="n9tMonLabel">PORTFOLIO SYSTEM MONITOR &middot; LEAD II
+                                &middot; dhnugroho.github.io</span>
+                            </div>
+                            <span class="n9t-mon-time" id="n9tMonTime">--:--:-- WIB</span>
+                          </div>
+
+                          <!-- ── ECG strip ── -->
+                          <div class="n9t-ecg-strip">
+                            <canvas class="n9t-ecg-canvas" id="n9tEcgCanvas"></canvas>
+                            <div class="n9t-ecg-labels">
+                              <span class="n9t-ecg-lbl">SIGNAL ORIGIN &middot; last commit</span>
+                              <span class="n9t-ecg-lbl red" id="n9tEcgStatusLbl">continuous improvement active</span>
+                            </div>
+                            <div class="n9t-bpm-live" id="n9tBpmLive">72 BPM</div>
+                          </div>
+
+                          <!-- ── Status grid ── -->
+                          <div class="n9t-status-grid">
+                            <div class="n9t-sg-cell">
+                              <div class="n9t-sg-key">system</div>
+                              <div class="n9t-sg-val green" id="n9tSysStatus">ACTIVE</div>
+                            </div>
+                            <div class="n9t-sg-cell">
+                              <div class="n9t-sg-key">signal</div>
+                              <div class="n9t-sg-val green" id="n9tSigStatus">CONTINUOUS</div>
+                            </div>
+                            <div class="n9t-sg-cell">
+                              <div class="n9t-sg-key">improvement</div>
+                              <div class="n9t-sg-val amber">ITERATE</div>
+                            </div>
+                            <div class="n9t-sg-cell">
+                              <div class="n9t-sg-key">asystole</div>
+                              <div class="n9t-sg-val dim">PENDING</div>
+                            </div>
+                          </div>
+
+                          <div class="n9t-rule"></div>
+
+                          <!-- ── Note meta ── -->
+                          <div class="n9t-note-meta">
+                            <div class="n9t-note-date">SEPTEMBER 19, 2026 &middot; 11:19 PM</div>
+                            <span class="n9t-note-tag">reflection</span>
+                            <span class="n9t-note-tag">personal</span>
+                            <span class="n9t-note-tag">lead ii telemetry</span>
+                          </div>
+
+                          <!-- ── Preamble alert ── -->
+                          <div class="n9t-preamble">
+                            <div class="n9t-preamble-head">&#9679; TELEMETRY DIAGNOSIS &middot; ROOT CAUSE DETECTED
+                            </div>
+                            <div class="n9t-preamble-body">
+                              <strong>Lazy Ambition</strong> phase detected: grand aspirations without concrete
+                              planning, execution
+                              without clear direction, energy cycling without purpose. Not a lack of capability &mdash;
+                              <strong>an arrhythmia signal, not a flatline</strong>. Still correctable.
+                              <em style="color:rgba(200,200,215,0.7);font-style:italic;">Understand the root cause
+                                first, the right momentum will follow.</em>
+                            </div>
+                          </div>
+
+                          <!-- ── Title ── -->
+                          <h2 class="n9t-note-title">
+                            As long as this signal keeps moving,<br>the system has not <em>flatlined</em>.
+                          </h2>
+
+                          <!-- ── Diagnosis ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key">recovery protocol &middot; current condition</div>
+                            <p class="n9t-prose">
+                              <strong>Exhausted. Afraid. Trapped.</strong>
+                            </p>
+                            <p class="n9t-prose">
+                              The weight of today feels immense, and the future is uncertain &mdash; and that's okay. We
+                              don't need to worry about it. We just need to face it, one step at a time.
+                            </p>
+                            <p class="n9t-prose">
+                              The impulse to stop comes most easily when energy runs thin. But look at the monitor above
+                              &mdash; <em>the signal is still pulsing</em>. That electrical beat tracing across the
+                              screen is an objective fact: <strong>the system is still alive</strong>.
+                            </p>
+                            <p class="n9t-prose">
+                              And a living system always has the capacity to recover, to recalibrate, and to improve.
+                            </p>
+                          </div>
+
+                          <!-- ── Portfolio as ECG signal ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key">concept &middot; portfolio as an ecg signal</div>
+                            <p class="n9t-prose">
+                              <strong>An ECG does not measure how powerful a heart is</strong> &mdash; it measures
+                              <em>whether electricity is still flowing through the sinoatrial node</em>. This digital
+                              portfolio
+                              shares the same anatomy. An active signal does not imply absolute perfection.
+                              An active signal means: <strong>there is movement, there is code experimentation, there is
+                                honest reflection,
+                                and there is continuous improvement</strong>.
+                            </p>
+
+                            <!-- Signal diagram / health bars -->
+                            <div class="n9t-signal-diagram">
+                              <div class="n9t-sd-title">PORTFOLIO SIGNAL VITALS</div>
+                              <div class="n9t-sd-row">
+                                <span class="n9t-sd-label">New Project Shipped</span>
+                                <div class="n9t-sd-bar">
+                                  <div class="n9t-sd-bar-inner active" style="width:88%"></div>
+                                </div>
+                                <span class="n9t-sd-status active">88% ACTIVE</span>
+                              </div>
+                              <div class="n9t-sd-row">
+                                <span class="n9t-sd-label">Note / Reflection Depth</span>
+                                <div class="n9t-sd-bar">
+                                  <div class="n9t-sd-bar-inner active" style="width:95%"></div>
+                                </div>
+                                <span class="n9t-sd-status active">95% ACTIVE</span>
+                              </div>
+                              <div class="n9t-sd-row">
+                                <span class="n9t-sd-label">Skill Iteration &amp; Code</span>
+                                <div class="n9t-sd-bar">
+                                  <div class="n9t-sd-bar-inner lazy" style="width:62%"></div>
+                                </div>
+                                <span class="n9t-sd-status lazy">62% SLOW</span>
+                              </div>
+                              <div class="n9t-sd-row">
+                                <span class="n9t-sd-label">Direction / IKIGAI Align</span>
+                                <div class="n9t-sd-bar">
+                                  <div class="n9t-sd-bar-inner lazy" style="width:48%"></div>
+                                </div>
+                                <span class="n9t-sd-status lazy">48% CALIBRATING</span>
+                              </div>
+                              <div class="n9t-sd-row">
+                                <span class="n9t-sd-label">Lazy Ambition Risk</span>
+                                <div class="n9t-sd-bar">
+                                  <div class="n9t-sd-bar-inner lazy" style="width:72%"></div>
+                                </div>
+                                <span class="n9t-sd-status lazy">72% ARRHYTHMIA</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- ── Lazy Ambition root cause ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key amber">root cause analysis &middot; lazy ambition review</div>
+                            <p class="n9t-prose">
+                              Primary symptoms: <strong>grand aspirations without concrete planning, execution without
+                                clear direction,
+                                and mental energy cycling endlessly without measurable output.</strong> It is a
+                              misdiagnosis to label this
+                              as failure &mdash; <strong>Lazy Ambition is not a fatal flatline; it is an arrhythmia
+                                signal</strong>. The electrical
+                              current is still present; only its conduction has lost its rhythm.
+                            </p>
+                            <div class="n9t-diag-grid">
+                              <div class="n9t-diag-cell">
+                                <div class="n9t-diag-lbl">INCORRECT DIAGNOSIS</div>
+                                <div class="n9t-diag-desc">&ldquo;I am incapable / this system has failed.&rdquo;
+                                  Passive fatalism that leads to a complete halt.</div>
+                              </div>
+                              <div class="n9t-diag-cell">
+                                <div class="n9t-diag-lbl">CORRECT TECHNICAL DIAGNOSIS</div>
+                                <div class="n9t-diag-desc"><strong>Isolated arrhythmia:</strong> Energy trapped in
+                                  over-analysis. The solution: break the colossal ambition down into one concrete
+                                  micro-iteration tonight.</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- ── IKIGAI Recalibration ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key">recovery protocol &middot; ikigai recalibration</div>
+                            <p class="n9t-prose">Four fundamental questions. Answer them with absolute honesty. The
+                              intersection of all four is the new directional vector to pursue.</p>
+                            <div class="n9t-ikigai-block">
+                              <div class="n9t-ik">
+                                <div class="n9t-ik-k">01 &middot; what do you love?</div>
+                                <div class="n9t-ik-v">
+                                  <p>That which makes you lose track of time late at night. Work undertaken from pure
+                                    curiosity &mdash; not obligation, not the hunger for validation.</p>
+                                  <p>Kahneman would call this System 1 at its most unguarded &mdash; the pull that
+                                    exists before logic intervenes, before the mind constructs a justification. It is
+                                    not a preference. It is a signal. The problems you return to without being asked.
+                                    The thing you sketch on a blank page when no one is watching. The moment something
+                                    complex finally coheres and something in you recognises it before you can explain
+                                    why.</p>
+                                  <p>It might be systems and the people who depend on them. It might be the craft of
+                                    making something difficult feel effortless to the person on the other end. Whatever
+                                    it is &mdash; that quiet pull is not incidental. It is directional. Follow it.</p>
+                                </div>
+                              </div>
+                              <div class="n9t-ik">
+                                <div class="n9t-ik-k">02 &middot; what are you good at?</div>
+                                <div class="n9t-ik-v">
+                                  <p>What others entrust to you when the problem seems unsolvable. The thing people
+                                    bring to you last, after everything else has been tried.</p>
+                                  <p>But here is what most people miss: true competence is not just skill &mdash; it is
+                                    the fusion of experience, time, and intuition. Kahneman calls it System 2 becoming
+                                    System 1. The thousands of hours spent pattern-matching, rebuilding, and recovering
+                                    from failure &mdash; until the answer arrives not through calculation, but through
+                                    feel. That quiet certainty before you can fully articulate why. The decision that
+                                    lands in the first five minutes of a room, before the whiteboard is touched. The
+                                    instinct that tells you something is wrong before the data confirms it.</p>
+                                  <p>That is not luck. That is accumulated intelligence made instinct. It is the hardest
+                                    thing to replicate &mdash; and the most honest signal of where your real
+                                    contribution lives.</p>
+                                  <p class="n9t-ik-sample">(Sample: root cause engineering, end-to-end architecture,
+                                    translating complexity between technical and business stakeholders &mdash; the kind
+                                    of work that requires someone who can hold the whole system in their head at once.)
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="n9t-ik">
+                                <div class="n9t-ik-k">03 &middot; what does the world need?</div>
+                                <div class="n9t-ik-v">
+                                  <p>Not what the market is chasing. Not the trend. What actually resolves friction for
+                                    real people operating under real pressure.</p>
+                                  <p>Kahneman's quieter insight applies here: people and organisations make decisions
+                                    through System 1 far more than they admit. A solution that requires explanation to
+                                    trust has already failed. A system that produces correct outputs but generates no
+                                    confidence in the people using it has already failed. The world does not only need
+                                    things that work. It needs things that feel reliable &mdash; that communicate their
+                                    own integrity clearly enough that the people depending on them can act without
+                                    hesitation.</p>
+                                  <p>The need, then, is not just for capability. It is for clarity. Systems, services,
+                                    and solutions that are honest about what they do &mdash; and consistently deliver on
+                                    that honesty under real operational conditions.</p>
+                                </div>
+                              </div>
+                              <div class="n9t-ik">
+                                <div class="n9t-ik-k">04 &middot; what can sustain you?</div>
+                                <div class="n9t-ik-v">
+                                  <p>Not a moment of visibility that resets to zero the morning after.</p>
+                                  <p>What sustains is being embedded &mdash; present from the first ambiguous
+                                    conversation through to the last check before something goes live. The full arc.
+                                    That is where value compounds, and where the exchange becomes honest.</p>
+                                  <p>The world does not need more people who deliver a scope and disappear. It needs
+                                    people who stay in the room long enough to understand why the original scope was
+                                    wrong &mdash; and rebuild without ego, without friction, and without losing the
+                                    trust of the people who asked for it in the first place.</p>
+                                  <p>Competence deepens with context. The longer someone operates inside a problem, the
+                                    more their intuition is calibrated to its specific gravity. That kind of embedded,
+                                    compounding value cannot be replicated by someone parachuted in at the handoff
+                                    stage.</p>
+                                  <p>What sustains, then, is a long-term engagement model &mdash; retainers,
+                                    partnerships, leadership roles with enough runway to do real work. An honest,
+                                    repeatable exchange of value. Not a transaction. A relationship built on the only
+                                    currency that survives long enough to matter: consistent, reliable delivery from the
+                                    root cause to the result.</p>
+                                </div>
+                              </div>
+                              <div class="n9t-ik-footer">
+                                <div class="n9t-ik-footer-title">the fourth intersection &rarr; write it now, not later.
+                                </div>
+                                <p class="n9t-ik-footer-desc">The overlap of all four is never a job title. It is a way
+                                  of working &mdash; embedded, curious, reliable, and honest about what you are
+                                  genuinely built to do. Name it. Claim it. Then pursue only what fits inside it.</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- ── Asystole Reality ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key red">what happens when the system stops iterating</div>
+                            <p class="n9t-prose">
+                              This is not a metaphor. It is technical reality: if a portfolio is never updated, no new
+                              reflections are written,
+                              no new projects are shipped, no direction is recalibrated &mdash; its ECG signal collapses
+                              into this:
+                            </p>
+                            <div class="n9t-flatline-final">
+                              <canvas class="n9t-flatline-canvas" id="n9tFlatlineCanvas"></canvas>
+                              <div class="n9t-fl-caption">
+                                <span class="n9t-fl-cap-text">no signal &middot; no improvement &middot; no
+                                  iteration</span>
+                                <span class="n9t-fl-cap-text">asystole &mdash; system has ceased</span>
+                              </div>
+                            </div>
+                            <p class="n9t-prose">
+                              Asystole is not the result of insufficient talent. Asystole occurs because <em>the current
+                                stops flowing</em> &mdash; initiative
+                              ceases, reflection ceases, motion ceases. A portfolio left unmaintained is a portfolio
+                              that has already died,
+                              regardless of whether its domain server remains accessible.
+                            </p>
+                          </div>
+
+                          <!-- ── Manifesto ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key teal">directive &middot; keep creating until the line arrives on its
+                              own</div>
+                            <div class="n9t-manifesto">
+                              <p>Stay focused. Remember that line. Every day filled with iteration &mdash; however
+                                modest the commit &mdash; is <strong>a heartbeat that counts</strong>. Not because
+                                anyone is watching. Not because the result is perfect. But because <strong>a living
+                                  system is one that never stops moving</strong>. Deliver your finest quality and
+                                fullest effort, until asystole arrives of its own accord &mdash; not because you chose
+                                it prematurely.</p>
+                            </div>
+                          </div>
+
+                          <!-- ── Anchor quotes ── -->
+                          <div class="n9t-section">
+                            <div class="n9t-sec-key">signals to remember</div>
+                            <div class="n9t-q-block">
+                              <div class="n9t-q-text">&ldquo;Move around, be nomadic, make each day a new
+                                horizon.&rdquo;</div>
+                              <div class="n9t-q-attr">&mdash; Alexander Supertramp, Chris McCandless</div>
+                            </div>
+                            <div class="n9t-q-block">
+                              <div class="n9t-q-text">&ldquo;It's never been easy to learn something new, but there are
+                                no hard things to do when you think you can do &mdash; then you do with your
+                                best.&rdquo;</div>
+                              <div class="n9t-q-attr">&mdash; Unknown</div>
+                            </div>
+                            <div class="n9t-q-block">
+                              <div class="n9t-q-text">&ldquo;Understand the root cause first. The right solution &mdash;
+                                and the right technology &mdash; will follow.&rdquo;</div>
+                              <div class="n9t-q-attr">&mdash; Operating Principle</div>
+                            </div>
+                          </div>
+
+                          <!-- ── Footer signature ── -->
+                          <div class="n9t-footer-sig">
+                            <div class="n9t-sig-left">
+                              <span class="n9t-sig-name">Dhani N.</span>
+                              <span class="n9t-sig-url">dhnugroho.github.io &middot; #notes</span>
+                            </div>
+                            <div class="n9t-sig-right">
+                              signal: active<br>
+                              last iterate: tonight<br>
+                              asystole: not yet
+                            </div>
+                          </div>
+
+
+
+                        </div><!-- /.n9t-body -->
+
+                        <!-- ── Terminal ECG Script (Interactive ECG graph only) ── -->
+                        <script>
+                          (function () {
+                            var bgC = document.getElementById('n9tBgCanvas');
+                            var mainC = document.getElementById('n9tEcgCanvas');
+                            var flC = document.getElementById('n9tFlatlineCanvas');
+                            if (!bgC || !mainC || !flC) return;
+
+                            var bgX = bgC.getContext('2d');
+                            var mainX = mainC.getContext('2d');
+                            var flX = flC.getContext('2d');
+
+                            var t = 0;
+                            var tickCount = 0;
+                            var flatlineProgress = 0;
+
+                            var mainBuf = [];
+                            var mainPx = 0;
+                            var flBuf = [];
+                            var flPx = 0;
+
+                            var monDot = document.getElementById('n9tMonDot');
+                            var monLabel = document.getElementById('n9tMonLabel');
+                            var statusLbl = document.getElementById('n9tEcgStatusLbl');
+                            var bpmLive = document.getElementById('n9tBpmLive');
+                            var sysStatus = document.getElementById('n9tSysStatus');
+                            var sigStatus = document.getElementById('n9tSigStatus');
+                            var monTime = document.getElementById('n9tMonTime');
+
+                            function sz(c, h) {
+                              var w = Math.floor(c.parentElement.getBoundingClientRect().width) || 600;
+                              if (c.width !== w) c.width = w;
+                              if (h && c.height !== h) c.height = h;
+                              return w;
+                            }
+
+                            function isLightMode() {
+                              return document.body.classList.contains('light-mode') ||
+                                document.documentElement.classList.contains('light-mode-pending');
+                            }
+
+                            function ecg(phase, bpm, amp) {
+                              if (bpm === 0) return (Math.random() - 0.5) * 0.005;
+                              var p = (phase * (bpm / 60)) % 1;
+                              var v = 0;
+                              if (p < 0.05) v = 0.1 * Math.sin(Math.PI * p / 0.05);
+                              else if (p < 0.09) v = 0;
+                              else if (p < 0.12) { var r = (p - 0.09) / 0.03; v = r < 0.5 ? r * 2 : 2 - r * 2; }
+                              else if (p < 0.15) { var r = (p - 0.12) / 0.03; v = -(r < 0.5 ? r * 2 : 2 - r * 2) * 0.55; }
+                              else if (p < 0.18) { var r = (p - 0.15) / 0.03; v = (r < 0.5 ? r * 2 : 2 - r * 2) * 0.18; }
+                              else if (p < 0.28) v = 0;
+                              else if (p < 0.48) { var r = (p - 0.28) / 0.2; v = 0.2 * Math.sin(Math.PI * r); }
+                              return v * amp + (Math.random() - 0.5) * 0.015;
+                            }
+
+                            function drawBg() {
+                              var w = sz(bgC);
+                              var h = bgC.parentElement.offsetHeight || 500;
+                              if (bgC.height !== h) bgC.height = h;
+                              bgX.clearRect(0, 0, w, h);
+                              // Gentle ambient grid behind card
+                              var light = isLightMode();
+                              bgX.strokeStyle = light ? 'rgba(0,0,0,0.03)' : 'rgba(255,255,255,0.025)';
+                              bgX.lineWidth = 1;
+                              var step = 36;
+                              for (var x = 0; x < w; x += step) {
+                                bgX.beginPath(); bgX.moveTo(x, 0); bgX.lineTo(x, h); bgX.stroke();
+                              }
+                              for (var y = 0; y < h; y += step) {
+                                bgX.beginPath(); bgX.moveTo(0, y); bgX.lineTo(w, y); bgX.stroke();
+                              }
+                            }
+
+                            function drawMain() {
+                              var w = sz(mainC, 80);
+                              var h = 80, mid = h * 0.5, amp = h * 0.36;
+                              var bpm = flatlineProgress > 0.85 ? 0 : 72;
+                              var pt = ecg(t, bpm, 1);
+                              mainBuf.push({ x: mainPx, y: pt, flat: flatlineProgress > 0.85 });
+                              mainPx++;
+
+                              var maxVis = Math.floor(w * 0.95);
+                              if (mainPx > w * 2) mainBuf = mainBuf.filter(function (p) { return p.x > mainPx - maxVis; });
+                              var vis = mainBuf.filter(function (p) { return p.x > mainPx - maxVis; });
+
+                              mainX.clearRect(0, 0, w, h);
+
+                              var light = isLightMode();
+                              var alive = flatlineProgress < 0.85;
+
+                              // Medical grid
+                              mainX.strokeStyle = light ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.06)';
+                              mainX.lineWidth = 1;
+                              for (var gx = 0; gx < w; gx += 24) {
+                                mainX.beginPath(); mainX.moveTo(gx, 0); mainX.lineTo(gx, h); mainX.stroke();
+                              }
+                              for (var gy = 0; gy < h; gy += 16) {
+                                mainX.beginPath(); mainX.moveTo(0, gy); mainX.lineTo(w, gy); mainX.stroke();
+                              }
+
+                              if (vis.length < 2) return;
+                              var ox = w - (mainPx - vis[0].x);
+
+                              // Interactive trace: cyan/teal when active, rose when asystole
+                              var traceColor = alive ? (light ? '#0284c7' : '#2dd4bf') : '#fb7185';
+
+                              // Ambient glow
+                              mainX.beginPath();
+                              vis.forEach(function (p, i) {
+                                var px = ox + (p.x - vis[0].x);
+                                var py = mid - p.y * amp;
+                                if (i === 0) mainX.moveTo(px, py);
+                                else mainX.lineTo(px, py);
+                              });
+                              mainX.strokeStyle = traceColor;
+                              mainX.globalAlpha = light ? 0.25 : 0.4;
+                              mainX.lineWidth = 4;
+                              mainX.stroke();
+                              mainX.globalAlpha = 1.0;
+
+                              // Crisp signal line
+                              mainX.beginPath();
+                              vis.forEach(function (p, i) {
+                                var px = ox + (p.x - vis[0].x);
+                                var py = mid - p.y * amp;
+                                if (i === 0) mainX.moveTo(px, py);
+                                else mainX.lineTo(px, py);
+                              });
+                              mainX.strokeStyle = traceColor;
+                              mainX.lineWidth = 2.2;
+                              mainX.stroke();
+
+                              // Leading trace head
+                              var last = vis[vis.length - 1];
+                              var lx = ox + (last.x - vis[0].x);
+                              var ly = mid - last.y * amp;
+                              mainX.beginPath();
+                              mainX.arc(lx, ly, 3.5, 0, Math.PI * 2);
+                              mainX.fillStyle = '#ffffff';
+                              mainX.shadowColor = traceColor;
+                              mainX.shadowBlur = 8;
+                              mainX.fill();
+                              mainX.shadowBlur = 0;
+                            }
+
+                            function drawFlatline() {
+                              var w = sz(flC, 36);
+                              var h = 36, mid = h * 0.5;
+                              var pt = (Math.random() - 0.5) * 0.02;
+                              flBuf.push({ x: flPx, y: pt });
+                              flPx++;
+
+                              if (flPx > w * 2) flBuf = flBuf.filter(function (p) { return p.x > flPx - w; });
+                              var vis = flBuf.filter(function (p) { return p.x > flPx - w; });
+
+                              flX.clearRect(0, 0, w, h);
+                              if (vis.length < 2) return;
+                              var ox = w - (flPx - vis[0].x);
+
+                              flX.beginPath();
+                              vis.forEach(function (p, i) {
+                                var px = ox + (p.x - vis[0].x), py = mid - p.y * h * 0.3;
+                                if (i === 0) flX.moveTo(px, py);
+                                else flX.lineTo(px, py);
+                              });
+                              flX.strokeStyle = '#fb7185';
+                              flX.lineWidth = 1.6;
+                              flX.stroke();
+                            }
+
+                            function updateClock() {
+                              var now = new Date();
+                              var pad = function (n) { return String(n).padStart(2, '0'); };
+                              if (monTime) monTime.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()) + ' WIB';
+                            }
+
+                            function updateStatus() {
+                              var alive = flatlineProgress < 0.85;
+                              var light = isLightMode();
+                              var traceColor = alive ? (light ? '#0284c7' : '#2dd4bf') : '#fb7185';
+
+                              if (monDot) monDot.className = 'n9t-mon-dot' + (alive ? '' : ' dead');
+                              if (statusLbl) {
+                                statusLbl.textContent = alive ? 'continuous improvement active' : 'ASYSTOLE DETECTED · ITERATION HALTED';
+                                statusLbl.style.color = traceColor;
+                              }
+                              if (bpmLive) {
+                                bpmLive.textContent = alive ? '72 BPM' : '0 BPM';
+                                bpmLive.style.color = traceColor;
+                              }
+                              if (sysStatus) {
+                                sysStatus.textContent = alive ? 'ACTIVE' : 'HALTED';
+                                sysStatus.className = 'n9t-sg-val ' + (alive ? 'green' : 'red');
+                              }
+                              if (sigStatus) {
+                                sigStatus.textContent = alive ? 'CONTINUOUS' : 'ASYSTOLE';
+                                sigStatus.className = 'n9t-sg-val ' + (alive ? 'green' : 'red');
+                              }
+                            }
+
+                            function animTick() {
+                              t += 0.014;
+                              tickCount++;
+
+                              if (tickCount > 280 && tickCount < 600) {
+                                flatlineProgress = Math.min(1, (tickCount - 280) / 40);
+                              } else if (tickCount >= 600) {
+                                flatlineProgress = Math.max(0, flatlineProgress - 0.04);
+                                if (tickCount > 720) tickCount = 0;
+                              } else {
+                                flatlineProgress = 0;
+                              }
+
+                              updateStatus();
+                              drawBg();
+                              drawMain();
+                              drawFlatline();
+                              if (tickCount % 60 === 0) updateClock();
+                              requestAnimationFrame(animTick);
+                            }
+
+                            updateClock();
+                            animTick();
+                          })();
+                        </script>
+
+                      </div><!-- /.n9t-root -->
+
+                    </div><!-- /.note-card -->
+                  </div>
+                </div><!-- /.notes-accordion-body -->
+              </div><!-- /.notes-accordion-item Note 9 -->
+
               <!-- ═══ Note 8: Enterprise Data Topologies — Architectural Abstractions in Production (REVISED) ═══ -->
               <div class="notes-accordion-item" data-note-date="2026-09-12">
 
@@ -4349,7 +5766,8 @@
                     <span class="note-datetime">September 12, 2026 &bull; 10:30 PM</span>
                     <h3 class="notes-acc-title">Six Data Topologies, Six Real Systems: A Technical Cross-Reference</h3>
                     <p class="notes-acc-excerpt">A revised technical reference mapping six portfolio theme geometries to
-                      distributed architectures, storage engines, and consensus protocols, with the underlying research cited
+                      distributed architectures, storage engines, and consensus protocols, with the underlying research
+                      cited
                       rather than assumed.</p>
                   </div>
                   <div class="notes-acc-toggle">
@@ -4367,23 +5785,30 @@
 
                       <p class="note-body">
                         A visual interface and its backend architecture are usually treated as separate concerns: one is
-                        designed, the other is engineered. This note takes the opposite position for a narrower reason than
-                        aesthetics. <strong>Each of the six portfolio themes below was built as a structural analogy for a
-                          specific, identifiable class of production data system</strong> — not as decoration applied after the
+                        designed, the other is engineered. This note takes the opposite position for a narrower reason
+                        than
+                        aesthetics. <strong>Each of the six portfolio themes below was built as a structural analogy for
+                          a
+                          specific, identifiable class of production data system</strong> — not as decoration applied
+                        after the
                         fact.<br><br>
 
                         <span
                           style="display:block; border-left:3px solid var(--accent-primary); padding:0.6rem 1rem; margin:0.5rem 0; background:rgba(0,229,255,0.06); border-radius:0 8px 8px 0; font-style:italic;">
-                          After several years working across pipelines, warehouses, BI layers, and transactional systems, I find
-                          that most diagrams claiming to represent architecture actually represent intent. The revision below
-                          corrects that gap: every visual claim is checked against the paper or system documentation it is
+                          After several years working across pipelines, warehouses, BI layers, and transactional
+                          systems, I find
+                          that most diagrams claiming to represent architecture actually represent intent. The revision
+                          below
+                          corrects that gap: every visual claim is checked against the paper or system documentation it
+                          is
                           supposedly based on, and adjusted where the original description was imprecise or overstated.
                         </span><br>
 
                         The reference below maps each theme to its closest real-world equivalent — Cassandra-style and
                         Spanner-style replication, Airflow-style DAG orchestration, Snowflake-style columnar pruning,
                         Kafka-style partitioning, Druid-style OLAP ingestion, and two-phase commit in financial-grade
-                        transaction systems — and, where the original mapping conflated distinct mechanisms, separates them.
+                        transaction systems — and, where the original mapping conflated distinct mechanisms, separates
+                        them.
                         <br><br>
 
                         <span style="color: var(--accent-primary); font-size: 0.85rem;">#DataEngineering
@@ -4394,7 +5819,8 @@
                       <!-- ── ce-root: Rich Interactive Topology Deep-Dive Component ── -->
                       <div class="ce-root">
                         <div class="hdr">
-                          <div class="hdr-eyebrow">Enterprise Data Architecture &middot; Technical Reference (Revised)</div>
+                          <div class="hdr-eyebrow">Enterprise Data Architecture &middot; Technical Reference (Revised)
+                          </div>
                           <h1 class="hdr-title">Six Topologies, Cross-Checked:<br>Visual Geometry <span>&rarr;
                               Cited Production Systems</span></h1>
                           <p class="hdr-sub">An interactive reference showing how each theme's conduits, packets, and
@@ -4405,7 +5831,8 @@
                         <div class="quote-strip">
                           <div class="qs-bar"></div>
                           <div class="qs-text">
-                            <strong>A diagram earns the label "architectural" only when its parts can be traced back to a
+                            <strong>A diagram earns the label "architectural" only when its parts can be traced back to
+                              a
                               real constraint — a round-trip time, a quorum rule, a partition boundary — rather than to
                               whatever shape looked balanced on screen.</strong>
                           </div>
@@ -4510,9 +5937,12 @@
                                   text-anchor="middle">CLOUD::BACKBONE [12ms RTT]</text>
                               </svg>
                             </div>
-                            <p style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
-                              Note: the systems named below do not share one consistency model. Cassandra, CockroachDB, and
-                              Spanner are grouped here by topology (multi-region replication), not by guarantee — see the
+                            <p
+                              style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
+                              Note: the systems named below do not share one consistency model. Cassandra, CockroachDB,
+                              and
+                              Spanner are grouped here by topology (multi-region replication), not by guarantee — see
+                              the
                               distinction drawn in the third card.
                             </p>
 
@@ -4525,10 +5955,14 @@
                                 </div>
                                 <h5 class="topo-term-name">Cross-Datacenter Cluster Replication</h5>
                                 <p class="topo-term-desc">
-                                  This represents any database that maintains copies of data across geographically separate
-                                  data centres — Apache Cassandra, CockroachDB, and Google Cloud Spanner all do this, though
-                                  by different mechanisms (see below). The purpose is the same in each case: if one region
-                                  becomes unreachable, the system keeps serving reads and, in most configurations, writes
+                                  This represents any database that maintains copies of data across geographically
+                                  separate
+                                  data centres — Apache Cassandra, CockroachDB, and Google Cloud Spanner all do this,
+                                  though
+                                  by different mechanisms (see below). The purpose is the same in each case: if one
+                                  region
+                                  becomes unreachable, the system keeps serving reads and, in most configurations,
+                                  writes
                                   from the surviving regions.
                                 </p>
                               </div>
@@ -4540,8 +5974,10 @@
                                 </div>
                                 <h5 class="topo-term-name">Failover Routing and Ring Rebalancing</h5>
                                 <p class="topo-term-desc">
-                                  The bypass line stands for what happens when a primary route fails: traffic is redirected
-                                  along a surviving path. In practice this takes different forms depending on the layer —
+                                  The bypass line stands for what happens when a primary route fails: traffic is
+                                  redirected
+                                  along a surviving path. In practice this takes different forms depending on the layer
+                                  —
                                   BGP route convergence at the network level, or partition reassignment on a consistent
                                   hashing ring at the database level, as used in Cassandra's ring topology
                                   (DeCandia et al., 2007).
@@ -4553,20 +5989,27 @@
                                   <span class="topo-term-visual">"Dual cyan/violet sync packets"</span>
                                   <span class="topo-term-real-badge">Replication Models</span>
                                 </div>
-                                <h5 class="topo-term-name">Two Distinct Replication Disciplines — Not One Binary Choice</h5>
+                                <h5 class="topo-term-name">Two Distinct Replication Disciplines — Not One Binary Choice
+                                </h5>
                                 <p class="topo-term-desc">
                                   This is where the three systems named above actually diverge, and it is worth being
                                   precise about it:
-                                  <br>&bull; <strong>Cassandra</strong> is AP-oriented in Brewer's CAP framing (Brewer, 2000;
-                                  Gilbert &amp; Lynch, 2002). It does not enforce one fixed sync/async mode — consistency is
-                                  tunable per query through the read/write quorum settings described in the original Dynamo
+                                  <br>&bull; <strong>Cassandra</strong> is AP-oriented in Brewer's CAP framing (Brewer,
+                                  2000;
+                                  Gilbert &amp; Lynch, 2002). It does not enforce one fixed sync/async mode —
+                                  consistency is
+                                  tunable per query through the read/write quorum settings described in the original
+                                  Dynamo
                                   paper (DeCandia et al., 2007).
-                                  <br>&bull; <strong>CockroachDB and Spanner</strong> are CP-oriented. They use a consensus
+                                  <br>&bull; <strong>CockroachDB and Spanner</strong> are CP-oriented. They use a
+                                  consensus
                                   protocol — Raft in CockroachDB's case (Ongaro &amp; Ousterhout, 2014), Paxos plus a
-                                  synchronised clock in Spanner's case (Corbett et al., 2012) — to guarantee that a write is
+                                  synchronised clock in Spanner's case (Corbett et al., 2012) — to guarantee that a
+                                  write is
                                   durable across a quorum before it is acknowledged.
                                   <br>The cyan/violet split is a useful simplification of "coordinated" versus "lagging"
-                                  replication, but it should not be read as implying all three systems offer the same choice.
+                                  replication, but it should not be read as implying all three systems offer the same
+                                  choice.
                                 </p>
                               </div>
 
@@ -4580,7 +6023,8 @@
                                   The tag format follows the <code>service::component</code> convention used in
                                   OpenTelemetry span naming, feeding dashboards such as Grafana or Datadog. The metrics
                                   that would actually populate such a dashboard include replication lag, inter-region
-                                  round-trip time, and packet loss — the 12ms figure shown is illustrative, not measured.
+                                  round-trip time, and packet loss — the 12ms figure shown is illustrative, not
+                                  measured.
                                 </p>
                               </div>
                             </div>
@@ -4672,9 +6116,11 @@
                                 <h5 class="topo-term-name">Directed Acyclic Graph Task Scheduling</h5>
                                 <p class="topo-term-desc">
                                   This is a dependency-ordered pipeline, the kind Apache Airflow, Dagster, or Prefect
-                                  execute: <code>Extract &rarr; Validate &rarr; Transform &rarr; Load</code>. The graph must
+                                  execute: <code>Extract &rarr; Validate &rarr; Transform &rarr; Load</code>. The graph
+                                  must
                                   be acyclic because a scheduler resolves execution order through a topological sort
-                                  (Cormen et al., 2009); a cycle would leave no valid ordering and the scheduler would stall.
+                                  (Cormen et al., 2009); a cycle would leave no valid ordering and the scheduler would
+                                  stall.
                                 </p>
                               </div>
 
@@ -4687,8 +6133,10 @@
                                 </div>
                                 <h5 class="topo-term-name">CDC and Object Storage Ingestion Boundaries</h5>
                                 <p class="topo-term-desc">
-                                  These are the points where raw records enter the pipeline — a Change Data Capture stream
-                                  reading a database's write-ahead log (Debezium is the common open-source tool for this),
+                                  These are the points where raw records enter the pipeline — a Change Data Capture
+                                  stream
+                                  reading a database's write-ahead log (Debezium is the common open-source tool for
+                                  this),
                                   an API webhook, or a batch drop into object storage such as S3. Each ingestion point
                                   typically applies schema validation before the record is allowed downstream.
                                 </p>
@@ -4704,7 +6152,8 @@
                                 <h5 class="topo-term-name">Synchronization Barrier and Join Gate</h5>
                                 <p class="topo-term-desc">
                                   This is the point where two branches of the DAG converge. It acts as a synchronization
-                                  barrier: the join task will not run until every upstream task it depends on has reported
+                                  barrier: the join task will not run until every upstream task it depends on has
+                                  reported
                                   success, which is what prevents the pipeline from reading a partially written dataset.
                                 </p>
                               </div>
@@ -4800,8 +6249,10 @@
                                   PRUNING</text>
                               </svg>
                             </div>
-                            <p style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
-                              Note: figures such as "0.2ms" and "95% pruning" in this panel are illustrative examples, not
+                            <p
+                              style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
+                              Note: figures such as "0.2ms" and "95% pruning" in this panel are illustrative examples,
+                              not
                               benchmark results. Actual pruning efficiency depends heavily on data skew and how well the
                               partition key aligns with query filters.
                             </p>
@@ -4819,7 +6270,8 @@
                                   Values are stored contiguously by column rather than as complete row records — the
                                   architecture first formalised in the C-Store paper (Stonebraker et al., 2005). An
                                   aggregation query such as <code>SUM(amount)</code> then loads only the relevant column
-                                  into memory, which improves CPU cache behaviour and allows vectorized (SIMD) execution.
+                                  into memory, which improves CPU cache behaviour and allows vectorized (SIMD)
+                                  execution.
                                 </p>
                               </div>
 
@@ -4835,7 +6287,8 @@
                                   Large tables are split into immutable micro-partitions (Snowflake's term) or segments
                                   (ClickHouse's term). The query planner checks each partition's stored min/max values
                                   before deciding whether to scan it, which is how a filtered query can skip most of the
-                                  table without reading it. How much gets skipped depends entirely on the data's clustering.
+                                  table without reading it. How much gets skipped depends entirely on the data's
+                                  clustering.
                                 </p>
                               </div>
 
@@ -4850,7 +6303,8 @@
                                 <p class="topo-term-desc">
                                   This represents periodic background passes that apply run-length encoding, dictionary
                                   encoding, or delta encoding to reduce storage size. The closest familiar analogues are
-                                  PostgreSQL's <code>VACUUM</code> process and LSM-tree compaction in RocksDB — different
+                                  PostgreSQL's <code>VACUUM</code> process and LSM-tree compaction in RocksDB —
+                                  different
                                   implementations of the same idea: reclaim space and keep scans fast.
                                 </p>
                               </div>
@@ -4865,7 +6319,8 @@
                                 <p class="topo-term-desc">
                                   This refers to open table formats such as Apache Iceberg or Delta Lake, which separate
                                   the storage layer from the compute engine. This separation is what allows several
-                                  different query engines to read the same underlying files without duplicating the data.
+                                  different query engines to read the same underlying files without duplicating the
+                                  data.
                                 </p>
                               </div>
                             </div>
@@ -4963,7 +6418,8 @@
                                 <h5 class="topo-term-name">Topic Partitioning (Kafka / Pulsar)</h5>
                                 <p class="topo-term-desc">
                                   A topic is split into partitions, each an independent, ordered commit log
-                                  (Kreps, Narkhede &amp; Rao, 2011). Ordering is only guaranteed within a single partition,
+                                  (Kreps, Narkhede &amp; Rao, 2011). Ordering is only guaranteed within a single
+                                  partition,
                                   not across the topic as a whole — a detail that matters whenever downstream consumers
                                   assume global ordering and shouldn't.
                                 </p>
@@ -4994,7 +6450,8 @@
                                 </div>
                                 <h5 class="topo-term-name">Correlation and Acknowledgment</h5>
                                 <p class="topo-term-desc">
-                                  Two related mechanisms sit under this label: a correlation identifier that links a reply
+                                  Two related mechanisms sit under this label: a correlation identifier that links a
+                                  reply
                                   event back to its originating request (used in the saga pattern for distributed
                                   transactions), and the ACK/NACK a consumer sends back to the broker once a message is
                                   processed, which is what enforces at-least-once delivery.
@@ -5095,8 +6552,10 @@
                                 </div>
                                 <h5 class="topo-term-name">Multi-Dimensional OLAP Cube</h5>
                                 <p class="topo-term-desc">
-                                  Business dimensions — time, region, SKU — are arranged against measures such as revenue
-                                  or transaction volume, allowing slice, dice, drill-down, and roll-up operations without
+                                  Business dimensions — time, region, SKU — are arranged against measures such as
+                                  revenue
+                                  or transaction volume, allowing slice, dice, drill-down, and roll-up operations
+                                  without
                                   rescanning the raw transactional table each time.
                                 </p>
                               </div>
@@ -5110,9 +6569,12 @@
                                 </div>
                                 <h5 class="topo-term-name">Cost-Based Optimizer and View Selection</h5>
                                 <p class="topo-term-desc">
-                                  This is the optimizer inside engines such as ClickHouse, Trino, or Presto that estimates
-                                  cardinality and cost to decide whether a query should hit a pre-aggregated materialized
-                                  view or a raw memory segment, and which join strategy — broadcast or partitioned — to use.
+                                  This is the optimizer inside engines such as ClickHouse, Trino, or Presto that
+                                  estimates
+                                  cardinality and cost to decide whether a query should hit a pre-aggregated
+                                  materialized
+                                  view or a raw memory segment, and which join strategy — broadcast or partitioned — to
+                                  use.
                                 </p>
                               </div>
 
@@ -5142,7 +6604,8 @@
                                 <p class="topo-term-desc">
                                   Engines in this category are built for user-facing dashboards handling many concurrent
                                   queries at low latency — typically tens of milliseconds under normal load, though the
-                                  exact figure depends on cardinality and cluster sizing rather than being a fixed constant.
+                                  exact figure depends on cardinality and cluster sizing rather than being a fixed
+                                  constant.
                                 </p>
                               </div>
                             </div>
@@ -5233,7 +6696,8 @@
                                   ENCRYPTION</text>
                               </svg>
                             </div>
-                            <p style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
+                            <p
+                              style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.4rem;">
                               Note: Raft consensus and two-phase commit operate at different layers here, not as
                               interchangeable alternatives — see the clarification in the third card below.
                             </p>
@@ -5249,7 +6713,8 @@
                                 <h5 class="topo-term-name">Synchronous Quorum Replication</h5>
                                 <p class="topo-term-desc">
                                   A transaction is only committed once a quorum of replicas has confirmed the write —
-                                  coordinated through Raft (Ongaro &amp; Ousterhout, 2014) or Paxos (Lamport, 1998). This
+                                  coordinated through Raft (Ongaro &amp; Ousterhout, 2014) or Paxos (Lamport, 1998).
+                                  This
                                   is what prevents a split-brain state if one node in the cluster fails.
                                 </p>
                               </div>
@@ -5264,7 +6729,8 @@
                                 <h5 class="topo-term-name">mTLS and In-Transit Verification</h5>
                                 <p class="topo-term-desc">
                                   This is the perimeter check performed before a request reaches the transactional core:
-                                  mutual TLS with X.509 certificate validation, payload encryption (typically AES-256-GCM),
+                                  mutual TLS with X.509 certificate validation, payload encryption (typically
+                                  AES-256-GCM),
                                   and integrity verification (HMAC-SHA256) — the layer that stops a tampered or spoofed
                                   request from being processed.
                                 </p>
@@ -5296,8 +6762,10 @@
                                 </div>
                                 <h5 class="topo-term-name">Mission-Critical Financial OLTP</h5>
                                 <p class="topo-term-desc">
-                                  This is the general class of infrastructure used for banking ledgers, payment gateways,
-                                  and clearing systems, where strict serializability is required so that account balances
+                                  This is the general class of infrastructure used for banking ledgers, payment
+                                  gateways,
+                                  and clearing systems, where strict serializability is required so that account
+                                  balances
                                   and audit trails remain correct even under node failure.
                                 </p>
                               </div>
@@ -5331,7 +6799,8 @@
                               <tr>
                                 <td class="topo-table-theme"><span style="color:#00e5ff;">⚡</span> Stellar</td>
                                 <td>Distributed Cloud Mesh</td>
-                                <td>Multi-region replication — tunable quorum (Cassandra) or consensus-based (CockroachDB, Spanner)</td>
+                                <td>Multi-region replication — tunable quorum (Cassandra) or consensus-based
+                                  (CockroachDB, Spanner)</td>
                                 <td>10&ndash;80 ms (inter-region RTT)</td>
                                 <td>CockroachDB, Cassandra, Spanner, AWS TGW</td>
                               </tr>
@@ -5345,7 +6814,8 @@
                               <tr>
                                 <td class="topo-table-theme"><span style="color:#D4915C;">☕</span> Espresso</td>
                                 <td>Data Warehouse Columnar Fabric</td>
-                                <td>Column-oriented layout, partition pruning, vectorized scans, background compaction</td>
+                                <td>Column-oriented layout, partition pruning, vectorized scans, background compaction
+                                </td>
                                 <td>Seconds (high-throughput scan)</td>
                                 <td>Snowflake, BigQuery, ClickHouse, Parquet, Iceberg</td>
                               </tr>
@@ -5382,7 +6852,8 @@
                                       stroke-width="0.6" />
                                   </svg> Crimson Ruby</td>
                                 <td>Mission-Critical Transaction Fabric</td>
-                                <td>Raft/Paxos for intra-shard replication, two-phase commit for cross-shard atomicity, mTLS gateway</td>
+                                <td>Raft/Paxos for intra-shard replication, two-phase commit for cross-shard atomicity,
+                                  mTLS gateway</td>
                                 <td>5&ndash;15 ms typical (strict serializability)</td>
                                 <td>PostgreSQL (Patroni), CockroachDB, Vault, Envoy</td>
                               </tr>
@@ -5391,28 +6862,40 @@
                         </div>
 
                         <!-- Sources -->
-                        <div class="topo-sources-wrap" style="margin-top:1.25rem; font-size:0.78rem; color:var(--text-muted); line-height:1.6;">
+                        <div class="topo-sources-wrap"
+                          style="margin-top:1.25rem; font-size:0.78rem; color:var(--text-muted); line-height:1.6;">
                           <strong style="color:var(--text-secondary);">Sources referenced above:</strong>
                           <ol style="margin:0.4rem 0 0 1.1rem; padding:0;">
-                            <li>Brewer, E. (2000). Towards Robust Distributed Systems (CAP conjecture, PODC keynote).</li>
-                            <li>Gilbert, S. &amp; Lynch, N. (2002). Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services. <em>ACM SIGACT News</em>.</li>
-                            <li>DeCandia, G. et al. (2007). Dynamo: Amazon's Highly Available Key-value Store. <em>SOSP</em>.</li>
-                            <li>Ongaro, D. &amp; Ousterhout, J. (2014). In Search of an Understandable Consensus Algorithm (Raft). <em>USENIX ATC</em>.</li>
+                            <li>Brewer, E. (2000). Towards Robust Distributed Systems (CAP conjecture, PODC keynote).
+                            </li>
+                            <li>Gilbert, S. &amp; Lynch, N. (2002). Brewer's Conjecture and the Feasibility of
+                              Consistent, Available, Partition-Tolerant Web Services. <em>ACM SIGACT News</em>.</li>
+                            <li>DeCandia, G. et al. (2007). Dynamo: Amazon's Highly Available Key-value Store.
+                              <em>SOSP</em>.
+                            </li>
+                            <li>Ongaro, D. &amp; Ousterhout, J. (2014). In Search of an Understandable Consensus
+                              Algorithm (Raft). <em>USENIX ATC</em>.</li>
                             <li>Lamport, L. (1998). The Part-Time Parliament (Paxos). <em>ACM TOCS</em>.</li>
-                            <li>Corbett, J. et al. (2012). Spanner: Google's Globally-Distributed Database. <em>OSDI</em>.</li>
+                            <li>Corbett, J. et al. (2012). Spanner: Google's Globally-Distributed Database.
+                              <em>OSDI</em>.
+                            </li>
                             <li>Gray, J. (1978). Notes on Data Base Operating Systems (two-phase commit).</li>
                             <li>Stonebraker, M. et al. (2005). C-Store: A Column-oriented DBMS. <em>VLDB</em>.</li>
-                            <li>Kreps, J., Narkhede, N., &amp; Rao, J. (2011). Kafka: a Distributed Messaging System for Log Processing. <em>NetDB</em>.</li>
+                            <li>Kreps, J., Narkhede, N., &amp; Rao, J. (2011). Kafka: a Distributed Messaging System for
+                              Log Processing. <em>NetDB</em>.</li>
                             <li>Yang, F. et al. (2014). Druid: A Real-time Analytical Data Store. <em>SIGMOD</em>.</li>
-                            <li>Cormen, T., Leiserson, C., Rivest, R., &amp; Stein, C. (2009). <em>Introduction to Algorithms</em> (3rd ed.) — topological sort.</li>
+                            <li>Cormen, T., Leiserson, C., Rivest, R., &amp; Stein, C. (2009). <em>Introduction to
+                                Algorithms</em> (3rd ed.) — topological sort.</li>
                           </ol>
                         </div>
 
                         <!-- Closing statement, reframed as design philosophy, not a citation -->
                         <div class="sig-quote" style="margin-top: 1.5rem;">
                           <p class="sig-text">
-                            A visual layer stops being decoration the moment its parts correspond to something checkable —
-                            a round-trip time, a quorum size, a partition boundary. That correspondence is the whole design
+                            A visual layer stops being decoration the moment its parts correspond to something checkable
+                            —
+                            a round-trip time, a quorum size, a partition boundary. That correspondence is the whole
+                            design
                             principle behind these six themes; everything else is styling.
                           </p>
                           <div class="sig-footer">Design note, not a citation &nbsp;&middot;&nbsp;
@@ -5456,7 +6939,8 @@
 
                       <div class="note-signature"
                         style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
-                        <span style="color: var(--text-muted); font-style: italic;">From Visual Metaphor to Verified Mechanism</span>
+                        <span style="color: var(--text-muted); font-style: italic;">From Visual Metaphor to Verified
+                          Mechanism</span>
                         <span class="signature-name" style="font-weight: bold;">&mdash; Dhani N.</span>
                       </div>
 
