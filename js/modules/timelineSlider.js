@@ -95,10 +95,17 @@ export function initTimelineSlider() {
       progressEl.style.width = `${targetX}px`;
     }
 
-    // Tooltip content
+    // Tooltip content and edge-aware alignment to prevent mobile/viewport overflow
     const yearText = nodeYears[step] || '';
     const roleText = nodeRoles[step] || '';
     tooltip.textContent = roleText ? `${yearText} · ${roleText}` : yearText;
+    if (step === 0) {
+      tooltip.dataset.align = 'left';
+    } else if (step === totalSteps - 1) {
+      tooltip.dataset.align = 'right';
+    } else {
+      tooltip.dataset.align = 'center';
+    }
 
     // Counter
     if (counterEl) {
@@ -149,6 +156,15 @@ export function initTimelineSlider() {
     if (progressEl) {
       progressEl.style.transition = 'none';
       progressEl.style.width = `${clampedX}px`;
+    }
+
+    // Dynamic edge-aware tooltip alignment during continuous drag
+    if (fraction <= 0.15) {
+      tooltip.dataset.align = 'left';
+    } else if (fraction >= 0.85) {
+      tooltip.dataset.align = 'right';
+    } else {
+      tooltip.dataset.align = 'center';
     }
 
     // Real-time track slide

@@ -19,6 +19,7 @@
 /* ── Rolling Slider Viewport ── */
 .tl-rolling-viewport {
   position: relative;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   outline: none;
@@ -68,15 +69,15 @@
   top: calc(1rem + 7px);
   left: 0;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 18px;
+  width: 22px;
+  height: 15px;
   border-radius: 6px;
   background: var(--accent-primary);
   border: 2px solid var(--bg-surface-solid);
   box-shadow:
-    0 0 0 2px var(--accent-primary),
-    0 0 14px rgba(0, 229, 255, 0.45),
-    0 3px 10px rgba(0, 0, 0, 0.4);
+    0 0 0 1.5px var(--accent-primary),
+    0 0 12px rgba(0, 229, 255, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.4);
   cursor: grab;
   z-index: 10;
   transition: left 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease, transform 0.2s ease;
@@ -86,22 +87,24 @@
   touch-action: none;
 }
 
+/* Tactile micro-grip ridges */
 .tl-scrubber-thumb::before {
-  content: '⠿';
-  font-size: 0.65rem;
-  line-height: 1;
-  color: var(--bg-surface-solid);
-  letter-spacing: -1px;
-  opacity: 0.75;
+  content: '';
+  width: 2px;
+  height: 6px;
+  background: var(--bg-surface-solid);
+  border-radius: 1px;
+  box-shadow: -3px 0 0 var(--bg-surface-solid), 3px 0 0 var(--bg-surface-solid);
+  opacity: 0.85;
 }
 
 /* Pulse idle animation */
 .tl-scrubber-thumb::after {
   content: '';
   position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 2px solid var(--accent-primary);
+  inset: -4px;
+  border-radius: inherit;
+  border: 1.5px solid var(--accent-primary);
   opacity: 0;
   animation: scrubber-pulse 2.5s ease-in-out infinite;
   pointer-events: none;
@@ -110,7 +113,7 @@
 @keyframes scrubber-pulse {
   0% {
     opacity: 0;
-    transform: scale(0.85);
+    transform: scale(0.9);
   }
 
   50% {
@@ -120,7 +123,7 @@
 
   100% {
     opacity: 0;
-    transform: scale(0.85);
+    transform: scale(0.9);
   }
 }
 
@@ -128,15 +131,16 @@
 .tl-scrubber-thumb:focus-visible {
   transform: translate(-50%, -50%) scale(1.1);
   box-shadow:
-    0 0 0 2px var(--accent-primary),
-    0 0 20px rgba(0, 229, 255, 0.65),
-    0 4px 14px rgba(0, 0, 0, 0.5);
+    0 0 0 1.5px var(--accent-primary),
+    0 0 16px rgba(0, 229, 255, 0.65),
+    0 3px 10px rgba(0, 0, 0, 0.5);
   outline: none;
 }
 
 .tl-scrubber-thumb:hover .tl-scrubber-tooltip,
 .tl-scrubber-thumb:focus-visible .tl-scrubber-tooltip {
   opacity: 1;
+  visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
@@ -146,9 +150,9 @@
   /* instantaneous left tracking */
   transform: translate(-50%, -50%) scale(1.12);
   box-shadow:
-    0 0 0 2px var(--accent-primary),
-    0 0 28px rgba(0, 229, 255, 0.8),
-    0 6px 20px rgba(0, 0, 0, 0.5);
+    0 0 0 1.5px var(--accent-primary),
+    0 0 20px rgba(0, 229, 255, 0.8),
+    0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 /* ── Scrubber Year Tooltip ── */
@@ -169,8 +173,9 @@
   white-space: nowrap;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 229, 255, 0.2);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   z-index: 20;
 }
 
@@ -182,11 +187,48 @@
   transform: translateX(-50%);
   border: 5px solid transparent;
   border-top-color: var(--border-glow);
+  transition: left 0.2s ease, right 0.2s ease;
 }
 
-.tl-scrubber-tooltip.visible {
+.tl-scrubber-tooltip.visible,
+.tl-scrubber-thumb:hover .tl-scrubber-tooltip,
+.tl-scrubber-thumb:focus-visible .tl-scrubber-tooltip {
   opacity: 1;
+  visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip edge-aware alignments */
+.tl-scrubber-tooltip[data-align="left"] {
+  left: 0;
+  right: auto;
+  transform: translateX(0) translateY(4px);
+}
+.tl-scrubber-tooltip[data-align="left"]::after {
+  left: 11px;
+  right: auto;
+  transform: translateX(-50%);
+}
+.tl-scrubber-tooltip[data-align="left"].visible,
+.tl-scrubber-thumb:hover .tl-scrubber-tooltip[data-align="left"],
+.tl-scrubber-thumb:focus-visible .tl-scrubber-tooltip[data-align="left"] {
+  transform: translateX(0) translateY(0);
+}
+
+.tl-scrubber-tooltip[data-align="right"] {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(4px);
+}
+.tl-scrubber-tooltip[data-align="right"]::after {
+  left: auto;
+  right: 11px;
+  transform: translateX(50%);
+}
+.tl-scrubber-tooltip[data-align="right"].visible,
+.tl-scrubber-thumb:hover .tl-scrubber-tooltip[data-align="right"],
+.tl-scrubber-thumb:focus-visible .tl-scrubber-tooltip[data-align="right"] {
+  transform: translateX(0) translateY(0);
 }
 
 /* Interactive Spine Milestone Nodes */
@@ -454,6 +496,21 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  #experience {
+    overflow-x: clip;
+  }
+
+  .tl-rolling-viewport {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .tl-spine-bar {
+    position: relative;
+    padding: 1rem 0;
+  }
+
   .tl-rolling-card {
     padding: 1.5rem 1.25rem;
     border-radius: 12px;
@@ -477,8 +534,32 @@
   }
 
   .tl-scrubber-thumb {
-    width: 32px;
-    height: 14px;
-    border-radius: 4px;
+    width: 18px;
+    height: 13px;
+    border-radius: 5px;
+  }
+
+  .tl-scrubber-thumb::before {
+    width: 1.5px;
+    height: 5px;
+    box-shadow: -2.5px 0 0 var(--bg-surface-solid), 2.5px 0 0 var(--bg-surface-solid);
+  }
+
+  .tl-scrubber-tooltip {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.55rem;
+    max-width: min(240px, calc(100vw - 2.5rem));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+  }
+
+  .tl-scrubber-tooltip[data-align="left"]::after {
+    left: 9px;
+  }
+
+  .tl-scrubber-tooltip[data-align="right"]::after {
+    right: 9px;
   }
 }
