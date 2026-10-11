@@ -18,6 +18,7 @@
       location: 'Jakarta, Indonesia',
       email: 'dhnugroho.dev@gmail.com',
       linkedin: 'https://www.linkedin.com/in/dhnugroho/',
+      threads: 'https://www.threads.com/@lynksell.ai',
       philosophy: 'Pragmatic Programmer — understand the root cause first, find the right solution, then choose the best technology.'
     },
 
@@ -61,7 +62,7 @@
       { name: 'Custom CRM & CMS', desc: 'Tailored CRM solution with complete UI/UX revamp for Philippine market.', tags: ['UI/UX', 'CMS', 'Backend', 'CRM'] }
     ],
 
-    contact: "You can reach Dhani via:\n• 📧 Email: dhnugroho.dev@gmail.com\n• 💼 LinkedIn: linkedin.com/in/dhnugroho\n• 📍 Based in: Jakarta, Indonesia\n\nFeel free to say hello!",
+    contact: "You can reach Dhani via:\n• 📧 Email: dhnugroho.dev@gmail.com\n• 💼 LinkedIn: linkedin.com/in/dhnugroho\n• 🧵 Threads: threads.com/@lynksell.ai\n• 📍 Based in: Jakarta, Indonesia\n\nFeel free to say hello!",
 
     fallback: [
       "I'm not sure I understand that. Try asking about Dhani's **skills**, **experience**, **projects**, or **contact info**!",
@@ -81,7 +82,7 @@
     { id: 'skills', keywords: ['skill', 'skills', 'tech', 'technology', 'stack', 'tools', 'capability', 'capabilities', 'programming', 'language', 'framework', 'keahlian'] },
     { id: 'projects', keywords: ['project', 'projects', 'showcase', 'built', 'develop', 'application', 'app', 'system', 'proyek'] },
     { id: 'portfolio', keywords: ['portfolio', 'design', 'work', 'gallery', 'vector', 'illustration', 'crm', 'hotel', 'portofolio'] },
-    { id: 'contact', keywords: ['contact', 'email', 'reach', 'connect', 'linkedin', 'hire', 'message', 'mail', 'hubungi', 'kontak'] },
+    { id: 'contact', keywords: ['contact', 'email', 'reach', 'connect', 'linkedin', 'threads', 'hire', 'message', 'mail', 'hubungi', 'kontak'] },
     { id: 'location', keywords: ['where', 'location', 'based', 'city', 'country', 'live', 'lokasi', 'dimana'] },
     { id: 'philosophy', keywords: ['philosophy', 'pragmatic', 'approach', 'principle', 'belief', 'value', 'ethics', 'prinsip', 'filosofi'] },
     { id: 'ai', keywords: ['ai', 'artificial intelligence', 'machine learning', 'llm', 'gpt', 'prompt', 'rag', 'mcp'] },
