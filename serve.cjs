@@ -37,7 +37,10 @@ const server = http.createServer(function (req, res) {
       res.end('404 Not Found: ' + urlPath);
       return;
     }
-    res.writeHead(200, { 'Content-Type': mime });
+    res.writeHead(200, {
+      'Content-Type': mime,
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
+    });
     res.end(data);
   });
 });

@@ -32,8 +32,8 @@
     experience: [
       { period: '2023 — Present', role: 'Full-stack Engineer & Data Architect', desc: 'Hybrid Full-stack + Data role over 10+ years — architecting data platforms, building analytics engineering pipelines, and delivering end-to-end data infrastructure that bridges software systems and business intelligence.', tags: ['dbt', 'Snowflake', 'Airflow', 'Data Modeling', 'Vue.js', 'FastAPI'] },
       { period: '2020 — 2023', role: 'Software Engineer', desc: 'Software architecture, frontend & backend development. Led full-stack development across multiple enterprise web applications including CSR platform, Big Data Uploader, and Travel Management System.', tags: ['ASP.NET', 'JavaScript', 'SQL Server', 'REST API', 'System Architecture'] },
-      { period: '2016 — 2020', role: 'Data Engineer', desc: 'Designed and maintained data pipelines, ETL processes, database optimization. Built enterprise data warehousing solutions using SSIS, Pentaho, and Denodo.', tags: ['SSIS', 'Pentaho', 'Denodo', 'Power BI', 'Tableau', 'Data Warehouse'] },
-      { period: '2015 — 2016', role: 'Implementor', desc: 'System deployment, client onboarding, and user training. Foundation of enterprise software delivery.', tags: ['System Deployment', 'Client Onboarding', 'User Training'] }
+      { period: '2016 — 2020', role: 'Data Engineer', desc: 'Maintained critical data flows across manufacturing and finance systems. Designed robust ETL pipelines, DWH, and data virtualization using SSIS, Pentaho, and Denodo feeding BI dashboards.', tags: ['Manufacturing Data Flow', 'Finance Systems', 'SSIS', 'Pentaho', 'Denodo', 'Data Warehouse', 'Power BI'] },
+      { period: '2015 — 2016', role: 'ERP Implementor', desc: 'Enterprise ERP implementation for sales distributors, deploying mobile solutions with automated daily sync to central admin ERP. Client onboarding, user training, and foundation of enterprise software delivery.', tags: ['ERP Implementation', 'Mobile ERP', 'Daily Sync', 'Sales Distribution', 'Client Onboarding', 'User Training'] }
     ],
 
     skills: {
