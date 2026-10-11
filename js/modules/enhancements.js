@@ -244,16 +244,16 @@ function initTimeGreeting() {
   if (!greetingEl) return;
 
   const hour = new Date().getHours();
-  let greeting = '// hello & welcome';
+  let greeting = '// hello & thanks for visiting';
 
   if (hour >= 5 && hour < 12) {
-    greeting = '// good morning & welcome';
+    greeting = '// good morning & thanks for visiting';
   } else if (hour >= 12 && hour < 17) {
-    greeting = '// good afternoon & welcome';
+    greeting = '// good afternoon & thanks for visiting';
   } else if (hour >= 17 && hour < 21) {
-    greeting = '// good evening & welcome';
+    greeting = '// good evening & thanks for visiting';
   } else {
-    greeting = '// good night & welcome';
+    greeting = '// good night & thanks for visiting';
   }
 
   greetingEl.textContent = greeting;

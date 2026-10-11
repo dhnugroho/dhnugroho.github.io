@@ -22,9 +22,9 @@
     },
 
     greeting: [
-      "Hi there! 👋 I'm Dhani's virtual assistant. How can I help you today?",
-      "Hello! 👋 Welcome to Dhani's portfolio. What would you like to know?",
-      "Hey! 👋 I'm here to help you learn more about Dhani's work. Ask me anything!"
+      "Hi there! 👋 Thanks for visiting! I'm Dhani's virtual assistant. How can I help you today?",
+      "Hello! 👋 Thanks for visiting Dhani's portfolio! What would you like to know?",
+      "Hey! 👋 Thanks for stopping by! I'm here to help you learn more about Dhani's work. Ask me anything!"
     ],
 
     about: "Dhani Nugroho is a Full-stack Engineer & Data Architect based in Jakarta, Indonesia. With 10+ years of progressive experience spanning implementation, data engineering, software development, and data architecture — he brings a pragmatic, ethics-first approach to problem solving. His philosophy: understand the root cause first, find the right solution, then choose the best technology. Currently exploring AI integration while staying grounded in real-world problem solving.",
