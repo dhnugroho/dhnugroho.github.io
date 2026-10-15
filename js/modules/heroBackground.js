@@ -996,5 +996,3 @@ export function initHeroBackground() {
   resizeCanvas();
 }
 
-// Backward-compatible alias
-export const initParticles = initHeroBackground;

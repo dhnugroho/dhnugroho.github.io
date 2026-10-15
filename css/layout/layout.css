@@ -26,17 +26,3 @@ section {
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
-
-
-/* ============================================
-   FORM ERRORS
-   ============================================ */
-.form-error {
-  display: block;
-  color: var(--accent-warm);
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  margin-top: 0.35rem;
-  animation: fadeInUp 0.2s var(--ease-out) forwards;
-}
-

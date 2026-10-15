@@ -8,7 +8,6 @@ import { initFocusMode } from './modules/focusMode.js';
 // Non-critical modules deferred after initial paint
 import { initReveal } from './modules/reveal.js';
 import { initModal } from './modules/modal.js';
-import { initForm } from './modules/form.js';
 import { initCarousel } from './modules/carousel.js';
 import { initCeTimeline } from './modules/ceTimeline.js';
 import { initAccordion } from './modules/accordion.js';
@@ -18,6 +17,9 @@ import { initArchLayers } from './modules/archLayers.js';
 import { initTimelineSlider } from './modules/timelineSlider.js';
 import { initCursor } from './modules/cursor.js';
 import { initThemeChooser } from './modules/themeChooser.js';
+import { initNoteEcgMonitor } from './modules/noteEcgMonitor.js';
+import { initNoteTopoTabs } from './modules/noteTopoTabs.js';
+import { initNoteDtAgileTabs } from './modules/noteDtAgileTabs.js';
 
 // Phase 1: Critical (Immediate - Above the fold)
 function initCritical() {
@@ -37,10 +39,12 @@ function initDeferred() {
     initTimelineSlider,
     initCarousel,
     initNotesCarousel,
+    initNoteEcgMonitor,
+    initNoteTopoTabs,
+    initNoteDtAgileTabs,
     initCeTimeline,
     initArchLayers,
     initModal,
-    initForm,
     initEnhancements,
     initCursor,
     initThemeChooser

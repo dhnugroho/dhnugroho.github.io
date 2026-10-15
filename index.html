@@ -16,7 +16,7 @@
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com https://www.gstatic.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://cdn.jsdelivr.net https://cdn.simpleicons.org https://www.gstatic.com https://fonts.gstatic.com https://www.google.com; script-src 'self' 'unsafe-inline' https://*.googleapis.com; object-src 'none';">
+    content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://cdn.jsdelivr.net https://cdn.simpleicons.org; object-src 'none'; base-uri 'self';">
 
   <!-- Open Graph -->
   <meta property="og:title"
@@ -83,7 +83,7 @@
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
+    rel="stylesheet" media="print" id="googleFonts">
   <noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
@@ -94,46 +94,7 @@
   <link rel="preload" as="image" href="img/profile.webp?v=2.3" fetchpriority="high">
 
   <!-- Early Init: apply theme + focus-mode before first paint to prevent flash/shift -->
-  <script>
-    (function () {
-      /* 1. Theme — set class immediately so CSS variables resolve correctly */
-      try {
-        var savedTheme = localStorage.getItem('theme');
-        var prefersDark = window.matchMedia && !window.matchMedia('(prefers-color-scheme: light)').matches;
-        if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-          document.documentElement.classList.add('light-mode-pending');
-        }
-      } catch (_) { }
-
-      /* 2. Color Theme Variant — honors persistent user pick, otherwise randomizes once per load */
-      try {
-        var variants = ['default', 'green', 'cocoa', 'mocha', 'truffle', 'maroon'];
-        var userPicked = localStorage.getItem('userPickedColorTheme');
-        var chosenVariant;
-        if (userPicked && variants.indexOf(userPicked) !== -1) {
-          chosenVariant = userPicked;
-        } else {
-          var lastVariant = localStorage.getItem('lastColorThemeVariant');
-          var pool = variants.filter(function (v) { return v !== lastVariant; });
-          chosenVariant = pool[Math.floor(Math.random() * pool.length)];
-          localStorage.setItem('lastColorThemeVariant', chosenVariant);
-        }
-        /* Write chosen variant to sessionStorage so theme.js can read the same value */
-        sessionStorage.setItem('chosenColorThemeVariant', chosenVariant);
-        if (chosenVariant !== 'default') {
-          document.documentElement.classList.add(chosenVariant + '-theme-pending');
-        }
-      } catch (_) { }
-
-      /* 3. Focus / view mode — sessionStorage so every fresh visit starts in Quick Scan */
-      try {
-        var vm = sessionStorage.getItem('dhn-view-mode') || 'scan';
-        if (vm === 'scan') {
-          document.documentElement.setAttribute('data-mode-pending', 'scan');
-        }
-      } catch (_) { }
-    })();
-  </script>
+  <script src="js/early-init.js?v=1.0"></script>
 
   <!-- Critical Inline CSS (Above the Fold) -->
   <style>
@@ -768,7 +729,7 @@
   </style>
 
   <!-- Stylesheets (blocking — critical for layout correctness; inline CSS already covers hero) -->
-  <link rel="stylesheet" href="css/main.min.css?v=2.9">
+  <link rel="stylesheet" href="css/main.min.css?v=3.0">
   <link rel="stylesheet" href="css/notes.min.css?v=2.6">
 </head>
 
@@ -830,7 +791,7 @@
           aria-expanded="false"
           aria-label="Active Topology: Distributed Cloud Mesh (Stellar). Click to toggle architecture philosophy."
           title="Click profile to inspect active architecture philosophy">
-          <img class="hero-avatar" src="img/profile.webp?v=2.2" alt="Dhani Nugroho — Profile Photo" width="140"
+          <img class="hero-avatar" src="img/profile.webp?v=2.3" alt="Dhani Nugroho — Profile Photo" width="140"
             height="140" fetchpriority="high">
           <!-- Interactive idea spark badge attached to avatar -->
           <div class="hero-avatar-spark" id="heroAvatarSpark" aria-hidden="true">
@@ -866,7 +827,7 @@
               </div>
             </div>
 
-            <h4 class="bubble-paradigm-title" id="bubbleParadigmTitle">Distributed Cloud Mesh</h4>
+            <p class="bubble-paradigm-title" id="bubbleParadigmTitle">Distributed Cloud Mesh</p>
             <p class="bubble-philosophy-text" id="bubblePhilosophyText">
               Full-width cross-region fiber trunks with 45° dogleg bypasses, dual cyan/violet sync packets, and
               <code>CLOUD::BACKBONE</code> telemetry.
@@ -4451,9 +4412,9 @@
                           </div>
 
                           <!-- ── Title ── -->
-                          <h2 class="n9t-note-title">
+                          <h4 class="n9t-note-title">
                             As long as this signal keeps moving,<br>the system has not <em>flatlined</em>.
-                          </h2>
+                          </h4>
 
                           <!-- ── Diagnosis ── -->
                           <div class="n9t-section">
@@ -4727,231 +4688,6 @@
                         </div><!-- /.n9t-body -->
 
                         <!-- ── Terminal ECG Script (Interactive ECG graph only) ── -->
-                        <script>
-                          (function () {
-                            var bgC = document.getElementById('n9tBgCanvas');
-                            var mainC = document.getElementById('n9tEcgCanvas');
-                            var flC = document.getElementById('n9tFlatlineCanvas');
-                            if (!bgC || !mainC || !flC) return;
-
-                            var bgX = bgC.getContext('2d');
-                            var mainX = mainC.getContext('2d');
-                            var flX = flC.getContext('2d');
-
-                            var t = 0;
-                            var tickCount = 0;
-                            var flatlineProgress = 0;
-
-                            var mainBuf = [];
-                            var mainPx = 0;
-                            var flBuf = [];
-                            var flPx = 0;
-
-                            var monDot = document.getElementById('n9tMonDot');
-                            var monLabel = document.getElementById('n9tMonLabel');
-                            var statusLbl = document.getElementById('n9tEcgStatusLbl');
-                            var bpmLive = document.getElementById('n9tBpmLive');
-                            var sysStatus = document.getElementById('n9tSysStatus');
-                            var sigStatus = document.getElementById('n9tSigStatus');
-                            var monTime = document.getElementById('n9tMonTime');
-
-                            function sz(c, h) {
-                              var w = Math.floor(c.parentElement.getBoundingClientRect().width) || 600;
-                              if (c.width !== w) c.width = w;
-                              if (h && c.height !== h) c.height = h;
-                              return w;
-                            }
-
-                            function isLightMode() {
-                              return document.body.classList.contains('light-mode') ||
-                                document.documentElement.classList.contains('light-mode-pending');
-                            }
-
-                            function ecg(phase, bpm, amp) {
-                              if (bpm === 0) return (Math.random() - 0.5) * 0.005;
-                              var p = (phase * (bpm / 60)) % 1;
-                              var v = 0;
-                              if (p < 0.05) v = 0.1 * Math.sin(Math.PI * p / 0.05);
-                              else if (p < 0.09) v = 0;
-                              else if (p < 0.12) { var r = (p - 0.09) / 0.03; v = r < 0.5 ? r * 2 : 2 - r * 2; }
-                              else if (p < 0.15) { var r = (p - 0.12) / 0.03; v = -(r < 0.5 ? r * 2 : 2 - r * 2) * 0.55; }
-                              else if (p < 0.18) { var r = (p - 0.15) / 0.03; v = (r < 0.5 ? r * 2 : 2 - r * 2) * 0.18; }
-                              else if (p < 0.28) v = 0;
-                              else if (p < 0.48) { var r = (p - 0.28) / 0.2; v = 0.2 * Math.sin(Math.PI * r); }
-                              return v * amp + (Math.random() - 0.5) * 0.015;
-                            }
-
-                            function drawBg() {
-                              var w = sz(bgC);
-                              var h = bgC.parentElement.offsetHeight || 500;
-                              if (bgC.height !== h) bgC.height = h;
-                              bgX.clearRect(0, 0, w, h);
-                              // Gentle ambient grid behind card
-                              var light = isLightMode();
-                              bgX.strokeStyle = light ? 'rgba(0,0,0,0.03)' : 'rgba(255,255,255,0.025)';
-                              bgX.lineWidth = 1;
-                              var step = 36;
-                              for (var x = 0; x < w; x += step) {
-                                bgX.beginPath(); bgX.moveTo(x, 0); bgX.lineTo(x, h); bgX.stroke();
-                              }
-                              for (var y = 0; y < h; y += step) {
-                                bgX.beginPath(); bgX.moveTo(0, y); bgX.lineTo(w, y); bgX.stroke();
-                              }
-                            }
-
-                            function drawMain() {
-                              var h = (mainC.parentElement && mainC.parentElement.clientHeight) || 80;
-                              var w = sz(mainC, h);
-                              var mid = h * 0.5, amp = h * 0.36;
-                              var bpm = flatlineProgress > 0.85 ? 0 : 72;
-                              var pt = ecg(t, bpm, 1);
-                              mainBuf.push({ x: mainPx, y: pt, flat: flatlineProgress > 0.85 });
-                              mainPx++;
-
-                              var maxVis = Math.floor(w * 0.95);
-                              if (mainPx > w * 2) mainBuf = mainBuf.filter(function (p) { return p.x > mainPx - maxVis; });
-                              var vis = mainBuf.filter(function (p) { return p.x > mainPx - maxVis; });
-
-                              mainX.clearRect(0, 0, w, h);
-
-                              var light = isLightMode();
-                              var alive = flatlineProgress < 0.85;
-
-                              // Medical grid
-                              mainX.strokeStyle = light ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.06)';
-                              mainX.lineWidth = 1;
-                              for (var gx = 0; gx < w; gx += 24) {
-                                mainX.beginPath(); mainX.moveTo(gx, 0); mainX.lineTo(gx, h); mainX.stroke();
-                              }
-                              for (var gy = 0; gy < h; gy += 16) {
-                                mainX.beginPath(); mainX.moveTo(0, gy); mainX.lineTo(w, gy); mainX.stroke();
-                              }
-
-                              if (vis.length < 2) return;
-                              var ox = w - (mainPx - vis[0].x);
-
-                              // Interactive trace: cyan/teal when active, rose when asystole
-                              var traceColor = alive ? (light ? '#0284c7' : '#2dd4bf') : '#fb7185';
-
-                              // Ambient glow
-                              mainX.beginPath();
-                              vis.forEach(function (p, i) {
-                                var px = ox + (p.x - vis[0].x);
-                                var py = mid - p.y * amp;
-                                if (i === 0) mainX.moveTo(px, py);
-                                else mainX.lineTo(px, py);
-                              });
-                              mainX.strokeStyle = traceColor;
-                              mainX.globalAlpha = light ? 0.25 : 0.4;
-                              mainX.lineWidth = 4;
-                              mainX.stroke();
-                              mainX.globalAlpha = 1.0;
-
-                              // Crisp signal line
-                              mainX.beginPath();
-                              vis.forEach(function (p, i) {
-                                var px = ox + (p.x - vis[0].x);
-                                var py = mid - p.y * amp;
-                                if (i === 0) mainX.moveTo(px, py);
-                                else mainX.lineTo(px, py);
-                              });
-                              mainX.strokeStyle = traceColor;
-                              mainX.lineWidth = 2.2;
-                              mainX.stroke();
-
-                              // Leading trace head
-                              var last = vis[vis.length - 1];
-                              var lx = ox + (last.x - vis[0].x);
-                              var ly = mid - last.y * amp;
-                              mainX.beginPath();
-                              mainX.arc(lx, ly, 3.5, 0, Math.PI * 2);
-                              mainX.fillStyle = '#ffffff';
-                              mainX.shadowColor = traceColor;
-                              mainX.shadowBlur = 8;
-                              mainX.fill();
-                              mainX.shadowBlur = 0;
-                            }
-
-                            function drawFlatline() {
-                              var w = sz(flC, 36);
-                              var h = 36, mid = h * 0.5;
-                              var pt = (Math.random() - 0.5) * 0.02;
-                              flBuf.push({ x: flPx, y: pt });
-                              flPx++;
-
-                              if (flPx > w * 2) flBuf = flBuf.filter(function (p) { return p.x > flPx - w; });
-                              var vis = flBuf.filter(function (p) { return p.x > flPx - w; });
-
-                              flX.clearRect(0, 0, w, h);
-                              if (vis.length < 2) return;
-                              var ox = w - (flPx - vis[0].x);
-
-                              flX.beginPath();
-                              vis.forEach(function (p, i) {
-                                var px = ox + (p.x - vis[0].x), py = mid - p.y * h * 0.3;
-                                if (i === 0) flX.moveTo(px, py);
-                                else flX.lineTo(px, py);
-                              });
-                              flX.strokeStyle = '#fb7185';
-                              flX.lineWidth = 1.6;
-                              flX.stroke();
-                            }
-
-                            function updateClock() {
-                              var now = new Date();
-                              var pad = function (n) { return String(n).padStart(2, '0'); };
-                              if (monTime) monTime.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()) + ' WIB';
-                            }
-
-                            function updateStatus() {
-                              var alive = flatlineProgress < 0.85;
-                              var light = isLightMode();
-                              var traceColor = alive ? (light ? '#0284c7' : '#2dd4bf') : '#fb7185';
-
-                              if (monDot) monDot.className = 'n9t-mon-dot' + (alive ? '' : ' dead');
-                              if (statusLbl) {
-                                statusLbl.textContent = alive ? 'continuous improvement active' : 'ASYSTOLE DETECTED · ITERATION HALTED';
-                                statusLbl.style.color = traceColor;
-                              }
-                              if (bpmLive) {
-                                bpmLive.textContent = alive ? '72 BPM' : '0 BPM';
-                                bpmLive.style.color = traceColor;
-                              }
-                              if (sysStatus) {
-                                sysStatus.textContent = alive ? 'ACTIVE' : 'HALTED';
-                                sysStatus.className = 'n9t-sg-val ' + (alive ? 'green' : 'red');
-                              }
-                              if (sigStatus) {
-                                sigStatus.textContent = alive ? 'CONTINUOUS' : 'ASYSTOLE';
-                                sigStatus.className = 'n9t-sg-val ' + (alive ? 'green' : 'red');
-                              }
-                            }
-
-                            function animTick() {
-                              t += 0.014;
-                              tickCount++;
-
-                              if (tickCount > 280 && tickCount < 600) {
-                                flatlineProgress = Math.min(1, (tickCount - 280) / 40);
-                              } else if (tickCount >= 600) {
-                                flatlineProgress = Math.max(0, flatlineProgress - 0.04);
-                                if (tickCount > 720) tickCount = 0;
-                              } else {
-                                flatlineProgress = 0;
-                              }
-
-                              updateStatus();
-                              drawBg();
-                              drawMain();
-                              drawFlatline();
-                              if (tickCount % 60 === 0) updateClock();
-                              requestAnimationFrame(animTick);
-                            }
-
-                            updateClock();
-                            animTick();
-                          })();
-                        </script>
 
                       </div><!-- /.n9t-root -->
 
@@ -5024,8 +4760,8 @@
                         <div class="hdr">
                           <div class="hdr-eyebrow">Enterprise Data Architecture &middot; Technical Reference (Revised)
                           </div>
-                          <h1 class="hdr-title">Six Topologies, Cross-Checked:<br>Visual Geometry <span>&rarr;
-                              Cited Production Systems</span></h1>
+                          <h4 class="hdr-title">Six Topologies, Cross-Checked:<br>Visual Geometry <span>&rarr;
+                              Cited Production Systems</span></h4>
                           <p class="hdr-sub">An interactive reference showing how each theme's conduits, packets, and
                             telemetry correspond to a specific mechanism in distributed systems literature — with the
                             simplifications made explicit rather than implied.</p>
@@ -6108,35 +5844,6 @@
                         </div>
 
                         <!-- Tab switching interactive script -->
-                        <script>
-                          (function () {
-                            var wrap = document.getElementById('topoNotesWrap');
-                            if (!wrap) return;
-                            var tabs = wrap.querySelectorAll('.topo-tab');
-                            var panels = wrap.querySelectorAll('.topo-panel');
-
-                            tabs.forEach(function (tab) {
-                              tab.addEventListener('click', function () {
-                                var theme = this.getAttribute('data-theme');
-
-                                tabs.forEach(function (t) {
-                                  t.classList.remove('active');
-                                  t.setAttribute('aria-selected', 'false');
-                                });
-                                this.classList.add('active');
-                                this.setAttribute('aria-selected', 'true');
-
-                                panels.forEach(function (p) {
-                                  p.style.display = 'none';
-                                });
-                                var target = document.getElementById('panel-' + theme);
-                                if (target) {
-                                  target.style.display = 'flex';
-                                }
-                              });
-                            });
-                          })();
-                        </script>
 
                       </div><!-- /.ce-root -->
 
@@ -6226,8 +5933,8 @@
                       <div class="ce-root">
                         <div class="hdr">
                           <div class="hdr-eyebrow">Engineering Practice &middot; Methodology</div>
-                          <h1 class="hdr-title">Design Thinking &amp; Agile:<br>A Compound Delivery <span>Method</span>
-                          </h1>
+                          <h4 class="hdr-title">Design Thinking &amp; Agile:<br>A Compound Delivery <span>Method</span>
+                          </h4>
                           <p class="hdr-sub">Not two frameworks on a shelf — one continuous loop from user empathy
                             through working software, applied across a decade of enterprise delivery.</p>
                         </div>
@@ -6504,35 +6211,6 @@
                           </div><!-- /#panel-agile -->
 
                           <!-- Tab interaction script -->
-                          <script>
-                            (function () {
-                              var wrap = document.getElementById('dtAgileCompare');
-                              if (!wrap) return;
-                              var tabs = wrap.querySelectorAll('.dt-tab');
-                              var panels = wrap.querySelectorAll('.dt-panel');
-
-                              tabs.forEach(function (tab) {
-                                tab.addEventListener('click', function () {
-                                  var target = this.getAttribute('data-panel');
-
-                                  tabs.forEach(function (t) {
-                                    t.classList.remove('active');
-                                    t.setAttribute('aria-selected', 'false');
-                                  });
-                                  this.classList.add('active');
-                                  this.setAttribute('aria-selected', 'true');
-
-                                  panels.forEach(function (p) {
-                                    p.style.display = 'none';
-                                  });
-                                  var targetPanel = document.getElementById('panel-' + target);
-                                  if (targetPanel) {
-                                    targetPanel.style.display = '';
-                                  }
-                                });
-                              });
-                            })();
-                          </script>
 
                         </div><!-- /.dt-agile-wrap -->
 
@@ -6654,8 +6332,8 @@
                       <div class="ce-root">
                         <div class="hdr">
                           <div class="hdr-eyebrow">Journal &middot; Career Reckoning, Part II</div>
-                          <h1 class="hdr-title">30+, and Standing at Another Fork:<br>Modeling the Path Forward
-                            with <span>Applied ML</span></h1>
+                          <h4 class="hdr-title">30+, and Standing at Another Fork:<br>Modeling the Path Forward
+                            with <span>Applied ML</span></h4>
                           <p class="hdr-sub">From the business-vs-career decision at 30, through a real leadership
                             chapter at a technology consulting firm, to three years of solo data platform delivery, to a
                             tailored roadmap
@@ -7160,8 +6838,8 @@
                       <div class="ce-root">
                         <div class="hdr">
                           <div class="hdr-eyebrow">Behind The Notes &middot; Applied Prompting</div>
-                          <h1 class="hdr-title">Dapur di Balik Catatan:<br>Bagaimana <span>Data Pipeline Mental</span>
-                            Ini Bekerja</h1>
+                          <h4 class="hdr-title">Dapur di Balik Catatan:<br>Bagaimana <span>Data Pipeline Mental</span>
+                            Ini Bekerja</h4>
                           <p class="hdr-sub">Dokumentasi praktis proses kolaborasi manusia dan LLM—mengubah intuisi
                             berantakan menjadi arsitektur catatan yang valid dan berbasis referensi ilmiah.</p>
                         </div>
@@ -7390,8 +7068,8 @@
                         <!-- Header -->
                         <div class="hdr">
                           <div class="hdr-eyebrow">Vision &middot; 5-Year Strategic Timeline</div>
-                          <h1 class="hdr-title">The 2026 &ndash; 2031 Blueprint:<br>From Augmented to <span>Autonomous
-                              Technovation</span></h1>
+                          <h4 class="hdr-title">The 2026 &ndash; 2031 Blueprint:<br>From Augmented to <span>Autonomous
+                              Technovation</span></h4>
                           <p class="hdr-sub">Manifesto lima tahun ke depan: Mentransformasikan keahlian data menjadi
                             arsitektur
                             solusi mandiri yang berakar kuat pada nilai pragmatis dan ketenangan mental.</p>
@@ -7630,8 +7308,8 @@
                         <!-- Header -->
                         <div class="hdr">
                           <div class="hdr-eyebrow">Portfolio &middot; Career Evolution</div>
-                          <h1 class="hdr-title">Future Career Path : Evolusi Karir<br>&amp; <span>Insight di Era
-                              AI</span></h1>
+                          <h4 class="hdr-title">Future Career Path : Evolusi Karir<br>&amp; <span>Insight di Era
+                              AI</span></h4>
                           <p class="hdr-sub">10+ tahun perjalanan &mdash; dari deployment ke arsitektur data, menuju
                             eksplorasi AI
                             yang berakar pada pemecahan masalah nyata.</p>
@@ -8185,7 +7863,7 @@
   </div>
 
   <!-- Scripts -->
-  <script type="module" src="js/main.min.js?v=2.8" defer></script>
+  <script type="module" src="js/main.min.js?v=2.9" defer></script>
   <script src="chatbot.min.js?v=2.3" defer></script>
 </body>
 
