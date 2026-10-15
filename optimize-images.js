@@ -2,6 +2,9 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
+// Full-size originals live in img/_src (Jekyll skips "_" folders, so they are not deployed);
+// optimized WebP output is written to img/portfolio.
+const sourceDir = path.join(__dirname, 'img', '_src', 'portfolio');
 const portfolioDir = path.join(__dirname, 'img', 'portfolio');
 const imgDir = path.join(__dirname, 'img');
 
@@ -17,7 +20,7 @@ const portfolioImages = [
 async function optimizePortfolio() {
   console.log('--- Optimizing Portfolio Images ---');
   for (const img of portfolioImages) {
-    const inputPath = path.join(portfolioDir, img);
+    const inputPath = path.join(sourceDir, img);
     const baseName = path.basename(img, path.extname(img));
     
     const outputPath = path.join(portfolioDir, `${baseName}.webp`);
@@ -87,7 +90,7 @@ async function optimizeNoteImages() {
   const noteImages = ['intj.png', 'poster.png'];
 
   for (const img of noteImages) {
-    const inputPath = path.join(portfolioDir, img);
+    const inputPath = path.join(sourceDir, img);
     const baseName = path.basename(img, path.extname(img));
     const outputPath = path.join(portfolioDir, `${baseName}.webp`);
 

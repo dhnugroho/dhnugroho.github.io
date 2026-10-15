@@ -1,0 +1,101 @@
+<svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="560" height="340" fill="#eef2ff" />
+                          <!-- Banner -->
+                          <rect width="560" height="72" fill="url(#tvBanner)" />
+                          <text x="280" y="28" fill="#fff" font-size="11.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">Hello, Dhani Nugroho</text>
+                          <text x="280" y="47" fill="rgba(255,255,255,0.72)" font-size="8.5" text-anchor="middle"
+                            font-family="sans-serif">Welcome to Travel Management System</text>
+                          <rect x="528" y="10" width="22" height="18" rx="3" fill="rgba(255,255,255,0.2)" />
+                          <text x="539" y="22" fill="#fff" font-size="8" text-anchor="middle"
+                            font-family="sans-serif">→</text>
+                          <!-- Menu grid — 4 per row -->
+                          <!-- Row 1 -->
+                          <rect x="8" y="80" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="72" y="114" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">UPLOAD PLAN TRAVEL</text>
+                          <rect x="142" y="80" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="206" y="107" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">TRAVEL PLAN</text>
+                          <text x="206" y="116" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">ASSIGNMENT</text>
+                          <rect x="276" y="80" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="340" y="107" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">TRAVEL UNPLAN</text>
+                          <text x="340" y="116" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">ASSIGNMENT</text>
+                          <rect x="410" y="80" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="481" y="111" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">TRAVEL STATUS</text>
+                          <!-- Row 2 -->
+                          <rect x="8" y="142" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="72" y="172" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">APPROVAL DPH</text>
+                          <rect x="142" y="142" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="206" y="169" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">TRAVEL</text>
+                          <text x="206" y="179" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">RESERVATION</text>
+                          <rect x="276" y="142" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="340" y="172" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">VERIFY ALLOWANCE</text>
+                          <rect x="410" y="142" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="481" y="172" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">REBATE / REFUND</text>
+                          <!-- Row 3 -->
+                          <rect x="8" y="204" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="72" y="231" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">INPUT BOOKING</text>
+                          <text x="72" y="241" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">CODE</text>
+                          <rect x="142" y="204" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="206" y="234" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">TRAVEL SETTLEMENT</text>
+                          <rect x="276" y="204" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="340" y="231" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">VERIFY</text>
+                          <text x="340" y="241" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">SETTLEMENT</text>
+                          <rect x="410" y="204" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="481" y="234" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">UPLOAD MASTER</text>
+                          <!-- Row 4 -->
+                          <rect x="8" y="266" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="72" y="296" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">REVERSE BTA</text>
+                          <rect x="142" y="266" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="206" y="290" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">VERIFY COUNTER</text>
+                          <text x="206" y="300" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">RECEIPT</text>
+                          <rect x="276" y="266" width="128" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="340" y="296" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">GENERATE FILE</text>
+                          <rect x="410" y="266" width="142" height="54" rx="6" fill="#fff" stroke="#dde4ff"
+                            stroke-width="1" />
+                          <text x="481" y="290" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">SETTLEMENT</text>
+                          <text x="481" y="300" fill="#334" font-size="6.5" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">REPORT</text>
+                          <defs>
+                            <linearGradient id="tvBanner" x1="0" y1="0" x2="1" y2="1">
+                              <stop offset="0%" stop-color="#0099b8" />
+                              <stop offset="100%" stop-color="#00c8e0" />
+                            </linearGradient>
+                          </defs>
+                        </svg>

@@ -29,7 +29,11 @@ Personal portfolio of **Dhani Nugroho**, Full-stack Engineer & Data Architect ba
 │   ├── early-init.js     # Runs in <head>: theme + fonts before first paint
 │   ├── main.js           # Entry point that imports all modules
 │   └── modules/          # Theme, navbar, carousel, notes, focus mode, etc.
-├── img/                  # Profile and portfolio images
+├── img/
+│   ├── portfolio/        # Optimized WebP images used by the page
+│   ├── mockups/          # Project mockup SVGs, lazy-loaded inline
+│   └── _src/             # Full-size originals (not deployed)
+├── _config.yml           # GitHub Pages settings (excludes dev files)
 ├── package.json          # npm scripts & dev dependencies
 ├── minify.js             # Build script (esbuild)
 ├── optimize-images.js    # Image optimization script (sharp)
@@ -70,7 +74,7 @@ After rebuilding, bump the cache-busting version in `index.html` (for example `m
 
 ### Optimizing Images
 
-Converts the portfolio images listed in `optimize-images.js` into WebP (full size and thumbnails):
+Reads the originals in `img/_src/portfolio/` and writes WebP versions (full size and thumbnails) to `img/portfolio/`:
 
 ```bash
 npm run optimize-images
@@ -79,6 +83,8 @@ npm run optimize-images
 ## Deployment
 
 The site is served by **GitHub Pages** straight from the `master` branch. Commit the rebuilt minified files and push, with no CI step needed.
+
+GitHub Pages runs the repo through Jekyll, which copies `index.html` as-is (it has no front matter). Folders starting with `_` or `.` are skipped, and `_config.yml` excludes the development files, so neither the image originals nor the build tooling are published.
 
 ## Contributing Notes (AI Agents)
 

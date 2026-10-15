@@ -1,0 +1,18 @@
+# GitHub Pages (Jekyll) settings. The site itself is plain HTML: index.html has
+# no front matter, so Jekyll copies it as-is. This file only controls what gets
+# published. Folders starting with "_" or "." (img/_src, .agents) are skipped
+# automatically.
+title: "Dhani Nugroho — Senior Fullstack Engineer"
+description: "Senior Fullstack Engineer in Jakarta with 10+ years designing and delivering enterprise web applications and data platforms end-to-end."
+url: "https://dhnugroho.github.io"
+baseurl: ""
+
+# Development-only files, not needed on the live site.
+exclude:
+  - README.md
+  - package.json
+  - package-lock.json
+  - node_modules
+  - minify.js
+  - optimize-images.js
+  - serve.cjs

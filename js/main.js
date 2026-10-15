@@ -20,6 +20,7 @@ import { initThemeChooser } from './modules/themeChooser.js';
 import { initNoteEcgMonitor } from './modules/noteEcgMonitor.js';
 import { initNoteTopoTabs } from './modules/noteTopoTabs.js';
 import { initNoteDtAgileTabs } from './modules/noteDtAgileTabs.js';
+import { initLazyMockups } from './modules/lazyMockups.js';
 
 // Phase 1: Critical (Immediate - Above the fold)
 function initCritical() {
@@ -34,6 +35,7 @@ function initCritical() {
 // Phase 2: Deferred (Below the fold - executed in separate idle slices)
 function initDeferred() {
   const tasks = [
+    initLazyMockups,
     initReveal,
     initAccordion,
     initTimelineSlider,

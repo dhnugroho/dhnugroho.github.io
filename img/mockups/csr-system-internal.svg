@@ -1,0 +1,117 @@
+<svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="560" height="340" fill="#f5f7fa" />
+                          <!-- Sidebar -->
+                          <rect width="138" height="340" fill="#1a2236" />
+                          <rect x="0" y="0" width="138" height="46" fill="#243044" />
+                          <text x="69" y="28" fill="#00e5ff" font-size="9" font-weight="bold" text-anchor="middle"
+                            font-family="monospace">CSR SYSTEM</text>
+                          <rect x="10" y="56" width="118" height="22" rx="4" fill="#00e5ff" opacity="0.12" />
+                          <rect x="18" y="62" width="6" height="6" rx="1" fill="#00e5ff" />
+                          <text x="30" y="69" fill="#00e5ff" font-size="7" font-family="sans-serif">Beranda</text>
+                          <rect x="18" y="86" width="6" height="6" rx="1" fill="#8892a4" />
+                          <text x="30" y="93" fill="#8892a4" font-size="7" font-family="sans-serif">Pemetaan
+                            Sosial</text>
+                          <rect x="18" y="106" width="6" height="6" rx="1" fill="#8892a4" />
+                          <text x="30" y="113" fill="#8892a4" font-size="7" font-family="sans-serif">Perencanaan</text>
+                          <rect x="18" y="126" width="6" height="6" rx="1" fill="#8892a4" />
+                          <text x="30" y="133" fill="#8892a4" font-size="7" font-family="sans-serif">Budget</text>
+                          <rect x="18" y="146" width="6" height="6" rx="1" fill="#8892a4" />
+                          <text x="30" y="153" fill="#8892a4" font-size="7" font-family="sans-serif">Approval</text>
+                          <!-- Header -->
+                          <rect x="138" y="0" width="422" height="38" fill="#fff" stroke="#e8eaf0" stroke-width="0.5" />
+                          <text x="152" y="23" fill="#333" font-size="9" font-weight="bold"
+                            font-family="sans-serif">Beranda
+                            —
+                            CSR
+                            Priority Allocation</text>
+                          <rect x="462" y="11" width="42" height="16" rx="3" fill="#f0f2f5" stroke="#dde1e8"
+                            stroke-width="0.5" />
+                          <text x="483" y="22" fill="#555" font-size="6.5" text-anchor="middle"
+                            font-family="sans-serif">Area
+                            ▾</text>
+                          <rect x="508" y="11" width="44" height="16" rx="3" fill="#f0f2f5" stroke="#dde1e8"
+                            stroke-width="0.5" />
+                          <text x="530" y="22" fill="#555" font-size="6.5" text-anchor="middle"
+                            font-family="sans-serif">Tahun
+                            ▾</text>
+                          <!-- Map area -->
+                          <rect x="138" y="38" width="422" height="185" fill="#c9e8f5" />
+                          <text x="152" y="60" fill="#334" font-size="8.5" font-weight="bold"
+                            font-family="sans-serif">Hover
+                            over
+                            CSR Priority Allocation areas</text>
+                          <!-- Indonesia land masses -->
+                          <ellipse cx="210" cy="148" rx="52" ry="30" fill="#a8c895" opacity="0.72"
+                            transform="rotate(-20,210,148)" />
+                          <ellipse cx="330" cy="178" rx="60" ry="17" fill="#a8c895" opacity="0.72"
+                            transform="rotate(-5,330,178)" />
+                          <ellipse cx="375" cy="135" rx="40" ry="40" fill="#a8c895" opacity="0.68" />
+                          <ellipse cx="450" cy="134" rx="19" ry="32" fill="#a8c895" opacity="0.65"
+                            transform="rotate(15,450,134)" />
+                          <ellipse cx="522" cy="148" rx="32" ry="24" fill="#a8c895" opacity="0.6" />
+                          <!-- Bubble markers -->
+                          <circle cx="278" cy="182" r="20" fill="#4466cc" opacity="0.68" />
+                          <circle cx="298" cy="177" r="13" fill="#5577dd" opacity="0.60" />
+                          <circle cx="345" cy="186" r="10" fill="#9966bb" opacity="0.65" />
+                          <circle cx="368" cy="182" r="7" fill="#00e5ff" opacity="0.7" />
+                          <circle cx="232" cy="148" r="9" fill="#cc4444" opacity="0.6" />
+                          <!-- Map tooltip -->
+                          <rect x="290" y="148" width="76" height="28" rx="3" fill="#fff" stroke="#dde"
+                            stroke-width="0.5" />
+                          <text x="328" y="160" fill="#333" font-size="6" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">Bontang</text>
+                          <text x="328" y="170" fill="#00e5ff" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">Score: 89 — Sangat Baik</text>
+                          <text x="144" y="221" fill="#778" font-size="4.5" font-family="sans-serif">© OpenStreetMap
+                            contributors</text>
+                          <!-- Score row -->
+                          <rect x="138" y="223" width="422" height="117" fill="#fff" />
+                          <!-- Score cards -->
+                          <rect x="146" y="230" width="88" height="54" rx="4" fill="#f8fafc" stroke="#e8eaf0"
+                            stroke-width="0.5" />
+                          <text x="157" y="243" fill="#4466cc" font-size="6" font-family="sans-serif">🎓
+                            Pendidikan</text>
+                          <text x="190" y="262" fill="#4466cc" font-size="17" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">68</text>
+                          <text x="190" y="273" fill="#8899aa" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">Baik</text>
+                          <rect x="240" y="230" width="88" height="54" rx="4" fill="#f8fafc" stroke="#e8eaf0"
+                            stroke-width="0.5" />
+                          <text x="251" y="243" fill="#cc4466" font-size="6" font-family="sans-serif">❤ Kesehatan</text>
+                          <text x="284" y="262" fill="#cc4466" font-size="17" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">74</text>
+                          <text x="284" y="273" fill="#8899aa" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">Baik</text>
+                          <rect x="334" y="230" width="88" height="54" rx="4" fill="#f8fafc" stroke="#e8eaf0"
+                            stroke-width="0.5" />
+                          <text x="345" y="243" fill="#00b8a0" font-size="6" font-family="sans-serif">💼 Ekonomi</text>
+                          <text x="378" y="262" fill="#00b8a0" font-size="17" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">77</text>
+                          <text x="378" y="273" fill="#8899aa" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">Baik</text>
+                          <rect x="428" y="230" width="88" height="54" rx="4" fill="#e6fbf7" stroke="#00e5c8"
+                            stroke-width="0.8" />
+                          <text x="439" y="243" fill="#009966" font-size="6" font-family="sans-serif">⭐ Total
+                            Skor</text>
+                          <text x="472" y="262" fill="#009966" font-size="17" font-weight="bold" text-anchor="middle"
+                            font-family="sans-serif">89</text>
+                          <text x="472" y="273" fill="#009966" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">Sangat Baik</text>
+                          <!-- Table header -->
+                          <rect x="138" y="292" width="422" height="17" fill="#f0f2f5" />
+                          <text x="148" y="303" fill="#00e5ff" font-size="6" font-family="monospace">PERUSAHAAN</text>
+                          <text x="240" y="303" fill="#00e5ff" font-size="6" font-family="monospace">LOKASI</text>
+                          <text x="306" y="303" fill="#00e5ff" font-size="6" font-family="monospace">PENDIDIKAN</text>
+                          <text x="382" y="303" fill="#00e5ff" font-size="6" font-family="monospace">TOTAL</text>
+                          <text x="434" y="303" fill="#00e5ff" font-size="6" font-family="monospace">STATUS</text>
+                          <rect x="138" y="309" width="422" height="14" fill="#fff" />
+                          <text x="148" y="320" fill="#334" font-size="6" font-family="sans-serif">Corp Name —
+                            BTG</text>
+                          <text x="240" y="320" fill="#556" font-size="6" font-family="sans-serif">Bontang</text>
+                          <text x="318" y="320" fill="#556" font-size="6" font-family="sans-serif">68</text>
+                          <text x="387" y="320" fill="#556" font-size="6" font-family="sans-serif">89</text>
+                          <rect x="428" y="312" width="58" height="11" rx="3" fill="#009966" />
+                          <text x="457" y="320" fill="#fff" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">Sangat
+                            Baik</text>
+                        </svg>

@@ -1,0 +1,54 @@
+<svg viewBox="0 0 270 168" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="270" height="168" fill="#fff" />
+                          <rect width="270" height="28" fill="#f0f2f5" />
+                          <rect x="10" y="9" width="62" height="12" rx="3" fill="#4466cc" />
+                          <text x="41" y="17" fill="#fff" font-size="6" text-anchor="middle" font-family="sans-serif">A.
+                            Planning</text>
+                          <text x="82" y="17" fill="#8899cc" font-size="9">→</text>
+                          <rect x="95" y="9" width="62" height="12" rx="3" fill="#7788cc" opacity="0.7" />
+                          <text x="126" y="17" fill="#fff" font-size="6" text-anchor="middle"
+                            font-family="sans-serif">B.
+                            Implement</text>
+                          <text x="167" y="17" fill="#8899cc" font-size="9">→</text>
+                          <rect x="180" y="9" width="78" height="12" rx="3" fill="#4466cc" opacity="0.5" />
+                          <text x="219" y="17" fill="#fff" font-size="6" text-anchor="middle"
+                            font-family="sans-serif">C.
+                            Budget
+                            Act.</text>
+                          <text x="12" y="48" fill="#00e5ff" font-size="7.5" font-weight="bold"
+                            font-family="sans-serif">Detail
+                            Anggaran</text>
+                          <rect x="10" y="54" width="116" height="32" rx="3" fill="#f8fafc" stroke="#e0e4f0"
+                            stroke-width="0.5" />
+                          <text x="16" y="66" fill="#cc9933" font-size="6"
+                            font-family="sans-serif">Pra-Implementasi</text>
+                          <text x="16" y="78" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Rp
+                            10.000.000</text>
+                          <rect x="133" y="54" width="62" height="32" rx="3" fill="#f8fafc" stroke="#e0e4f0"
+                            stroke-width="0.5" />
+                          <text x="139" y="66" fill="#8899aa" font-size="6" font-family="sans-serif">Implementasi</text>
+                          <text x="139" y="78" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Rp
+                            0</text>
+                          <rect x="202" y="54" width="58" height="32" rx="3" fill="#fff0f0" stroke="#ffaaaa"
+                            stroke-width="0.5" />
+                          <text x="208" y="66" fill="#cc4444" font-size="6" font-family="sans-serif">Selisih</text>
+                          <text x="208" y="78" fill="#cc4444" font-size="8" font-weight="bold"
+                            font-family="sans-serif">10.000.000</text>
+                          <rect x="10" y="96" width="250" height="14" fill="#f0f2f5" />
+                          <text x="14" y="106" fill="#00e5ff" font-size="5.5" font-family="monospace">NAMA
+                            PENGELUARAN</text>
+                          <text x="128" y="106" fill="#00e5ff" font-size="5.5" font-family="monospace">QTY</text>
+                          <text x="162" y="106" fill="#00e5ff" font-size="5.5" font-family="monospace">JUMLAH
+                            (IDR)</text>
+                          <rect x="10" y="110" width="250" height="13" fill="#fff" />
+                          <text x="14" y="120" fill="#334" font-size="5.5" font-family="sans-serif">SA 1</text>
+                          <text x="128" y="120" fill="#556" font-size="5.5" font-family="sans-serif">1000</text>
+                          <text x="162" y="120" fill="#556" font-size="5.5" font-family="sans-serif">10.000.000</text>
+                          <rect x="10" y="138" width="250" height="22" rx="3" fill="#fff8e8" stroke="#ffd566"
+                            stroke-width="0.5" />
+                          <text x="16" y="152" fill="#cc8800" font-size="6" font-family="sans-serif">Status Dokumen:
+                          </text>
+                          <text x="92" y="152" fill="#cc4444" font-size="6" font-weight="bold"
+                            font-family="sans-serif">Dokumen
+                            Tidak Lengkap</text>
+                        </svg>
