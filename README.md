@@ -92,4 +92,4 @@ GitHub Pages runs the repo through Jekyll, which copies `index.html` as-is (it h
 
 ## License
 
-[MIT](LICENSE). The copyright notice from the original template (Blackrock Digital LLC, 2013–2017) is retained.
+[MIT](LICENSE) © 2018–2026 Dhani Nugroho. The copyright notice from the original template (Blackrock Digital LLC, 2013–2017) is retained.
