@@ -722,6 +722,31 @@
   background: var(--accent-primary-dim);
 }
 
+/* Layer inspection: archLayers.js sets data-active-layer on the SVG;
+   tagged groups outside the chosen layer dim, the chosen one glows.
+   Untagged chrome (background, frames) is left untouched. */
+.pj-svg [data-layer] {
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.pj-svg[data-active-layer="data"] [data-layer]:not([data-layer="data"]),
+.pj-svg[data-active-layer="ai"] [data-layer]:not([data-layer="ai"]),
+.pj-svg[data-active-layer="ui"] [data-layer]:not([data-layer="ui"]) {
+  opacity: 0.2;
+}
+
+.pj-svg[data-active-layer="data"] [data-layer="data"],
+.pj-svg[data-active-layer="ai"] [data-layer="ai"],
+.pj-svg[data-active-layer="ui"] [data-layer="ui"] {
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.55));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pj-svg [data-layer] {
+    transition: none;
+  }
+}
+
 /* ---- Smart CTA box (inside pj-info) ---- */
 .smart-cta-box {
   display: flex;

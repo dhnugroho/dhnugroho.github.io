@@ -9,9 +9,11 @@
                             · Frappe App</text>
                           <text x="18" y="29" fill="#00e5ff" font-size="10.5" font-weight="bold"
                             font-family="sans-serif">Excel Data Ingest — ERPNext Custom Fork</text>
+                          <g data-layer="data">
                           <rect x="460" y="10" width="84" height="22" rx="3" fill="#0d3347" />
                           <text x="502" y="24" fill="#00e5ff" font-size="6.5" font-weight="bold" text-anchor="middle"
                             font-family="sans-serif">● Branch: internal-custom</text>
+                          </g>
 
                           <!-- Left sidebar: pipeline status -->
                           <rect x="14" y="56" width="148" height="272" rx="6" fill="#121829" stroke="#1d263b"
@@ -19,6 +21,7 @@
                           <text x="24" y="74" fill="#8892a4" font-size="7" font-weight="bold"
                             font-family="sans-serif">INGESTION STATUS</text>
 
+                          <g data-layer="ai">
                           <!-- Batch summary cards -->
                           <rect x="22" y="82" width="132" height="30" rx="3" fill="#080b13" stroke="#1d263b"
                             stroke-width="0.5" />
@@ -34,6 +37,8 @@
                           <text x="30" y="140" fill="#4ecdc4" font-size="8" font-weight="bold"
                             font-family="monospace">1,840
                             / 1,847 rows</text>
+                          </g>
+                          <g data-layer="data">
 
                           <rect x="22" y="154" width="132" height="30" rx="3" fill="#080b13" stroke="#1d263b"
                             stroke-width="0.5" />
@@ -42,6 +47,8 @@
                           <text x="30" y="176" fill="#fff" font-size="8" font-weight="bold"
                             font-family="monospace">1,840
                             Submitted</text>
+                          </g>
+                          <g data-layer="ui">
 
                           <rect x="22" y="190" width="132" height="30" rx="3" fill="#2d1e0e" stroke="#4a3010"
                             stroke-width="0.5" />
@@ -49,9 +56,11 @@
                             Errors</text>
                           <text x="30" y="212" fill="#ffb74d" font-size="8" font-weight="bold" font-family="monospace">7
                             rows → error_log</text>
+                          </g>
 
                           <text x="24" y="240" fill="#8892a4" font-size="7" font-weight="bold"
                             font-family="sans-serif">ARCHITECTURE</text>
+                          <g data-layer="ai">
                           <rect x="22" y="248" width="132" height="14" rx="2" fill="#1b223c" />
                           <text x="88" y="258" fill="#00e5ff" font-size="6" text-anchor="middle"
                             font-family="sans-serif">custom_excel_pipeline</text>
@@ -59,6 +68,8 @@
                           <text x="88" y="272" fill="#4a5568" font-size="8" text-anchor="middle"
                             font-family="sans-serif">↓
                             frappe.get_doc()</text>
+                          </g>
+                          <g data-layer="data">
                           <rect x="22" y="276" width="132" height="14" rx="2" fill="#0e1e38" />
                           <text x="88" y="286" fill="#4ecdc4" font-size="6" text-anchor="middle"
                             font-family="sans-serif">ERPNext Core (untouched)</text>
@@ -66,10 +77,12 @@
                             stroke-width="0.5" />
                           <text x="88" y="306" fill="#8892a4" font-size="5.5" text-anchor="middle"
                             font-family="sans-serif">Double-Entry Ledger · Validator</text>
+                          </g>
 
                           <!-- Main panel: Ingestion log table -->
                           <rect x="174" y="56" width="372" height="272" rx="6" fill="#121829" stroke="#1d263b"
                             stroke-width="1" />
+                          <g data-layer="ai">
                           <text x="186" y="74" fill="#8892a4" font-size="7" font-weight="bold"
                             font-family="sans-serif">BATCH PROCESSING LOG · journals_import_20260725.xlsx</text>
 
@@ -97,9 +110,6 @@
                           <text x="270" y="112" fill="#fff" font-size="6" font-family="monospace">1101 · Cash</text>
                           <text x="340" y="112" fill="#fff" font-size="6" font-family="monospace">4001 · Revenue</text>
                           <text x="418" y="112" fill="#fff" font-size="6" font-family="monospace">12,500,000</text>
-                          <rect x="490" y="104" width="38" height="10" rx="2" fill="#0e3a1f" />
-                          <text x="509" y="112" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
-                            font-family="sans-serif">✓ Submitted</text>
 
                           <!-- Row 2 — success -->
                           <rect x="182" y="120" width="356" height="18" rx="0" fill="#121829" />
@@ -109,9 +119,6 @@
                           <text x="340" y="132" fill="#fff" font-size="6" font-family="monospace">1301 ·
                             Inventory</text>
                           <text x="418" y="132" fill="#fff" font-size="6" font-family="monospace">4,800,000</text>
-                          <rect x="490" y="124" width="38" height="10" rx="2" fill="#0e3a1f" />
-                          <text x="509" y="132" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
-                            font-family="sans-serif">✓ Submitted</text>
 
                           <!-- Row 3 — success -->
                           <rect x="182" y="140" width="356" height="18" rx="0" fill="#0d1320" />
@@ -120,9 +127,6 @@
                           <text x="270" y="152" fill="#fff" font-size="6" font-family="monospace">6001 · Salaries</text>
                           <text x="340" y="152" fill="#fff" font-size="6" font-family="monospace">2101 · Payable</text>
                           <text x="418" y="152" fill="#fff" font-size="6" font-family="monospace">28,000,000</text>
-                          <rect x="490" y="144" width="38" height="10" rx="2" fill="#0e3a1f" />
-                          <text x="509" y="152" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
-                            font-family="sans-serif">✓ Submitted</text>
 
                           <!-- Row 4 — error -->
                           <rect x="182" y="160" width="356" height="18" rx="0" fill="#1a0f0f" />
@@ -133,9 +137,6 @@
                           <text x="340" y="172" fill="#ff7070" font-size="6" font-family="monospace">4001 ·
                             Revenue</text>
                           <text x="418" y="172" fill="#ff7070" font-size="6" font-family="monospace">7,200,000</text>
-                          <rect x="490" y="164" width="38" height="10" rx="2" fill="#3a1010" />
-                          <text x="509" y="172" fill="#ff7070" font-size="5.5" text-anchor="middle"
-                            font-family="sans-serif">✗ Error</text>
 
                           <!-- Row 5 — success -->
                           <rect x="182" y="180" width="356" height="18" rx="0" fill="#121829" />
@@ -144,15 +145,29 @@
                           <text x="270" y="192" fill="#fff" font-size="6" font-family="monospace">1101 · Cash</text>
                           <text x="340" y="192" fill="#fff" font-size="6" font-family="monospace">3001 · Equity</text>
                           <text x="418" y="192" fill="#fff" font-size="6" font-family="monospace">50,000,000</text>
-                          <rect x="490" y="184" width="38" height="10" rx="2" fill="#0e3a1f" />
-                          <text x="509" y="192" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
-                            font-family="sans-serif">✓ Submitted</text>
 
                           <!-- More rows indicator -->
                           <text x="360" y="212" fill="#4a5568" font-size="6" text-anchor="middle"
                             font-family="sans-serif">·
                             · · 1,835 more rows processed · · ·</text>
 
+                          </g>
+                          <g data-layer="ui">
+                          <rect x="490" y="104" width="38" height="10" rx="2" fill="#0e3a1f" />
+                          <text x="509" y="112" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">✓ Submitted</text>
+                          <rect x="490" y="124" width="38" height="10" rx="2" fill="#0e3a1f" />
+                          <text x="509" y="132" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">✓ Submitted</text>
+                          <rect x="490" y="144" width="38" height="10" rx="2" fill="#0e3a1f" />
+                          <text x="509" y="152" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">✓ Submitted</text>
+                          <rect x="490" y="164" width="38" height="10" rx="2" fill="#3a1010" />
+                          <text x="509" y="172" fill="#ff7070" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">✗ Error</text>
+                          <rect x="490" y="184" width="38" height="10" rx="2" fill="#0e3a1f" />
+                          <text x="509" y="192" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
+                            font-family="sans-serif">✓ Submitted</text>
                           <!-- Error log panel -->
                           <rect x="182" y="224" width="356" height="92" rx="4" fill="#0d0a00" stroke="#4a3010"
                             stroke-width="0.5" />
@@ -170,11 +185,14 @@
                             'akun_kredit' not found — possible header mismatch in source Excel.</text>
                           <text x="192" y="296" fill="#4a5568" font-size="5.5" font-family="monospace">+ 3 more errors ·
                             Full log → Frappe Error Log DocType</text>
+                          </g>
 
+                          <g data-layer="data">
                           <!-- Upstream sync badge -->
                           <rect x="346" y="306" width="190" height="14" rx="3" fill="#111625" stroke="#1d263b"
                             stroke-width="0.5" />
                           <text x="441" y="316" fill="#4ecdc4" font-size="5.5" text-anchor="middle"
                             font-family="sans-serif">↑ Upstream sync: frappe/erpnext · Last merge: 2026-01-10 · 0
                             conflicts</text>
+                          </g>
                         </svg>
